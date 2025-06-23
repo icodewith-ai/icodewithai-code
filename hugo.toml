@@ -1,4 +1,4 @@
-baseURL = 'https://bymarcelolewin.com/'
+baseURL = 'https://bymarcelolewin.com'
 languageCode = 'en-us'
 title = 'By Marcelo Lewin'
 theme = 'bymarcelolewin'
