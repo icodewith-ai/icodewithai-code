@@ -1,0 +1,20 @@
+{{ define "main" }}
+    <main>
+        <article class="blog-single">
+            <div class="container">
+                <h1>{{ .Title }}</h1>
+                <div class="post-meta">
+                    Published on {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
+                </div>
+                
+                <div class="content">
+                    {{ .Content }}
+                </div>
+                
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #2a2a2a;">
+                    <a href="{{ "blog/" | relURL }}" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">← Back to Blog</a>
+                </div>
+            </div>
+        </article>
+    </main>
+{{ end }}

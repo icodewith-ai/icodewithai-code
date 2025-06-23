@@ -1,0 +1,47 @@
+{{ define "main" }}
+    <main>
+        <article class="blog-single">
+            <div class="container">
+                <h1>{{ .Title }}</h1>
+                <div class="post-meta">
+                    {{ if .Params.current_version }}{{ .Params.current_version }}{{ end }}
+                    {{ if and .Params.current_version .Params.date_updated }} • {{ end }}
+                    {{ if .Params.date_updated }}Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
+                    {{ if and (or .Params.current_version .Params.date_updated) .Params.date_created }} • {{ end }}
+                    {{ if .Params.date_created }}Created {{ dateFormat "January 2, 2006" .Params.date_created }}{{ end }}
+                </div>
+                
+                <div class="content">
+                    {{ .Content }}
+                </div>
+
+                {{ if or .Params.github_url .Params.npm_url .Params.preview_url }}
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #2a2a2a;">
+                    <h2 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1.5rem;">Project Links</h2>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        {{ if .Params.github_url }}
+                        <a href="{{ .Params.github_url }}" target="_blank" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #1a1a1a, #0a0a0a); border: 1px solid #2a2a2a; border-radius: 8px; color: var(--primary-color); text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
+                            <span style="margin-right: 0.5rem;">📂</span>View on GitHub
+                        </a>
+                        {{ end }}
+                        {{ if .Params.npm_url }}
+                        <a href="{{ .Params.npm_url }}" target="_blank" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #1a1a1a, #0a0a0a); border: 1px solid #2a2a2a; border-radius: 8px; color: var(--primary-color); text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
+                            <span style="margin-right: 0.5rem;">📦</span>NPM Package
+                        </a>
+                        {{ end }}
+                        {{ if .Params.preview_url }}
+                        <a href="{{ .Params.preview_url }}" target="_blank" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), #16a34a); border: 1px solid var(--primary-color); border-radius: 8px; color: #000000; text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
+                            <span style="margin-right: 0.5rem;">🚀</span>Live Preview
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #2a2a2a;">
+                    <a href="{{ "apps/" | relURL }}" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">← Back to Apps</a>
+                </div>
+            </div>
+        </article>
+    </main>
+{{ end }}

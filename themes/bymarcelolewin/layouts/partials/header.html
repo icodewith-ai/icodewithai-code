@@ -1,0 +1,16 @@
+<!-- Header Content -->
+<div class="logo-section">
+    <a href="{{ .Site.BaseURL }}" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+        <div class="logo">ML</div>
+        <span class="logo-text">By Marcelo Lewin</span>
+    </a>
+</div>
+<nav class="nav">
+    {{ range .Site.Menus.main }}
+        {{ if eq .Name "Discord" }}
+            <a href="{{ .URL }}" class="discord-btn" target="_blank">{{ .Name }}</a>
+        {{ else }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+    {{ end }}
+</nav>
