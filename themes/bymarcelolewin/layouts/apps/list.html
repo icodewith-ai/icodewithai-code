@@ -4,22 +4,24 @@
             <div class="container">
                 <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: var(--primary-color);">My Apps</h1>
                 
-                <div class="blog-posts">
+                <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
                     {{ range .Pages.ByParam "date_updated" }}
-                        <article class="blog-post-card">
-                            <h3><a href="{{ .Permalink }}" style="color: #ffffff; text-decoration: none;">{{ .Title }}</a></h3>
-                            {{ if .Params.current_version }}
-                            <div class="post-meta">
-                                {{ .Params.current_version }}{{ if .Params.date_updated }} • Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
-                            </div>
-                            {{ else if .Params.date_updated }}
-                            <div class="post-meta">
-                                Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}
-                            </div>
-                            {{ end }}
-                            <p>{{ .Params.description }}</p>
-                            <a href="{{ .Permalink }}">View Project →</a>
-                        </article>
+                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
+                            <article class="blog-post-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
+                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
+                                {{ if .Params.current_version }}
+                                <div class="post-meta">
+                                    {{ .Params.current_version }}{{ if .Params.date_updated }} • Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
+                                </div>
+                                {{ else if .Params.date_updated }}
+                                <div class="post-meta">
+                                    Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}
+                                </div>
+                                {{ end }}
+                                <p style="flex-grow: 1;">{{ .Params.description }}</p>
+                                <span style="color: var(--primary-color); font-weight: 500; margin-top: auto;">View Project →</span>
+                            </article>
+                        </a>
                     {{ end }}
                 </div>
                 

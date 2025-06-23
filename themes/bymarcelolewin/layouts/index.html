@@ -43,11 +43,13 @@
                 <h2>Latest Apps</h2>
                 <div class="apps-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
                     {{ range $latestApps }}
-                        <div class="app-card">
-                            <h3><a href="{{ .Permalink }}" style="color: #ffffff; text-decoration: none;">{{ .Title }}</a></h3>
-                            <p>{{ .Params.description }}</p>
-                            <a href="{{ .Permalink }}">View Project →</a>
-                        </div>
+                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
+                            <div class="app-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
+                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
+                                <p style="flex-grow: 1;">{{ .Params.description }}</p>
+                                <span style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: auto;">View Project →</span>
+                            </div>
+                        </a>
                     {{ end }}
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
@@ -68,14 +70,16 @@
                 <h2>Latest Posts</h2>
                 <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
                     {{ range $posts }}
-                        <article class="blog-post-card">
-                            <h3><a href="{{ .Permalink }}" style="color: #ffffff; text-decoration: none;">{{ .Title }}</a></h3>
-                            <div class="post-meta">
-                                {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
-                            </div>
-                            <p>{{ .Summary }}</p>
-                            <a href="{{ .Permalink }}">Read more →</a>
-                        </article>
+                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
+                            <article class="blog-post-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
+                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
+                                <div class="post-meta">
+                                    {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
+                                </div>
+                                <p style="flex-grow: 1;">{{ .Summary }}</p>
+                                <span style="color: var(--primary-color); font-weight: 500; margin-top: auto;">Read more →</span>
+                            </article>
+                        </a>
                     {{ end }}
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">

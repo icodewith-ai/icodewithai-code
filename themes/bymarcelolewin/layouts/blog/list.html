@@ -4,16 +4,18 @@
             <div class="container">
                 <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: var(--primary-color);">Blog</h1>
                 
-                <div class="blog-posts">
+                <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
                     {{ range .Pages }}
-                        <article class="blog-post-card">
-                            <h3><a href="{{ .Permalink }}" style="color: #ffffff; text-decoration: none;">{{ .Title }}</a></h3>
-                            <div class="post-meta">
-                                {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
-                            </div>
-                            <p>{{ .Summary }}</p>
-                            <a href="{{ .Permalink }}">Read more →</a>
-                        </article>
+                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
+                            <article class="blog-post-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
+                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
+                                <div class="post-meta">
+                                    {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
+                                </div>
+                                <p style="flex-grow: 1;">{{ .Summary }}</p>
+                                <span style="color: var(--primary-color); font-weight: 500; margin-top: auto;">Read more →</span>
+                            </article>
+                        </a>
                     {{ end }}
                 </div>
                 
