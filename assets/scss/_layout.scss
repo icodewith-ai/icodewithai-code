@@ -18,7 +18,7 @@
 
 .hero {
   text-align: center;
-  padding: $spacing-3xl 0;
+  padding: $spacing-3xl 0 3.8rem 0; // Reduced bottom padding by 20% (6rem to 3.8rem)
 }
 
 // Grid Systems

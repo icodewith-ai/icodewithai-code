@@ -21,12 +21,28 @@
   display: flex;
   align-items: center;
   gap: $spacing-sm;
+  
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
 }
 
 .logo {
   width: $logo-size;
   height: $logo-size;
-  @include gradient-primary;
+  background: linear-gradient(135deg, 
+    $primary-400 0%, 
+    $primary-500 25%, 
+    $primary-600 75%, 
+    $primary-700 100%
+  );
+  box-shadow: 
+    0 4px 8px rgba($primary-500, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   border-radius: $border-radius-full;
   display: flex;
   align-items: center;
@@ -34,12 +50,62 @@
   font-weight: $font-weight-bold;
   font-size: $logo-font-size;
   color: $neutral-900;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+  }
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 
+      0 0 20px rgba($primary-500, 0.3),
+      0 4px 12px rgba($primary-500, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    
+    &::before {
+      animation: shine 0.6s ease-in-out;
+    }
+  }
 }
 
 .logo-text {
-  color: $neutral-100;
-  font-size: $font-size-base;
+  background: linear-gradient(135deg, $neutral-100, $neutral-400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: $font-size-lg;
   font-weight: $font-weight-medium;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $primary-500;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
 }
 
 // Navigation
