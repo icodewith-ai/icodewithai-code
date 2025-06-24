@@ -62,6 +62,7 @@ content/
 ├── apps/                           # App showcase pages
 │   ├── app-name.md                 # A detailed page for apps.
 │   └── ...                     
+├── bio.md                          # Bio page with professional background
 └── blog/                           # Blog posts
     ├── blog-article-name.md        # A blog article
     └── ...
@@ -80,6 +81,9 @@ public/
 │   ├── index.html               # Apps listing page
 │   ├── index.xml                # Apps RSS feed
 │   └── [app-name]/             # Individual app pages
+├── bio/                         # Generated bio page
+│   └── index.html               # Bio page with professional background (single page)
+├── 404.html                     # Custom 404 error page
 ├── blog/                        # Generated blog pages
 │   ├── index.html               # Blog listing page
 │   ├── index.xml                # Blog RSS feed
@@ -122,6 +126,9 @@ themes/bymarcelolewin/
 │   ├── apps/
 │   │   ├── list.html            # Apps listing page template
 │   │   └── single.html          # Individual app page template
+│   ├── bio/
+│   │   └── single.html          # Bio page template with professional background
+│   ├── 404.html                 # Custom 404 error page template
 │   ├── blog/
 │   │   ├── list.html            # Blog listing page template
 │   │   └── single.html          # Individual blog post template
@@ -143,8 +150,12 @@ Internal documentation for project architecture and processes.
 │   ├── css-documentation.md     # SCSS architecture and design system guide
 │   └── folder-structure.md      # Complete project structure
 └── releases/
-    └── v1.1.0-migrating-to-css-framework/
-        └── retrospective.md     # Migration retrospective and lessons learned
+    ├── v1.1.0-migrating-to-css-framework/
+    │   └── retrospective.md     # Migration retrospective and lessons learned
+    ├── v1.1.1-new-logo/
+    │   └── retrospective.md     # New logo implementation retrospective
+    └── v1.1.2-bio-and-404-page/
+        └── plan.md              # Bio page and 404 page implementation release notes
 ```
 
 ## Key Configuration Files

@@ -14,19 +14,24 @@
             <div class="container">
                 <h2>About Me</h2>
                 <div class="bio-grid">
-                    <div class="bio-content">
-                        <p>As a Vibe Coder and Product Creator, I enjoy building with AI and modern development tools.  I specialize in MVPs, proof-of-concepts, and small experiments. I like exploring early ideas, iterating as I go, and using those prototypes to test whether a concept holds up before moving on to detailed planning.</p>
-                        <p>I build all kinds of digital products—from CLI tools and web apps to games and utilities—always with an eye toward real-world impact. </p>
+                    <div class="bio-content" style="align-items: flex-start;">
+                        <p>As a Vibe Coder and Product Creator, I enjoy building with AI and modern dev tools.  I specialize in MVPs, 
+                            proof-of-concepts, tools, and experiments. I like exploring early ideas, iterating as I go, and using those 
+                            prototypes to test whether a concept holds up before moving on to detailed planning.</p>
+                            <p style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                                <a href="{{ "bio/" | relURL }}" class="section-link">Learn more →</a>
+                                <a href="{{ "bio/" | relURL }}" class="section-link">Get in touch →</a>
+                            </p>
                     </div>
                     <div class="facts-card">
                         <h3>Quick Facts</h3>
                         <ul class="facts-list">
                             <li><span class="checkmark">✓</span> Vibe Coder</li>
-                            <li><span class="checkmark">✓</span> Passionate about AI</li>
+                            <li><span class="checkmark">✓</span> Content &amp; Data Architect</li>
                             <li><span class="checkmark">✓</span> Product Creator</li>
                             <li><span class="checkmark">✓</span> System Architect</li>
-                            <li><span class="checkmark">✓</span> Continuous learner</li>
-                            <li><span class="checkmark">✓</span> Team collaborator</li>
+                            <li><span class="checkmark">✓</span> Contentful Certified</li>
+                            <li><span class="checkmark">✓</span> Lifelong Learner</li>
                         </ul>
                     </div>
                 </div>
@@ -93,24 +98,5 @@
         {{ end }}
         {{ end }}
 
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <div class="contact-content">
-                    <p>I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to say hello, I'd love to hear from you.</p>
-                    <div class="contact-links">
-                        <a href="mailto:{{ .Site.Params.email }}" class="contact-link">
-                            <span class="checkmark">✓</span>
-                            <span>{{ .Site.Params.email }}</span>
-                        </a>
-                        <a href="{{ .Site.Params.linkedin }}" class="contact-link" target="_blank">
-                            <span class="checkmark">✓</span>
-                            <span>LinkedIn Profile</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 {{ end }}

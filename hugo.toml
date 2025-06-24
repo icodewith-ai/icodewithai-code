@@ -7,7 +7,7 @@ enableGitInfo = true
 [menu]
   [[menu.main]]
     name = "Bio"
-    url = "/#bio"
+    url = "/bio/"
     weight = 10
   [[menu.main]]
     name = "Apps"
@@ -19,7 +19,7 @@ enableGitInfo = true
     weight = 30
   [[menu.main]]
     name = "Contact"
-    url = "/#contact"
+    url = "/bio/"
     weight = 40
   [[menu.main]]
     name = "Discord"
@@ -37,5 +37,5 @@ enableGitInfo = true
   twitter = "https://x.com/bymarcelolewin"
   
   # Site versioning
-  version = "1.1.1"
+  version = "1.1.2"
   last_updated = "2025-06-24"
