@@ -531,6 +531,47 @@ Compact cards for social media links with icons.
 - `.follow-grid` - Flexible container for social links
 - `.blog-posts` - Vertical grid for blog post cards
 
+### Footer Components
+
+#### .footer
+Main site footer with top border and proper spacing.
+
+#### .footer-content
+Container for footer main content using flexbox layout with space-between.
+
+#### .footer-logo
+Left-side logo section with enhanced logo and text layout.
+
+#### .footer-logo-container
+Flexbox container aligning logo circle with text content.
+
+#### .footer-logo-circle
+Enhanced circular logo (72px) with gradient background, larger than header logo.
+
+#### .footer-logo-text
+Text container for name and tagline with vertical column layout.
+
+#### .footer-logo-name
+Clickable site name with gradient text effect and hover transitions.
+
+#### .footer-tagline
+Tagline text with consistent styling and responsive behavior.
+
+#### .footer-columns
+Container for navigation and social link columns with responsive spacing (100px gap using clamp).
+
+#### .footer-column
+Individual column container with minimum width constraints.
+
+#### .footer-heading
+Section headers for "Navigation" and "Follow Me" with appropriate typography.
+
+#### .footer-links
+Styled lists for navigation and social links with hover effects.
+
+#### .footer-bottom
+Bottom section for copyright and version with full-width border separation.
+
 ### Interactive Components
 
 #### Buttons
@@ -539,6 +580,7 @@ Compact cards for social media links with icons.
 #### Links
 - Navigation links with underline animations
 - Content links with color transitions
+- Footer links with primary color hover states
 
 ## CSS Custom Properties for Theming
 

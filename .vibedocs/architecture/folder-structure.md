@@ -154,8 +154,12 @@ Internal documentation for project architecture and processes.
     │   └── retrospective.md     # Migration retrospective and lessons learned
     ├── v1.1.1-new-logo/
     │   └── retrospective.md     # New logo implementation retrospective
-    └── v1.1.2-bio-and-404-page/
-        └── plan.md              # Bio page and 404 page implementation release notes
+    ├── v1.1.2-bio-and-404-page/
+    │   ├── plan.md              # Bio page and 404 page implementation plan
+    │   └── retrospective.md     # Bio page and 404 page retrospective
+    └── v1.1.3-footer-redesign/
+        ├── plan.md              # Footer redesign implementation plan and updates
+        └── retrospective.md     # Footer redesign retrospective and lessons learned
 ```
 
 ## Key Configuration Files
