@@ -2,6 +2,7 @@ baseURL = 'https://bymarcelolewin.com'
 languageCode = 'en-us'
 title = 'By Marcelo Lewin'
 theme = 'bymarcelolewin'
+enableGitInfo = true
 
 [menu]
   [[menu.main]]
@@ -34,3 +35,7 @@ theme = 'bymarcelolewin'
   npm = "https://www.npmjs.com/~bymarcelolewin"
   youtube = "https://www.youtube.com/@bymarcelolewin"
   twitter = "https://x.com/bymarcelolewin"
+  
+  # Site versioning
+  version = "1.1.0"
+  last_updated = "2025-06-24"

@@ -1,0 +1,160 @@
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Card Base
+// -----------------------------------------------------------------------------
+@mixin card-base {
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-card-dark));
+  padding: var(--spacing-lg);
+  border-radius: $border-radius-lg;
+  border: 1px solid var(--color-border);
+  transition: var(--transition-base);
+}
+
+@mixin card-hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+// Button Base
+// -----------------------------------------------------------------------------
+@mixin button-base {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: $transition-base;
+  cursor: pointer;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  
+  &:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--color-text);
+  }
+}
+
+// Gradient Backgrounds
+// -----------------------------------------------------------------------------
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $primary-500, $primary-600);
+}
+
+@mixin gradient-text {
+  background: linear-gradient(135deg, $neutral-100, $neutral-400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin gradient-primary-text {
+  background: linear-gradient(135deg, $primary-500, $primary-600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Link Styles
+// -----------------------------------------------------------------------------
+@mixin link-base {
+  color: $neutral-400;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: $transition-base;
+  position: relative;
+}
+
+@mixin link-hover {
+  color: $primary-500;
+}
+
+@mixin link-underline {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $primary-500;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Hover Effects & Animations
+// -----------------------------------------------------------------------------
+@mixin hover-lift {
+  transition: var(--transition-base);
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@mixin hover-glow {
+  transition: var(--transition-base);
+  
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+@mixin smooth-transition {
+  transition: var(--transition-base);
+}
+
+@mixin fast-transition {
+  transition: var(--transition-fast);
+}
+
+// Animation Presets
+@mixin fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@mixin slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+// Keyframes
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Mixins
+// -----------------------------------------------------------------------------
+@mixin mobile-only {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-mobile + 1px) {
+    @content;
+  }
+}

@@ -16,30 +16,30 @@
                 </div>
 
                 {{ if or .Params.github_url .Params.npm_url .Params.preview_url }}
-                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #2a2a2a;">
-                    <h2 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1.5rem;">Project Links</h2>
-                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                <div class="project-links-section">
+                    <h2 class="project-links-title">Project Links</h2>
+                    <div class="project-links">
                         {{ if .Params.github_url }}
-                        <a href="{{ .Params.github_url }}" target="_blank" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #1a1a1a, #0a0a0a); border: 1px solid #2a2a2a; border-radius: 8px; color: var(--primary-color); text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
-                            <span style="margin-right: 0.5rem;">📂</span>View on GitHub
+                        <a href="{{ .Params.github_url }}" target="_blank" class="project-link project-link-secondary">
+                            <span class="project-link-icon">📂</span>View on GitHub
                         </a>
                         {{ end }}
                         {{ if .Params.npm_url }}
-                        <a href="{{ .Params.npm_url }}" target="_blank" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #1a1a1a, #0a0a0a); border: 1px solid #2a2a2a; border-radius: 8px; color: var(--primary-color); text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
-                            <span style="margin-right: 0.5rem;">📦</span>NPM Package
+                        <a href="{{ .Params.npm_url }}" target="_blank" class="project-link project-link-secondary">
+                            <span class="project-link-icon">📦</span>NPM Package
                         </a>
                         {{ end }}
                         {{ if .Params.preview_url }}
-                        <a href="{{ .Params.preview_url }}" target="_blank" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, var(--primary-color), #16a34a); border: 1px solid var(--primary-color); border-radius: 8px; color: #000000; text-decoration: none; font-weight: 500; transition: all 0.3s ease;">
-                            <span style="margin-right: 0.5rem;">🚀</span>Live Preview
+                        <a href="{{ .Params.preview_url }}" target="_blank" class="project-link project-link-primary">
+                            <span class="project-link-icon">🚀</span>Live Preview
                         </a>
                         {{ end }}
                     </div>
                 </div>
                 {{ end }}
                 
-                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #2a2a2a;">
-                    <a href="{{ "apps/" | relURL }}" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">← Back to Apps</a>
+                <div class="back-link-section">
+                    <a href="{{ "apps/" | relURL }}" class="back-link">← Back to Apps</a>
                 </div>
             </div>
         </article>

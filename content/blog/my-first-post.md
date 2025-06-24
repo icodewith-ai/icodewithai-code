@@ -51,7 +51,3 @@ This approach has served me well in creating everything from CLI tools to web ap
 I'm always interested in connecting with fellow developers, product creators, and anyone who shares a passion for building digital products. Feel free to reach out to me through any of the social links on this site, or drop me an email.
 
 Thanks for reading, and stay tuned for more content coming soon!
-
----
-
-*This post was written as part of the Hugo migration process. More authentic content coming soon!*

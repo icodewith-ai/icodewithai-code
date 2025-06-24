@@ -1,0 +1,74 @@
+// =============================================================================
+// BASE STYLES
+// =============================================================================
+
+// Reset
+// -----------------------------------------------------------------------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Root - CSS Custom Properties for Dynamic Theming
+// -----------------------------------------------------------------------------
+:root {
+  // Colors
+  --color-primary: #{$primary-500};
+  --color-primary-hover: #{$primary-600};
+  --color-bg: #{$neutral-900};
+  --color-bg-card: #{$neutral-800};
+  --color-bg-card-dark: #{darken($neutral-800, 5%)};
+  --color-border: #{$neutral-700};
+  --color-text: #{$neutral-100};
+  --color-text-secondary: #{$neutral-400};
+  --color-text-muted: #{$neutral-600};
+  
+  // Spacing (can be changed at runtime)
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  
+  // Typography
+  --font-size-base: #{$font-size-base};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  
+  // Transitions
+  --transition-base: #{$transition-base};
+  --transition-fast: #{$transition-fast};
+}
+
+// HTML & Body
+// -----------------------------------------------------------------------------
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  background-color: $neutral-900;
+  color: $neutral-100;
+  line-height: $line-height-base;
+}
+
+// Scrollbar
+// -----------------------------------------------------------------------------
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $neutral-800;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-500;
+  border-radius: $border-radius-sm;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-600;
+}

@@ -1,0 +1,479 @@
+// =============================================================================
+// COMPONENTS
+// =============================================================================
+
+// Header
+// -----------------------------------------------------------------------------
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $neutral-700;
+  background-color: rgba($neutral-900, 0.7);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: $z-index-header;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.logo {
+  width: $logo-size;
+  height: $logo-size;
+  @include gradient-primary;
+  border-radius: $border-radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: $font-weight-bold;
+  font-size: $logo-font-size;
+  color: $neutral-900;
+}
+
+.logo-text {
+  color: $neutral-100;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+}
+
+// Navigation
+// -----------------------------------------------------------------------------
+.nav {
+  display: flex;
+  gap: $spacing-lg;
+  align-items: center;
+  
+  a {
+    @include link-base;
+    @include link-underline;
+    @include smooth-transition;
+    
+    &:hover {
+      @include link-hover;
+    }
+  }
+}
+
+// Hero Section
+// -----------------------------------------------------------------------------
+.hero {
+  h1 {
+    font-size: $font-size-hero;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+    @include gradient-text;
+  }
+  
+  .highlight {
+    @include gradient-primary-text;
+  }
+  
+  p {
+    font-size: $font-size-lg;
+    color: $neutral-400;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    line-height: $line-height-relaxed;
+  }
+  
+  .tagline {
+    font-size: $font-size-2xl;
+    color: $neutral-400;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    line-height: $line-height-relaxed;
+    font-weight: $font-weight-normal;
+  }
+}
+
+// Section Headings
+// -----------------------------------------------------------------------------
+.section h2 {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-xl;
+  color: $primary-500;
+}
+
+// Bio Section
+// -----------------------------------------------------------------------------
+.bio-content {
+  font-size: $font-size-base;
+  color: var(--color-text-secondary);
+  line-height: $line-height-loose;
+  
+  p {
+    margin-bottom: $spacing-md;
+  }
+}
+
+// Cards
+// -----------------------------------------------------------------------------
+.app-card, .blog-post-card {
+  @include card-base;
+  @include hover-lift;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  
+  &:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+  }
+  
+  h3 {
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+  }
+  
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: var(--transition-base);
+    
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+}
+
+// Card Links
+// -----------------------------------------------------------------------------
+.app-card-link, .blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.card-link {
+  color: var(--color-primary);
+  font-weight: $font-weight-medium;
+  margin-top: auto;
+  transition: var(--transition-base);
+  
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+.section-link-wrapper {
+  text-align: center;
+  margin-top: $spacing-lg;
+}
+
+.section-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  font-size: var(--font-size-base);
+  transition: var(--transition-base);
+  
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+.facts-card {
+  @include card-base;
+  
+  h3 {
+    color: $primary-500;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.facts-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xs;
+  padding: 0;
+  
+  li {
+    color: $neutral-400;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-sm;
+  }
+}
+
+.checkmark {
+  color: $primary-500;
+}
+
+// Social Cards
+// -----------------------------------------------------------------------------
+.social-card {
+  @include card-base;
+  @include hover-lift;
+  padding: $social-card-padding;
+  border-radius: $border-radius-base;
+  text-align: center;
+  text-decoration: none;
+  min-width: $social-card-min-width;
+  
+  &:hover {
+    @include card-hover;
+  }
+  
+  .emoji {
+    font-size: $social-icon-size;
+    margin-bottom: $spacing-xs;
+  }
+  
+  .social-icon {
+    width: $social-icon-size;
+    height: $social-icon-size;
+    margin-bottom: $spacing-xs;
+    border-radius: $border-radius-sm;
+  }
+  
+  p {
+    color: $neutral-100;
+    margin: 0;
+    font-size: $font-size-xs;
+  }
+}
+
+// Contact
+// -----------------------------------------------------------------------------
+.contact-content {
+  max-width: $content-max-width;
+  
+  p {
+    font-size: $font-size-base;
+    color: $neutral-400;
+    margin-bottom: $spacing-lg;
+    line-height: $line-height-loose;
+  }
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $neutral-400;
+  text-decoration: none;
+  transition: $transition-base;
+  font-size: $font-size-base;
+  
+  &:hover {
+    color: $primary-500;
+  }
+}
+
+// Buttons
+// -----------------------------------------------------------------------------
+.discord-btn {
+  @include button-primary;
+  height: $button-height-sm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 $button-padding-x;
+  color: $neutral-100 !important;
+  
+  &:hover {
+    color: $neutral-100 !important;
+  }
+}
+
+// Blog Specific
+// -----------------------------------------------------------------------------
+.blog-list {
+  padding: $spacing-2xl 0;
+  
+  h1 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xl;
+    color: $primary-500;
+  }
+}
+
+.blog-post-card .post-meta,
+.app-card .app-meta {
+  color: $primary-500;
+  font-size: $font-size-xs;
+  margin-bottom: $spacing-sm;
+}
+
+.blog-single {
+  padding: $spacing-2xl 0;
+  
+  .container {
+    max-width: $blog-content-max-width;
+  }
+  
+  h1 {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+    color: $neutral-100;
+  }
+  
+  .post-meta {
+    color: $primary-500;
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $neutral-700;
+  }
+  
+  .content {
+    color: $neutral-400;
+    font-size: $font-size-base;
+    line-height: $line-height-loose;
+    
+    h2 {
+      color: $primary-500;
+      font-size: $font-size-2xl;
+      margin: $spacing-lg 0 $spacing-sm 0;
+    }
+    
+    h3 {
+      color: $neutral-100;
+      font-size: $font-size-xl;
+      margin: $spacing-md 0 $spacing-sm 0;
+    }
+    
+    p {
+      margin-bottom: $spacing-md;
+    }
+    
+    code {
+      background: $neutral-800;
+      padding: $code-padding;
+      border-radius: $border-radius-sm;
+      color: $primary-500;
+    }
+    
+    pre {
+      background: $neutral-800;
+      padding: $spacing-md;
+      border-radius: $border-radius-base;
+      border: 1px solid $neutral-700;
+      overflow-x: auto;
+      margin: $spacing-md 0;
+    }
+  }
+}
+
+// Project Links (App Pages)
+// -----------------------------------------------------------------------------
+.project-links-section {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $neutral-700;
+}
+
+.project-links-title {
+  color: var(--color-primary);
+  font-size: $font-size-xl;
+  margin-bottom: $spacing-md;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.project-link {
+  @include button-base;
+  height: $button-height-base;
+  padding: 0 $button-padding-x;
+  border-radius: $border-radius-base;
+  transition: $transition-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.project-link-secondary {
+  @include card-base;
+  color: var(--color-primary);
+  border: 1px solid $neutral-700;
+  height: $button-height-base;
+  padding: 0 $button-padding-x;
+  
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+}
+
+.project-link-primary {
+  @include gradient-primary;
+  color: $neutral-900;
+  border: 1px solid var(--color-primary);
+  height: $button-height-base;
+  padding: 0 $button-padding-x;
+  
+  &:hover {
+    color: $neutral-900;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.project-link-icon {
+  margin-right: $spacing-xs;
+}
+
+.back-link-section {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $neutral-700;
+}
+
+.back-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: $transition-base;
+  
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+// Footer
+// -----------------------------------------------------------------------------
+.footer {
+  border-top: 1px solid $neutral-700;
+  padding: $spacing-lg 0;
+  text-align: center;
+  margin-top: $spacing-2xl;
+  
+  p {
+    color: $neutral-600;
+  }
+}

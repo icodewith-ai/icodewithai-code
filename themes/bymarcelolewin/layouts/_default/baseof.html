@@ -32,7 +32,8 @@
     <link rel="icon" type="image/png" sizes="512x512" href="{{ "images/android-chrome-512x512.png" | absURL }}">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="{{ "css/styles.css" | absURL }}">
+    {{ $style := resources.Get "scss/styles.scss" | css.Sass | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
 </head>
 <body>
     <div class="header">

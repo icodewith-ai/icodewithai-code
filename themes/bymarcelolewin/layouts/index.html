@@ -5,7 +5,7 @@
         <section class="hero">
             <div class="container">
                 <h1>Hello, I'm <span class="highlight">Marcelo</span></h1>
-                <p>I love to build digital products.</p>
+                <p class="tagline">I love to build digital products.</p>
             </div>
         </section>
 
@@ -20,7 +20,7 @@
                     </div>
                     <div class="facts-card">
                         <h3>Quick Facts</h3>
-                        <ul class="facts-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; list-style: none; padding: 0;">
+                        <ul class="facts-list">
                             <li><span class="checkmark">✓</span> Vibe Coder</li>
                             <li><span class="checkmark">✓</span> Passionate about AI</li>
                             <li><span class="checkmark">✓</span> Product Creator</li>
@@ -41,19 +41,22 @@
         <section id="apps" class="section">
             <div class="container">
                 <h2>Latest Apps</h2>
-                <div class="apps-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+                <div class="apps-grid">
                     {{ range $latestApps }}
-                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
-                            <div class="app-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
-                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
-                                <p style="flex-grow: 1;">{{ .Params.description }}</p>
-                                <span style="color: var(--primary-color); text-decoration: none; font-weight: 500; margin-top: auto;">View Project →</span>
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <div class="app-card">
+                                <h3>{{ .Title }}</h3>
+                                <div class="app-meta">
+                                    {{ with .Params.current_version }}{{ . }}{{ else }}Latest Version{{ end }}
+                                </div>
+                                <p>{{ .Params.description }}</p>
+                                <span class="card-link">View App →</span>
                             </div>
                         </a>
                     {{ end }}
                 </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="{{ "apps/" | relURL }}" style="color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1.1rem;">View All Apps →</a>
+                <div class="section-link-wrapper">
+                    <a href="{{ "apps/" | relURL }}" class="section-link">View All Apps →</a>
                 </div>
             </div>
         </section>
@@ -68,22 +71,22 @@
         <section class="section">
             <div class="container">
                 <h2>Latest Posts</h2>
-                <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+                <div class="blog-posts">
                     {{ range $posts }}
-                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
-                            <article class="blog-post-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
-                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
+                        <a href="{{ .Permalink }}" class="blog-card-link">
+                            <article class="blog-post-card">
+                                <h3>{{ .Title }}</h3>
                                 <div class="post-meta">
                                     {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
                                 </div>
-                                <p style="flex-grow: 1;">{{ .Summary }}</p>
-                                <span style="color: var(--primary-color); font-weight: 500; margin-top: auto;">Read more →</span>
+                                <p>{{ .Summary }}</p>
+                                <span class="card-link">Read more →</span>
                             </article>
                         </a>
                     {{ end }}
                 </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="{{ "blog/" | relURL }}" style="color: var(--primary-color); text-decoration: none; font-weight: 500; font-size: 1.1rem;">View All Posts →</a>
+                <div class="section-link-wrapper">
+                    <a href="{{ "blog/" | relURL }}" class="section-link">View All Posts →</a>
                 </div>
             </div>
         </section>

@@ -2,32 +2,32 @@
     <main>
         <section class="blog-list">
             <div class="container">
-                <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: var(--primary-color);">My Apps</h1>
+                <h1>My Apps</h1>
                 
-                <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+                <div class="blog-posts">
                     {{ range .Pages.ByParam "date_updated" }}
-                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
-                            <article class="blog-post-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
-                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                <h3>{{ .Title }}</h3>
                                 {{ if .Params.current_version }}
-                                <div class="post-meta">
+                                <div class="app-meta">
                                     {{ .Params.current_version }}{{ if .Params.date_updated }} • Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
                                 </div>
                                 {{ else if .Params.date_updated }}
-                                <div class="post-meta">
+                                <div class="app-meta">
                                     Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}
                                 </div>
                                 {{ end }}
-                                <p style="flex-grow: 1;">{{ .Params.description }}</p>
-                                <span style="color: var(--primary-color); font-weight: 500; margin-top: auto;">View Project →</span>
+                                <p>{{ .Params.description }}</p>
+                                <span class="card-link">View App →</span>
                             </article>
                         </a>
                     {{ end }}
                 </div>
                 
                 {{ if eq (len .Pages) 0 }}
-                    <div class="blog-post-card">
-                        <h3 style="color: #ffffff;">No apps yet</h3>
+                    <div class="app-card">
+                        <h3>No apps yet</h3>
                         <p>Check back soon for new projects!</p>
                     </div>
                 {{ end }}

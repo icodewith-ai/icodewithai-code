@@ -2,18 +2,18 @@
     <main>
         <section class="blog-list">
             <div class="container">
-                <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; color: var(--primary-color);">Blog</h1>
+                <h1>Blog</h1>
                 
-                <div class="blog-posts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+                <div class="blog-posts">
                     {{ range .Pages }}
-                        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: flex;">
-                            <article class="blog-post-card" style="cursor: pointer; display: flex; flex-direction: column; width: 100%;">
-                                <h3 style="color: #ffffff; margin-bottom: 1rem;">{{ .Title }}</h3>
+                        <a href="{{ .Permalink }}" class="blog-card-link">
+                            <article class="blog-post-card">
+                                <h3>{{ .Title }}</h3>
                                 <div class="post-meta">
                                     {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
                                 </div>
-                                <p style="flex-grow: 1;">{{ .Summary }}</p>
-                                <span style="color: var(--primary-color); font-weight: 500; margin-top: auto;">Read more →</span>
+                                <p>{{ .Summary }}</p>
+                                <span class="card-link">Read more →</span>
                             </article>
                         </a>
                     {{ end }}
@@ -21,7 +21,7 @@
                 
                 {{ if eq (len .Pages) 0 }}
                     <div class="blog-post-card">
-                        <h3 style="color: #ffffff;">No blog posts yet</h3>
+                        <h3>No blog posts yet</h3>
                         <p>Check back soon for new content!</p>
                     </div>
                 {{ end }}
