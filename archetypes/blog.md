@@ -6,6 +6,4 @@ description = ""
 summary = ""
 +++
 
-# {{ replace .Name "-" " " | title }}
-
 Write your blog post content here...
