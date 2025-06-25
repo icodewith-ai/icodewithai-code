@@ -81,6 +81,18 @@
   }
 }
 
+.logo-image {
+  height: $logo-size;
+  transition: all 0.3s ease;
+  position: relative;
+  object-fit: cover;
+  
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+}
+
 .logo-text {
   background: linear-gradient(135deg, $neutral-100, $neutral-400);
   -webkit-background-clip: text;
@@ -451,7 +463,8 @@
 // Buttons
 // -----------------------------------------------------------------------------
 .discord-btn {
-  @include button-primary;
+  @include button-base;
+  background: linear-gradient(135deg, $primary-600, $primary-700);
   height: $button-height-sm;
   display: inline-flex;
   align-items: center;
@@ -460,6 +473,9 @@
   color: $neutral-100 !important;
   
   &:hover {
+    @include gradient-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: $neutral-100 !important;
   }
 }
@@ -790,7 +806,7 @@
       font-size: $font-size-sm;
       margin: 0;
       white-space: nowrap; // Keep tagline on one line
-      line-height: 1.2;
+      line-height: 0;
     }
     
     @media (max-width: $breakpoint-mobile) {
