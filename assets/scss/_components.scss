@@ -179,6 +179,40 @@
   }
 }
 
+.bio-text {
+  font-size: $font-size-base;
+  color: var(--color-text-secondary);
+  line-height: $line-height-loose;
+  
+  p {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.bio-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 300px;
+}
+
+.bio-image {
+  width: 100%;
+  max-width: 280px;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: $border-radius-lg;
+  border: 2px solid $primary-500;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba($primary-500, 0.2);
+  }
+}
+
 // Cards
 // -----------------------------------------------------------------------------
 .app-card, .blog-post-card {
@@ -261,6 +295,7 @@
 
 .facts-card {
   @include card-base;
+  height: 100%;
   
   h3 {
     color: $primary-500;
@@ -269,12 +304,71 @@
   }
 }
 
+.facts-card-full-width {
+  @include card-base;
+  width: 100%;
+  max-width: none;
+}
+
+.certificates-card {
+  @include card-base;
+  height: 100%;
+  
+  h3 {
+    color: $primary-500;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.certificates-list {
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-md;
+  align-items: center;
+  justify-content: center;
+}
+
+.certificate-link {
+  display: block;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.certificate-image {
+  width: 120px;
+  height: auto;
+  border-radius: $border-radius-sm;
+  transition: $transition-base;
+}
+
 .facts-list {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: $spacing-xs;
   padding: 0;
+  
+  li {
+    color: $neutral-400;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-sm;
+  }
+}
+
+.facts-list-bio-page {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xs;
+  padding: 0;
+  
+  @include mobile-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
   
   li {
     color: $neutral-400;

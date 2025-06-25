@@ -30,6 +30,23 @@
   align-items: center;
 }
 
+.bio-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.facts-certificates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  align-items: start;
+}
+
 .apps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -64,6 +81,20 @@
   }
   
   .bio-grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+  
+  .bio-page-grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    
+    .bio-photo {
+      order: -1; /* Move image above text */
+    }
+  }
+  
+  .facts-certificates-grid {
     grid-template-columns: 1fr;
     gap: $spacing-lg;
   }
