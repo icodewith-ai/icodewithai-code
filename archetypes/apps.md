@@ -1,7 +1,6 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 description = ""
-url_slug = "{{ .Name }}"
 github_url = ""
 npm_url = ""
 preview_url = ""
@@ -11,23 +10,14 @@ current_version = ""
 draft = true
 +++
 
-# {{ replace .Name "-" " " | title }}
+### About
 
-Describe your app here...
+Write a paragraph or 2 about the app here.
 
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
-
-## Technology Stack
-
+### Technology Stack
 - Technology 1
 - Technology 2
 
-## Getting Started
-
-```bash
-# Installation instructions
-```
+### Tools Used
+- Tool 1
+- Tool 2

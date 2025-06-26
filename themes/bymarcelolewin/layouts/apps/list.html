@@ -5,7 +5,7 @@
                 <h1>My Apps</h1>
                 
                 <div class="blog-posts">
-                    {{ range .Pages.ByParam "date_updated" }}
+                    {{ range sort .Pages ".Params.date_updated" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 <h3>{{ .Title }}</h3>

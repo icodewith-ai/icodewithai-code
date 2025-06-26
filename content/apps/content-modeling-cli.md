@@ -8,7 +8,7 @@ preview_url = ""
 date_created = "2024-01-22"
 date_updated = "2024-06-20"
 current_version = "v1.3.2"
-draft=false
+draft=true
 +++
 
 A powerful command-line interface designed to revolutionize how content architects and developers work with content models. This tool provides a unified approach to designing, validating, and deploying content structures across multiple platforms.
