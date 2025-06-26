@@ -95,13 +95,20 @@ $font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helve
 Consistent spacing scale for margins, padding, and gaps:
 
 ```scss
-$spacing-xs: 0.5rem;    // 8px
-$spacing-sm: 1rem;      // 16px
-$spacing-md: 1.5rem;    // 24px
-$spacing-lg: 2rem;      // 32px
-$spacing-xl: 3rem;      // 48px
-$spacing-2xl: 5rem;     // 80px
-$spacing-3xl: 6rem;     // 96px
+// Micro-spacing for precise control
+$spacing-2xs: 0.25rem;        // 4px
+$spacing-micro: 0.3125rem;    // 5px (list margins, etc.)
+$spacing-xs: 0.5rem;          // 8px
+$spacing-tight: 0.9375rem;    // 15px (blockquote padding)
+
+// Standard spacing scale
+$spacing-sm: 1rem;            // 16px
+$spacing-md: 1.5rem;          // 24px
+$spacing-loose: 1.875rem;     // 30px (list padding)
+$spacing-lg: 2rem;            // 32px
+$spacing-xl: 3rem;            // 48px
+$spacing-2xl: 5rem;           // 80px
+$spacing-3xl: 6rem;           // 96px
 ```
 
 ### Layout Variables
@@ -109,6 +116,9 @@ $spacing-3xl: 6rem;     // 96px
 ```scss
 $container-max-width: 1200px;  // Maximum content width
 $container-padding: 2rem;      // Horizontal container padding
+$content-max-width: 600px;     // Content area max width
+$blog-content-max-width: 800px; // Blog content max width
+$hero-bottom-padding: 3.8rem;  // Hero section bottom padding
 $breakpoint-mobile: 768px;     // Mobile breakpoint
 ```
 
@@ -126,6 +136,8 @@ $border-radius-full: 50%;      // Circular elements (logo)
 ```scss
 $transition-base: all 0.3s ease;   // Standard transitions
 $transition-fast: all 0.2s ease;   // Quick interactions
+$transition-slow: all 0.6s ease;   // Slow animations (shine effects)
+$transition-width: width 0.3s ease; // Width-only transitions (underlines)
 ```
 
 ## Mixins
@@ -601,7 +613,9 @@ Bottom section for copyright and version with full-width border separation.
 - Card links (`.card-link`) - "Learn more →", "Read more →" in app/blog cards
 - Content links within cards and articles - Bio startup links, etc.
 
-**Standardized hover behavior:** All links use `@mixin link-underline` for animated underline that grows from left to right on hover, combined with color transitions for consistent user experience.
+**Card Link Behavior:** Card links use `align-self: flex-start` to ensure the animated underline only spans the text width, not the full card width.
+
+**Standardized hover behavior:** All links use `@mixin link-underline` for animated underline that grows from left to right on hover, combined with color transitions for consistent user experience. Underline animations use `$transition-width` for optimal performance.
 
 ## CSS Custom Properties for Theming
 

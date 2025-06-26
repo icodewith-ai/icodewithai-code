@@ -40,13 +40,17 @@ $font-weight-bold: 700;
 
 // Spacing
 // -----------------------------------------------------------------------------
-$spacing-xs: 0.5rem;
-$spacing-sm: 1rem;
-$spacing-md: 1.5rem;
-$spacing-lg: 2rem;
-$spacing-xl: 3rem;
-$spacing-2xl: 5rem;
-$spacing-3xl: 6rem;
+$spacing-2xs: 0.25rem;        // 4px
+$spacing-xs: 0.5rem;          // 8px
+$spacing-micro: 0.3125rem;    // 5px
+$spacing-tight: 0.9375rem;    // 15px
+$spacing-sm: 1rem;            // 16px
+$spacing-md: 1.5rem;          // 24px
+$spacing-loose: 1.875rem;     // 30px
+$spacing-lg: 2rem;            // 32px
+$spacing-xl: 3rem;            // 48px
+$spacing-2xl: 5rem;           // 80px
+$spacing-3xl: 6rem;           // 96px
 
 // Layout
 // -----------------------------------------------------------------------------
@@ -54,6 +58,7 @@ $container-max-width: 1200px;
 $container-padding: 2rem;
 $content-max-width: 600px;
 $blog-content-max-width: 800px;
+$hero-bottom-padding: 3.8rem;
 
 // Breakpoints
 // -----------------------------------------------------------------------------
@@ -70,6 +75,8 @@ $border-radius-full: 50%;
 // -----------------------------------------------------------------------------
 $transition-base: all 0.3s ease;
 $transition-fast: all 0.2s ease;
+$transition-slow: all 0.6s ease;
+$transition-width: width 0.3s ease;
 
 // Components
 // -----------------------------------------------------------------------------
