@@ -281,11 +281,31 @@
   color: var(--color-primary);
   font-weight: $font-weight-medium;
   margin-top: auto;
-  transition: var(--transition-base);
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  transition: $transition-base;
   
-  &:hover {
-    color: var(--color-primary-hover);
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $primary-500;
+    transition: width 0.3s ease;
   }
+}
+
+.app-card-link:hover .card-link::after,
+.blog-card-link:hover .card-link::after {
+  width: 100%;
+}
+
+.app-card-link:hover .card-link,
+.blog-card-link:hover .card-link {
+  color: $primary-500;
 }
 
 .section-link-wrapper {
@@ -294,14 +314,14 @@
 }
 
 .section-link {
+  @include link-base;
+  @include link-underline;
   color: var(--color-primary);
-  text-decoration: none;
   font-weight: $font-weight-medium;
   font-size: var(--font-size-base);
-  transition: var(--transition-base);
   
   &:hover {
-    color: var(--color-primary-hover);
+    @include link-hover;
   }
 }
 
@@ -678,13 +698,13 @@
 }
 
 .back-link {
+  @include link-base;
+  @include link-underline;
   color: var(--color-primary);
-  text-decoration: none;
   font-weight: $font-weight-medium;
-  transition: $transition-base;
   
   &:hover {
-    color: var(--color-primary-hover);
+    @include link-hover;
   }
 }
 
@@ -866,13 +886,13 @@
     }
     
     a {
+      @include link-base;
+      @include link-underline;
       color: $neutral-400;
-      text-decoration: none;
       font-size: $font-size-sm;
-      transition: $transition-base;
       
       &:hover {
-        color: $primary-500;
+        @include link-hover;
       }
     }
   }
@@ -909,11 +929,12 @@
 }
 
 .blog-back-link {
+  @include link-base;
+  @include link-underline;
   color: var(--color-primary);
-  text-decoration: none;
   font-weight: $font-weight-medium;
   
   &:hover {
-    color: var(--color-primary-hover);
+    @include link-hover;
   }
 }

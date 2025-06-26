@@ -82,6 +82,28 @@ These could be systematized but are less critical:
 
 **Expected Outcome:** Zero inline CSS in HTML templates
 
+### Phase 1a: Link Hover Standardization (Enhancement - 1-2 hours)
+
+**Objective:** Standardize all text links to use consistent animated underline hover effects
+
+**Background:** Two link standards need consistent hover animations:
+1. **Navigation Style Links** - Header/footer navigation (using existing animated underline)
+2. **Page Style Links** - Content links (following bio page startup link pattern)
+
+**Actions:**
+1. **Navigation Style Links:**
+   - Update footer navigation links to use `@mixin link-underline`
+   - Update footer social links to use `@mixin link-underline`
+   - Maintain existing header navigation (already correct)
+
+2. **Page Style Links:**
+   - Update blog back link to follow bio startup link style (with animation)
+   - Update app back links to follow bio startup link style
+   - Update home page content links ("Learn more →", "Get in touch →")
+   - Ensure consistency with bio page startup links (reference implementation)
+
+**Expected Outcome:** All text links use consistent animated underline hover effect
+
 ### Phase 2: Systematize Existing Variables (Medium - 2-4 hours)
 
 **Objective:** Replace hardcoded SCSS values that have variable equivalents
@@ -206,12 +228,13 @@ Before proceeding, I have these questions:
 
 ## Timeline Estimate
 
-- **Phase 1 (Critical):** 2-3 hours
+- **Phase 1 (Critical):** 2-3 hours ✅ **COMPLETED**
+- **Phase 1a (Link Standardization):** 1-2 hours
 - **Phase 2 (Consistency):** 2-4 hours  
 - **Phase 3 (Enhancement):** 3-5 hours
 - **Phase 4 (Polish):** 1-2 hours
 
-**Total Estimate:** 8-14 hours depending on scope selection
+**Total Estimate:** 9-16 hours
 
 ## Next Steps
 

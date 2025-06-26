@@ -378,6 +378,7 @@ Styles that apply on desktop and larger screens.
 .justify-end { justify-content: flex-end; }
 .justify-between { justify-content: space-between; }
 .flex-grow { flex-grow: 1; }
+.flex-wrap { flex-wrap: wrap; }
 ```
 
 ### Gap Utilities
@@ -523,6 +524,14 @@ Special card variant for displaying quick facts with checkmarks.
 #### .social-card
 Compact cards for social media links with icons.
 
+### Navigation Components
+
+#### .blog-back-section
+Navigation section for blog posts with top border and spacing, containing back-to-blog link.
+
+#### .back-link-section  
+Navigation section for app pages with top border and spacing, containing back-to-apps link.
+
 ### Layout Components
 
 #### Grid Systems
@@ -578,9 +587,21 @@ Bottom section for copyright and version with full-width border separation.
 - `.discord-btn` - Primary button style using button-primary mixin
 
 #### Links
-- Navigation links with underline animations
-- Content links with color transitions
-- Footer links with primary color hover states
+**All text links now use consistent animated underline hover effects:**
+
+**Navigation Style Links:**
+- Header navigation links (`.nav a`) - Animated underline with primary color
+- Footer navigation links (`.footer-links a`) - Animated underline with primary color  
+- Footer social links - Animated underline with primary color
+
+**Page Style Links:**
+- Section links (`.section-link`) - "Learn more →", "Get in touch →" type links
+- Blog back links (`.blog-back-link`) - "← Back to Blog" navigation
+- App back links (`.back-link`) - "← Back to Apps" navigation  
+- Card links (`.card-link`) - "Learn more →", "Read more →" in app/blog cards
+- Content links within cards and articles - Bio startup links, etc.
+
+**Standardized hover behavior:** All links use `@mixin link-underline` for animated underline that grows from left to right on hover, combined with color transitions for consistent user experience.
 
 ## CSS Custom Properties for Theming
 
