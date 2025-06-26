@@ -899,3 +899,21 @@
     }
   }
 }
+
+// Blog Components
+// -----------------------------------------------------------------------------
+.blog-back-section {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $neutral-700;
+}
+
+.blog-back-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}

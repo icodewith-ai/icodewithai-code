@@ -3,38 +3,33 @@
 ## Phase 1: Eliminate Inline CSS (Critical)
 *Objective: Remove all inline `style=""` attributes from HTML templates*
 
-### Pre-Phase 1 Setup
-- [ ] Create backup branch: `git checkout -b css-cleanup-phase1`
-- [ ] Test current site locally: `hugo server`
-- [ ] Take screenshots of key pages for visual comparison
-
 ### HTML Template Fixes
 
 #### 1. blog/single.html (2 inline style fixes)
-- [ ] **Line 14:** Replace inline div styles with `.blog-back-section` class
+- [x] **Line 14:** Replace inline div styles with `.blog-back-section` class
   - Remove: `style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #2a2a2a;"`
   - Add: `class="blog-back-section"`
-- [ ] **Line 15:** Replace inline link styles with `.blog-back-link` class  
+- [x] **Line 15:** Replace inline link styles with `.blog-back-link` class  
   - Remove: `style="color: var(--primary-color); text-decoration: none; font-weight: 500;"`
   - Add: `class="blog-back-link"`
 
 #### 2. index.html (2 inline style fixes)
-- [ ] **Line 17:** Replace inline div alignment with utility class
+- [x] **Line 17:** Replace inline div alignment with utility class
   - Remove: `style="align-items: flex-start;"`
   - Add: `class="bio-content items-start"` (update existing class)
-- [ ] **Line 21:** Replace inline paragraph flex styles with utility classes
+- [x] **Line 21:** Replace inline paragraph flex styles with utility classes
   - Remove: `style="display: flex; gap: 2rem; flex-wrap: wrap;"`
   - Add: `class="flex gap-lg flex-wrap"`
 
 #### 3. bio/single.html (1 inline style fix)
-- [ ] **Line 59:** Replace inline heading styles with utility class
+- [x] **Line 59:** Replace inline heading styles with utility class
   - Remove: `style="text-align: center; margin-bottom: 2rem;"`
   - Add: `class="text-center mb-lg"`
 
 ### CSS Class Creation in _components.scss
 
 #### Blog Component Styles
-- [ ] Add `.blog-back-section` class:
+- [x] Add `.blog-back-section` class:
   ```scss
   .blog-back-section {
     margin-top: $spacing-xl;
@@ -42,7 +37,7 @@
     border-top: 1px solid $neutral-700;
   }
   ```
-- [ ] Add `.blog-back-link` class:
+- [x] Add `.blog-back-link` class:
   ```scss
   .blog-back-link {
     color: var(--color-primary);
@@ -57,19 +52,18 @@
 
 ### Utility Class Verification in _utilities.scss
 
-- [ ] Verify `.items-start` utility exists (should be: `align-items: flex-start;`)
-- [ ] Verify `.gap-lg` utility exists (should use: `gap: $spacing-lg;`)
-- [ ] Verify `.flex-wrap` utility exists (should be: `flex-wrap: wrap;`)
-- [ ] Verify `.text-center` utility exists
-- [ ] Verify `.mb-lg` utility exists (should use: `margin-bottom: $spacing-lg;`)
+- [x] Verify `.items-start` utility exists (should be: `align-items: flex-start;`)
+- [x] Verify `.gap-lg` utility exists (should use: `gap: $spacing-lg;`)
+- [x] Verify `.flex-wrap` utility exists (should be: `flex-wrap: wrap;`) - Added missing utility
+- [x] Verify `.text-center` utility exists
+- [x] Verify `.mb-lg` utility exists (should use: `margin-bottom: $spacing-lg;`)
 
 ### Phase 1 Testing & Completion
-- [ ] Build site: `hugo --environment production`
-- [ ] Test locally: `hugo server`
-- [ ] Visual comparison: Check all affected pages match original styling
-- [ ] Validate HTML: No inline `style=""` attributes remain
-- [ ] Git commit: `git add . && git commit -m "Phase 1: Remove all inline CSS from HTML templates"`
-- [ ] **PAUSE FOR USER APPROVAL** before Phase 2
+- [ ] **[USER]** Build and test site locally
+- [ ] **[USER]** Visual comparison: Check all affected pages match original styling
+- [ ] **[USER]** Validate HTML: No inline `style=""` attributes remain
+- [ ] **[USER]** Git commit: `git add . && git commit -m "Phase 1: Remove all inline CSS from HTML templates"`
+- [ ] **[USER]** Approve to continue to Phase 2
 
 ---
 
@@ -77,7 +71,6 @@
 *Objective: Replace hardcoded SCSS values that have variable equivalents*
 
 ### Pre-Phase 2 Setup
-- [ ] Create backup branch: `git checkout -b css-cleanup-phase2`
 - [ ] Current status: Phase 1 completed and committed
 
 ### Transition Consistency Updates
@@ -111,11 +104,10 @@
 - [ ] **Line 21:** Replace `3.8rem` with `$hero-bottom-padding: 3.8rem;` (add to variables)
 
 ### Phase 2 Testing & Completion
-- [ ] Build site: `hugo --environment production`
-- [ ] Test locally: `hugo server`
-- [ ] Visual comparison: Verify no visual changes
-- [ ] Git commit: `git add . && git commit -m "Phase 2: Systematize existing variable usage"`
-- [ ] **PAUSE FOR USER APPROVAL** before Phase 3
+- [ ] **[USER]** Build and test site locally
+- [ ] **[USER]** Visual comparison: Verify no visual changes
+- [ ] **[USER]** Git commit: `git add . && git commit -m "Phase 2: Systematize existing variable usage"`
+- [ ] **[USER]** Approve to continue to Phase 3
 
 ---
 
@@ -123,7 +115,6 @@
 *Objective: Add missing variables for commonly used values*
 
 ### Pre-Phase 3 Setup
-- [ ] Create backup branch: `git checkout -b css-cleanup-phase3`
 - [ ] Current status: Phase 2 completed and committed
 
 ### Add New Variable Categories to _variables.scss
@@ -192,12 +183,11 @@
 - [ ] Replace hover lift distances with `$hover-lift-distance`
 
 ### Phase 3 Testing & Completion
-- [ ] Build site: `hugo --environment production`
-- [ ] Test locally: `hugo server` 
-- [ ] Visual comparison: Verify no visual changes
-- [ ] Validate all new variables are used correctly
-- [ ] Git commit: `git add . && git commit -m "Phase 3: Add comprehensive variable system"`
-- [ ] **PAUSE FOR USER APPROVAL** before Phase 4
+- [ ] **[USER]** Build and test site locally
+- [ ] **[USER]** Visual comparison: Verify no visual changes
+- [ ] **[USER]** Validate all new variables are used correctly
+- [ ] **[USER]** Git commit: `git add . && git commit -m "Phase 3: Add comprehensive variable system"`
+- [ ] **[USER]** Approve to continue to Phase 4
 
 ---
 
@@ -205,7 +195,6 @@
 *Objective: Finalize cleanup and update documentation*
 
 ### Pre-Phase 4 Setup
-- [ ] Create backup branch: `git checkout -b css-cleanup-phase4`
 - [ ] Current status: Phase 3 completed and committed
 
 ### Code Review and Optimization
@@ -228,17 +217,16 @@
 - [ ] Add examples of proper variable usage
 
 ### Final Testing
-- [ ] Build production site: `hugo --environment production`
-- [ ] Test development site: `hugo server`
-- [ ] Cross-browser testing (if applicable)
-- [ ] Mobile responsive testing
-- [ ] Performance check (CSS bundle size)
+- [ ] **[USER]** Build production site: `hugo --environment production`
+- [ ] **[USER]** Test development site: `hugo server`
+- [ ] **[USER]** Cross-browser testing (if applicable)
+- [ ] **[USER]** Mobile responsive testing
+- [ ] **[USER]** Performance check (CSS bundle size)
 
 ### Phase 4 Completion
-- [ ] Final git commit: `git add . && git commit -m "Phase 4: Documentation and optimization updates"`
-- [ ] Merge cleanup branch to main: `git checkout main && git merge css-cleanup-phase4`
-- [ ] Tag release: `git tag v1.1.5-cleanup-complete`
-- [ ] Push to remote: `git push origin main --tags`
+- [ ] **[USER]** Final git commit: `git add . && git commit -m "Phase 4: Documentation and optimization updates"`
+- [ ] **[USER]** Tag release: `git tag v1.1.5-cleanup-complete`
+- [ ] **[USER]** Push to remote: `git push origin main --tags`
 
 ---
 
