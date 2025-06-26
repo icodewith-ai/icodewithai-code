@@ -10,7 +10,7 @@
   align-items: center;
   padding: $spacing-md $spacing-lg;
   border-bottom: 1px solid $neutral-700;
-  background-color: rgba($neutral-900, 0.7);
+  background-color: rgba($neutral-900, $opacity-backdrop);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
@@ -40,7 +40,7 @@
     $primary-700 100%
   );
   box-shadow: 
-    0 4px 8px rgba($primary-500, 0.2),
+    0 4px 8px rgba($primary-500, $opacity-medium),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   border-radius: $border-radius-full;
@@ -70,8 +70,8 @@
   &:hover {
     transform: scale(1.05);
     box-shadow: 
-      0 0 20px rgba($primary-500, 0.3),
-      0 4px 12px rgba($primary-500, 0.3),
+      0 0 20px rgba($primary-500, $opacity-strong),
+      0 4px 12px rgba($primary-500, $opacity-strong),
       inset 0 1px 0 rgba(255, 255, 255, 0.3),
       inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     
@@ -100,7 +100,7 @@
   background-clip: text;
   font-size: $font-size-lg;
   font-weight: $font-weight-medium;
-  letter-spacing: 0.02em;
+  letter-spacing: $letter-spacing-tight;
   transition: $transition-base;
   position: relative;
   
@@ -206,14 +206,14 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  min-height: 300px;
+  min-height: $bio-image-min-height;
 }
 
 .bio-image {
   width: 100%;
-  max-width: 280px;
+  max-width: $bio-image-max-width;
   height: 100%;
-  min-height: 300px;
+  min-height: $bio-image-min-height;
   object-fit: cover;
   border-radius: $border-radius-lg;
   border: 2px solid $primary-500;
@@ -221,7 +221,7 @@
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba($primary-500, 0.2);
+    box-shadow: 0 8px 16px rgba($primary-500, $opacity-medium);
   }
 }
 
@@ -372,7 +372,7 @@
 }
 
 .certificate-image {
-  width: 120px;
+  width: $certificate-image-width;
   height: auto;
   border-radius: $border-radius-sm;
   transition: $transition-base;
@@ -744,8 +744,8 @@
     }
     
     .footer-logo-circle {
-      width: 72px; // 10% smaller (80px * 0.9)
-      height: 72px;
+      width: $footer-logo-size; // 10% smaller (80px * 0.9)
+      height: $footer-logo-size;
       background: linear-gradient(135deg, 
         $primary-400 0%, 
         $primary-500 25%, 
@@ -753,7 +753,7 @@
         $primary-700 100%
       );
       box-shadow: 
-        0 4px 8px rgba($primary-500, 0.2),
+        0 4px 8px rgba($primary-500, $opacity-medium),
         inset 0 1px 0 rgba(255, 255, 255, 0.2),
         inset 0 -1px 0 rgba(0, 0, 0, 0.1);
       border-radius: $border-radius-full;
@@ -785,8 +785,8 @@
       &:hover {
         transform: scale(1.05);
         box-shadow: 
-          0 0 20px rgba($primary-500, 0.3),
-          0 4px 12px rgba($primary-500, 0.3),
+          0 0 20px rgba($primary-500, $opacity-strong),
+          0 4px 12px rgba($primary-500, $opacity-strong),
           inset 0 1px 0 rgba(255, 255, 255, 0.3),
           inset 0 -1px 0 rgba(0, 0, 0, 0.1);
         
@@ -809,7 +809,7 @@
       background-clip: text;
       font-size: $font-size-lg;
       font-weight: $font-weight-medium;
-      letter-spacing: 0.02em;
+      letter-spacing: $letter-spacing-tight;
       text-decoration: none;
       transition: $transition-base;
       line-height: 1.2;
@@ -839,8 +839,8 @@
       }
       
       .footer-logo-circle {
-        width: 60px;
-        height: 60px;
+        width: $footer-logo-size-mobile;
+        height: $footer-logo-size-mobile;
         font-size: 1.4rem;
       }
       
@@ -862,7 +862,7 @@
   }
   
   .footer-column {
-    min-width: 120px;
+    min-width: $footer-column-min-width;
   }
   
   .footer-heading {

@@ -97,6 +97,41 @@ $social-icon-size: 2.5rem;
 // Code
 $code-padding: 0.2rem 0.4rem;
 
+// Animation & Transitions - Extended
+// -----------------------------------------------------------------------------
+$animation-duration-fast: 0.3s;
+$animation-duration-normal: 0.4s;
+
+// Effect Distances
+// -----------------------------------------------------------------------------
+$hover-lift-distance: -4px;
+$slide-distance: 20px;
+$underline-offset: -4px;
+$underline-height: 2px;
+
+// Opacity Levels
+// -----------------------------------------------------------------------------
+$opacity-light: 0.1;
+$opacity-medium: 0.2;
+$opacity-strong: 0.3;
+$opacity-backdrop: 0.7;
+
+// Component Dimensions
+// -----------------------------------------------------------------------------
+$scrollbar-width: 8px;
+$bio-image-max-width: 280px;
+$bio-image-min-height: 300px;
+$certificate-image-width: 120px;
+$footer-logo-size: 72px;
+$footer-logo-size-mobile: 60px;
+$card-min-width: 400px;
+$bio-page-max-width: 900px;
+$footer-column-min-width: 120px;
+
+// Letter Spacing
+// -----------------------------------------------------------------------------
+$letter-spacing-tight: 0.02em;
+
 // Z-index
 // -----------------------------------------------------------------------------
 $z-index-header: 100;
