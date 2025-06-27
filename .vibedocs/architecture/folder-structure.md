@@ -30,20 +30,22 @@ archetypes/
 └── presentations.md             # Template for new presentation pages
 ```
 
-### `/assets/` - SCSS Source Files
-Source files processed by Hugo Pipes. The SCSS architecture follows a modular approach.
+### `/assets/` - Source Files
+Source files processed by Hugo Pipes. Includes SCSS and JavaScript assets.
 
 ```
 assets/
-└── scss/
-    ├── styles.scss              # Main SCSS entry point (imports all partials)
-    ├── _variables.scss          # Design system variables (colors, spacing, typography)
-    ├── _mixins.scss             # Reusable SCSS mixins for common patterns
-    ├── _base.scss               # Base styles (reset, typography, scrollbars)
-    ├── _layout.scss             # Layout components (container, sections, grids)
-    ├── _components.scss         # UI components (cards, buttons, navigation)
-    ├── _utilities.scss          # Utility classes (spacing, typography, display)
-    └── _responsive.scss         # Media queries and responsive utilities
+├── scss/
+│   ├── styles.scss              # Main SCSS entry point (imports all partials)
+│   ├── _variables.scss          # Design system variables (colors, spacing, typography)
+│   ├── _mixins.scss             # Reusable SCSS mixins for common patterns
+│   ├── _base.scss               # Base styles (reset, typography, scrollbars)
+│   ├── _layout.scss             # Layout components (container, sections, grids)
+│   ├── _components.scss         # UI components (cards, buttons, navigation, photo gallery)
+│   ├── _utilities.scss          # Utility classes (spacing, typography, display)
+│   └── _responsive.scss         # Media queries and responsive utilities
+└── js/
+    └── photo-gallery.js         # Photo gallery navigation and touch gesture functionality
 ```
 
 **SCSS Import Order:**
@@ -56,12 +58,18 @@ assets/
 7. `_responsive` - Media queries and responsive overrides
 
 ### `/content/` - Site Content
-Markdown files organized by content type.
+Markdown files organized by content type. Apps use page bundles for image management.
 
 ```
 content/
-├── apps/                           # App showcase pages
-│   ├── app-name.md                 # A detailed page for apps.
+├── apps/                           # App showcase pages (page bundles)
+│   ├── app-name/                   # App page bundle
+│   │   ├── index.md                # App content and metadata
+│   │   ├── thumbnail.jpg           # Optional card thumbnail (480x120px)
+│   │   └── photogallery/          # Optional photo gallery
+│   │       ├── image01.jpg         # Gallery images (800x450px)
+│   │       ├── image02.jpg         # Sorted by filename
+│   │       └── image03.jpg
 │   └── ...                     
 ├── bio.md                          # Bio page with professional background
 ├── blog/                           # Blog posts
@@ -84,7 +92,10 @@ public/
 ├── apps/                        # Generated app pages
 │   ├── index.html               # Apps listing page
 │   ├── index.xml                # Apps RSS feed
-│   └── [app-name]/             # Individual app pages
+│   └── [app-name]/             # Individual app pages with images
+│       ├── index.html           # App detail page
+│       ├── thumbnail.jpg        # App thumbnail (if exists)
+│       └── photogallery/       # Gallery images (if exist)
 ├── bio/                         # Generated bio page
 │   └── index.html               # Bio page with professional background (single page)
 ├── 404.html                     # Custom 404 error page
@@ -99,8 +110,10 @@ public/
 ├── categories/                  # Category taxonomy pages
 ├── tags/                        # Tag taxonomy pages
 ├── images/                      # Favicon and app icons
-└── scss/                        # Compiled CSS
-    └── styles.min.css           # Minified CSS output from SCSS
+├── scss/                        # Compiled CSS
+│   └── styles.min.css           # Minified CSS output from SCSS
+└── js/                          # Compiled JavaScript
+    └── photo-gallery.min.js     # Minified JavaScript for photo gallery functionality
 ```
 
 ### `/resources/` - Hugo Cache
@@ -110,9 +123,12 @@ Hugo's internal resource cache for processed assets. **Auto-generated.**
 resources/
 └── _gen/
     └── assets/
-        └── scss/
-            ├── styles.scss_[hash].content    # Compiled CSS content
-            └── styles.scss_[hash].json       # Asset metadata
+        ├── scss/
+        │   ├── styles.scss_[hash].content    # Compiled CSS content
+        │   └── styles.scss_[hash].json       # CSS asset metadata
+        └── js/
+            ├── photo-gallery.js_[hash].content  # Compiled JavaScript content
+            └── photo-gallery.js_[hash].json     # JavaScript asset metadata
 ```
 
 ### `/static/` - Static Assets
@@ -124,16 +140,19 @@ static/
 ```
 
 ### `/themes/bymarcelolewin/` - Hugo Theme
-Custom Hugo theme containing templates and layouts.
+Custom Hugo theme containing templates, layouts, and source assets.
 
 ```
 themes/bymarcelolewin/
+├── assets/                      # Theme source assets (processed by Hugo Pipes)
+│   ├── scss/                    # SCSS source files
+│   └── js/                      # JavaScript source files
 ├── layouts/                     # Hugo template files
 │   ├── _default/
 │   │   └── baseof.html          # Base template with <head>, <body> structure
 │   ├── apps/
-│   │   ├── list.html            # Apps listing page template
-│   │   └── single.html          # Individual app page template
+│   │   ├── list.html            # Apps listing page template (with thumbnails)
+│   │   └── single.html          # Individual app page template (with photo gallery)
 │   ├── bio/
 │   │   └── single.html          # Bio page template with professional background
 │   ├── 404.html                 # Custom 404 error page template
@@ -143,7 +162,7 @@ themes/bymarcelolewin/
 │   ├── presentations/
 │   │   ├── list.html            # Presentations listing page template
 │   │   └── single.html          # Individual presentation page template
-│   ├── index.html               # Homepage template
+│   ├── index.html               # Homepage template (with thumbnails)
 │   └── partials/
 │       ├── header.html          # Site header with navigation
 │       └── footer.html          # Site footer with social links
@@ -184,19 +203,30 @@ Main Hugo configuration containing:
 - Manual version tracking (`version` and `last_updated`)
 
 ### Asset Processing
-Hugo Pipes processes SCSS files from `/assets/scss/` and outputs minified CSS to `/public/scss/styles.min.css`. The processing includes:
+Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets:
+
+**CSS Processing** (`/assets/scss/` → `/public/scss/styles.min.css`):
 - SCSS compilation
 - CSS minification
 - Autoprefixing
 - Asset fingerprinting for cache busting
 
+**JavaScript Processing** (`/assets/js/` → `/public/js/[filename].min.js`):
+- JavaScript minification
+- Asset fingerprinting for cache busting
+- Conditional loading (only when needed)
+
 ## Development Workflow
 
-1. **Content Creation**: Add new `.md` files to `/content/apps/`, `/content/blog/`, or `/content/presentations/`
-2. **Styling**: Modify SCSS files in `/assets/scss/` 
-3. **Templates**: Update Hugo templates in `/themes/bymarcelolewin/layouts/`
-4. **Build**: Run `hugo --minify` to generate `/public/`
-5. **Deploy**: Push to GitHub Pages (serves from `/public/`)
+1. **Content Creation**: 
+   - Blog/Presentations: Add new `.md` files to `/content/blog/` or `/content/presentations/`
+   - Apps: Create page bundles in `/content/apps/app-name/` with `index.md` + images
+2. **Images**: Add thumbnails (`thumbnail.jpg`) and gallery images (`photogallery/image01.jpg`) to app bundles
+3. **Styling**: Modify SCSS files in `/assets/scss/` 
+4. **JavaScript**: Modify JS files in `/assets/js/` 
+5. **Templates**: Update Hugo templates in `/themes/bymarcelolewin/layouts/`
+6. **Build**: Run `hugo --minify` to generate `/public/`
+7. **Deploy**: Push to GitHub Pages (serves from `/public/`)
 
 ## Design System Architecture
 

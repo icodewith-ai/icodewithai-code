@@ -583,6 +583,12 @@ Content wrapper with max-width and horizontal padding.
 #### .app-card, .blog-post-card
 Content cards with gradient backgrounds, hover effects, and consistent internal spacing.
 
+#### .app-card-thumbnail
+Responsive thumbnail images for app cards with hover effects and optimized aspect ratios.
+
+#### .photo-gallery
+Interactive image gallery component with navigation arrows and responsive container.
+
 #### .facts-card
 Special card variant for displaying quick facts with checkmarks.
 

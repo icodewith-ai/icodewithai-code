@@ -7,7 +7,7 @@ preview_url = ""
 preview_label = "Check it Out!"
 date_created = "2025-06-01T17:51:19-07:00"
 date_updated = "2025-06-27T17:51:19-07:00"
-current_version = "1.1.7"
+current_version = "1.1.8"
 draft = false
 +++
 

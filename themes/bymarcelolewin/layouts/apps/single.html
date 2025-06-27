@@ -2,6 +2,25 @@
     <main>
         <article class="blog-single">
             <div class="container">
+                {{ $galleryImages := .Resources.Match "photogallery/*" }}
+                {{ if $galleryImages }}
+                <div class="photo-gallery" data-gallery>
+                    <div class="photo-gallery-container">
+                        <div class="photo-gallery-track" data-track>
+                            {{ range $index, $image := sort $galleryImages "Name" "asc" }}
+                            <div class="photo-gallery-slide" data-slide="{{ $index }}">
+                                <img src="{{ $image.RelPermalink }}" alt="{{ $.Title }} gallery image {{ add $index 1 }}" loading="lazy">
+                            </div>
+                            {{ end }}
+                        </div>
+                        {{ if gt (len $galleryImages) 1 }}
+                        <button class="photo-gallery-nav-arrow photo-gallery-nav-prev" data-prev aria-label="Previous image">‹</button>
+                        <button class="photo-gallery-nav-arrow photo-gallery-nav-next" data-next aria-label="Next image">›</button>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
                     {{ if .Params.current_version }} v{{ .Params.current_version }}{{ end }}
@@ -46,4 +65,10 @@
             </div>
         </article>
     </main>
+
+    {{ $galleryImages := .Resources.Match "photogallery/*" }}
+    {{ if $galleryImages }}
+    {{ $js := resources.Get "js/photo-gallery.js" | minify }}
+    <script src="{{ $js.RelPermalink }}"></script>
+    {{ end }}
 {{ end }}
