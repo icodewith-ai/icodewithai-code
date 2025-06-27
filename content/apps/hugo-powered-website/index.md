@@ -1,6 +1,6 @@
 +++
 title = "Hugo Powered Website"
-description = "First site I’ve vibe coded from scratch. Switched from Wix and Framer to Hugo SSG framework for full control, hosted in GitHub pages.  Loving the speed and simplicity of static site generators."
+description = "First site I've vibe coded from scratch. Switched from Wix and Framer to Hugo SSG framework for full control, hosted in GitHub pages.  Loving the speed and simplicity of static site generators."
 github_url = "https://github.com/bymarcelolewin/By-Marcelo-Lewin"
 npm_url = ""
 preview_url = ""
@@ -12,7 +12,7 @@ draft = false
 +++
 
 ### About
-This (where you are at now) is the first site I’ve vibe coded from scratch. After relying on tools like Wix and Framer, I wanted full control again—and I got it. It’s also my first time using the Hugo SSG framwework, and I’m quickly seeing the benefits of static site generators: fast performance, a lightweight codebase, and clean, responsive output.
+This (where you are at now) is the first site I've vibe coded from scratch. After relying on tools like Wix and Framer, I wanted full control again—and I got it. It's also my first time using the Hugo SSG framwework, and I'm quickly seeing the benefits of static site generators: fast performance, a lightweight codebase, and clean, responsive output.
 
 ### Technology Stack
 - **Hugo** : Static site generator with custom theme architecture

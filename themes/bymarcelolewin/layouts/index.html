@@ -25,6 +25,19 @@
                     {{ range $latestApps }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <div class="app-card">
+                                {{ $thumbnail := "" }}
+                                {{ $thumbnailJpg := .Resources.Get "thumbnail.jpg" }}
+                                {{ $thumbnailPng := .Resources.Get "thumbnail.png" }}
+                                {{ if $thumbnailJpg }}
+                                    {{ $thumbnail = $thumbnailJpg }}
+                                {{ else if $thumbnailPng }}
+                                    {{ $thumbnail = $thumbnailPng }}
+                                {{ end }}
+                                {{ if $thumbnail }}
+                                <div class="app-card-thumbnail">
+                                    <img src="{{ $thumbnail.RelPermalink }}" alt="{{ .Title }} thumbnail" loading="lazy">
+                                </div>
+                                {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 <div class="app-meta">
                                     {{ with .Params.current_version }}{{ . }}{{ else }}Latest Version{{ end }}

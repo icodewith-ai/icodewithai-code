@@ -22,7 +22,7 @@ Templatize entire content models, enhance clarity with emoji support via a centr
 
 With built-in Git support, you can version, track, and collaborate on your models just like code—making your modeling process scalable, maintainable, and team-friendly.
 
-And because your models are fully structured, they’re AI-ready—ideal for powering generative workflows, personalization engines, and retrieval-augmented generation (RAG).
+And because your models are fully structured, they're AI-ready—ideal for powering generative workflows, personalization engines, and retrieval-augmented generation (RAG).
 
 All commands are also tools fully accessible as an MCP server via any MCP client.
 

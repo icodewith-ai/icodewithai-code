@@ -8,6 +8,19 @@
                     {{ range sort .Pages ".Params.date_updated" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
+                                {{ $thumbnail := "" }}
+                                {{ $thumbnailJpg := .Resources.Get "thumbnail.jpg" }}
+                                {{ $thumbnailPng := .Resources.Get "thumbnail.png" }}
+                                {{ if $thumbnailJpg }}
+                                    {{ $thumbnail = $thumbnailJpg }}
+                                {{ else if $thumbnailPng }}
+                                    {{ $thumbnail = $thumbnailPng }}
+                                {{ end }}
+                                {{ if $thumbnail }}
+                                <div class="app-card-thumbnail">
+                                    <img src="{{ $thumbnail.RelPermalink }}" alt="{{ .Title }} thumbnail" loading="lazy">
+                                </div>
+                                {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.current_version }}
                                 <div class="app-meta">
