@@ -41,8 +41,8 @@
   );
   box-shadow: 
     0 4px 8px rgba($primary-500, $opacity-medium),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    inset 0 1px 0 rgba(255, 255, 255, $opacity-inset-light),
+    inset 0 -1px 0 rgba(0, 0, 0, $opacity-inset-dark);
   border-radius: $border-radius-full;
   display: flex;
   align-items: center;
@@ -61,7 +61,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,$opacity-shine), transparent);
     transform: rotate(45deg);
     transition: $transition-slow;
     opacity: 0;
@@ -72,11 +72,11 @@
     box-shadow: 
       0 0 20px rgba($primary-500, $opacity-strong),
       0 4px 12px rgba($primary-500, $opacity-strong),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      inset 0 1px 0 rgba(255, 255, 255, $opacity-shine-hover),
+      inset 0 -1px 0 rgba(0, 0, 0, $opacity-inset-dark);
     
     &::before {
-      animation: shine 0.6s ease-in-out;
+      animation: shine $animation-duration-shine ease-in-out;
     }
   }
 }
@@ -238,7 +238,7 @@
   
   &:hover {
     border-color: var(--color-primary);
-    transform: translateY(-4px);
+    transform: translateY($hover-lift-distance);
   }
   
   h3 {
@@ -495,8 +495,8 @@
   
   &:hover {
     @include gradient-primary;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY($hover-lift-small);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
     color: $neutral-100 !important;
   }
 }
@@ -658,7 +658,7 @@
   justify-content: center;
   
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY($hover-lift-small);
   }
 }
 
@@ -684,7 +684,7 @@
   
   &:hover {
     color: $neutral-900;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
   }
 }
 
@@ -754,14 +754,14 @@
       );
       box-shadow: 
         0 4px 8px rgba($primary-500, $opacity-medium),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        inset 0 1px 0 rgba(255, 255, 255, $opacity-inset-light),
+        inset 0 -1px 0 rgba(0, 0, 0, $opacity-inset-dark);
       border-radius: $border-radius-full;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: $font-weight-bold;
-      font-size: 1.8rem; // Larger font for bigger logo
+      font-size: $footer-logo-font-size; // Larger font for bigger logo
       color: $neutral-900;
       text-decoration: none;
       transition: $transition-base;
@@ -776,7 +776,7 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,$opacity-shine), transparent);
         transform: rotate(45deg);
         transition: $transition-slow;
         opacity: 0;
@@ -787,11 +787,11 @@
         box-shadow: 
           0 0 20px rgba($primary-500, $opacity-strong),
           0 4px 12px rgba($primary-500, $opacity-strong),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+          inset 0 1px 0 rgba(255, 255, 255, $opacity-shine-hover),
+          inset 0 -1px 0 rgba(0, 0, 0, $opacity-inset-dark);
         
         &::before {
-          animation: shine 0.6s ease-in-out;
+          animation: shine $animation-duration-shine ease-in-out;
         }
       }
     }

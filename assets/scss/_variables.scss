@@ -101,20 +101,30 @@ $code-padding: 0.2rem 0.4rem;
 // -----------------------------------------------------------------------------
 $animation-duration-fast: 0.3s;
 $animation-duration-normal: 0.4s;
+$animation-duration-shine: 0.6s;
 
 // Effect Distances
 // -----------------------------------------------------------------------------
 $hover-lift-distance: -4px;
+$hover-lift-small: -2px;
 $slide-distance: 20px;
 $underline-offset: -4px;
 $underline-height: 2px;
 
 // Opacity Levels
 // -----------------------------------------------------------------------------
-$opacity-light: 0.1;
-$opacity-medium: 0.2;
-$opacity-strong: 0.3;
-$opacity-backdrop: 0.7;
+// General opacity levels
+$opacity-light: 0.1;               // Light overlay effects
+$opacity-medium: 0.2;              // Medium box shadows and effects
+$opacity-strong: 0.3;              // Strong glow and shadow effects
+$opacity-backdrop: 0.7;            // Header backdrop opacity
+
+// Specific effect opacities
+$opacity-shadow: 0.1;              // Standard drop shadows
+$opacity-inset-light: 0.2;         // Light inset shadows (highlights)
+$opacity-inset-dark: 0.1;          // Dark inset shadows (depth)
+$opacity-shine: 0.1;               // Shine effect base opacity
+$opacity-shine-hover: 0.3;         // Shine effect hover opacity
 
 // Component Dimensions
 // -----------------------------------------------------------------------------
@@ -124,6 +134,7 @@ $bio-image-min-height: 300px;
 $certificate-image-width: 120px;
 $footer-logo-size: 72px;
 $footer-logo-size-mobile: 60px;
+$footer-logo-font-size: 1.8rem;
 $card-min-width: 400px;
 $bio-page-max-width: 900px;
 $footer-column-min-width: 120px;

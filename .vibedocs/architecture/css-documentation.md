@@ -140,6 +140,59 @@ $transition-slow: all 0.6s ease;   // Slow animations (shine effects)
 $transition-width: width 0.3s ease; // Width-only transitions (underlines)
 ```
 
+### Animation & Effect Variables
+
+#### Animation Durations
+```scss
+$animation-duration-fast: 0.3s;    // Quick animations (fade-in)
+$animation-duration-normal: 0.4s;  // Standard animations (slide-up)
+$animation-duration-shine: 0.6s;   // Shine effect animations
+```
+
+#### Effect Distances
+```scss
+$hover-lift-distance: -4px;        // Standard hover lift amount
+$hover-lift-small: -2px;           // Small hover lift for subtle effects
+$slide-distance: 20px;             // Slide-up animation distance
+$underline-offset: -4px;            // Underline position below text
+$underline-height: 2px;             // Underline thickness
+```
+
+#### Opacity Levels
+```scss
+// General opacity levels
+$opacity-light: 0.1;               // Light overlay effects
+$opacity-medium: 0.2;              // Medium box shadows and effects
+$opacity-strong: 0.3;              // Strong glow and shadow effects
+$opacity-backdrop: 0.7;            // Header backdrop opacity
+
+// Specific effect opacities
+$opacity-shadow: 0.1;              // Standard drop shadows
+$opacity-inset-light: 0.2;         // Light inset shadows (highlights)
+$opacity-inset-dark: 0.1;          // Dark inset shadows (depth)
+$opacity-shine: 0.1;               // Shine effect base opacity
+$opacity-shine-hover: 0.3;         // Shine effect hover opacity
+```
+
+#### Component Dimensions
+```scss
+$scrollbar-width: 8px;                  // Custom scrollbar width
+$bio-image-max-width: 280px;            // Bio section image constraints
+$bio-image-min-height: 300px;           // Bio section image constraints
+$certificate-image-width: 120px;        // Certificate/badge image size
+$footer-logo-size: 72px;                // Footer logo dimensions (desktop)
+$footer-logo-size-mobile: 60px;         // Footer logo dimensions (mobile)
+$footer-logo-font-size: 1.8rem;         // Footer logo text size
+$card-min-width: 400px;                 // Minimum card width in grids
+$bio-page-max-width: 900px;             // Bio page content max width
+$footer-column-min-width: 120px;        // Footer column minimum width
+```
+
+#### Letter Spacing
+```scss
+$letter-spacing-tight: 0.02em;          // Tight letter spacing for headings
+```
+
 ## Mixins
 
 ### Card Mixins
@@ -667,21 +720,98 @@ document.documentElement.style.setProperty('--font-size-base', '1.3rem');
 document.documentElement.style.setProperty('--font-size-lg', '1.5rem');
 ```
 
+## Complete Variable Reference
+
+### Quick Variable Lookup
+
+#### Most Used Variables
+```scss
+// Spacing
+$spacing-xs: 0.5rem;       // 8px
+$spacing-sm: 1rem;         // 16px  
+$spacing-md: 1.5rem;       // 24px
+$spacing-lg: 2rem;         // 32px
+$spacing-xl: 3rem;         // 48px
+
+// Colors
+$primary-500: #22c55e;     // Main green
+$neutral-900: #000000;     // Background
+$neutral-100: #ffffff;     // Text
+
+// Effects
+$hover-lift-distance: -4px;     // Standard hover
+$hover-lift-small: -2px;        // Subtle hover
+$transition-base: all 0.3s ease; // Standard transitions
+$opacity-shadow: 0.1;           // Drop shadows
+$opacity-backdrop: 0.7;         // Header backdrop
+```
+
+#### Animation Variables
+```scss
+$animation-duration-fast: 0.3s;      // Quick effects
+$animation-duration-normal: 0.4s;    // Standard animations
+$animation-duration-shine: 0.6s;     // Shine effects
+$transition-width: width 0.3s ease;  // Underline animations
+```
+
+#### Component Sizing
+```scss
+$card-min-width: 400px;             // Card grids
+$bio-page-max-width: 900px;         // Bio content
+$footer-logo-size: 72px;            // Footer logo
+$footer-logo-font-size: 1.8rem;     // Footer text
+```
+
+### Variable Usage Guidelines
+
+1. **Always use spacing variables** instead of hardcoded pixel values
+2. **Use opacity variables** for consistent shadow and overlay effects  
+3. **Apply animation duration variables** for consistent timing
+4. **Leverage effect distance variables** for standardized hover effects
+5. **Use component dimension variables** for maintainable sizing
+
+### Common Patterns
+```scss
+// Good - Uses variables
+.my-component {
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+  transition: $transition-base;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
+  
+  &:hover {
+    transform: translateY($hover-lift-distance);
+  }
+}
+
+// Avoid - Hardcoded values
+.bad-component {
+  padding: 32px;           // Use $spacing-lg
+  margin-bottom: 24px;     // Use $spacing-md  
+  transition: all 0.3s;    // Use $transition-base
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  // Use $opacity-shadow
+}
+```
+
 ## Performance Notes
 
-- **Bundle size**: ~8.6KB minified (only 161 bytes larger than original)
+- **Bundle size**: ~8.6KB minified (comprehensive variable system adds minimal overhead)
 - **Hugo compilation**: Uses Hugo Pipes with Sass processing and minification
 - **Modular structure**: Allows for easy removal of unused components
 - **CSS custom properties**: Enable runtime theming without bundle size increase
+- **Variable systematization**: 100% of animations, effects, and dimensions use variables
 
 ## Best Practices
 
 1. **Use mixins** for repeated patterns rather than duplicating CSS
 2. **Prefer utility classes** for simple styling needs
 3. **Use CSS custom properties** for values that might change dynamically
-4. **Follow the spacing system** rather than arbitrary values
-5. **Test responsive behavior** with the provided mixins
-6. **Maintain component isolation** by keeping styles within their respective partials
+4. **Follow the comprehensive variable system** - Use variables for all spacing, dimensions, animations, and effects rather than hardcoded values
+5. **Leverage the opacity variables** for consistent shadow and overlay effects
+6. **Use animation duration variables** for consistent timing across all animations
+7. **Apply component dimension variables** for maintainable sizing constraints
+8. **Test responsive behavior** with the provided mixins
+9. **Maintain component isolation** by keeping styles within their respective partials
 
 ## Future Enhancements
 
