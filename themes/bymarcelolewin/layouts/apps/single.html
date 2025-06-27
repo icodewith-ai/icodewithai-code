@@ -4,11 +4,9 @@
             <div class="container">
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
-                    {{ if .Params.current_version }}{{ .Params.current_version }}{{ end }}
+                    {{ if .Params.current_version }} v{{ .Params.current_version }}{{ end }}
                     {{ if and .Params.current_version .Params.date_updated }} • {{ end }}
                     {{ if .Params.date_updated }}Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
-                    {{ if and (or .Params.current_version .Params.date_updated) .Params.date_created }} • {{ end }}
-                    {{ if .Params.date_created }}Created {{ dateFormat "January 2, 2006" .Params.date_created }}{{ end }}
                 </div>
                 
                 <div class="content">
@@ -17,7 +15,7 @@
 
                 {{ if or .Params.github_url .Params.npm_url .Params.preview_url }}
                 <div class="project-links-section">
-                    <h2 class="project-links-title">Project Links</h2>
+                    <h2 class="project-links-title">Links</h2>
                     <div class="project-links">
                         {{ if .Params.github_url }}
                         <a href="{{ .Params.github_url }}" target="_blank" class="project-link project-link-secondary">
@@ -26,12 +24,16 @@
                         {{ end }}
                         {{ if .Params.npm_url }}
                         <a href="{{ .Params.npm_url }}" target="_blank" class="project-link project-link-secondary">
-                            NPM Package
+                            Get NPM Package
                         </a>
                         {{ end }}
                         {{ if .Params.preview_url }}
                         <a href="{{ .Params.preview_url }}" target="_blank" class="project-link project-link-primary">
-                            Live Preview
+                            {{ if .Params.preview_label }}
+                                {{ .Params.preview_label }}
+                            {{ else }}
+                                Live Preview
+                            {{ end }}
                         </a>
                         {{ end }}
                     </div>

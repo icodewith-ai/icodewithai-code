@@ -1,61 +1,56 @@
 +++
 title = "Content Modeling CLI"
-description = "A command-line tool for designing, validating, and managing content models across different CMS platforms. Streamlines content architecture workflows with automated schema generation."
+description = "Built for content modeling architects, developers and teams working in Contentful. Spend less time clicking through the UI and more time designing scalable, reusable content models—fast."
 url_slug = "content-modeling-cli"
 github_url = "https://github.com/bymarcelolewin/content-modeling-cli"
 npm_url = "https://npmjs.com/package/content-modeling-cli"
 preview_url = ""
-date_created = "2024-01-22"
-date_updated = "2024-06-20"
-current_version = "v1.3.2"
-draft=true
+preview_label = ""
+date_created = "2025-05-27"
+date_updated = "2025-06-27"
+current_version = "1.0.0-beta.18"
+draft=false
 +++
 
-A powerful command-line interface designed to revolutionize how content architects and developers work with content models. This tool provides a unified approach to designing, validating, and deploying content structures across multiple platforms.
+### About
 
-## Core Capabilities
+An MCP Server and CLI for content modeling in Contentful, purpose-built for content modeling architects, developers and teams working in Contentful.
 
-- **Model Design**: Interactive CLI for creating content models
-- **Validation**: Schema validation with detailed error reporting
-- **Multi-Platform Export**: Generate schemas for Contentful, Strapi, Sanity, and more
-- **Version Control**: Track model changes with built-in versioning
-- **Team Collaboration**: Share and sync models across teams
-- **Documentation**: Auto-generate model documentation
+Define content types, fields, and relationships using clean, structured JSON—no scripting or programming required. Create reusable components with predefined options and default values, and apply them across models for consistency and speed.
 
-## Supported Platforms
+Templatize entire content models, enhance clarity with emoji support via a centralized library, and organize your work using a project-based structure.
 
-- Contentful
-- Strapi
-- Sanity.io
-- WordPress (Custom Post Types)
-- Drupal
-- Ghost CMS
+With built-in Git support, you can version, track, and collaborate on your models just like code—making your modeling process scalable, maintainable, and team-friendly.
 
-## Installation & Usage
+And because your models are fully structured, they’re AI-ready—ideal for powering generative workflows, personalization engines, and retrieval-augmented generation (RAG).
 
-```bash
-npm install -g content-modeling-cli
-cm init my-project
-cm create model --name Product
-cm validate --all
-cm export --platform contentful
-```
+All commands are also tools fully accessible as an MCP server via any MCP client.
 
-## Use Cases
+Spend less time clicking through the UI and more time designing scalable, reusable content models—fast.
 
-Perfect for:
-- **Content Strategists** planning information architecture
-- **Developers** implementing CMS integrations
-- **Teams** maintaining consistency across projects
-- **Agencies** standardizing client deliverables
+### Documentation
+Check out our [documentation](https://github.com/bymarcelolewin/Content-Modeling-CLI/tree/main/common/docs)!
 
-## Features in Detail
+### License
+This project is **not open source**. It is source-available and licensed for the exclusive purpose of modeling content in Contentful.
 
-### Interactive Model Builder
-Design content models through an intuitive command-line interface with real-time validation and suggestions.
+You may integrate it into CI/CD pipelines or internal workflows, but redistribution, republishing, or commercial use are prohibited.
 
-### Cross-Platform Compatibility
-Export your models to any major CMS platform with platform-specific optimizations and best practices.
+See [our license](https://github.com/bymarcelolewin/Content-Modeling-CLI/blob/main/LICENSE.md) for full terms.
 
-### Validation Engine
-Comprehensive validation ensures your content models follow best practices and platform requirements before deployment.
+### Technology Stack
+- Node.js
+- Javascript
+- npm
+- MCP SDK integration
+- Commander.js integration (for CLI)
+- Contentful CMA Integration
+
+### Tools Used
+- Cursor
+- Claude Code
+- Cursor Chat (with Claude 4 Sonnet, Gemini Flash 2.5, Deepseek-v3.1)
+- Gemini Code Assist / CLI
+- ChatGPT
+- Claude Desktop
+- Repo Prompt

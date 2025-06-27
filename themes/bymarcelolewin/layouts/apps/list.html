@@ -11,7 +11,7 @@
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.current_version }}
                                 <div class="app-meta">
-                                    {{ .Params.current_version }}{{ if .Params.date_updated }} • Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
+                                    v{{ .Params.current_version }}{{ if .Params.date_updated }} • Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
                                 </div>
                                 {{ else if .Params.date_updated }}
                                 <div class="app-meta">
