@@ -2,21 +2,29 @@
 
 ## Creating New Content
 
-Create a new blog or app posts:
+Create new blog posts, app pages, or presentations:
 ```bash
+# Blog posts
 hugo new content blog/my-new-blog-article.md
 hugo new content blog/building-with-claude.md
 hugo new content blog/javascript-tips.md
 
+# App showcase pages
 hugo new content apps/my-new-app-name.md
 hugo new content apps/todo-cli.md
 hugo new content apps/weather-widget.md
+
+# Presentations
+hugo new content presentations/my-presentation-topic.md
+hugo new content presentations/ai-ethics-workshop.md
+hugo new content presentations/contentful-masterclass.md
 ```
 
 ## Content Structure
 
 - `content/blog/` - Blog posts
 - `content/apps/` - App showcase pages
+- `content/presentations/` - Presentation pages
 
 ## SEO Management
 
@@ -38,6 +46,20 @@ description = "This description appears in Google search results and social medi
 +++
 title = "My App"
 description = "SEO description for search engines and social media"
++++
+```
+
+**Presentations:**
+```yaml
++++
+title = "My Presentation Topic"
+summary = "Brief summary for listing pages"
+description = "Detailed description for search engines and social media"
+date_time = "2024-07-15T14:00:00-08:00"
+timezone = "PST"
+presenters = "Marcelo Lewin"
+status = "upcoming"
+external_url = "https://example.com/presentation-link"
 +++
 ```
 

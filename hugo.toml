@@ -18,6 +18,10 @@ enableGitInfo = true
     url = "/blog/"
     weight = 30
   [[menu.main]]
+    name = "Presentations"
+    url = "/presentations/"
+    weight = 35
+  [[menu.main]]
     name = "Contact"
     url = "/bio/"
     weight = 40
@@ -37,5 +41,5 @@ enableGitInfo = true
   twitter = "https://x.com/bymarcelolewin"
   
   # Site versioning
-  version = "1.1.5"
-  last_updated = "2025-06-26"
+  version = "1.1.6"
+  last_updated = "2025-06-27"

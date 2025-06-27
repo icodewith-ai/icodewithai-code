@@ -6,35 +6,10 @@
             <div class="container">
                 <h1>Hello, I'm <span class="highlight">Marcelo</span></h1>
                 <p class="tagline">I love to build digital products.</p>
-            </div>
-        </section>
-
-        <!-- Bio Section -->
-        <section id="bio" class="section">
-            <div class="container">
-                <h2>About Me</h2>
-                <div class="bio-grid">
-                    <div class="bio-content items-start">
-                        <p>As a Vibe Coder and Product Creator, I enjoy building with AI using modern development tools.  I specialize in MVPs, 
-                            proof-of-concepts, utilities, and experiments. I like exploring early ideas, iterating as I go, and using those 
-                            prototypes to test whether a concept holds up before moving on to detailed planning.</p>
-                            <p class="flex gap-lg flex-wrap">
-                                <a href="{{ "bio/" | relURL }}" class="section-link">Learn more →</a>
-                                <a href="{{ "bio/" | relURL }}" class="section-link">Get in touch →</a>
-                            </p>
-                    </div>
-                    <div class="facts-card">
-                        <h3>Quick Facts</h3>
-                        <ul class="facts-list">
-                            <li><span class="checkmark">✓</span> Vibe Coder</li>
-                            <li><span class="checkmark">✓</span> Content &amp; Data Architect</li>
-                            <li><span class="checkmark">✓</span> Product Creator</li>
-                            <li><span class="checkmark">✓</span> System Architect</li>
-                            <li><span class="checkmark">✓</span> Contentful Certified</li>
-                            <li><span class="checkmark">✓</span> Lifelong Learner</li>
-                        </ul>
-                    </div>
-                </div>
+                <p class="flex gap-lg flex-wrap">
+                    <a href="{{ "bio/" | relURL }}" class="section-link">Learn more →</a>
+                    <a href="{{ "bio/" | relURL }}" class="section-link">Get in touch →</a>
+                </p>
             </div>
         </section>
 
@@ -92,6 +67,36 @@
                 </div>
                 <div class="section-link-wrapper">
                     <a href="{{ "blog/" | relURL }}" class="section-link">View All Posts →</a>
+                </div>
+            </div>
+        </section>
+        {{ end }}
+        {{ end }}
+
+        <!-- Latest Presentations Section -->
+        {{ $presentations := .Site.GetPage "/presentations" }}
+        {{ if $presentations }}
+        {{ $latestPresentations := first 2 (sort $presentations.Pages ".Params.date_time" "desc") }}
+        {{ if $latestPresentations }}
+        <section class="section">
+            <div class="container">
+                <h2>Latest Presentations</h2>
+                <div class="blog-posts">
+                    {{ range $latestPresentations }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                <h3>{{ .Title }}</h3>
+                                <div class="app-meta">
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
+                                </div>
+                                <p>{{ .Params.summary }}</p>
+                                <span class="card-link">Learn more →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                <div class="section-link-wrapper">
+                    <a href="{{ "presentations/" | relURL }}" class="section-link">View All Presentations →</a>
                 </div>
             </div>
         </section>

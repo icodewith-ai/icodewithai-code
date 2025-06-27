@@ -26,7 +26,8 @@ Templates for creating new content with `hugo new` command.
 ```
 archetypes/
 ├── apps.md                      # Template for new app pages
-└── blog.md                      # Template for new blog posts
+├── blog.md                      # Template for new blog posts
+└── presentations.md             # Template for new presentation pages
 ```
 
 ### `/assets/` - SCSS Source Files
@@ -63,8 +64,11 @@ content/
 │   ├── app-name.md                 # A detailed page for apps.
 │   └── ...                     
 ├── bio.md                          # Bio page with professional background
-└── blog/                           # Blog posts
-    ├── blog-article-name.md        # A blog article
+├── blog/                           # Blog posts
+│   ├── blog-article-name.md        # A blog article
+│   └── ...
+└── presentations/                  # Presentation pages
+    ├── presentation-name.md        # A detailed page for presentations
     └── ...
 ```
 
@@ -88,6 +92,10 @@ public/
 │   ├── index.html               # Blog listing page
 │   ├── index.xml                # Blog RSS feed
 │   └── [post-name]/            # Individual blog posts
+├── presentations/               # Generated presentation pages
+│   ├── index.html               # Presentations listing page
+│   ├── index.xml                # Presentations RSS feed
+│   └── [presentation-name]/     # Individual presentation pages
 ├── categories/                  # Category taxonomy pages
 ├── tags/                        # Tag taxonomy pages
 ├── images/                      # Favicon and app icons
@@ -132,6 +140,9 @@ themes/bymarcelolewin/
 │   ├── blog/
 │   │   ├── list.html            # Blog listing page template
 │   │   └── single.html          # Individual blog post template
+│   ├── presentations/
+│   │   ├── list.html            # Presentations listing page template
+│   │   └── single.html          # Individual presentation page template
 │   ├── index.html               # Homepage template
 │   └── partials/
 │       ├── header.html          # Site header with navigation
@@ -181,7 +192,7 @@ Hugo Pipes processes SCSS files from `/assets/scss/` and outputs minified CSS to
 
 ## Development Workflow
 
-1. **Content Creation**: Add new `.md` files to `/content/apps/` or `/content/blog/`
+1. **Content Creation**: Add new `.md` files to `/content/apps/`, `/content/blog/`, or `/content/presentations/`
 2. **Styling**: Modify SCSS files in `/assets/scss/` 
 3. **Templates**: Update Hugo templates in `/themes/bymarcelolewin/layouts/`
 4. **Build**: Run `hugo --minify` to generate `/public/`

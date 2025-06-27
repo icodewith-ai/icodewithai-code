@@ -168,6 +168,12 @@
     line-height: $line-height-relaxed;
     font-weight: $font-weight-normal;
   }
+  
+  // Hero navigation links spacing and centering
+  .tagline + p {
+    margin-top: $spacing-lg; // 32px spacing above the links
+    justify-content: center; // Center the flex container
+  }
 }
 
 // Section Headings
@@ -511,6 +517,11 @@
     font-weight: $font-weight-bold;
     margin-bottom: $spacing-xl;
     color: $primary-500;
+  }
+  
+  // Presentations page grouping spacing
+  h2 + .blog-posts {
+    margin-top: $spacing-md; // 24px spacing between heading and cards
   }
 }
 

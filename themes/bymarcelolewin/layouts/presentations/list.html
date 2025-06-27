@@ -1,0 +1,55 @@
+{{ define "main" }}
+    <main>
+        <section class="blog-list">
+            <div class="container">
+                <h1>Presentations</h1>
+                
+                {{ $upcomingPresentations := where .Pages ".Params.status" "upcoming" }}
+                {{ $completedPresentations := where .Pages ".Params.status" "completed" }}
+                
+                {{ if $upcomingPresentations }}
+                <h2>Upcoming</h2>
+                <div class="blog-posts">
+                    {{ range sort $upcomingPresentations ".Params.date_time" "asc" }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                <h3>{{ .Title }}</h3>
+                                <div class="app-meta">
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
+                                </div>
+                                <p>{{ .Params.summary }}</p>
+                                <span class="card-link">Learn more →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if $completedPresentations }}
+                <h2>Completed</h2>
+                <div class="blog-posts">
+                    {{ range sort $completedPresentations ".Params.date_time" "desc" }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                <h3>{{ .Title }}</h3>
+                                <div class="app-meta">
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
+                                </div>
+                                <p>{{ .Params.summary }}</p>
+                                <span class="card-link">Learn more →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if and (eq (len $upcomingPresentations) 0) (eq (len $completedPresentations) 0) }}
+                    <div class="app-card">
+                        <h3>No presentations yet</h3>
+                        <p>Check back soon for upcoming presentations!</p>
+                    </div>
+                {{ end }}
+            </div>
+        </section>
+    </main>
+{{ end }}

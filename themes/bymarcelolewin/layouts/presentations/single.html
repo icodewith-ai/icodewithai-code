@@ -1,0 +1,45 @@
+{{ define "main" }}
+    <main>
+        <article class="blog-single">
+            <div class="container">
+                <h1>{{ .Title }}</h1>
+                <div class="post-meta">
+                    {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
+                    {{ if .Params.presenters }} • Presented by {{ .Params.presenters }}{{ end }}
+                </div>
+                
+                <div class="content">
+                    <h3 class="project-links-title">About Presentation</h3>
+                    {{ .Content }}
+                </div>
+
+                {{ if or .Params.learn_more_url .Params.on_demand_url .Params.register_url }}
+                <div class="project-links-section">
+                    <h3 class="project-links-title">Links</h3>
+                    <div class="project-links">
+                        {{ if .Params.register_url }}
+                        <a href="{{ .Params.register_url }}" target="_blank" class="project-link project-link-primary">
+                            Register to Attend
+                        </a>
+                        {{ end }}
+                        {{ if .Params.learn_more_url }}
+                        <a href="{{ .Params.learn_more_url }}" target="_blank" class="project-link project-link-secondary">
+                            Learn More
+                        </a>
+                        {{ end }}
+                        {{ if .Params.on_demand_url }}
+                        <a href="{{ .Params.on_demand_url }}" target="_blank" class="project-link project-link-secondary">
+                            Watch On-Demand
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                
+                <div class="back-link-section">
+                    <a href="{{ "presentations/" | relURL }}" class="back-link">← Back to Presentations</a>
+                </div>
+            </div>
+        </article>
+    </main>
+{{ end }}
