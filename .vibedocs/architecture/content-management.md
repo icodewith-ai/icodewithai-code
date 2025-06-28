@@ -120,3 +120,38 @@ Content automatically includes proper meta tags for rich previews when shared on
 - LinkedIn
 - Twitter/X
 - Other social platforms
+
+## Hugo Pipes Image Processing
+
+### Theme Images
+Theme images (logos, profile photos, certificates) are processed through Hugo Pipes for optimization and cache busting:
+
+#### File Location
+- **Source**: `themes/bymarcelolewin/assets/images/`
+- **Generated**: `/public/images/[filename].[hash].[ext]`
+
+#### Supported Images
+- `marcelolewin.jpg` - Profile photo for bio page
+- `logo-bml.png` - Site logo (header and footer)
+- `icon-contentful-certified-content-manager.png` - Certificate badge
+- `icon-contentful-certified-professional.png` - Certificate badge
+
+#### Template Usage
+Images are referenced using Hugo's `resources.Get` function:
+```html
+{{ $profileImg := resources.Get "images/marcelolewin.jpg" | resources.Fingerprint }}
+{{ if $profileImg }}
+<img src="{{ $profileImg.RelPermalink }}" alt="Marcelo Lewin" loading="lazy">
+{{ end }}
+```
+
+#### Benefits
+- **Cache Busting**: Fingerprinted URLs ensure proper cache invalidation
+- **Error Handling**: Graceful fallbacks when images are missing
+- **Performance**: Lazy loading and optimized delivery
+- **Consistency**: Unified asset pipeline with SCSS and JavaScript
+
+#### File Management
+- **Static Images**: Favicons and PWA icons remain in `static/images/`
+- **Theme Images**: Logos, profiles, icons processed through Hugo Pipes
+- **Content Images**: App thumbnails and galleries remain as page bundle resources

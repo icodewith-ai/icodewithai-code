@@ -40,7 +40,7 @@
                                 {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 <div class="app-meta">
-                                    {{ with .Params.current_version }}{{ . }}{{ else }}Latest Version{{ end }}
+                                    v{{ with .Params.current_version }}{{ . }}{{ else }}Latest Version{{ end }}
                                 </div>
                                 <p>{{ .Params.description }}</p>
                                 <span class="card-link">Learn more →</span>

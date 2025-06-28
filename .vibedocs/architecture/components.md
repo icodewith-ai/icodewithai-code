@@ -254,6 +254,62 @@ Contextual navigation for returning to listing pages.
 
 ---
 
+## Hugo Pipes Image Integration
+
+### Theme Image Components
+Theme images are now processed through Hugo Pipes for consistent asset management:
+
+#### Logo Component
+**Usage in Templates:**
+```html
+{{ $logo := resources.Get "images/logo-bml.png" | resources.Fingerprint }}
+{{ if $logo }}
+<img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+{{ end }}
+```
+
+**Used in:**
+- `layouts/partials/header.html` - Primary navigation
+- `layouts/partials/footer.html` - Footer branding
+
+#### Profile Photo Component
+**Usage in Templates:**
+```html
+{{ $profileImg := resources.Get "images/marcelolewin.jpg" | resources.Fingerprint }}
+{{ if $profileImg }}
+<img src="{{ $profileImg.RelPermalink }}" alt="Marcelo Lewin" class="bio-image" loading="lazy">
+{{ end }}
+```
+
+**Used in:**
+- `layouts/bio/single.html` - Professional bio page
+
+#### Certificate Badge Components
+**Usage in Templates:**
+```html
+{{ $certManager := resources.Get "images/icon-contentful-certified-content-manager.png" | resources.Fingerprint }}
+{{ if $certManager }}
+<img src="{{ $certManager.RelPermalink }}" alt="Contentful Certified Content Manager" class="certificate-image" loading="lazy">
+{{ end }}
+```
+
+**Used in:**
+- `layouts/bio/single.html` - Professional certifications section
+
+#### Technical Benefits
+- **Fingerprinted URLs**: Automatic cache busting for production deployments
+- **Error Handling**: Graceful degradation when images are missing
+- **Performance**: Lazy loading and optimized asset delivery
+- **Consistency**: Unified pipeline with SCSS and JavaScript assets
+- **Maintainability**: Centralized image management in assets folder
+
+#### Migration Notes
+- **v1.1.9**: Migrated from `static/images/` to `assets/images/` for theme images
+- **Favicon Management**: Static favicons remain in `static/images/` for browser compatibility
+- **Content Images**: App thumbnails and galleries continue using page bundle resources
+
+---
+
 ## Future Component Additions
 
 This document should be expanded as new components are added to the design system:

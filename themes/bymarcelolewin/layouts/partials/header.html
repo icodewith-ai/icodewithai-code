@@ -1,7 +1,10 @@
 <!-- Header Content -->
 <div class="logo-section">
     <a href="/">
-        <img src="/images/logo-bml.png" alt="By Marcelo Lewin Logo" class="logo-image">
+        {{ $logo := resources.Get "images/logo-bml.png" | resources.Fingerprint }}
+        {{ if $logo }}
+        <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+        {{ end }}
     </a>
 </div>
 <nav class="nav">

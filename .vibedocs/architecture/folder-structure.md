@@ -146,7 +146,12 @@ Custom Hugo theme containing templates, layouts, and source assets.
 themes/bymarcelolewin/
 ├── assets/                      # Theme source assets (processed by Hugo Pipes)
 │   ├── scss/                    # SCSS source files
-│   └── js/                      # JavaScript source files
+│   ├── js/                      # JavaScript source files
+│   └── images/                  # Theme images (processed by Hugo Pipes)
+│       ├── marcelolewin.jpg     # Profile photo
+│       ├── logo-bml.png         # Site logo
+│       ├── icon-contentful-certified-content-manager.png
+│       └── icon-contentful-certified-professional.png
 ├── layouts/                     # Hugo template files
 │   ├── _default/
 │   │   └── baseof.html          # Base template with <head>, <body> structure
@@ -167,7 +172,13 @@ themes/bymarcelolewin/
 │       ├── header.html          # Site header with navigation
 │       └── footer.html          # Site footer with social links
 └── static/
-    └── images/                  # Theme static images (favicons)
+    └── images/                  # Static images (favicons, PWA icons)
+        ├── favicon.ico          # Browser favicon
+        ├── favicon-16x16.png    # Small favicon
+        ├── favicon-32x32.png    # Standard favicon
+        ├── apple-touch-icon.png # iOS home screen icon
+        ├── android-chrome-192x192.png  # Android app icon
+        └── android-chrome-512x512.png  # Large Android app icon
 ```
 
 ### `/.vibedocs/` - Project Documentation
@@ -215,6 +226,12 @@ Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets
 - JavaScript minification
 - Asset fingerprinting for cache busting
 - Conditional loading (only when needed)
+
+**Image Processing** (`/assets/images/` → `/public/images/[filename].[hash].[ext]`):
+- Asset fingerprinting for cache busting
+- Error handling for missing images
+- Lazy loading attributes
+- Consistent asset pipeline with SCSS and JavaScript
 
 ## Development Workflow
 
