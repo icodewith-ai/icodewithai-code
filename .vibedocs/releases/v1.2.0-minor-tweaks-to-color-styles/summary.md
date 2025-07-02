@@ -1,4 +1,4 @@
-# Release v1.1.9 - Minor Tweaks to Color & Styles
+# Release v1.2.0 - Minor Tweaks to Color & Styles
 
 ## Summary
 
@@ -37,6 +37,27 @@ This release includes typography improvements and color refinements to enhance t
 - **Card background adjustment**: 
   - Updated `$neutral-800` from `#1a1a1a` to `#161616` (consistent with new background)
 
+### 5. Button System Standardization
+- **Created unified button system**: Replaced 4+ different button implementations with 2 standardized classes
+- **New button classes**:
+  - `.btn-primary` - Green buttons for primary actions (solid `$primary-600` background)
+  - `.btn-secondary` - Gray buttons for secondary actions (solid `#3a3a3a` background)
+- **Consistent behavior**: Both buttons have identical styling except background color
+  - White text (`$neutral-100`)
+  - 40px height (`$button-height-sm`)
+  - Animated underline on hover (customizable spacing)
+  - Lift effect and drop shadow on hover
+  - Solid color transitions (no gradients to prevent visual glitches)
+- **Removed old button classes**: 
+  - `.discord-btn`, `.project-link-primary`, `.project-link-secondary`, `.project-link`
+- **Updated all HTML templates**: Header, apps, and presentations pages now use standardized classes
+- **Fixed black blink issue**: Replaced gradient hovers with solid color transitions
+
+### 6. Card Background Simplification  
+- **Removed gradients from cards**: Changed from gradient backgrounds to solid color
+- **Updated card mixin**: `@mixin card-base` now uses solid `$neutral-800` (#161616) background
+- **Affects all cards**: App cards, blog cards, bio cards, social cards now have clean solid backgrounds
+
 ## Files Modified
 
 ### SCSS Files
@@ -49,11 +70,30 @@ This release includes typography improvements and color refinements to enhance t
 - `assets/scss/_components.scss`
   - Removed unused `.footer-logo-circle` CSS class
   - Removed related mobile responsive styles
+  - Added standardized `.btn-primary` and `.btn-secondary` button classes
+  - Removed old button classes (`.discord-btn`, `.project-link-*`)
+  - Updated nav selector to exclude buttons from link styling
+  
+- `assets/scss/_mixins.scss`
+  - Updated `@mixin card-base` to use solid background color instead of gradient
 
 ### HTML Templates
 - `themes/bymarcelolewin/layouts/_default/baseof.html`
   - Added Google Fonts preconnect links
   - Added DM Sans font family import
+
+- `themes/bymarcelolewin/layouts/partials/header.html`
+  - Updated Discord button from `discord-btn` to `btn-primary`
+
+- `themes/bymarcelolewin/layouts/apps/single.html`
+  - Updated all project buttons to use standardized classes
+  - Preview buttons: `project-link-primary` → `btn-primary`
+  - GitHub/NPM buttons: `project-link-secondary` → `btn-secondary`
+
+- `themes/bymarcelolewin/layouts/presentations/single.html`
+  - Updated all presentation buttons to use standardized classes
+  - Register buttons: `project-link-primary` → `btn-primary`
+  - Learn More/On-Demand buttons: `project-link-secondary` → `btn-secondary`
 
 ## Impact
 
@@ -62,6 +102,9 @@ This release includes typography improvements and color refinements to enhance t
 - **Improved readability**: Lighter secondary text color increases legibility
 - **Softer appearance**: Slightly lighter background reduces eye strain
 - **Consistent logo sizing**: Unified logo size across header and footer
+- **Standardized button system**: All buttons now have consistent behavior and appearance
+- **Cleaner card design**: Solid backgrounds provide a more modern, less busy appearance
+- **Eliminated visual glitches**: Fixed black blink issue on button hover
 
 ### Performance
 - **Optimized font loading**: Added preconnect links for faster Google Fonts loading
@@ -70,6 +113,8 @@ This release includes typography improvements and color refinements to enhance t
 ### Maintainability
 - **Cleaner codebase**: Removed dead code and unused variables
 - **Simplified logo system**: Single variable controls both header and footer logo sizes
+- **Unified button system**: Single source of truth for button styling across the site
+- **Easier customization**: Button underline spacing can be adjusted independently for each type
 
 ## Technical Notes
 

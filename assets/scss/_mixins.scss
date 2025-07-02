@@ -5,7 +5,7 @@
 // Card Base
 // -----------------------------------------------------------------------------
 @mixin card-base {
-  background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-card-dark));
+  background-color: $neutral-800;
   padding: var(--spacing-lg);
   border-radius: $border-radius-lg;
   border: 1px solid var(--color-border);

@@ -241,6 +241,73 @@ Used for blog post previews.
 
 ---
 
+## Button Components
+
+### Standardized Button System (v1.2.0)
+The site uses a unified button system with two standardized button types that provide consistent behavior across all pages.
+
+#### Button Classes
+
+##### `.btn-primary` - Primary Action Button
+**Purpose**: Main call-to-action buttons (Live Preview, Register, Discord)
+
+**Styling**:
+- Background: Solid `$primary-600` (#16a34a) - green
+- Text: `$neutral-100` (#ffffff) - white
+- Height: `$button-height-sm` (40px)
+- Hover: Solid `$primary-500` (#22c55e) - lighter green
+
+##### `.btn-secondary` - Secondary Action Button  
+**Purpose**: Supporting actions (GitHub, NPM, Learn More, On-Demand)
+
+**Styling**:
+- Background: Solid `#3a3a3a` - gray
+- Text: `$neutral-100` (#ffffff) - white
+- Height: `$button-height-sm` (40px)
+- Hover: Solid `#2a2a2a` - darker gray
+
+#### Shared Button Features
+- **Animated underline**: Left-to-right animation on hover (green color for both)
+- **Lift effect**: `-2px` translateY on hover
+- **Drop shadow**: `0 4px 6px rgba(0, 0, 0, $opacity-shadow)` on hover
+- **Solid transitions**: No gradients to prevent visual glitches
+- **Customizable spacing**: Underline offset adjustable via `bottom` property
+
+#### HTML Usage
+```html
+<!-- Primary actions -->
+<a href="#" class="btn-primary">Live Preview</a>
+<a href="#" class="btn-primary">Register</a>
+
+<!-- Secondary actions -->
+<a href="#" class="btn-secondary">GitHub</a>
+<a href="#" class="btn-secondary">Learn More</a>
+```
+
+#### Templates Using Buttons
+- `layouts/partials/header.html` - Discord button (`.btn-primary`)
+- `layouts/apps/single.html` - Project action buttons
+- `layouts/presentations/single.html` - Presentation action buttons
+
+#### Migration History
+**v1.2.0**: Standardized from 4+ different button implementations:
+- `.discord-btn` → `.btn-primary`
+- `.project-link-primary` → `.btn-primary`
+- `.project-link-secondary` → `.btn-secondary`
+- Removed `.project-link` base class
+
+#### Customization
+**Underline Spacing**: Adjust in `_components.scss`
+```scss
+.btn-primary, .btn-secondary {
+  &::after {
+    bottom: -11px; // Modify this value to change spacing
+  }
+}
+```
+
+---
+
 ## Navigation Components
 
 ### Header Navigation

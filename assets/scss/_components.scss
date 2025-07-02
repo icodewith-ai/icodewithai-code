@@ -127,7 +127,7 @@
   gap: $spacing-lg;
   align-items: center;
   
-  a {
+  a:not(.btn-primary):not(.btn-secondary) {
     @include link-base;
     @include link-underline;
     @include smooth-transition;
@@ -222,12 +222,11 @@
   min-height: $bio-image-min-height;
   object-fit: cover;
   border-radius: $border-radius-lg;
-  border: 2px solid $primary-500;
+  border: 1px solid var(--color-border);
   transition: $transition-base;
   
   &:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba($primary-500, $opacity-medium);
   }
 }
 
@@ -516,20 +515,94 @@
 
 // Buttons
 // -----------------------------------------------------------------------------
-.discord-btn {
+// Standardized Button System
+// -----------------------------------------------------------------------------
+.btn-primary {
   @include button-base;
-  background: linear-gradient(135deg, $primary-600, $primary-700);
+  background-color: $primary-600;
   height: $button-height-sm;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0 $button-padding-x;
   color: $neutral-100 !important;
+  position: relative;
+  
+  // Explicit transition control to prevent color flashing
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  
+  // Button-specific underline with proper spacing
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -11px; // More spacing for buttons
+    left: 0;
+    width: 0;
+    height: $underline-height;
+    background: $primary-500;
+    transition: $transition-width;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
   
   &:hover {
-    @include gradient-primary;
+    background-color: $primary-500;
     transform: translateY($hover-lift-small);
     box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
+    color: $neutral-100 !important;
+  }
+  
+  // Ensure color stays consistent during all states
+  &:focus,
+  &:active,
+  &:visited {
+    color: $neutral-100 !important;
+  }
+}
+
+.btn-secondary {
+  @include button-base;
+  background-color: #3a3a3a;
+  height: $button-height-sm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 $button-padding-x;
+  color: $neutral-100 !important;
+  position: relative;
+  
+  // Explicit transition control to prevent color flashing
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  
+  // Button-specific underline with proper spacing
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -11px; // More spacing for buttons
+    left: 0;
+    width: 0;
+    height: $underline-height;
+    background: $primary-500;
+    transition: $transition-width;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+  
+  &:hover {
+    background-color: #2a2a2a;
+    transform: translateY($hover-lift-small);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
+    color: $neutral-100 !important;
+  }
+  
+  // Ensure color stays consistent during all states
+  &:focus,
+  &:active,
+  &:visited {
     color: $neutral-100 !important;
   }
 }
@@ -685,50 +758,6 @@
   gap: $spacing-sm;
 }
 
-.project-link {
-  @include button-base;
-  height: $button-height-base;
-  padding: 0 $button-padding-x;
-  border-radius: $border-radius-base;
-  transition: $transition-base;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:hover {
-    transform: translateY($hover-lift-small);
-  }
-}
-
-.project-link-secondary {
-  @include card-base;
-  color: var(--color-primary);
-  border: 1px solid $neutral-700;
-  height: $button-height-base;
-  padding: 0 $button-padding-x;
-  
-  &:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
-}
-
-.project-link-primary {
-  @include gradient-primary;
-  color: $neutral-900;
-  border: 1px solid var(--color-primary);
-  height: $button-height-base;
-  padding: 0 $button-padding-x;
-  
-  &:hover {
-    color: $neutral-900;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
-  }
-}
-
-.project-link-icon {
-  margin-right: $spacing-xs;
-}
 
 .back-link-section {
   margin-top: $spacing-xl;

@@ -18,17 +18,17 @@
                     <h3 class="project-links-title">Links</h3>
                     <div class="project-links">
                         {{ if .Params.register_url }}
-                        <a href="{{ .Params.register_url }}" target="_blank" class="project-link project-link-primary">
+                        <a href="{{ .Params.register_url }}" target="_blank" class="btn-primary">
                             Register to Attend
                         </a>
                         {{ end }}
                         {{ if .Params.learn_more_url }}
-                        <a href="{{ .Params.learn_more_url }}" target="_blank" class="project-link project-link-secondary">
+                        <a href="{{ .Params.learn_more_url }}" target="_blank" class="btn-secondary">
                             Learn More
                         </a>
                         {{ end }}
                         {{ if .Params.on_demand_url }}
-                        <a href="{{ .Params.on_demand_url }}" target="_blank" class="project-link project-link-secondary">
+                        <a href="{{ .Params.on_demand_url }}" target="_blank" class="btn-secondary">
                             Watch On-Demand
                         </a>
                         {{ end }}

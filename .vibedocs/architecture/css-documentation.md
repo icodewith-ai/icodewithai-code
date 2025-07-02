@@ -41,11 +41,11 @@ $primary-500: #22c55e;        // Main green accent
 $primary-600: #16a34a;        // Darker green for hover states
 
 // Neutral Colors
-$neutral-900: #000000;        // Background (black)
-$neutral-800: #1a1a1a;        // Card backgrounds
+$neutral-900: #121212;        // Background (softer dark gray)
+$neutral-800: #161616;        // Card backgrounds  
 $neutral-700: #2a2a2a;        // Borders
 $neutral-100: #ffffff;        // Primary text
-$neutral-400: #a3a3a3;        // Secondary text
+$neutral-400: #e2e2e2;        // Secondary text
 $neutral-600: #666666;        // Footer text
 ```
 
@@ -54,12 +54,12 @@ $neutral-600: #666666;        // Footer text
 :root {
   --color-primary: #22c55e;
   --color-primary-hover: #16a34a;
-  --color-bg: #000000;
-  --color-bg-card: #1a1a1a;
+  --color-bg: #121212;
+  --color-bg-card: #161616;
   --color-bg-card-dark: #0f0f0f;
   --color-border: #2a2a2a;
   --color-text: #ffffff;
-  --color-text-secondary: #a3a3a3;
+  --color-text-secondary: #e2e2e2;
   --color-text-muted: #666666;
 }
 ```
@@ -654,8 +654,12 @@ Bottom section for copyright and version with full-width border separation.
 
 ### Interactive Components
 
-#### Buttons
-- `.discord-btn` - Primary button style using button-primary mixin
+#### Buttons (v1.2.0 Standardized System)
+- `.btn-primary` - Green buttons for primary actions (Live Preview, Register, Discord)
+  - Solid `$primary-600` background, white text, animated underline hover
+- `.btn-secondary` - Gray buttons for secondary actions (GitHub, NPM, Learn More)  
+  - Solid `#3a3a3a` background, white text, animated underline hover
+- Both buttons: 40px height, lift effect, drop shadow, customizable underline spacing
 
 #### Links
 **All text links now use consistent animated underline hover effects:**
@@ -687,12 +691,12 @@ The system uses CSS custom properties to enable dynamic theming capabilities. Th
   /* Colors - can be overridden for theme switching */
   --color-primary: #22c55e;
   --color-primary-hover: #16a34a;
-  --color-bg: #000000;
-  --color-bg-card: #1a1a1a;
+  --color-bg: #121212;
+  --color-bg-card: #161616;
   --color-bg-card-dark: #0f0f0f;
   --color-border: #2a2a2a;
   --color-text: #ffffff;
-  --color-text-secondary: #a3a3a3;
+  --color-text-secondary: #e2e2e2;
   --color-text-muted: #666666;
   
   /* Spacing - can be adjusted for different density preferences */
@@ -718,7 +722,7 @@ The system uses CSS custom properties to enable dynamic theming capabilities. Th
 ```javascript
 // Example: Switch to light theme
 document.documentElement.style.setProperty('--color-bg', '#ffffff');
-document.documentElement.style.setProperty('--color-text', '#000000');
+document.documentElement.style.setProperty('--color-text', '#121212');
 document.documentElement.style.setProperty('--color-bg-card', '#f8f9fa');
 
 // Example: Increase font sizes for accessibility
@@ -741,7 +745,7 @@ $spacing-xl: 3rem;         // 48px
 
 // Colors
 $primary-500: #22c55e;     // Main green
-$neutral-900: #000000;     // Background
+$neutral-900: #121212;     // Background
 $neutral-100: #ffffff;     // Text
 
 // Effects

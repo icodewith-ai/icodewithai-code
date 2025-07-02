@@ -10,7 +10,7 @@
 <nav class="nav">
     {{ range .Site.Menus.main }}
         {{ if eq .Name "Discord" }}
-            <a href="{{ .URL }}" class="discord-btn" target="_blank">{{ .Name }}</a>
+            <a href="{{ .URL }}" class="btn-primary" target="_blank">{{ .Name }}</a>
         {{ else }}
             <a href="{{ .URL }}">{{ .Name }}</a>
         {{ end }}

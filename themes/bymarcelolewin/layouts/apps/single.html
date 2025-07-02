@@ -37,17 +37,17 @@
                     <h2 class="project-links-title">Links</h2>
                     <div class="project-links">
                         {{ if .Params.github_url }}
-                        <a href="{{ .Params.github_url }}" target="_blank" class="project-link project-link-secondary">
+                        <a href="{{ .Params.github_url }}" target="_blank" class="btn-secondary">
                             View on GitHub
                         </a>
                         {{ end }}
                         {{ if .Params.npm_url }}
-                        <a href="{{ .Params.npm_url }}" target="_blank" class="project-link project-link-secondary">
+                        <a href="{{ .Params.npm_url }}" target="_blank" class="btn-secondary">
                             Get NPM Package
                         </a>
                         {{ end }}
                         {{ if .Params.preview_url }}
-                        <a href="{{ .Params.preview_url }}" target="_blank" class="project-link project-link-primary">
+                        <a href="{{ .Params.preview_url }}" target="_blank" class="btn-primary">
                             {{ if .Params.preview_label }}
                                 {{ .Params.preview_label }}
                             {{ else }}
