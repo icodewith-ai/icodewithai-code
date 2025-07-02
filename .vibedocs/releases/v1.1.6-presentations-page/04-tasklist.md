@@ -215,7 +215,7 @@
 
 - [ ] Remove entire Bio Section from home page (lines 12-39)
 - [ ] Move "Learn more →" and "Get in touch →" links to Hero Section
-- [ ] Place navigation links below tagline "I love to build digital products."
+- [ ] Place navigation links below tagline "I build digital products with AI"
 - [ ] Maintain existing styling and CSS classes for the moved links
 - [ ] **Revert command:** "Revert the hero section bio links change"
 

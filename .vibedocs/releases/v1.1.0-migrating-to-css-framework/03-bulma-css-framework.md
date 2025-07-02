@@ -208,7 +208,7 @@ $button-text-hover-background-color: $grey-dark;
       <h1 class="title is-1">
         Hello, I'm <span class="has-text-primary">Marcelo</span>
       </h1>
-      <p class="subtitle is-4">I love to build digital products.</p>
+      <p class="subtitle is-4">I build digital products with AI</p>
     </div>
   </div>
 </section>
