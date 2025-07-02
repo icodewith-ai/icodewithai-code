@@ -781,58 +781,6 @@
       gap: $spacing-md;
     }
     
-    .footer-logo-circle {
-      width: $footer-logo-size; // 10% smaller (80px * 0.9)
-      height: $footer-logo-size;
-      background: linear-gradient(135deg, 
-        $primary-400 0%, 
-        $primary-500 25%, 
-        $primary-600 75%, 
-        $primary-700 100%
-      );
-      box-shadow: 
-        0 4px 8px rgba($primary-500, $opacity-medium),
-        inset 0 1px 0 rgba(255, 255, 255, $opacity-inset-light),
-        inset 0 -1px 0 rgba(0, 0, 0, $opacity-inset-dark);
-      border-radius: $border-radius-full;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: $font-weight-bold;
-      font-size: $footer-logo-font-size; // Larger font for bigger logo
-      color: $neutral-900;
-      text-decoration: none;
-      transition: $transition-base;
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0; // Prevent shrinking
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, transparent, rgba(255,255,255,$opacity-shine), transparent);
-        transform: rotate(45deg);
-        transition: $transition-slow;
-        opacity: 0;
-      }
-      
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 
-          0 0 20px rgba($primary-500, $opacity-strong),
-          0 4px 12px rgba($primary-500, $opacity-strong),
-          inset 0 1px 0 rgba(255, 255, 255, $opacity-shine-hover),
-          inset 0 -1px 0 rgba(0, 0, 0, $opacity-inset-dark);
-        
-        &::before {
-          animation: shine $animation-duration-shine ease-in-out;
-        }
-      }
-    }
     
     .footer-logo-text {
       display: flex;
@@ -876,11 +824,6 @@
         gap: $spacing-sm;
       }
       
-      .footer-logo-circle {
-        width: $footer-logo-size-mobile;
-        height: $footer-logo-size-mobile;
-        font-size: 1.4rem;
-      }
       
       .footer-tagline {
         white-space: normal; // Allow wrapping on mobile

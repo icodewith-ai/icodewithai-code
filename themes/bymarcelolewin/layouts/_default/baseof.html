@@ -31,6 +31,11 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ "images/android-chrome-192x192.png" | absURL }}">
     <link rel="icon" type="image/png" sizes="512x512" href="{{ "images/android-chrome-512x512.png" | absURL }}">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    
     <!-- Stylesheet -->
     {{ $style := resources.Get "scss/styles.scss" | css.Sass | resources.Minify }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
