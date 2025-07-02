@@ -32,12 +32,9 @@
 
 .bio-page-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-md;
-  align-items: center;
-  justify-content: center;
-  max-width: $bio-page-max-width;
-  margin: 0 auto;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-lg;
+  align-items: start;
 }
 
 .facts-certificates-grid {

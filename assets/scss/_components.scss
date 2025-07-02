@@ -205,22 +205,29 @@
   p {
     margin-bottom: $spacing-md;
   }
+  
+  a {
+    @include link-base;
+    @include link-underline;
+    color: var(--color-primary);
+    display: inline-block;
+    
+    &:hover {
+      @include link-hover;
+    }
+  }
 }
 
 .bio-photo {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  min-height: $bio-image-min-height;
+  align-items: flex-start;
 }
 
 .bio-image {
   width: 100%;
   max-width: $bio-image-max-width;
-  height: 100%;
-  min-height: $bio-image-min-height;
-  object-fit: cover;
+  height: auto;
   border-radius: $border-radius-lg;
   border: 1px solid var(--color-border);
   transition: $transition-base;
