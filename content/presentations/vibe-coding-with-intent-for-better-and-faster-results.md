@@ -4,10 +4,10 @@ summary = "Exploring the ethical implications of AI development and best practic
 date_time = "2024-07-05T14:00:00-08:00"
 timezone = "PST"
 presenters = "Marcelo Lewin"
-status = "upcoming"
-learn_more_url = ""
+status = "completed"
+learn_more_url = "https://www.meetup.com/tech-forum-rancho-cucamonga/events/307621527/"
 on_demand_url = ""
-register_url = "https://www.meetup.com/tech-forum-rancho-cucamonga/events/307621527/"
+register_url = ""
 draft = false
 +++
 
