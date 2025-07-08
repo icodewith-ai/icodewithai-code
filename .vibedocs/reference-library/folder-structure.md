@@ -264,7 +264,7 @@ Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets
 8. **Production Deployment**: Push to `main` branch → GitHub Actions → `bml-website-prod` repository → `www.bymarcelolewin.com`
 
 ### Repository Architecture
-- **Source Repository**: Contains Hugo source code, content, and themes
+- **Source Repository**: `bymarcelolewin/bml-website-code` (private) - Contains Hugo source code, content, and themes
 - **Deployment Repositories**: 
   - `bml-website-prod`: Production deployment (www.bymarcelolewin.com)
   - `bml-website-next`: Staging deployment (next.bymarcelolewin.com)

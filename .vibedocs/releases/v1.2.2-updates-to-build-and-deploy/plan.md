@@ -4,12 +4,12 @@
 Refactor the current GitHub Pages deployment to use separate repositories for production and staging, allowing for proper custom domain management and cleaner separation of concerns.
 
 ## Current State
-- **Source Repository**: `bymarcelolewin/by-marcelo-lewin` (public, GitHub Pages enabled)
+- **Source Repository**: `bymarcelolewin/bml-website-code` (private, GitHub Pages enabled)
 - **Production**: Deploys to `gh-pages` branch → `www.bymarcelolewin.com`
 - **Staging**: Deploys to `gh-pages-dev` branch → `next.bymarcelolewin.com` (not working due to GitHub Pages limitations)
 
 ## Target State
-- **Source Repository**: `bymarcelolewin/by-marcelo-lewin` (public, no GitHub Pages)
+- **Source Repository**: `bymarcelolewin/bml-website-code` (private, no GitHub Pages)
 - **Production Repository**: `bymarcelolewin/bml-website-prod` (public, GitHub Pages enabled)
 - **Staging Repository**: `bymarcelolewin/bml-website-next` (public, GitHub Pages enabled)
 
@@ -35,7 +35,7 @@ Refactor the current GitHub Pages deployment to use separate repositories for pr
 4. Save token securely for next steps
 
 ### Phase 3: Configure Repository Secrets
-1. **In source repository** (`bymarcelolewin/by-marcelo-lewin`):
+1. **In source repository** (`bymarcelolewin/bml-website-code`):
    - Add repository secret: `DEPLOY_TOKEN` (value: personal access token from Phase 2)
 
 ### Phase 4: Update GitHub Actions Workflows
@@ -150,7 +150,7 @@ jobs:
    - Update CNAME record to point to: `bymarcelolewin.github.io` (from `bml-website-next` repo)
 
 ### Phase 6: Clean Up Source Repository
-1. **Disable GitHub Pages** in `bymarcelolewin/by-marcelo-lewin`
+1. **Disable GitHub Pages** in `bymarcelolewin/bml-website-code`
 2. **Delete old deployment branches**:
    - Delete `gh-pages` branch
    - Delete `gh-pages-dev` branch

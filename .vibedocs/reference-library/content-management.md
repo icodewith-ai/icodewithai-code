@@ -5,7 +5,7 @@
 ### Multi-Repository Deployment (v1.2.2+)
 
 The website now uses a multi-repository architecture:
-- **Source Repository**: Contains Hugo source code, content, and themes
+- **Source Repository**: `bymarcelolewin/bml-website-code` (private) - Contains Hugo source code, content, and themes
 - **Staging**: `dev` branch → `bml-website-next` repository → `next.bymarcelolewin.com`
 - **Production**: `main` branch → `bml-website-prod` repository → `www.bymarcelolewin.com`
 

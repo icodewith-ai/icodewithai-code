@@ -43,7 +43,7 @@
 
 ### Task 3.1: Add Deploy Token to Source Repository
 - [x] **Who**: Marcelo
-- [x] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository
+- [x] **Action**: Go to `bymarcelolewin/bml-website-code` repository
 - [x] **Action**: Go to Settings → Secrets and variables → Actions
 - [x] **Action**: Click "New repository secret"
 - [x] **Action**: Name: `DEPLOY_TOKEN`
@@ -119,13 +119,13 @@
 
 ### Task 7.1: Disable GitHub Pages
 - [x] **Who**: Marcelo
-- [x] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository
+- [x] **Action**: Go to `bymarcelolewin/bml-website-code` repository
 - [x] **Action**: Go to Settings → Pages
 - [x] **Action**: Unpublish site.
 
 ### Task 7.2: Delete Old Deployment Branches
 - [x] **Who**: Marcelo
-- [x] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository
+- [x] **Action**: Go to `bymarcelolewin/bml-website-code` repository
 - [x] **Action**: Go to branches page
 - [x] **Action**: Delete `gh-pages` branch
 - [x] **Action**: Delete `gh-pages-dev` branch
