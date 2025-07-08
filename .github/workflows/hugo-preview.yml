@@ -1,9 +1,9 @@
-name: Deploy Hugo site to www.bymarcelolewin.com
+name: Deploy Hugo Preview to next.bymarcelolewin.com
 
 on:
   push:
     branches:
-      - main
+      - dev
 
 permissions:
   contents: write
@@ -33,14 +33,14 @@ jobs:
 
       - name: Build site
         env:
-          HUGO_ENVIRONMENT: production
+          HUGO_ENVIRONMENT: preview
           TZ: America/Los_Angeles
-        run: hugo --minify --baseURL "https://www.bymarcelolewin.com/"
+        run: hugo --minify --baseURL "https://next.bymarcelolewin.com/"
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to gh-pages-dev
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
+          publish_branch: gh-pages-dev
           publish_dir: ./public
-          cname: www.bymarcelolewin.com
+          cname: next.bymarcelolewin.com

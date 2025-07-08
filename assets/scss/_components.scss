@@ -239,7 +239,7 @@
 
 // Cards
 // -----------------------------------------------------------------------------
-.app-card, .blog-post-card {
+.app-card, .blog-post-card, .podcast-card {
   @include card-base;
   @include hover-lift;
   display: flex;
@@ -611,6 +611,91 @@
   &:active,
   &:visited {
     color: $neutral-100 !important;
+  }
+}
+
+// Podcast Specific
+// -----------------------------------------------------------------------------
+.podcast-embed-section {
+  margin: $spacing-xl 0;
+  padding: $spacing-lg;
+  background: $neutral-800;
+  border-radius: $border-radius-base;
+  border: 1px solid $neutral-700;
+}
+
+.podcast-embed-placeholder {
+  text-align: center;
+  color: $neutral-400;
+  
+  p {
+    margin-bottom: $spacing-sm;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  strong {
+    color: $primary-500;
+  }
+}
+
+// Podcast tagline - responsive single line
+.podcast-tagline {
+  font-size: $font-size-2xl;
+  color: $neutral-400;
+  max-width: $content-max-width;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+  font-weight: $font-weight-normal;
+  
+  // Single line on desktop
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  // Allow wrapping on mobile
+  @include mobile-only {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+  }
+}
+
+// Podcast episode meta (green styling)
+.podcast-meta {
+  color: $primary-500;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-medium;
+}
+
+// Podcast Card Thumbnail - 1:1 aspect ratio
+// -----------------------------------------------------------------------------
+.podcast-card-thumbnail {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: $border-radius-base;
+  margin-bottom: $spacing-md;
+  background: $neutral-800;
+  position: relative;
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: $transition-base;
+    display: block;
+  }
+  
+  &:hover img {
+    transform: scale(1.02);
   }
 }
 

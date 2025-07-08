@@ -66,6 +66,15 @@
   margin-bottom: $spacing-xl;
 }
 
+// Podcast Layout - Fixed 3 columns
+// -----------------------------------------------------------------------------
+.podcast-episodes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
 // Responsive Layout
 // -----------------------------------------------------------------------------
 @include mobile-only {
@@ -102,5 +111,9 @@
   
   .follow-grid {
     gap: $spacing-sm;
+  }
+  
+  .podcast-episodes {
+    grid-template-columns: 1fr;
   }
 }

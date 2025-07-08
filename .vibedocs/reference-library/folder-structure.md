@@ -27,6 +27,7 @@ Templates for creating new content with `hugo new` command.
 archetypes/
 ├── apps.md                      # Template for new app pages
 ├── blog.md                      # Template for new blog posts
+├── podcast.md                   # Template for new podcast episodes
 └── presentations.md             # Template for new presentation pages
 ```
 
@@ -75,6 +76,9 @@ content/
 ├── blog/                           # Blog posts
 │   ├── blog-article-name.md        # A blog article
 │   └── ...
+├── podcast/                        # Podcast episodes
+│   ├── episode-name.md             # Individual podcast episodes
+│   └── ...
 └── presentations/                  # Presentation pages
     ├── presentation-name.md        # A detailed page for presentations
     └── ...
@@ -103,6 +107,10 @@ public/
 │   ├── index.html               # Blog listing page
 │   ├── index.xml                # Blog RSS feed
 │   └── [post-name]/            # Individual blog posts
+├── podcast/                     # Generated podcast pages
+│   ├── index.html               # Podcast listing page
+│   ├── index.xml                # Podcast RSS feed
+│   └── [episode-slug]/         # Individual podcast episodes
 ├── presentations/               # Generated presentation pages
 │   ├── index.html               # Presentations listing page
 │   ├── index.xml                # Presentations RSS feed
@@ -151,7 +159,10 @@ themes/bymarcelolewin/
 │       ├── marcelolewin.jpg     # Profile photo
 │       ├── logo-bml.png         # Site logo
 │       ├── icon-contentful-certified-content-manager.png
-│       └── icon-contentful-certified-professional.png
+│       ├── icon-contentful-certified-professional.png
+│       └── podcast/             # Podcast images
+│           ├── podcast-cover.png  # Main podcast image
+│           └── episode-*.jpg    # Individual episode images
 ├── layouts/                     # Hugo template files
 │   ├── _default/
 │   │   └── baseof.html          # Base template with <head>, <body> structure
@@ -164,6 +175,9 @@ themes/bymarcelolewin/
 │   ├── blog/
 │   │   ├── list.html            # Blog listing page template
 │   │   └── single.html          # Individual blog post template
+│   ├── podcast/
+│   │   ├── list.html            # Podcast listing page template
+│   │   └── single.html          # Individual podcast episode template
 │   ├── presentations/
 │   │   ├── list.html            # Presentations listing page template
 │   │   └── single.html          # Individual presentation page template
@@ -237,6 +251,7 @@ Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets
 
 1. **Content Creation**: 
    - Blog/Presentations: Add new `.md` files to `/content/blog/` or `/content/presentations/`
+   - Podcasts: Add new `.md` files to `/content/podcast/`
    - Apps: Create page bundles in `/content/apps/app-name/` with `index.md` + images
 2. **Images**: Add thumbnails (`thumbnail.jpg`) and gallery images (`photogallery/image01.jpg`) to app bundles
 3. **Styling**: Modify SCSS files in `/assets/scss/` 
