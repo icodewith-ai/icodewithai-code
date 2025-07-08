@@ -30,6 +30,32 @@
   }
 }
 
+.env-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2xs $spacing-xs;
+  background-color: $primary-500;
+  color: $neutral-900;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-base;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-tight;
+  line-height: 1;
+  box-shadow: 
+    0 2px 4px rgba($primary-500, $opacity-medium),
+    inset 0 1px 0 rgba(255, 255, 255, $opacity-inset-light);
+  transition: $transition-fast;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      0 4px 8px rgba($primary-500, $opacity-strong),
+      inset 0 1px 0 rgba(255, 255, 255, $opacity-inset-light);
+  }
+}
+
 .logo {
   width: $logo-size;
   height: $logo-size;
@@ -137,6 +163,7 @@
     }
   }
 }
+
 
 // Hero Section
 // -----------------------------------------------------------------------------

@@ -6,6 +6,9 @@
         <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
         {{ end }}
     </a>
+    {{ if or (eq hugo.Environment "next") (eq hugo.Environment "local") }}
+    <span class="env-badge">{{ hugo.Environment }}</span>
+    {{ end }}
 </div>
 <nav class="nav">
     {{ range .Site.Menus.main }}
