@@ -6,7 +6,7 @@ on:
       - dev
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build-and-deploy:
@@ -37,10 +37,11 @@ jobs:
       - name: Build site
         run: hugo --environment next --minify
 
-      - name: Deploy to gh-pages-dev
+      - name: Deploy to Next
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages-dev
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: bymarcelolewin/bml-website-next
+          publish_branch: gh-pages
           publish_dir: ./public
           cname: next.bymarcelolewin.com
