@@ -4,4 +4,4 @@ This is the source code for my personal website built with Hugo, featuring a cus
 
 ## Documentation
 
-Comprehensive documentation is available in the `.vibedocs/` directory.
+Check out the comprehensive documentation available in the `.vibedocs/` directory.
