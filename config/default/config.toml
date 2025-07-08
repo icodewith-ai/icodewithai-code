@@ -1,4 +1,3 @@
-baseURL = 'https://bymarcelolewin.com'
 languageCode = 'en-us'
 title = 'By Marcelo Lewin'
 theme = 'bymarcelolewin'
@@ -43,13 +42,7 @@ enableGitInfo = true
   npm = "https://www.npmjs.com/~bymarcelolewin"
   youtube = "https://www.youtube.com/@bymarcelolewin"
   twitter = "https://x.com/bymarcelolewin"
-  
+
   # Site versioning
   version = "1.2.1"
   last_updated = "2025-07-08"
-
-[environments.next]
-  baseURL = 'https://next.bymarcelolewin.com'
-
-[environments.prod]
-  baseURL = "https://www.bymarcelolewin.com"
