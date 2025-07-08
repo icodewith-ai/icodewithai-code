@@ -78,14 +78,14 @@
 - [x] **Who**: Marcelo
 - [x] **Action**: Make a small change to any file in `dev` branch
 - [x] **Action**: Push to `dev` branch
-- [ ] **Who**: Claude
-- [ ] **Action**: Monitor GitHub Actions workflow for success
-- [ ] **Action**: Verify deployment created `gh-pages` branch in `bml-website-next`
-- [ ] **Action**: Check if `next.bymarcelolewin.com` serves the content (may take a few minutes)
+- [x] **Who**: Claude
+- [x] **Action**: Monitor GitHub Actions workflow for success
+- [x] **Action**: Verify deployment created `gh-pages` branch in `bml-website-next`
+- [x] **Action**: Check if `next.bymarcelolewin.com` serves the content (may take a few minutes)
 
 ### Task 5.2: Test Production Deployment
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Merge `dev` branch to `main` branch (or push directly to `main`)
+- [x] **Who**: Marcelo
+- [x] **Action**: Merge `dev` branch to `main` branch (or push directly to `main`)
 - [ ] **Who**: Claude
 - [ ] **Action**: Monitor GitHub Actions workflow for success
 - [ ] **Action**: Verify deployment created `gh-pages` branch in `bml-website-prod`
