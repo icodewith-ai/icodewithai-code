@@ -1,4 +1,4 @@
-name: Deploy Hugo Preview to next.bymarcelolewin.com
+name: Deploy to next.bymarcelolewin.com
 
 on:
   push:
@@ -33,9 +33,9 @@ jobs:
 
       - name: Build site
         env:
-          HUGO_ENVIRONMENT: preview
+          HUGO_ENVIRONMENT: next
           TZ: America/Los_Angeles
-        run: hugo --minify --baseURL "https://next.bymarcelolewin.com/"
+        run: hugo --environment next --minify
 
       - name: Deploy to gh-pages-dev
         uses: peaceiris/actions-gh-pages@v3

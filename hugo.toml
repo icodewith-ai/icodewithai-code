@@ -47,3 +47,9 @@ enableGitInfo = true
   # Site versioning
   version = "1.2.1"
   last_updated = "2025-07-08"
+
+[environments.next]
+  baseURL = 'https://next.bymarcelolewin.com'
+
+[environments.prod]
+  baseURL = "https://www.bymarcelolewin.com"

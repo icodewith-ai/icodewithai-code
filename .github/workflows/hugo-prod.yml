@@ -1,4 +1,4 @@
-name: Deploy Hugo site to www.bymarcelolewin.com
+name: Deploy to www.bymarcelolewin.com
 
 on:
   push:
@@ -33,9 +33,9 @@ jobs:
 
       - name: Build site
         env:
-          HUGO_ENVIRONMENT: production
+          HUGO_ENVIRONMENT: prod
           TZ: America/Los_Angeles
-        run: hugo --minify --baseURL "https://www.bymarcelolewin.com/"
+        run: hugo --environment prod --minify
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
