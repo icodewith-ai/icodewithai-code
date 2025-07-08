@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.147.9
+      HUGO_ENV: prod    
+      HUGO_ENVIRONMENT: prod 
+      TZ: America/Los_Angeles
 
     steps:
       - name: Checkout
@@ -32,9 +35,6 @@ jobs:
           sudo cp -r dart-sass/* /usr/local/bin/
 
       - name: Build site
-        env:
-          HUGO_ENVIRONMENT: prod
-          TZ: America/Los_Angeles
         run: hugo --environment prod --minify
 
       - name: Deploy to GitHub Pages
