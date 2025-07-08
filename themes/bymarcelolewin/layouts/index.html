@@ -63,7 +63,7 @@
         {{ if $posts }}
         <section class="section">
             <div class="container">
-                <h2>Latest Posts</h2>
+                <h2>Latest Blog Posts</h2>
                 <div class="blog-posts">
                     {{ range $posts }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
@@ -80,6 +80,46 @@
                 </div>
                 <div class="section-link-wrapper">
                     <a href="{{ "blog/" | relURL }}" class="section-link">View All Posts →</a>
+                </div>
+            </div>
+        </section>
+        {{ end }}
+        {{ end }}
+
+        <!-- Latest Podcast Episodes Section -->
+        {{ $podcast := .Site.GetPage "/podcast" }}
+        {{ if $podcast }}
+        {{ $publishedEpisodes := where $podcast.Pages "Params.status" "published" }}
+        {{ $latestEpisodes := first 3 $publishedEpisodes }}
+        {{ if $latestEpisodes }}
+        <section class="section">
+            <div class="container">
+                <h2>Latest Podcast Episodes</h2>
+                <div class="podcast-episodes">
+                    {{ range $latestEpisodes }}
+                        <a href="{{ .Permalink }}" class="blog-card-link">
+                            <article class="podcast-card">
+                                {{ if .Params.image }}
+                                    {{ $episodeImg := resources.Get .Params.image }}
+                                    {{ if $episodeImg }}
+                                    <div class="podcast-card-thumbnail">
+                                        {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
+                                        <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <h3>{{ .Title }}</h3>
+                                <div class="podcast-meta">
+                                    {{ .Date.Format "January 2, 2006" }}{{ if .Params.guest }} • {{ .Params.guest }}{{ end }}
+                                </div>
+                                <p>{{ .Params.description }}</p>
+                                <span class="card-link">Listen →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                <div class="section-link-wrapper">
+                    <a href="{{ "podcast/" | relURL }}" class="section-link">View All Episodes →</a>
                 </div>
             </div>
         </section>

@@ -239,6 +239,56 @@ Used for blog post previews.
 </article>
 ```
 
+### Podcast Card
+Used for podcast episode previews on main podcast page and home page.
+
+#### Structure
+```html
+<article class="podcast-card">
+    <div class="podcast-card-thumbnail">  <!-- 1:1 aspect ratio -->
+        <img src="episode-image.jpg" alt="Episode title">
+    </div>
+    <h3>Episode Title</h3>
+    <div class="podcast-meta">Date • Guest Name</div>  <!-- Green styling -->
+    <p>Episode description</p>
+    <span class="card-link">Listen →</span>
+</article>
+```
+
+#### Features
+- 1:1 aspect ratio image thumbnails
+- Green meta styling (`.podcast-meta`)
+- Conditional guest display
+- Status-based filtering (upcoming vs published)
+- Consistent hover effects
+
+---
+
+## Layout Components
+
+### Podcast Grid Layout
+Specialized grid system for displaying podcast episodes in 3-column layout.
+
+#### CSS Classes
+- `.podcast-episodes` - Fixed 3-column grid with consistent card widths
+- `.podcast-tagline` - Responsive tagline (single line on desktop, wraps on mobile)
+
+#### Structure
+```html
+<div class="podcast-episodes">
+    <!-- Podcast cards -->
+</div>
+```
+
+#### Responsive Behavior
+- **Desktop**: Fixed 3 columns (equal width), left-aligned cards
+- **Mobile**: Single column layout
+- **Card Behavior**: Cards maintain consistent width regardless of quantity (1, 2, or 3 cards)
+
+#### Usage
+- **Podcast main page**: All episode sections
+- **Home page**: Latest 3 episodes section
+
 ---
 
 ## Button Components

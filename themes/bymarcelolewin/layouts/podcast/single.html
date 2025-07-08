@@ -1,0 +1,29 @@
+{{ define "main" }}
+    <main>
+        <article class="blog-single">
+            <div class="container">
+                <h1>{{ .Title }}</h1>
+                <div class="post-meta">
+                    Published on {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.guest }} • Featuring {{ .Params.guest }}{{ end }}
+                </div>
+                
+                <!-- Spotify Embed Placeholder -->
+                <div class="podcast-embed-section">
+                    <div class="podcast-embed-placeholder">
+                        <p><strong>🎧 Spotify Placeholder Here</strong></p>
+                        <p>Episode URL: {{ .Params.episode_url }}</p>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    {{ .Content }}
+                </div>
+                
+                <div class="blog-back-section">
+                    <a href="{{ "podcast/" | relURL }}" class="blog-back-link">← Back to Podcast</a>
+                </div>
+            </div>
+        </article>
+    </main>
+{{ end }}
