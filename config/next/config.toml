@@ -1,1 +1,5 @@
 baseURL = "https://next.bymarcelolewin.com"
+
+[params]
+  noindex = true
+  staging_password = "vibe-coding-with-intent-rocks"

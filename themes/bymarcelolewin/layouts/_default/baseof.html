@@ -9,6 +9,11 @@
     <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else if .Summary }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <meta name="author" content="{{ .Site.Params.author }}">
     
+    <!-- Robots meta tag for staging/dev environments -->
+    {{ if .Site.Params.noindex }}
+    <meta name="robots" content="noindex, nofollow">
+    {{ end }}
+    
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
     <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
@@ -41,6 +46,21 @@
     <link rel="stylesheet" href="{{ $style.Permalink }}">
 </head>
 <body>
+    <!-- Staging Password Protection -->
+    {{ if .Site.Params.staging_password }}
+    <div id="password-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0a0a0a; z-index: 9999; justify-content: center; align-items: center;">
+        <div style="text-align: center; max-width: 400px; padding: 2rem;">
+            <h2 style="color: #10b981; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600;">Staging Access</h2>
+            <input type="password" id="staging-password" placeholder="Enter password" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #374151; border-radius: 0.375rem; background-color: #1f2937; color: #f3f4f6; font-size: 1rem;">
+            <button id="password-submit" style="width: 100%; padding: 0.75rem; background-color: #10b981; color: #ffffff; border: none; border-radius: 0.375rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease;">
+                Login
+            </button>
+            <div id="password-error" style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem; display: none;">
+                Incorrect password. Please try again.
+            </div>
+        </div>
+    </div>
+    {{ end }}
     <div class="header">
         {{ partial "header.html" . }}
     </div>
@@ -48,5 +68,72 @@
     {{ block "main" . }}{{ end }}
 
     {{ partial "footer.html" . }}
+    
+    <!-- Staging Password Protection Script -->
+    {{ if .Site.Params.staging_password }}
+    <script>
+        (function() {
+            const PASSWORD = '{{ .Site.Params.staging_password }}';
+            const STORAGE_KEY = 'staging_access_granted';
+            
+            function checkPassword() {
+                // Check if user already entered password this session
+                if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+                    return;
+                }
+                
+                // Show password overlay
+                const overlay = document.getElementById('password-overlay');
+                overlay.style.display = 'flex';
+                
+                // Focus on password input
+                const passwordInput = document.getElementById('staging-password');
+                passwordInput.focus();
+                
+                // Handle password submission
+                function submitPassword() {
+                    const enteredPassword = passwordInput.value;
+                    const errorDiv = document.getElementById('password-error');
+                    
+                    if (enteredPassword === PASSWORD) {
+                        sessionStorage.setItem(STORAGE_KEY, 'true');
+                        overlay.style.display = 'none';
+                        errorDiv.style.display = 'none';
+                    } else {
+                        errorDiv.style.display = 'block';
+                        passwordInput.value = '';
+                        passwordInput.focus();
+                    }
+                }
+                
+                // Button click handler
+                document.getElementById('password-submit').addEventListener('click', submitPassword);
+                
+                // Enter key handler
+                passwordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        submitPassword();
+                    }
+                });
+                
+                // Hover effect for button
+                const button = document.getElementById('password-submit');
+                button.addEventListener('mouseenter', function() {
+                    button.style.backgroundColor = '#059669';
+                });
+                button.addEventListener('mouseleave', function() {
+                    button.style.backgroundColor = '#10b981';
+                });
+            }
+            
+            // Run password check when page loads
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', checkPassword);
+            } else {
+                checkPassword();
+            }
+        })();
+    </script>
+    {{ end }}
 </body>
 </html>

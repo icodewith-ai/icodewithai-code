@@ -249,6 +249,8 @@ Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets
 
 ## Development Workflow
 
+### New Multi-Repository Architecture (v1.2.2+)
+
 1. **Content Creation**: 
    - Blog/Presentations: Add new `.md` files to `/content/blog/` or `/content/presentations/`
    - Podcasts: Add new `.md` files to `/content/podcast/`
@@ -257,8 +259,16 @@ Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets
 3. **Styling**: Modify SCSS files in `/assets/scss/` 
 4. **JavaScript**: Modify JS files in `/assets/js/` 
 5. **Templates**: Update Hugo templates in `/themes/bymarcelolewin/layouts/`
-6. **Build**: Run `hugo --minify` to generate `/public/`
-7. **Deploy**: Push to GitHub Pages (serves from `/public/`)
+6. **Development Testing**: Run `hugo server --environment local`
+7. **Staging Deployment**: Push to `dev` branch → GitHub Actions → `bml-website-next` repository → `next.bymarcelolewin.com`
+8. **Production Deployment**: Push to `main` branch → GitHub Actions → `bml-website-prod` repository → `www.bymarcelolewin.com`
+
+### Repository Architecture
+- **Source Repository**: Contains Hugo source code, content, and themes
+- **Deployment Repositories**: 
+  - `bml-website-prod`: Production deployment (www.bymarcelolewin.com)
+  - `bml-website-next`: Staging deployment (next.bymarcelolewin.com)
+- **GitHub Actions**: Automatically deploy to appropriate repository based on branch
 
 ## Design System Architecture
 

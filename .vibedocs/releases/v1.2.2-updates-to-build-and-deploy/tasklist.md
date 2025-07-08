@@ -9,9 +9,9 @@
 - [x] **Settings**: Public repository
 - [x] **Action**: Go to repository Settings → Pages
 - [x] **Action**: Set source to "Deploy from a branch"
-- [ ] **Action**: Select branch: `gh-pages` (will be created by first deployment)
-- [ ] **Action**: Add custom domain: `www.bymarcelolewin.com`
-- [ ] **Action**: Enable "Enforce HTTPS" (if available)
+- [x] **Action**: Select branch: `gh-pages` (will be created by first deployment)
+- [x] **Action**: Add custom domain: `www.bymarcelolewin.com`
+- [x] **Action**: Enable "Enforce HTTPS" (if available)
 
 ### Task 1.2: Create Staging Repository
 - [x] **Who**: Marcelo
@@ -86,92 +86,81 @@
 ### Task 5.2: Test Production Deployment
 - [x] **Who**: Marcelo
 - [x] **Action**: Merge `dev` branch to `main` branch (or push directly to `main`)
-- [ ] **Who**: Claude
-- [ ] **Action**: Monitor GitHub Actions workflow for success
-- [ ] **Action**: Verify deployment created `gh-pages` branch in `bml-website-prod`
-- [ ] **Action**: Check if `www.bymarcelolewin.com` serves the content (may take a few minutes)
+- [x] **Who**: Claude
+- [x] **Action**: Monitor GitHub Actions workflow for success
+- [x] **Action**: Verify deployment created `gh-pages` branch in `bml-website-prod`
+- [x] **Action**: Check if `www.bymarcelolewin.com` serves the content (may take a few minutes)
 
 ## Phase 6: Update DNS Configuration (Marcelo)
 **Estimated Time: 10 minutes**
 
 ### Task 6.1: Update Production DNS
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Log into Namecheap DNS management
-- [ ] **Action**: Locate CNAME record for `www.bymarcelolewin.com`
-- [ ] **Action**: Verify it points to `bymarcelolewin.github.io`
-- [ ] **Note**: This should already be correct, but verify the target repository is now `bml-website-prod`
+- [x] **Who**: Marcelo
+- [x] **Action**: Log into Namecheap DNS management
+- [x] **Action**: Locate CNAME record for `www.bymarcelolewin.com`
+- [x] **Action**: Verify it points to `bymarcelolewin.github.io`
+- [x] **Note**: This should already be correct, but verify the target repository is now `bml-website-prod`
 
 ### Task 6.2: Update Staging DNS
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Log into Namecheap DNS management
-- [ ] **Action**: Locate CNAME record for `next.bymarcelolewin.com`
-- [ ] **Action**: Verify it points to `bymarcelolewin.github.io`
-- [ ] **Note**: This should already be correct, but verify the target repository is now `bml-website-next`
+- [x] **Who**: Marcelo
+- [x] **Action**: Log into Namecheap DNS management
+- [x] **Action**: Locate CNAME record for `next.bymarcelolewin.com`
+- [x] **Action**: Verify it points to `bymarcelolewin.github.io`
+- [x] **Note**: This should already be correct, but verify the target repository is now `bml-website-next`
 
 ### Task 6.3: Wait for DNS Propagation
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Wait up to 48 hours for DNS changes to propagate globally
-- [ ] **Action**: Test domains from different networks/locations
-- [ ] **Tools**: Use `dig` or online DNS propagation checkers
+- [x] **Who**: Marcelo
+- [x] **Action**: Wait up to 48 hours for DNS changes to propagate globally
+- [x] **Action**: Test domains from different networks/locations
+- [x] **Tools**: Use `dig` or online DNS propagation checkers
 
 ## Phase 7: Clean Up Source Repository (Marcelo)
 **Estimated Time: 5 minutes**
 
 ### Task 7.1: Disable GitHub Pages
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository
-- [ ] **Action**: Go to Settings → Pages
-- [ ] **Action**: Set source to "None" (disable GitHub Pages)
+- [x] **Who**: Marcelo
+- [x] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository
+- [x] **Action**: Go to Settings → Pages
+- [x] **Action**: Unpublish site.
 
 ### Task 7.2: Delete Old Deployment Branches
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository
-- [ ] **Action**: Go to branches page
-- [ ] **Action**: Delete `gh-pages` branch
-- [ ] **Action**: Delete `gh-pages-dev` branch
+- [x] **Who**: Marcelo
+- [x] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository
+- [x] **Action**: Go to branches page
+- [x] **Action**: Delete `gh-pages` branch
+- [x] **Action**: Delete `gh-pages-dev` branch
 
 ## Phase 8: Final Testing and Validation (Marcelo + Claude)
 **Estimated Time: 10 minutes**
 
 ### Task 8.1: Comprehensive Testing
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Test `www.bymarcelolewin.com` loads correctly
-- [ ] **Action**: Test `next.bymarcelolewin.com` loads correctly
-- [ ] **Action**: Test navigation, links, and assets work on both domains
-- [ ] **Action**: Test responsive design on both domains
+- [x] **Who**: Marcelo
+- [x] **Action**: Test `www.bymarcelolewin.com` loads correctly
+- [x] **Action**: Test `next.bymarcelolewin.com` loads correctly
+- [x] **Action**: Test navigation, links, and assets work on both domains
+- [x] **Action**: Test responsive design on both domains
 
 ### Task 8.2: Test Development Workflow
-- [ ] **Who**: Marcelo
-- [ ] **Action**: Make a change in `dev` branch
-- [ ] **Action**: Push to `dev` branch
-- [ ] **Action**: Verify change appears on `next.bymarcelolewin.com`
-- [ ] **Action**: Merge `dev` to `main`
-- [ ] **Action**: Verify change appears on `www.bymarcelolewin.com`
+- [x] **Who**: Marcelo
+- [x] **Action**: Make a change in `dev` branch
+- [x] **Action**: Push to `dev` branch
+- [x] **Action**: Verify change appears on `next.bymarcelolewin.com`
+- [x] **Action**: Merge `dev` to `main`
+- [x] **Action**: Verify change appears on `www.bymarcelolewin.com`
 
 ### Task 8.3: Document New Workflow
-- [ ] **Who**: Claude
-- [ ] **Action**: Update `.vibedocs/reference-library/` documentation
-- [ ] **Action**: Update any build/deploy instructions
-- [ ] **Action**: Create retrospective document
+- [x] **Who**: Claude
+- [x] **Action**: Update `.vibedocs/reference-library/` documentation
+- [x] **Action**: Update any build/deploy instructions
+- [x] **Action**: Create retrospective document
 
 ## Summary
 **Total Estimated Time: 1-2 hours (plus DNS propagation time)**
 
 ### Critical Success Factors:
-- [ ] Both repositories created and configured correctly
-- [ ] Personal access token has correct permissions
-- [ ] Repository secret added to source repository
-- [ ] Both workflows updated and tested
-- [ ] DNS records pointing to correct GitHub Pages sites
-- [ ] All domains loading correctly
-
-### Rollback Plan (if needed):
-- [ ] Re-enable GitHub Pages in source repository
-- [ ] Revert workflow changes
-- [ ] Update DNS back to original settings
-- [ ] Delete new deployment repositories
-
-### Post-Implementation:
-- [ ] Monitor for any issues over next 24-48 hours
-- [ ] Test development workflow with team
-- [ ] Update documentation and onboarding materials
+- [x] Both repositories created and configured correctly
+- [x] Personal access token has correct permissions
+- [x] Repository secret added to source repository
+- [x] Both workflows updated and tested
+- [x] DNS records pointing to correct GitHub Pages sites
+- [x] All domains loading correctly

@@ -2,6 +2,13 @@
 
 ## Creating New Content
 
+### Multi-Repository Deployment (v1.2.2+)
+
+The website now uses a multi-repository architecture:
+- **Source Repository**: Contains Hugo source code, content, and themes
+- **Staging**: `dev` branch → `bml-website-next` repository → `next.bymarcelolewin.com`
+- **Production**: `main` branch → `bml-website-prod` repository → `www.bymarcelolewin.com`
+
 Create new blog posts, app pages, or presentations:
 ```bash
 # Blog posts
@@ -193,3 +200,21 @@ Images are referenced using Hugo's `resources.Get` function:
 - **Static Images**: Favicons and PWA icons remain in `static/images/`
 - **Theme Images**: Logos, profiles, icons processed through Hugo Pipes
 - **Content Images**: App thumbnails and galleries remain as page bundle resources
+
+## SEO and Search Engine Control
+
+### Environment-Specific Search Engine Indexing (v1.2.2+)
+
+The website implements environment-specific search engine control:
+
+- **Production** (`www.bymarcelolewin.com`): Fully indexed by search engines
+- **Staging** (`next.bymarcelolewin.com`): Blocked from search engines using `noindex, nofollow` meta tags
+
+This is configured via the `noindex` parameter in `config/next/config.toml` and automatically adds:
+```html
+<meta name="robots" content="noindex, nofollow">
+```
+
+### Testing SEO Configuration
+- **Production**: View page source → should NOT contain "noindex"
+- **Staging**: View page source → should contain `<meta name="robots" content="noindex, nofollow">`
