@@ -18,6 +18,10 @@ enableGitInfo = true
     url = "/blog/"
     weight = 30
   [[menu.main]]
+    name = "Podcast"
+    url = "/podcast/"
+    weight = 32
+  [[menu.main]]
     name = "Presentations"
     url = "/presentations/"
     weight = 35

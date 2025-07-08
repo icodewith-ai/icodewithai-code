@@ -1,0 +1,111 @@
+{{ define "main" }}
+    <main>
+        <!-- Podcast Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Vibe Coding <span class="highlight">Podcast</span></h1>
+                <p class="podcast-tagline">Conversations with humans building digital products with AI</p>
+            </div>
+        </section>
+
+        <!-- Podcast Overview Section -->
+        <section class="section">
+            <div class="container">
+                <div class="bio-page-grid">
+                    <div class="bio-text">
+                        <p>Join me as I have conversations with humans building digital products with AI. From vibe coders and citizen developers to professional engineers and tool creators, we explore the tools, workflows, and real-world stories behind AI-assisted creation. Whether you're spinning up MVPs, experimenting with new ideas, or helping others build faster with AI, this podcast dives into all things vibe coding—how it's done, why it matters, and where it's headed. If you're curious about the future of creativity, code, and collaboration, this show is for you.</p>
+                    </div>
+                    <div class="bio-photo">
+                        {{ $podcastImg := resources.Get "images/podcast/podcast-cover.png" }}
+                        {{ if $podcastImg }}
+                        {{ $podcastImgFingerprint := $podcastImg | resources.Fingerprint }}
+                        <img src="{{ $podcastImgFingerprint.RelPermalink }}" alt="Podcast Cover" class="bio-image" loading="lazy">
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Episodes Sections -->
+        {{ $pages := .Pages }}
+        {{ $upcomingEpisodes := where $pages "Params.status" "upcoming" }}
+        {{ $publishedEpisodes := where $pages "Params.status" "published" }}
+        {{ $hasContent := or (gt (len $upcomingEpisodes) 0) (gt (len $publishedEpisodes) 0) }}
+
+        {{ if $hasContent }}
+            <!-- Upcoming Episodes Section -->
+            {{ if gt (len $upcomingEpisodes) 0 }}
+                <section class="section">
+                    <div class="container">
+                        <h2>Upcoming Episodes</h2>
+                        <div class="podcast-episodes">
+                            {{ range first 3 (sort $upcomingEpisodes "Date" "asc") }}
+                                <a href="{{ .Permalink }}" class="blog-card-link">
+                                    <article class="podcast-card">
+                                        {{ if .Params.image }}
+                                            {{ $episodeImg := resources.Get .Params.image }}
+                                            {{ if $episodeImg }}
+                                            <div class="podcast-card-thumbnail">
+                                                {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
+                                                <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                            </div>
+                                            {{ end }}
+                                        {{ end }}
+                                        <h3>{{ .Title }}</h3>
+                                        <div class="podcast-meta">
+                                            {{ .Date.Format "January 2, 2006" }}{{ if .Params.guest }} • {{ .Params.guest }}{{ end }}
+                                        </div>
+                                        <p>{{ .Params.description }}</p>
+                                        <span class="card-link">Learn More →</span>
+                                    </article>
+                                </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                </section>
+            {{ end }}
+
+            <!-- All Episodes Section -->
+            {{ if gt (len $publishedEpisodes) 0 }}
+                <section class="section">
+                    <div class="container">
+                        <h2>All Episodes</h2>
+                        <div class="podcast-episodes">
+                            {{ range $publishedEpisodes }}
+                                <a href="{{ .Permalink }}" class="blog-card-link">
+                                    <article class="podcast-card">
+                                        {{ if .Params.image }}
+                                            {{ $episodeImg := resources.Get .Params.image }}
+                                            {{ if $episodeImg }}
+                                            <div class="podcast-card-thumbnail">
+                                                {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
+                                                <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                            </div>
+                                            {{ end }}
+                                        {{ end }}
+                                        <h3>{{ .Title }}</h3>
+                                        <div class="podcast-meta">
+                                            {{ .Date.Format "January 2, 2006" }}{{ if .Params.guest }} • {{ .Params.guest }}{{ end }}
+                                        </div>
+                                        <p>{{ .Params.description }}</p>
+                                        <span class="card-link">Listen →</span>
+                                    </article>
+                                </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                </section>
+            {{ end }}
+        {{ else }}
+            <!-- No Episodes Yet -->
+            <section class="section">
+                <div class="container">
+                    <div class="blog-post-card">
+                        <h3>Episodes Coming Soon</h3>
+                        <p>I'm working on exciting new episodes. Check back soon for engaging conversations about AI and product development!</p>
+                    </div>
+                </div>
+            </section>
+        {{ end }}
+    </main>
+{{ end }}

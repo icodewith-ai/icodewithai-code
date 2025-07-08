@@ -18,12 +18,18 @@ hugo new content apps/weather-widget/index.md
 hugo new content presentations/my-presentation-topic.md
 hugo new content presentations/ai-ethics-workshop.md
 hugo new content presentations/contentful-masterclass.md
+
+# Podcast episodes
+hugo new content podcast/episode-name.md
+hugo new content podcast/ai-product-development.md
+hugo new content podcast/no-code-future.md
 ```
 
 ## Content Structure
 
 - `content/blog/` - Blog posts
 - `content/apps/` - App showcase pages (page bundles with images)
+- `content/podcast/` - Podcast episodes
 - `content/presentations/` - Presentation pages
 
 ### App Page Bundles
@@ -99,6 +105,36 @@ presenters = "Marcelo Lewin"
 status = "upcoming"
 external_url = "https://example.com/presentation-link"
 +++
+
+### Podcast Episodes
+Podcast episodes use standard markdown files with comprehensive frontmatter:
+
+```yaml
++++
+title = "Episode Title"
+slug = "episode-slug"
+date = "YYYY-MM-DD"
+draft = false
+status = "published"  # or "upcoming"
+description = "Episode description for SEO and listings"
+image = "images/podcast/episode-slug.jpg"
+episode_url = "https://open.spotify.com/episode/spotify-episode-id"
+host = "Marcelo Lewin"
+guest = "Guest Name, Guest Title"
++++
+
+Episode content in markdown format...
+```
+
+#### Episode Status
+- **"published"**: Episode is live and appears in Latest/All Episodes sections
+- **"upcoming"**: Episode appears in Upcoming Episodes section
+
+#### Episode Images
+- **Location**: `themes/bymarcelolewin/assets/images/podcast/`
+- **Naming**: Use episode slug (e.g., `episode-001.jpg`)
+- **Dimensions**: 1:1 aspect ratio (square) recommended
+- **Formats**: JPG or PNG
 ```
 
 ### SEO Priority Order
@@ -135,6 +171,8 @@ Theme images (logos, profile photos, certificates) are processed through Hugo Pi
 - `logo-bml.png` - Site logo (header and footer)
 - `icon-contentful-certified-content-manager.png` - Certificate badge
 - `icon-contentful-certified-professional.png` - Certificate badge
+- `podcast/podcast-cover.png` - Main podcast cover image
+- `podcast/episode-*.jpg` - Individual episode cover images (1:1 aspect ratio)
 
 #### Template Usage
 Images are referenced using Hugo's `resources.Get` function:
