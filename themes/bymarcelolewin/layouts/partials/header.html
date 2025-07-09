@@ -10,6 +10,15 @@
     <span class="env-badge">{{ hugo.Environment }}</span>
     {{ end }}
 </div>
+
+<!-- Mobile Menu Toggle Button -->
+<button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
+<!-- Desktop Navigation -->
 <nav class="nav">
     {{ range .Site.Menus.main }}
         {{ if eq .Name "Discord" }}
@@ -19,3 +28,28 @@
         {{ end }}
     {{ end }}
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+        <!-- Header with logo -->
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">
+                {{ if $logo }}
+                <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+                {{ end }}
+            </div>
+        </div>
+        
+        <!-- Navigation items (same source as desktop) -->
+        <nav class="mobile-nav">
+            {{ range .Site.Menus.main }}
+                {{ if eq .Name "Discord" }}
+                    <a href="{{ .URL }}" class="btn-primary" target="_blank">{{ .Name }}</a>
+                {{ else }}
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+            {{ end }}
+        </nav>
+    </div>
+</div>

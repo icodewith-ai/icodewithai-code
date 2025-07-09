@@ -164,6 +164,176 @@
   }
 }
 
+// Mobile Menu
+// -----------------------------------------------------------------------------
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: $z-index-mobile-menu + 1;
+  
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: $neutral-100;
+    transition: $transition-fast;
+    transform-origin: center;
+  }
+  
+  &.active {
+    .hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+  }
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $neutral-800;
+  z-index: $z-index-mobile-menu;
+  display: none;
+  opacity: 0;
+  transition: $transition-fast;
+  
+  &.active {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: $neutral-800;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0;
+  padding: $spacing-md 0;
+  width: 100%;
+  
+  .mobile-menu-logo {
+    display: flex;
+    align-items: center;
+    height: $logo-size;
+    margin: 0;
+    padding: 0 $spacing-lg;
+  }
+  
+  .mobile-menu-close {
+    background: none;
+    border: none;
+    color: $neutral-100;
+    font-size: $font-size-3xl;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: $transition-fast;
+    
+    &:hover {
+      color: $primary-500;
+    }
+    
+    .close-icon {
+      display: block;
+      width: 32px;
+      height: 32px;
+      text-align: center;
+      line-height: 32px;
+    }
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+  padding: 0;
+  background-color: $neutral-800;
+  width: 100%;
+  
+  a {
+    font-size: $font-size-xl;
+    color: $neutral-100;
+    text-decoration: none;
+    padding: $spacing-xs;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.05em;
+    transition: $transition-fast;
+    width: 100%;
+    text-align: center;
+    
+    &:hover {
+      color: $primary-500;
+    }
+    
+    &.btn-primary {
+      background-color: $primary-500;
+      color: $neutral-900;
+      padding: $spacing-sm $spacing-lg;
+      border-radius: $border-radius-base;
+      font-weight: $font-weight-medium;
+      margin-top: $spacing-sm;
+      width: auto;
+      
+      &:hover {
+        background-color: $primary-400;
+        color: $neutral-900;
+      }
+    }
+  }
+}
+
+// Mobile-specific adjustments
+@include mobile-only {
+  .mobile-menu-header {
+    padding: 0;
+    margin: 0;
+    
+    .mobile-menu-logo {
+      padding-left: $spacing-sm;
+    }
+  }
+  
+  .mobile-nav {
+    margin-top: $spacing-md;
+    padding: 0;
+    
+    a {
+      padding: $spacing-xs;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
 
 // Hero Section
 // -----------------------------------------------------------------------------

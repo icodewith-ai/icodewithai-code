@@ -2,16 +2,64 @@
 // RESPONSIVE
 // =============================================================================
 
-// Mobile Specific Styles
+// Mobile Menu Activation (Tablet and Below)
+// -----------------------------------------------------------------------------
+@include tablet-down {
+  .header {
+    justify-content: space-between;
+    padding: $spacing-sm $spacing-lg;
+  }
+  
+  // Hide desktop navigation
+  .nav {
+    display: none;
+  }
+  
+  // Show mobile menu toggle
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+// Desktop and Up
+// -----------------------------------------------------------------------------
+@include desktop-up {
+  // Hide mobile menu elements
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
+
+// Mobile Specific Adjustments
 // -----------------------------------------------------------------------------
 @include mobile-only {
   .header {
-    flex-direction: column;
-    gap: $spacing-sm;
     padding: $spacing-sm;
   }
   
-  .nav {
-    gap: $spacing-sm;
+  .mobile-menu-content {
+    padding: $spacing-sm;
+  }
+  
+  .mobile-menu-header {
+    margin-bottom: $spacing-md;
+    
+    .mobile-menu-logo img {
+      height: $logo-size;
+    }
+  }
+  
+  .mobile-nav {
+    gap: $spacing-xs;
+    margin-top: $spacing-sm;
+    
+    a {
+      font-size: $font-size-lg;
+      padding: $spacing-2xs 0;
+    }
   }
 }

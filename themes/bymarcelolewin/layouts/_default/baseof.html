@@ -135,5 +135,11 @@
         })();
     </script>
     {{ end }}
+    
+    <!-- Mobile Menu Script -->
+    {{ $mobileMenuJS := resources.Get "js/mobile-menu.js" | resources.Minify | resources.Fingerprint }}
+    {{ if $mobileMenuJS }}
+    <script src="{{ $mobileMenuJS.RelPermalink }}"></script>
+    {{ end }}
 </body>
 </html>
