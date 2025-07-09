@@ -33,33 +33,3 @@
     display: none !important;
   }
 }
-
-// Mobile Specific Adjustments
-// -----------------------------------------------------------------------------
-@include mobile-only {
-  .header {
-    padding: $spacing-sm;
-  }
-  
-  .mobile-menu-content {
-    padding: $spacing-sm;
-  }
-  
-  .mobile-menu-header {
-    margin-bottom: $spacing-md;
-    
-    .mobile-menu-logo img {
-      height: $logo-size;
-    }
-  }
-  
-  .mobile-nav {
-    gap: $spacing-xs;
-    margin-top: $spacing-sm;
-    
-    a {
-      font-size: $font-size-lg;
-      padding: $spacing-2xs 0;
-    }
-  }
-}

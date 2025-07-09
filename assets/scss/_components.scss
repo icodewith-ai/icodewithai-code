@@ -232,18 +232,26 @@
 
 .mobile-menu-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   margin: 0;
-  padding: $spacing-md 0;
+  padding: $spacing-md $spacing-lg;
   width: 100%;
+  border-bottom: 1px solid $neutral-700;
   
   .mobile-menu-logo {
     display: flex;
     align-items: center;
-    height: $logo-size;
+    gap: $spacing-sm;
     margin: 0;
-    padding: 0 $spacing-lg;
+    padding: 0;
+    
+    a {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      text-decoration: none;
+    }
   }
   
   .mobile-menu-close {
@@ -274,7 +282,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-md;
+  gap: $spacing-2xs;
   margin-top: $spacing-sm;
   padding: 0;
   background-color: $neutral-800;
@@ -312,15 +320,10 @@
   }
 }
 
-// Mobile-specific adjustments
-@include mobile-only {
+// Tablet-specific adjustments
+@include tablet-down {
   .mobile-menu-header {
-    padding: 0;
-    margin: 0;
-    
-    .mobile-menu-logo {
-      padding-left: $spacing-sm;
-    }
+    padding: $spacing-sm $spacing-lg;
   }
   
   .mobile-nav {
@@ -635,9 +638,6 @@
   gap: $spacing-xs;
   padding: 0;
   
-  @include mobile-only {
-    grid-template-columns: repeat(2, 1fr);
-  }
   
   li {
     color: $neutral-400;
@@ -852,12 +852,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   
-  // Allow wrapping on mobile
-  @include mobile-only {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: initial;
-  }
 }
 
 // Podcast episode meta (green styling)
@@ -1083,13 +1077,6 @@
     align-items: flex-start;
     padding: $spacing-xl 0; // Remove horizontal padding, container handles it
     
-    @media (max-width: $breakpoint-mobile) {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: $spacing-lg;
-      padding: $spacing-lg 0;
-    }
   }
   
   .footer-logo {
@@ -1134,30 +1121,12 @@
       line-height: 0;
     }
     
-    @media (max-width: $breakpoint-mobile) {
-      .footer-logo-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: $spacing-sm;
-      }
-      
-      
-      .footer-tagline {
-        white-space: normal; // Allow wrapping on mobile
-      }
-    }
   }
   
   .footer-columns {
     display: flex;
     gap: clamp($spacing-xl, 6rem, 100px); // Responsive spacing: 3rem min, 6rem preferred, 100px max
     
-    @media (max-width: $breakpoint-mobile) {
-      flex-direction: column;
-      gap: $spacing-lg;
-      text-align: center;
-    }
   }
   
   .footer-column {
@@ -1306,22 +1275,6 @@
 }
 
 
-// Mobile responsiveness for photo gallery
-@include mobile-only {
-  .photo-gallery-nav-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: $font-size-xl;
-  }
-  
-  .photo-gallery-nav-prev {
-    left: $spacing-xs;
-  }
-  
-  .photo-gallery-nav-next {
-    right: $spacing-xs;
-  }
-}
 
 // Blog Components
 // -----------------------------------------------------------------------------

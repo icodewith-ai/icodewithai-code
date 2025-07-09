@@ -94,14 +94,6 @@
 
 // Responsive Utilities
 // -----------------------------------------------------------------------------
-@include mobile-only {
-  .mobile\:hidden { display: none; }
-  .mobile\:block { display: block; }
-  .mobile\:flex { display: flex; }
-  .mobile\:flex-col { flex-direction: column; }
-  .mobile\:text-center { text-align: center; }
-  .mobile\:gap-sm { gap: $spacing-sm; }
-}
 
 @include desktop-up {
   .desktop\:hidden { display: none; }

@@ -35,8 +35,13 @@
         <!-- Header with logo -->
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
-                {{ if $logo }}
-                <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+                <a href="/">
+                    {{ if $logo }}
+                    <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+                    {{ end }}
+                </a>
+                {{ if or (eq hugo.Environment "next") (eq hugo.Environment "local") }}
+                <span class="env-badge">{{ hugo.Environment }}</span>
                 {{ end }}
             </div>
         </div>

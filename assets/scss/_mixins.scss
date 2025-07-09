@@ -153,11 +153,6 @@
 
 // Responsive Mixins
 // -----------------------------------------------------------------------------
-@mixin mobile-only {
-  @media (max-width: $breakpoint-mobile) {
-    @content;
-  }
-}
 
 @mixin tablet-down {
   @media (max-width: $breakpoint-tablet) {
