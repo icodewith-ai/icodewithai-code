@@ -295,6 +295,11 @@
     display: block;
     width: 100%;
     
+    // Add hover support for mobile version (useful for desktop-mobile view)
+    &:hover .nav-dropdown-menu {
+      max-height: 300px;
+    }
+    
     .nav-dropdown-toggle {
       width: 100%;
       justify-content: center;
