@@ -1077,6 +1077,12 @@
     align-items: flex-start;
     padding: $spacing-xl 0; // Remove horizontal padding, container handles it
     
+    @include tablet-down {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: $spacing-xl;
+    }
   }
   
   .footer-logo {
@@ -1125,9 +1131,43 @@
   
   .footer-columns {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp($spacing-lg, 4rem, 60px); // Responsive spacing for 4 columns
+    gap: clamp($spacing-lg, 4rem, 60px); // Responsive spacing
     justify-content: center;
+  }
+  
+  .footer-desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .footer-mobile {
+    display: none; // Hidden on desktop
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    text-align: center;
+    width: 100%;
+    
+    @include tablet-down {
+      display: grid; // Show on tablet/mobile
+    }
+    
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+  }
+  
+  @include tablet-down {
+    .footer-desktop {
+      display: none; // Hide desktop layout on tablet/mobile
+    }
   }
   
   .footer-column {
