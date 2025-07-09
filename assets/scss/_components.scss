@@ -153,13 +153,210 @@
   gap: $spacing-lg;
   align-items: center;
   
-  a:not(.btn-primary):not(.btn-secondary) {
+  a {
     @include link-base;
     @include link-underline;
     @include smooth-transition;
     
     &:hover {
       @include link-hover;
+    }
+  }
+}
+
+// Navigation Dropdown
+// -----------------------------------------------------------------------------
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+  
+  // Desktop hover behavior (only on desktop)
+  @media (min-width: #{$breakpoint-tablet + 1px}) {
+    &:hover .nav-dropdown-menu {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+    
+    &:hover .nav-dropdown-arrow {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.nav-dropdown-toggle {
+  @include link-base;
+  @include link-underline;
+  @include smooth-transition;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0;
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  
+  &:hover {
+    @include link-hover;
+  }
+  
+  &[aria-expanded="true"] {
+    @include link-hover;
+  }
+}
+
+.nav-dropdown-arrow {
+  font-size: $font-size-sm;
+  transition: $transition-fast;
+  color: $neutral-400;
+  
+  .nav-dropdown-toggle[aria-expanded="true"] & {
+    transform: rotate(180deg);
+  }
+  
+  .nav-dropdown:hover & {
+    transform: rotate(180deg);
+  }
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + #{$spacing-xs});
+  left: 0;
+  background: lighten($neutral-900, 5%);
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-base;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+  list-style: none;
+  margin: 0;
+  padding: $spacing-xs 0;
+  min-width: 180px;
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  transition: all $transition-fast;
+  z-index: $z-index-dropdown;
+  
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  // Keep dropdown open when hovering over it
+  &:hover {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+.nav-dropdown-item {
+  margin: 0;
+  
+  a {
+    @include link-base;
+    @include link-underline;
+    @include smooth-transition;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-xs $spacing-sm;
+    color: $neutral-400;
+    text-decoration: none;
+    border-radius: $border-radius-sm;
+    margin: 0 $spacing-xs;
+    
+    &:hover {
+      @include link-hover;
+    }
+  }
+}
+
+.external-link-icon {
+  color: $primary-500;
+  font-size: $font-size-xs;
+  margin-left: $spacing-xs;
+  flex-shrink: 0;
+}
+
+// Mobile Navigation Dropdown Styles
+// -----------------------------------------------------------------------------
+@include tablet-down {
+  .mobile-nav .nav-dropdown {
+    position: static;
+    display: block;
+    width: 100%;
+    
+    .nav-dropdown-toggle {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      font-size: $font-size-xl;
+      color: $neutral-100;
+      padding: $spacing-xs;
+      font-weight: $font-weight-medium;
+      letter-spacing: 0.05em;
+      
+      &:hover {
+        color: $primary-500;
+      }
+    }
+    
+    .nav-dropdown-arrow {
+      color: $neutral-400;
+      font-size: $font-size-base;
+    }
+    
+    .nav-dropdown-menu {
+      position: static;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      padding: 0;
+      margin: 0;
+      min-width: auto;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      
+      &.show {
+        max-height: 300px;
+      }
+      
+      .nav-dropdown-item {
+        margin: 0;
+        display: block;
+        
+        a {
+          font-size: $font-size-lg;
+          color: $neutral-400;
+          text-decoration: none;
+          padding: $spacing-xs $spacing-lg;
+          font-weight: $font-weight-normal;
+          letter-spacing: 0.05em;
+          margin: 0;
+          border-radius: 0;
+          width: 100%;
+          text-align: center;
+          display: block;
+          
+          &:hover {
+            color: $primary-500;
+          }
+        }
+      }
     }
   }
 }
@@ -289,34 +486,22 @@
   width: 100%;
   
   a {
+    @include link-base;
+    @include link-underline;
+    @include smooth-transition;
     font-size: $font-size-xl;
     color: $neutral-100;
     text-decoration: none;
     padding: $spacing-xs;
     font-weight: $font-weight-medium;
     letter-spacing: 0.05em;
-    transition: $transition-fast;
     width: 100%;
     text-align: center;
     
     &:hover {
-      color: $primary-500;
+      @include link-hover;
     }
     
-    &.btn-primary {
-      background-color: $primary-500;
-      color: $neutral-900;
-      padding: $spacing-sm $spacing-lg;
-      border-radius: $border-radius-base;
-      font-weight: $font-weight-medium;
-      margin-top: $spacing-sm;
-      width: auto;
-      
-      &:hover {
-        background-color: $primary-400;
-        color: $neutral-900;
-      }
-    }
   }
 }
 

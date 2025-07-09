@@ -1,64 +1,30 @@
-languageCode = 'en-us'
-title = 'By Marcelo Lewin'
+title = 'By Marcelo Lewin | I build digital products with AI'
 theme = 'bymarcelolewin'
-enableGitInfo = true
-
-[menu]
-  [[menu.main]]
-    name = "Bio"
-    url = "/bio/"
-    weight = 10
-  [[menu.main]]
-    name = "Apps"
-    url = "/apps/"
-    weight = 20
-  [[menu.main]]
-    name = "Blog"
-    url = "/blog/"
-    weight = 30
-  [[menu.main]]
-    name = "Podcast"
-    url = "/podcast/"
-    weight = 32
-  [[menu.main]]
-    name = "Presentations"
-    url = "/presentations/"
-    weight = 35
-  [[menu.main]]
-    name = "Contact"
-    url = "/bio/"
-    weight = 40
+languageCode = 'en-us'
 
 [params]
 
-  # About the site
+  # About the Site
+  version = "1.2.5"
+  last_updated = "2025-07-09"
   author = "Marcelo Lewin"
-  email = "marcelo@bymarcelolewin.com"
-  description = "I build digital products with AI"
+  description = "I build digital products with AI"  
 
-  # Navigation Pages
+  # Page Slugs
   bio = "/bio/"
   apps = "/apps/"
-  contact = "mailto:marcelo@bymarcelolewin.com"
-  
+  contact = "mailto:marcelo@bymarcelolewin.com"  
   podcast = "/podcast/"
   blog = "/blog/"
   presentations = "/presentations/"
 
+  # Community Links
+  discord = "https://discord.gg/Mz7vdRmpJH"
+  meetup = "https://www.meetup.com/coding-with-ai/"
   
   # Social Media Links
   linkedin = "https://linkedin.com/in/bymarcelolewin"
   youtube = "https://www.youtube.com/@bymarcelolewin"
   twitter = "https://x.com/bymarcelolewin"
-
-  # Development Links
   github = "https://github.com/bymarcelolewin"
   npm = "https://www.npmjs.com/~bymarcelolewin"
-
-  # Community Links
-  discord = "https://discord.gg/Mz7vdRmpJH"
-  meetup = "https://www.meetup.com/coding-with-ai/"
-
-  # Site versioning
-  version = "1.2.5"
-  last_updated = "2025-07-09"

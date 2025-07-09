@@ -141,5 +141,11 @@
     {{ if $mobileMenuJS }}
     <script src="{{ $mobileMenuJS.RelPermalink }}"></script>
     {{ end }}
+    
+    <!-- Navigation Dropdown Script -->
+    {{ $navDropdownJS := resources.Get "js/nav-dropdown.js" | resources.Minify | resources.Fingerprint }}
+    {{ if $navDropdownJS }}
+    <script src="{{ $navDropdownJS.RelPermalink }}"></script>
+    {{ end }}
 </body>
 </html>
