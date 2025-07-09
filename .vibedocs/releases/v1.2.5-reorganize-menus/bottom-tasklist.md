@@ -1,32 +1,31 @@
 # Footer Reorganization Task List - v1.2.5
 
-## Phase 1: Desktop Footer Reorganization (5 Columns)
-**Goal**: Implement 5-column desktop footer layout and test thoroughly
-**Success Criteria**: 5 columns display correctly on desktop (>1050px), all links work
+## Phase 1: Desktop Footer Reorganization (4 Columns)
+**Goal**: Implement 4-column desktop footer layout and test thoroughly
+**Success Criteria**: 4 columns display correctly on desktop (>1050px), all links work
 
 ### Task 1.1: Add Meetup URL to Hugo Config
 - **Assignee**: Claude
 - **File**: `config/_default/config.toml`
 - **Action**: Add `meetup = "https://www.meetup.com/coding-with-ai/"` to the `[params]` section
-- **Status**: Pending
+- **Status**: ✅ Completed
 
 ### Task 1.2: Update Footer HTML Structure
 - **Assignee**: Claude
 - **File**: `themes/bymarcelolewin/layouts/partials/footer.html`
-- **Action**: Replace current 2-column structure with 5-column structure
+- **Action**: Replace current 2-column structure with 4-column structure
 - **Details**: 
-  - About: Bio, Contact
-  - Apps: All Apps, Content Modeling CLI, Galactic Invaders
+  - About: Bio, Apps, Contact
   - Content: Blog, Presentations
-  - Coding with AI: Community Discord, Meetup, Podcast
+  - Coding with AI: Discord, Meetup, Podcast
   - Follow Me: GitHub, NPM, LinkedIn, YouTube, X
 - **Use Hugo variables**: `{{ .Site.Params.meetup }}`, `{{ .Site.Params.github }}`, etc.
-- **Status**: Pending
+- **Status**: ✅ Completed
 
-### Task 1.3: Update Footer CSS for 5-Column Grid
+### Task 1.3: Update Footer CSS for 4-Column Grid
 - **Assignee**: Claude
 - **File**: `assets/scss/_components.scss`
-- **Action**: Update `.footer-columns` to use CSS Grid with 5 columns
+- **Action**: Update `.footer-columns` to use CSS Grid with 4 columns
 - **Requirements**:
   - Use existing SCSS variables from `_variables.scss`
   - Follow existing patterns in `_components.scss`
@@ -36,36 +35,40 @@
   ```scss
   .footer-columns {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: clamp($spacing-lg, 4rem, 60px);
     justify-content: center;
   }
   ```
-- **Status**: Pending
+- **Status**: ✅ Completed
 
 ### Task 1.4: Test Desktop Footer Layout
 - **Assignee**: Marcelo
 - **Action**: Test desktop footer functionality
 - **Test Checklist**:
-  - [ ] Hugo dev server runs without errors: `hugo server -D`
-  - [ ] 5 columns display correctly on desktop
-  - [ ] All links work and point to correct destinations
-  - [ ] Visual consistency with existing design
-  - [ ] Proper spacing and alignment
-  - [ ] External links open in new tabs
-  - [ ] Meetup link works correctly
-- **Status**: Pending
+  - [x] Hugo dev server runs without errors: `hugo server -D`
+  - [x] 4 columns display correctly on desktop
+  - [x] About column shows: Bio, Apps, Contact
+  - [x] Content column shows: Blog, Presentations
+  - [x] Coding with AI column shows: Podcast, Discord, Meetup
+  - [x] Follow Me column shows: GitHub, NPM, LinkedIn, YouTube, X
+  - [x] All links work and point to correct destinations
+  - [x] Visual consistency with existing design
+  - [x] Proper spacing and alignment
+  - [x] External links open in new tabs
+  - [x] Meetup link works correctly
+- **Status**: ✅ Completed
 
 ### Task 1.5: Fix Desktop Issues (if any)
 - **Assignee**: Claude
 - **Action**: Address any issues found during testing
-- **Status**: Pending
+- **Status**: ✅ Not needed - no issues found
 
 ### Task 1.6: Final Desktop Testing & Approval
 - **Assignee**: Marcelo
 - **Action**: Final approval of desktop footer
 - **Requirements**: All links work, layout looks good, ready for commit
-- **Status**: Pending
+- **Status**: ✅ Completed
 
 ### Task 1.7: Commit Desktop Footer Changes
 - **Assignee**: Marcelo
@@ -154,12 +157,21 @@
 - No hardcoded values in CSS
 
 ### Hugo Template Variables to Use:
-- `{{ .Site.Params.meetup }}`
-- `{{ .Site.Params.github }}`
-- `{{ .Site.Params.npm }}`
-- `{{ .Site.Params.linkedin }}`
-- `{{ .Site.Params.youtube }}`
-- `{{ .Site.Params.twitter }}`
+- **Navigation Pages**: `{{ .Site.Params.bio }}`, `{{ .Site.Params.apps }}`, `{{ .Site.Params.contact }}`, `{{ .Site.Params.blog }}`, `{{ .Site.Params.presentations }}`, `{{ .Site.Params.podcast }}`
+- **Social Media**: `{{ .Site.Params.github }}`, `{{ .Site.Params.npm }}`, `{{ .Site.Params.linkedin }}`, `{{ .Site.Params.youtube }}`, `{{ .Site.Params.twitter }}`
+- **Community**: `{{ .Site.Params.discord }}`, `{{ .Site.Params.meetup }}`
+
+### Marcelo's Improvements Made:
+- **Added navigation page params** to `config/_default/config.toml`:
+  - `bio = "/bio/"`
+  - `apps = "/apps/"`
+  - `contact = "mailto:marcelo@bymarcelolewin.com"`
+  - `blog = "/blog/"`
+  - `presentations = "/presentations/"`
+  - `podcast = "/podcast/"`
+- **Updated footer template** to use Hugo params instead of hardcoded URLs
+- **Organized params** into logical sections (Navigation Pages, Social Media, Development Links, Community Links)
+- **Contact now links to email** instead of bio page
 
 ### URL Mapping:
 - **About**: `/bio/` (Bio), `/bio/` (Contact)

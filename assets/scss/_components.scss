@@ -1124,9 +1124,10 @@
   }
   
   .footer-columns {
-    display: flex;
-    gap: clamp($spacing-xl, 6rem, 100px); // Responsive spacing: 3rem min, 6rem preferred, 100px max
-    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp($spacing-lg, 4rem, 60px); // Responsive spacing for 4 columns
+    justify-content: center;
   }
   
   .footer-column {

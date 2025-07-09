@@ -28,20 +28,36 @@ enableGitInfo = true
     name = "Contact"
     url = "/bio/"
     weight = 40
-  [[menu.main]]
-    name = "Discord"
-    url = "https://discord.gg/fGegvqH6RD"
-    weight = 50
 
 [params]
+
+  # About the site
   author = "Marcelo Lewin"
+  email = "marcelo@bymarcelolewin.com"
   description = "I build digital products with AI"
-  email = "marcelo@redpillbluepillstudios.com"
+
+  # Navigation Pages
+  bio = "/bio/"
+  apps = "/apps/"
+  contact = "mailto:marcelo@bymarcelolewin.com"
+  
+  podcast = "/podcast/"
+  blog = "/blog/"
+  presentations = "/presentations/"
+
+  
+  # Social Media Links
   linkedin = "https://linkedin.com/in/bymarcelolewin"
-  github = "https://github.com/bymarcelolewin"
-  npm = "https://www.npmjs.com/~bymarcelolewin"
   youtube = "https://www.youtube.com/@bymarcelolewin"
   twitter = "https://x.com/bymarcelolewin"
+
+  # Development Links
+  github = "https://github.com/bymarcelolewin"
+  npm = "https://www.npmjs.com/~bymarcelolewin"
+
+  # Community Links
+  discord = "https://discord.gg/fGegvqH6RD"
+  meetup = "https://www.meetup.com/coding-with-ai/"
 
   # Site versioning
   version = "1.2.4"
