@@ -119,7 +119,7 @@ $container-padding: 2rem;      // Horizontal container padding
 $content-max-width: 600px;     // Content area max width
 $blog-content-max-width: 800px; // Blog content max width
 $hero-bottom-padding: 3.8rem;  // Hero section bottom padding
-$breakpoint-mobile: 768px;     // Mobile breakpoint
+$breakpoint-tablet: 1050px;    // Tablet breakpoint
 ```
 
 ### Border Radius
@@ -386,12 +386,12 @@ Animation presets for content entrance.
 
 ### Responsive Mixins
 
-#### @mixin mobile-only
-Styles that only apply on mobile devices.
+#### @mixin tablet-down
+Styles that apply on tablet and smaller screens.
 
 ```scss
-@mixin mobile-only {
-  @media (max-width: $breakpoint-mobile) {
+@mixin tablet-down {
+  @media (max-width: $breakpoint-tablet) {
     @content;
   }
 }
@@ -402,7 +402,7 @@ Styles that apply on desktop and larger screens.
 
 ```scss
 @mixin desktop-up {
-  @media (min-width: $breakpoint-mobile + 1px) {
+  @media (min-width: $breakpoint-tablet + 1px) {
     @content;
   }
 }
@@ -413,11 +413,23 @@ Styles that apply on desktop and larger screens.
 .element {
   font-size: 1rem;
   
+  @include tablet-down {
+    font-size: 0.9rem;
+  }
+  
   @include desktop-up {
     font-size: 1.2rem;
   }
 }
 ```
+
+### Responsive Strategy
+
+The site uses a two-tier responsive approach:
+- **Tablet and below** (≤1050px): Mobile menu activated, simplified layouts
+- **Desktop and above** (≥1051px): Full desktop navigation, complex layouts
+
+This approach eliminates the previous mobile-only breakpoint (768px) for a cleaner, more maintainable responsive system.
 
 ## Utility Classes
 

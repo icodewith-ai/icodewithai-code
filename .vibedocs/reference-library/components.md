@@ -363,6 +363,114 @@ The site uses a unified button system with two standardized button types that pr
 ### Header Navigation
 Primary site navigation with responsive behavior.
 
+### Mobile Menu Navigation
+Interactive navigation system for tablet and mobile devices, providing an overlay-based menu interface.
+
+#### Overview
+The mobile menu component provides a responsive navigation solution that activates on screens 1050px and below. It features a hamburger toggle button, full-screen overlay interface, and smooth animations for enhanced user experience.
+
+#### Technical Specifications
+
+##### HTML Structure
+```html
+<!-- Mobile Menu Toggle Button -->
+<button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+        <!-- Header with logo -->
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">
+                <a href="/">
+                    <img src="logo.png" alt="Logo" class="logo-image">
+                </a>
+                <span class="env-badge">local</span>
+            </div>
+        </div>
+        
+        <!-- Navigation items -->
+        <nav class="mobile-nav">
+            <a href="/about">About</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact" class="btn-primary">Contact</a>
+        </nav>
+    </div>
+</div>
+```
+
+##### CSS Classes
+| Class | Purpose |
+|-------|---------|
+| `.mobile-menu-toggle` | Hamburger toggle button |
+| `.hamburger-line` | Individual hamburger line elements |
+| `.mobile-menu-overlay` | Full-screen overlay container |
+| `.mobile-menu-content` | Content wrapper within overlay |
+| `.mobile-menu-header` | Header section with logo |
+| `.mobile-menu-logo` | Logo container |
+| `.mobile-nav` | Navigation links container |
+
+##### JavaScript Functionality
+- **File**: `assets/js/mobile-menu.js`
+- **Loading**: Minified and fingerprinted via Hugo Pipes
+- **Processing**: Automatic resource optimization
+
+**Features:**
+- Toggle menu visibility with hamburger button
+- Close menu with overlay click or escape key
+- Focus management for accessibility
+- Automatic close on window resize (>1024px)
+- Smooth animations and transitions
+
+#### Usage
+The mobile menu is automatically integrated into the header partial and activates on tablet and mobile screens. No additional configuration required.
+
+#### Visual Design
+
+##### Colors
+- **Background**: `$neutral-800` - Dark overlay background
+- **Text**: `$neutral-100` - Light text color
+- **Accent**: `$primary-500` - Primary button and hover states
+- **Border**: `$neutral-700` - Header border separator
+
+##### Dimensions
+- **Toggle Size**: 24px × 18px hamburger button
+- **Overlay**: Full viewport coverage
+- **Z-index**: `$z-index-mobile-menu: 200`
+
+##### Animations
+- **Hamburger**: Smooth rotation and fade transitions
+- **Overlay**: Opacity fade-in/out transitions
+- **Content**: Smooth slide and fade animations
+
+#### Responsive Behavior
+
+##### Desktop (>1050px)
+- Mobile menu toggle hidden (`display: none`)
+- Overlay forced hidden (`display: none !important`)
+- Standard desktop navigation visible
+
+##### Tablet/Mobile (≤1050px)
+- Desktop navigation hidden
+- Mobile menu toggle visible
+- Overlay system activated
+
+#### Performance Optimizations
+- Conditional JavaScript loading
+- CSS transitions for smooth animations
+- Efficient DOM manipulation
+- Debounced resize event handling
+
+#### Accessibility Features
+- ARIA labels for screen readers
+- Proper focus management
+- Keyboard navigation support (escape key)
+- Logical tab order within menu
+
 ### Footer Navigation
 Secondary navigation links organized in columns.
 
