@@ -41,7 +41,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: bymarcelolewin/icodewithai-prod
+          external_repository: icodewith-ai/icodewithai-prod
           publish_branch: gh-pages
           publish_dir: ./public
           cname: www.icodewith.ai

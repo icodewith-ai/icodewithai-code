@@ -34,5 +34,5 @@ languageCode = 'en-us'
   podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
   
   # Developer Site Links
-  github = "https://github.com/bymarcelolewin"
+  github = "https://github.com/icodewith-ai"
   npm = "https://www.npmjs.com/~bymarcelolewin"
