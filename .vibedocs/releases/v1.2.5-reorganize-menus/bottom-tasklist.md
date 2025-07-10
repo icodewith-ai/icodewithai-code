@@ -9,7 +9,7 @@
 ### Task 1.1: Add Meetup URL to Hugo Config
 - **Assignee**: Claude
 - **File**: `config/_default/config.toml`
-- **Action**: Add `meetup = "https://www.meetup.com/coding-with-ai/"` to the `[params]` section
+- **Action**: Add `meetup = "https://www.meetup.com/i-code-with-ai/"` to the `[params]` section
 - **Status**: ✅ Completed
 
 ### Task 1.2: Update Footer HTML Structure

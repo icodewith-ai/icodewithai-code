@@ -25,7 +25,7 @@ Reorganize the footer from 2 columns (Navigation + Follow Me) to 5 columns (Abou
 ### Changes Required:
 1. **File**: `config/_default/config.toml`
    - **Action**: Add meetup URL to params section
-   - **Addition**: `meetup = "https://www.meetup.com/coding-with-ai/"`
+   - **Addition**: `meetup = "https://www.meetup.com/i-code-with-ai/"`
 
 2. **File**: `themes/icodewithai/layouts/partials/footer.html`
    - **Action**: Replace current 2-column structure with 5-column structure
@@ -191,7 +191,7 @@ Reorganize the footer from 2 columns (Navigation + Follow Me) to 5 columns (Abou
 - **About**: `/bio/` (Bio), `/bio/` (Contact)
 - **Apps**: `/apps/`, `/apps/content-modeling-cli/`, `/apps/galactic-invaders/`
 - **Content**: `/blog/`, `/presentations/`
-- **Coding with AI**: Discord (current), `https://www.meetup.com/coding-with-ai/`, `/podcast/`
+- **Coding with AI**: Discord (current), `https://www.meetup.com/i-code-with-ai/`, `/podcast/`
 - **Follow Me**: GitHub, NPM, LinkedIn, YouTube, X (all current URLs)
 
 ## Rollback Plan

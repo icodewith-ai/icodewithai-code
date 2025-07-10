@@ -34,7 +34,7 @@ For the "Coding with AI" section, I need clarification on these links:
 **Question**: Can you provide the correct URLs for these three items?
 
 | Discord -> Use current.
-| Meetup -> Use https://www.meetup.com/coding-with-ai/
+| Meetup -> Use https://www.meetup.com/i-code-with-ai/
 | Podcast -> Use current.
 
 ### 4. Follow Me Section
