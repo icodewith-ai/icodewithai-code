@@ -2,7 +2,7 @@
 title = "Galactic Invaders"
 description = "A 2D retro-style space shooter where you defend your city from waves of aliens. Take them out, trigger short bursts of rapid-fire, and unlock nukes as you score points. Stay alive and protect the city."
 url_slug = "galactic-invaders"
-github_url = "https://github.com/bymarcelolewin/galactic-invaders"
+github_url = "https://github.com/icodewith-ai/galactic-invaders"
 npm_url = ""
 preview_url = "https://galacticinvaders.icodewith.ai"
 preview_label = "Play Now!"

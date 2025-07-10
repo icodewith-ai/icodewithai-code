@@ -5,9 +5,9 @@
 ### Multi-Repository Deployment (v1.2.2+)
 
 The website now uses a multi-repository architecture:
-- **Source Repository**: `bymarcelolewin/bml-website-code` (private) - Contains Hugo source code, content, and themes
-- **Staging**: `dev` branch → `bml-website-next` repository → `next.icodewith.ai`
-- **Production**: `main` branch → `bml-website-prod` repository → `www.icodewith.ai`
+- **Source Repository**: `icodewith-ai/icodewithai-code` (private) - Contains Hugo source code, content, and themes
+- **Staging**: `dev` branch → `icodewithai-next` repository → `next.icodewith.ai`
+- **Production**: `main` branch → `icodewithai-prod` repository → `www.icodewith.ai`
 
 Create new blog posts, app pages, or presentations:
 ```bash

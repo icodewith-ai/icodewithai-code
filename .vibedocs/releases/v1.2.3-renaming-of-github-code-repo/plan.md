@@ -1,17 +1,17 @@
 # Repository Rename and Privacy Update - v1.2.3
 
 ## Overview
-Rename the source code repository from `bymarcelolewin/by-marcelo-lewin` to `bymarcelolewin/bml-website-code` and make it private, while maintaining the existing multi-repository deployment architecture.
+Rename the source code repository from `icodewith-ai/by-marcelo-lewin` to `icodewith-ai/icodewithai-code` and make it private, while maintaining the existing multi-repository deployment architecture.
 
 ## Current State
-- **Source Repository**: `bymarcelolewin/by-marcelo-lewin` (public)
-- **Production Repository**: `bymarcelolewin/bml-website-prod` (public, GitHub Pages)
-- **Staging Repository**: `bymarcelolewin/bml-website-next` (public, GitHub Pages)
+- **Source Repository**: `icodewith-ai/by-marcelo-lewin` (public)
+- **Production Repository**: `icodewith-ai/icodewithai-prod` (public, GitHub Pages)
+- **Staging Repository**: `icodewith-ai/icodewithai-next` (public, GitHub Pages)
 
 ## Target State
-- **Source Repository**: `bymarcelolewin/bml-website-code` (private)
-- **Production Repository**: `bymarcelolewin/bml-website-prod` (public, GitHub Pages) - unchanged
-- **Staging Repository**: `bymarcelolewin/bml-website-next` (public, GitHub Pages) - unchanged
+- **Source Repository**: `icodewith-ai/icodewithai-code` (private)
+- **Production Repository**: `icodewith-ai/icodewithai-prod` (public, GitHub Pages) - unchanged
+- **Staging Repository**: `icodewith-ai/icodewithai-next` (public, GitHub Pages) - unchanged
 
 ## Implementation Plan
 
@@ -21,22 +21,22 @@ Rename the source code repository from `bymarcelolewin/by-marcelo-lewin` to `bym
 #### Task 1.1: Backup Current State
 - [x] **Who**: Marcelo
 - [x] **Action**: Ensure all changes are committed and pushed to current repository
-- [x] **Action**: Note current branch (`bymarcelolewin/issue22` based on git status)
+- [x] **Action**: Note current branch (`icodewith-ai/issue22` based on git status)
 - [x] **Action**: Create local backup of repository (optional but recommended)
 
 #### Task 1.2: Update Local Git Remote (Prepare for Later)
 - [x] **Who**: Marcelo
 - [x] **Action**: Prepare command to update local remote URL (don't execute yet)
-- [x] **Command**: `git remote set-url origin https://github.com/bymarcelolewin/bml-website-code.git`
+- [x] **Command**: `git remote set-url origin https://github.com/icodewith-ai/icodewithai-code.git`
 
 ### Phase 2: GitHub Repository Rename (Marcelo)
 **Estimated Time: 5 minutes**
 
 #### Task 2.1: Rename Repository on GitHub
 - [x] **Who**: Marcelo
-- [x] **Action**: Go to `bymarcelolewin/by-marcelo-lewin` repository on GitHub
+- [x] **Action**: Go to `icodewith-ai/by-marcelo-lewin` repository on GitHub
 - [x] **Action**: Go to Settings → General → Repository name
-- [x] **Action**: Change name from `by-marcelo-lewin` to `bml-website-code`
+- [x] **Action**: Change name from `by-marcelo-lewin` to `icodewithai-code`
 - [x] **Action**: Confirm rename
 - [x] **Note**: GitHub automatically redirects old URLs temporarily
 
@@ -53,7 +53,7 @@ Rename the source code repository from `bymarcelolewin/by-marcelo-lewin` to `bym
 
 #### Task 3.1: Update Local Remote URL
 - [x] **Who**: Marcelo
-- [x] **Action**: Execute: `git remote set-url origin https://github.com/bymarcelolewin/bml-website-code.git`
+- [x] **Action**: Execute: `git remote set-url origin https://github.com/icodewith-ai/icodewithai-code.git`
 - [x] **Action**: Verify with: `git remote -v`
 - [x] **Action**: Test connection with: `git fetch`
 
@@ -70,7 +70,7 @@ Rename the source code repository from `bymarcelolewin/by-marcelo-lewin` to `bym
 - [x] **Who**: Claude
 - [x] **Action**: Update `.github/workflows/hugo-prod.yml` comments/descriptions
 - [x] **Action**: Update `.github/workflows/hugo-next.yml` comments/descriptions
-- [x] **Note**: External repository references remain unchanged (`bml-website-prod`, `bml-website-next`) - No changes needed, workflows already correctly configured
+- [x] **Note**: External repository references remain unchanged (`icodewithai-prod`, `icodewithai-next`) - No changes needed, workflows already correctly configured
 
 #### Task 4.2: Update Documentation References
 - [x] **Who**: Claude
@@ -111,14 +111,14 @@ Rename the source code repository from `bymarcelolewin/by-marcelo-lewin` to `bym
 - [ ] **Action**: Push to `dev` branch
 - [ ] **Who**: Claude
 - [ ] **Action**: Monitor GitHub Actions workflow execution
-- [ ] **Action**: Verify deployment to `bml-website-next` still works
+- [ ] **Action**: Verify deployment to `icodewithai-next` still works
 
 #### Task 6.3: Test Production Deployment
 - [ ] **Who**: Marcelo
 - [ ] **Action**: Merge `dev` to `main` branch
 - [ ] **Who**: Claude
 - [ ] **Action**: Monitor GitHub Actions workflow execution
-- [ ] **Action**: Verify deployment to `bml-website-prod` still works
+- [ ] **Action**: Verify deployment to `icodewithai-prod` still works
 
 ### Phase 7: Update External References (Marcelo)
 **Estimated Time: 5 minutes**
@@ -142,7 +142,7 @@ Rename the source code repository from `bymarcelolewin/by-marcelo-lewin` to `bym
 - No need to regenerate or update token
 
 ### Deployment Repositories
-- `bml-website-prod` and `bml-website-next` repositories remain unchanged
+- `icodewithai-prod` and `icodewithai-next` repositories remain unchanged
 - GitHub Actions workflows will continue to deploy to these repositories
 - No changes needed to deployment configuration
 
@@ -174,7 +174,7 @@ If issues arise:
 ## Success Criteria
 
 ### Technical Validation
-- [ ] Repository successfully renamed to `bml-website-code`
+- [ ] Repository successfully renamed to `icodewithai-code`
 - [ ] Repository is private and not publicly accessible
 - [ ] Local git operations work correctly
 - [ ] GitHub Actions workflows execute successfully

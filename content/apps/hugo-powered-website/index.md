@@ -1,7 +1,7 @@
 +++
 title = "Hugo Powered Website"
 description = "First site I've vibe coded from scratch. Switched from Wix and Framer to Hugo SSG framework for full control, hosted in GitHub pages.  Loving the speed and simplicity of static site generators."
-github_url = "https://github.com/bymarcelolewin/icodewithai-code"
+github_url = "https://github.com/icodewith-ai/icodewithai-code"
 npm_url = ""
 preview_url = ""
 preview_label = "Check it Out!"

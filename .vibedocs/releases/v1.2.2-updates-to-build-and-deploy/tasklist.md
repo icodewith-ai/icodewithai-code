@@ -5,7 +5,7 @@
 
 ### Task 1.1: Create Production Repository
 - [x] **Who**: Marcelo
-- [x] **Action**: Create new repository `bymarcelolewin/bml-website-prod`
+- [x] **Action**: Create new repository `icodewith-ai/icodewithai-prod`
 - [x] **Settings**: Public repository
 - [x] **Action**: Go to repository Settings → Pages
 - [x] **Action**: Set source to "Deploy from a branch"
@@ -15,7 +15,7 @@
 
 ### Task 1.2: Create Staging Repository
 - [x] **Who**: Marcelo
-- [x] **Action**: Create new repository `bymarcelolewin/bml-website-next`
+- [x] **Action**: Create new repository `icodewith-ai/icodewithai-next`
 - [x] **Settings**: Public repository
 - [x] **Action**: Go to repository Settings → Pages
 - [x] **Action**: Set source to "Deploy from a branch"
@@ -43,7 +43,7 @@
 
 ### Task 3.1: Add Deploy Token to Source Repository
 - [x] **Who**: Marcelo
-- [x] **Action**: Go to `bymarcelolewin/bml-website-code` repository
+- [x] **Action**: Go to `icodewith-ai/icodewithai-code` repository
 - [x] **Action**: Go to Settings → Secrets and variables → Actions
 - [x] **Action**: Click "New repository secret"
 - [x] **Action**: Name: `DEPLOY_TOKEN`
@@ -59,7 +59,7 @@
 - [x] **Changes**:
   - [x] Change `permissions` from `contents: write` to `contents: read`
   - [x] Update deployment step to use `personal_token: ${{ secrets.DEPLOY_TOKEN }}`
-  - [x] Update `external_repository: bymarcelolewin/bml-website-prod`
+  - [x] Update `external_repository: icodewith-ai/icodewithai-prod`
   - [x] Update `cname: www.icodewith.ai`
 
 ### Task 4.2: Update Staging Workflow
@@ -68,7 +68,7 @@
 - [x] **Changes**:
   - [x] Change `permissions` from `contents: write` to `contents: read`
   - [x] Update deployment step to use `personal_token: ${{ secrets.DEPLOY_TOKEN }}`
-  - [x] Update `external_repository: bymarcelolewin/bml-website-next`
+  - [x] Update `external_repository: icodewith-ai/icodewithai-next`
   - [x] Update `cname: next.icodewith.ai`
 
 ## Phase 5: Test Deployments (Marcelo + Claude)
@@ -80,7 +80,7 @@
 - [x] **Action**: Push to `dev` branch
 - [x] **Who**: Claude
 - [x] **Action**: Monitor GitHub Actions workflow for success
-- [x] **Action**: Verify deployment created `gh-pages` branch in `bml-website-next`
+- [x] **Action**: Verify deployment created `gh-pages` branch in `icodewithai-next`
 - [x] **Action**: Check if `next.icodewith.ai` serves the content (may take a few minutes)
 
 ### Task 5.2: Test Production Deployment
@@ -88,7 +88,7 @@
 - [x] **Action**: Merge `dev` branch to `main` branch (or push directly to `main`)
 - [x] **Who**: Claude
 - [x] **Action**: Monitor GitHub Actions workflow for success
-- [x] **Action**: Verify deployment created `gh-pages` branch in `bml-website-prod`
+- [x] **Action**: Verify deployment created `gh-pages` branch in `icodewithai-prod`
 - [x] **Action**: Check if `www.icodewith.ai` serves the content (may take a few minutes)
 
 ## Phase 6: Update DNS Configuration (Marcelo)
@@ -98,15 +98,15 @@
 - [x] **Who**: Marcelo
 - [x] **Action**: Log into Namecheap DNS management
 - [x] **Action**: Locate CNAME record for `www.icodewith.ai`
-- [x] **Action**: Verify it points to `bymarcelolewin.github.io`
-- [x] **Note**: This should already be correct, but verify the target repository is now `bml-website-prod`
+- [x] **Action**: Verify it points to `icodewith-ai.github.io`
+- [x] **Note**: This should already be correct, but verify the target repository is now `icodewithai-prod`
 
 ### Task 6.2: Update Staging DNS
 - [x] **Who**: Marcelo
 - [x] **Action**: Log into Namecheap DNS management
 - [x] **Action**: Locate CNAME record for `next.icodewith.ai`
-- [x] **Action**: Verify it points to `bymarcelolewin.github.io`
-- [x] **Note**: This should already be correct, but verify the target repository is now `bml-website-next`
+- [x] **Action**: Verify it points to `icodewith-ai.github.io`
+- [x] **Note**: This should already be correct, but verify the target repository is now `icodewithai-next`
 
 ### Task 6.3: Wait for DNS Propagation
 - [x] **Who**: Marcelo
@@ -119,13 +119,13 @@
 
 ### Task 7.1: Disable GitHub Pages
 - [x] **Who**: Marcelo
-- [x] **Action**: Go to `bymarcelolewin/bml-website-code` repository
+- [x] **Action**: Go to `icodewith-ai/icodewithai-code` repository
 - [x] **Action**: Go to Settings → Pages
 - [x] **Action**: Unpublish site.
 
 ### Task 7.2: Delete Old Deployment Branches
 - [x] **Who**: Marcelo
-- [x] **Action**: Go to `bymarcelolewin/bml-website-code` repository
+- [x] **Action**: Go to `icodewith-ai/icodewithai-code` repository
 - [x] **Action**: Go to branches page
 - [x] **Action**: Delete `gh-pages` branch
 - [x] **Action**: Delete `gh-pages-dev` branch

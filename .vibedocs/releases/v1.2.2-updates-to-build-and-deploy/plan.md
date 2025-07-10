@@ -4,24 +4,24 @@
 Refactor the current GitHub Pages deployment to use separate repositories for production and staging, allowing for proper custom domain management and cleaner separation of concerns.
 
 ## Current State
-- **Source Repository**: `bymarcelolewin/bml-website-code` (private, GitHub Pages enabled)
+- **Source Repository**: `icodewith-ai/icodewithai-code` (private, GitHub Pages enabled)
 - **Production**: Deploys to `gh-pages` branch → `www.icodewith.ai`
 - **Staging**: Deploys to `gh-pages-dev` branch → `next.icodewith.ai` (not working due to GitHub Pages limitations)
 
 ## Target State
-- **Source Repository**: `bymarcelolewin/bml-website-code` (private, no GitHub Pages)
-- **Production Repository**: `bymarcelolewin/bml-website-prod` (public, GitHub Pages enabled)
-- **Staging Repository**: `bymarcelolewin/bml-website-next` (public, GitHub Pages enabled)
+- **Source Repository**: `icodewith-ai/icodewithai-code` (private, no GitHub Pages)
+- **Production Repository**: `icodewith-ai/icodewithai-prod` (public, GitHub Pages enabled)
+- **Staging Repository**: `icodewith-ai/icodewithai-next` (public, GitHub Pages enabled)
 
 ## Implementation Plan
 
 ### Phase 1: Create New Repositories
-1. **Create `bymarcelolewin/bml-website-prod`**
+1. **Create `icodewith-ai/icodewithai-prod`**
    - Public repository
    - Enable GitHub Pages (source: `gh-pages` branch)
    - Add custom domain: `www.icodewith.ai`
 
-2. **Create `bymarcelolewin/bml-website-next`**
+2. **Create `icodewith-ai/icodewithai-next`**
    - Public repository
    - Enable GitHub Pages (source: `gh-pages` branch)
    - Add custom domain: `next.icodewith.ai`
@@ -35,7 +35,7 @@ Refactor the current GitHub Pages deployment to use separate repositories for pr
 4. Save token securely for next steps
 
 ### Phase 3: Configure Repository Secrets
-1. **In source repository** (`bymarcelolewin/bml-website-code`):
+1. **In source repository** (`icodewith-ai/icodewithai-code`):
    - Add repository secret: `DEPLOY_TOKEN` (value: personal access token from Phase 2)
 
 ### Phase 4: Update GitHub Actions Workflows
@@ -85,7 +85,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: bymarcelolewin/bml-website-prod
+          external_repository: icodewith-ai/icodewithai-prod
           publish_branch: gh-pages
           publish_dir: ./public
           cname: www.icodewith.aicom
@@ -136,7 +136,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: bymarcelolewin/bml-website-next
+          external_repository: icodewith-ai/icodewithai-next
           publish_branch: gh-pages
           publish_dir: ./public
           cname: next.icodewith.ai
@@ -144,13 +144,13 @@ jobs:
 
 ### Phase 5: Update DNS Configuration (Namecheap)
 1. **Production** (`www.icodewith.ai`):
-   - Update CNAME record to point to: `bymarcelolewin.github.io` (from `bml-website-prod` repo)
+   - Update CNAME record to point to: `icodewith-ai.github.io` (from `icodewithai-prod` repo)
 
 2. **Staging** (`next.icodewith.ai`):
-   - Update CNAME record to point to: `bymarcelolewin.github.io` (from `bml-website-next` repo)
+   - Update CNAME record to point to: `icodewith-ai.github.io` (from `icodewithai-next` repo)
 
 ### Phase 6: Clean Up Source Repository
-1. **Disable GitHub Pages** in `bymarcelolewin/bml-website-code`
+1. **Disable GitHub Pages** in `icodewith-ai/icodewithai-code`
 2. **Delete old deployment branches**:
    - Delete `gh-pages` branch
    - Delete `gh-pages-dev` branch
@@ -170,13 +170,13 @@ If issues arise:
 - ✅ **Proper domain separation**: Each environment has its own GitHub Pages site
 - ✅ **Security**: Clear separation between source code and deployed sites
 - ✅ **Clarity**: Clear separation between source code and deployed sites
-- ✅ **Scalability**: Easy to add more environments (e.g., `bml-demo`)
+- ✅ **Scalability**: Easy to add more environments (e.g., `icodewithai-demo`)
 - ✅ **Independence**: Each environment can have different settings/configurations
 
 ## Repository Naming Convention
-- `bml-website-prod` - Production deployment repository
-- `bml-website-next` - Staging deployment repository
-- Pattern: `bml-website-{environment}` for future environments
+- `icodewithai-prod` - Production deployment repository
+- `icodewithai-next` - Staging deployment repository
+- Pattern: `icodewithai-{environment}` for future environments
 
 ## Timeline
 - **Phase 1-2**: 15 minutes (repository creation and token setup)
