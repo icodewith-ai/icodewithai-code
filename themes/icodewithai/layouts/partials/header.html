@@ -38,9 +38,15 @@
             (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
         )
     ) }}
-    
-    <a href="{{ .Site.Params.bio }}">Bio</a>
-    <a href="{{ .Site.Params.contact }}">Contact</a>
+
+    {{ partial "nav-dropdown" (dict 
+        "title" "About"
+        "items" (slice 
+            (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
+            (dict "name" "Contact" "url" .Site.Params.contact "external" false)
+        )
+    ) }}
+
 </nav>
 
 <!-- Mobile Menu Overlay -->
@@ -80,9 +86,15 @@
                     (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
                 )
             ) }}
+
+            {{ partial "nav-dropdown" (dict 
+                "title" "About"
+                "items" (slice 
+                    (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
+                    (dict "name" "Contact" "url" .Site.Params.contact "external" false)
+                )
+            ) }}
             
-            <a href="{{ .Site.Params.bio }}">Bio</a>
-            <a href="{{ .Site.Params.contact }}">Contact</a>
         </nav>
     </div>
 </div>

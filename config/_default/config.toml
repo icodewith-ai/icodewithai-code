@@ -12,7 +12,7 @@ languageCode = 'en-us'
   short_description = "With AI, we can now code and build apps faster than ever before."
 
   # Page Slugs
-  bio = "/bio/"
+  about_marcelo = "/about-marcelo/"
   apps = "/apps/"
   contact = "mailto:marcelo@icodewith.ai"  
   podcast = "/podcast/"
