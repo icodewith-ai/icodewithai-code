@@ -27,5 +27,12 @@ languageCode = 'en-us'
   linkedin = "https://www.linkedin.com/in/icodewithai/"
   youtube = "https://www.youtube.com/@icodewith_ai"
   twitter = "https://x.com/icodewith_ai"
+
+  # Podcast Links
+  podcast_spotify = "https://open.spotify.com/show/i-code-with-ai"
+  podcast_apple = "https://open.spotify.com/show/i-code-with-ai"
+  podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
+  
+  # Developer Site Links
   github = "https://github.com/bymarcelolewin"
   npm = "https://www.npmjs.com/~bymarcelolewin"
