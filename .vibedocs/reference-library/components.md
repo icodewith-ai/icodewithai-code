@@ -487,7 +487,7 @@ Theme images are now processed through Hugo Pipes for consistent asset managemen
 #### Logo Component
 **Usage in Templates:**
 ```html
-{{ $logo := resources.Get "images/logo-bml.png" | resources.Fingerprint }}
+{{ $logo := resources.Get "images/logo.png" | resources.Fingerprint }}
 {{ if $logo }}
 <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
 {{ end }}

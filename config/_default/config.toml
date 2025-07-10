@@ -1,4 +1,4 @@
-title = 'By Marcelo Lewin | I build digital products with AI'
+title = 'iCodeWith.ai | Using AI to Build Digital Products'
 theme = 'icodewithai'
 languageCode = 'en-us'
 
@@ -8,7 +8,7 @@ languageCode = 'en-us'
   version = "1.2.5"
   last_updated = "2025-07-09"
   author = "Marcelo Lewin"
-  description = "I build digital products with AI"  
+  description = "Using AI to Build Digital Products"  
 
   # Page Slugs
   bio = "/bio/"

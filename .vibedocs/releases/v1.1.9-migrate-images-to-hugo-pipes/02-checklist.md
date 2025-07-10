@@ -4,7 +4,7 @@
 
 ### Discovery Phase
 - [x] Search for `marcelolewin.jpg` references in all template files
-- [x] Search for `logo-bml.png` references in all template files  
+- [x] Search for `logo.png` references in all template files  
 - [x] Search for `icon-contentful-certified-content-manager.png` references
 - [x] Search for `icon-contentful-certified-professional.png` references
 - [x] Document all current usage locations and patterns
@@ -19,14 +19,14 @@
 ### File Structure Changes
 - [x] Create `themes/icodewithai/assets/images/` directory
 - [x] Move `marcelolewin.jpg` to assets/images/
-- [x] Move `logo-bml.png` to assets/images/
+- [x] Move `logo.png` to assets/images/
 - [x] Move `icon-contentful-certified-content-manager.png` to assets/images/
 - [x] Move `icon-contentful-certified-professional.png` to assets/images/
 - [x] Verify favicon files remain in static/images/
 
 ### Template Updates
-- [x] Update references in `layouts/partials/footer.html` (logo-bml.png)
-- [x] Update references in `layouts/partials/header.html` (logo-bml.png)
+- [x] Update references in `layouts/partials/footer.html` (logo.png)
+- [x] Update references in `layouts/partials/header.html` (logo.png)
 - [x] Update references in `layouts/bio/single.html` (marcelolewin.jpg + 2 certificate icons)
 - [x] Update references in `layouts/index.html` (no references found)
 - [x] Update references in `layouts/_default/baseof.html` (no references found)

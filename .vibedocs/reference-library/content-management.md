@@ -175,7 +175,7 @@ Theme images (logos, profile photos, certificates) are processed through Hugo Pi
 
 #### Supported Images
 - `marcelolewin.jpg` - Profile photo for bio page
-- `logo-bml.png` - Site logo (header and footer)
+- `logo.png` - Site logo (header and footer)
 - `icon-contentful-certified-content-manager.png` - Certificate badge
 - `icon-contentful-certified-professional.png` - Certificate badge
 - `podcast/podcast-cover.png` - Main podcast cover image

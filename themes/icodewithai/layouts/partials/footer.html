@@ -7,12 +7,12 @@
                 <div class="footer-logo-container">
                     <div class="footer-logo-text">
                         <a href="/">
-                            {{ $logo := resources.Get "images/logo-bml.png" | resources.Fingerprint }}
+                            {{ $logo := resources.Get "images/logo.png" | resources.Fingerprint }}
                             {{ if $logo }}
-                            <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+                            <img src="{{ $logo.RelPermalink }}" alt="iCodeWith.ai" class="logo-image">
                             {{ end }}
                         </a>
-                        <p class="footer-tagline">I build digital products with AI</p>
+                        <p class="footer-tagline">With AI, we can code and build digital products—faster and smarter.</p>
                     </div>
                 </div>
             </div>

@@ -157,7 +157,7 @@ themes/icodewithai/
 │   ├── js/                      # JavaScript source files
 │   └── images/                  # Theme images (processed by Hugo Pipes)
 │       ├── marcelolewin.jpg     # Profile photo
-│       ├── logo-bml.png         # Site logo
+│       ├── logo.png         # Site logo
 │       ├── icon-contentful-certified-content-manager.png
 │       ├── icon-contentful-certified-professional.png
 │       └── podcast/             # Podcast images

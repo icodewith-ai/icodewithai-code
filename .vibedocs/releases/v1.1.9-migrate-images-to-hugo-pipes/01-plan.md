@@ -9,7 +9,7 @@ Migrate theme images from static folder to Hugo Pipes asset processing for bette
 Moving from `themes/icodewithai/static/images/` to `themes/icodewithai/assets/images/`:
 
 1. **`marcelolewin.jpg`** - Profile photo (likely used in bio sections)
-2. **`logo-bml.png`** - Site logo (likely used in header/footer)
+2. **`logo.png`** - Site logo (likely used in header/footer)
 3. **`icon-contentful-certified-content-manager.png`** - Certificate icon
 4. **`icon-contentful-certified-professional.png`** - Certificate icon
 
@@ -31,7 +31,7 @@ Search all template files for current image references:
 ```bash
 # Search for each image filename
 grep -r "marcelolewin.jpg" themes/icodewithai/layouts/
-grep -r "logo-bml.png" themes/icodewithai/layouts/
+grep -r "logo.png" themes/icodewithai/layouts/
 grep -r "icon-contentful-certified-content-manager.png" themes/icodewithai/layouts/
 grep -r "icon-contentful-certified-professional.png" themes/icodewithai/layouts/
 ```
@@ -60,7 +60,7 @@ themes/icodewithai/assets/
 │   └── photo-gallery.js          # Existing
 └── images/                       # New
     ├── marcelolewin.jpg
-    ├── logo-bml.png
+    ├── logo.png
     ├── icon-contentful-certified-content-manager.png
     └── icon-contentful-certified-professional.png
 ```
@@ -86,7 +86,7 @@ Apply Hugo image processing for optimization:
 
 **Basic Processing:**
 ```html
-{{ $logo := resources.Get "images/logo-bml.png" | resources.Minify }}
+{{ $logo := resources.Get "images/logo.png" | resources.Minify }}
 <img src="{{ $logo.RelPermalink }}" alt="Logo">
 ```
 

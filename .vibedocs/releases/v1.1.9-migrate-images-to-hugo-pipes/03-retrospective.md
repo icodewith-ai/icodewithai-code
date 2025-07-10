@@ -96,14 +96,14 @@ Successfully migrated 4 theme images from static folder to Hugo Pipes asset proc
 
 ### File Size Impact
 - **marcelolewin.jpg**: 172KB (largest file migrated)
-- **logo-bml.png**: 12KB (used in header/footer)
+- **logo.png**: 12KB (used in header/footer)
 - **cert-manager.png**: 26KB (certificate badge)
 - **cert-professional.png**: 30KB (certificate badge)
 - **Total migrated**: ~240KB moved to optimized pipeline
 
 ### Generated Fingerprinted URLs
 - `marcelolewin.777a27316fa92319b3a2ed771a168373d679e1f59e97a8c1728ad647dd217fdf.jpg`
-- `logo-bml.32b58e6bf612c3a5141ee45baa765ce5092e5b74404e2e25c90b07eb189a9e77.png`
+- `logo.32b58e6bf612c3a5141ee45baa765ce5092e5b74404e2e25c90b07eb189a9e77.png`
 - `icon-contentful-certified-content-manager.f8db48c671c89cf750fb1201586d031d8ca1a22b00dbdd1afb807b717bf1c313.png`
 - `icon-contentful-certified-professional.5e3543f802c024d6e21b1da44979036a6214451c50ad6cfd8c1b55bebf74d178.png`
 
