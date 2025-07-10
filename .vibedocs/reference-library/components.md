@@ -363,6 +363,89 @@ The site uses a unified button system with two standardized button types that pr
 ### Header Navigation
 Primary site navigation with responsive behavior.
 
+### Navigation Dropdown Component
+Reusable dropdown component for navigation menus with flexible alignment options.
+
+#### Overview
+The nav-dropdown component provides an interactive dropdown menu system for navigation items. It supports both left and right alignment, hover interactions, and responsive behavior for mobile devices.
+
+#### Technical Specifications
+
+##### HTML Structure
+The component is implemented as a Hugo partial with the following structure:
+```html
+<div class="nav-dropdown nav-dropdown--right">
+    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+        Menu Title
+        <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+    </button>
+    
+    <ul class="nav-dropdown-menu" role="menu">
+        <li class="nav-dropdown-item" role="none">
+            <a href="/link" role="menuitem">Menu Item</a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+            <a href="/external-link" role="menuitem" target="_blank" rel="noopener noreferrer">
+                External Link
+                <span class="external-link-icon" aria-hidden="true">↗</span>
+            </a>
+        </li>
+    </ul>
+</div>
+```
+
+##### CSS Classes
+| Class | Purpose |
+|-------|---------|
+| `.nav-dropdown` | Main container with relative positioning |
+| `.nav-dropdown--right` | Modifier for right-aligned dropdown menus |
+| `.nav-dropdown-toggle` | Button styling with flex layout and hover effects |
+| `.nav-dropdown-arrow` | Animated arrow indicator (rotates on hover/expand) |
+| `.nav-dropdown-menu` | Dropdown menu with absolute positioning and transitions |
+| `.nav-dropdown-item` | Individual menu item container |
+| `.external-link-icon` | Icon for external links |
+
+##### JavaScript Functionality
+- **File**: `themes/icodewithai/assets/js/nav-dropdown.js`
+- **Loading**: Conditional (only when dropdown exists)
+- **Processing**: Hugo Pipes minification
+
+**Features:**
+- Click navigation for mobile devices
+- Hover activation for desktop
+- Keyboard navigation support
+- ARIA accessibility attributes
+- Smooth CSS transitions
+- External link indicators
+
+##### Hugo Partial Usage
+```hugo
+{{ partial "nav-dropdown" (dict 
+    "title" "Menu Title"
+    "items" (slice 
+        (dict "name" "Internal Link" "url" "/page" "external" false)
+        (dict "name" "External Link" "url" "https://example.com" "external" true)
+    )
+    "align" "right"
+) }}
+```
+
+**Parameters:**
+- `title`: Display text for the dropdown button
+- `items`: Array of menu items with `name`, `url`, and `external` properties
+- `align`: Optional alignment ("left" or "right") - defaults to "left"
+
+##### Responsive Behavior
+- **Desktop (>1050px)**: Hover-activated dropdowns with absolute positioning
+- **Mobile (≤1050px)**: Click-activated dropdowns with static positioning
+- **Accessibility**: Full ARIA support with keyboard navigation
+
+##### Styling Notes
+- Right-aligned dropdowns use `nav-dropdown--right` class
+- Dropdown menus positioned with `left: 0` (default) or `right: 0` (right-aligned)
+- Smooth transitions for opacity, transform, and visibility
+- Z-index management for proper layering
+
 ### Mobile Menu Navigation
 Interactive navigation system for tablet and mobile devices, providing an overlay-based menu interface.
 

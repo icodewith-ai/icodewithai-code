@@ -258,6 +258,12 @@
   }
 }
 
+// Right-aligned dropdown menu
+.nav-dropdown--right .nav-dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
 .nav-dropdown-item {
   margin: 0;
   

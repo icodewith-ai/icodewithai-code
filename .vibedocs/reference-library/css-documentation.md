@@ -609,6 +609,118 @@ Compact cards for social media links with icons.
 
 ### Navigation Components
 
+#### .nav-dropdown
+Primary navigation dropdown component with relative positioning for hover-based menu system.
+
+```scss
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+  
+  // Desktop hover behavior (only on desktop)
+  @media (min-width: #{$breakpoint-tablet + 1px}) {
+    &:hover .nav-dropdown-menu {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+}
+```
+
+#### .nav-dropdown--right
+Modifier class for right-aligned dropdown menus, used for navigation items positioned at the right edge of the screen.
+
+```scss
+.nav-dropdown--right .nav-dropdown-menu {
+  left: auto;
+  right: 0;
+}
+```
+
+#### .nav-dropdown-toggle
+Button styling for dropdown toggles with flexible layout and hover effects.
+
+```scss
+.nav-dropdown-toggle {
+  @include link-base;
+  @include link-underline;
+  @include smooth-transition;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0;
+}
+```
+
+#### .nav-dropdown-arrow
+Animated arrow indicator that rotates on hover/expand states.
+
+```scss
+.nav-dropdown-arrow {
+  font-size: $font-size-sm;
+  transition: $transition-fast;
+  color: $neutral-400;
+  
+  .nav-dropdown-toggle[aria-expanded="true"] &,
+  .nav-dropdown:hover & {
+    transform: rotate(180deg);
+  }
+}
+```
+
+#### .nav-dropdown-menu
+Dropdown menu with absolute positioning, transitions, and hover states.
+
+```scss
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + #{$spacing-xs});
+  left: 0;
+  background: lighten($neutral-900, 5%);
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-base;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+  list-style: none;
+  margin: 0;
+  padding: $spacing-xs 0;
+  min-width: 180px;
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  transition: all $transition-fast;
+  z-index: $z-index-dropdown;
+}
+```
+
+#### .nav-dropdown-item
+Individual menu item container with hover effects and external link support.
+
+```scss
+.nav-dropdown-item {
+  margin: 0;
+  
+  a {
+    @include link-base;
+    @include link-underline;
+    @include smooth-transition;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-xs $spacing-sm;
+    
+    &:hover {
+      background: rgba($neutral-700, 0.3);
+    }
+  }
+}
+```
+
 #### .blog-back-section
 Navigation section for blog posts with top border and spacing, containing back-to-blog link.
 

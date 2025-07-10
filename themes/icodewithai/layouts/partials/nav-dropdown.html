@@ -4,6 +4,7 @@
   Parameters:
   - title: Group name (e.g., "Content", "Coding with AI")
   - items: Array of menu items with name, url, external properties
+  - align: Dropdown alignment ("left" or "right") - defaults to "left"
   
   Usage:
   {{ partial "nav-dropdown" (dict 
@@ -12,10 +13,11 @@
       (dict "name" "Blog" "url" .Site.Params.blog "external" false)
       (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
     )
+    "align" "right"
   ) }}
 */}}
 
-<div class="nav-dropdown">
+<div class="nav-dropdown{{ if eq .align "right" }} nav-dropdown--right{{ end }}">
   <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
     {{ .title }}
     <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
