@@ -1,4 +1,4 @@
-title = 'iCodeWith.ai | Using AI to Build Digital Products'
+title = 'iCodeWith.ai | Using AI to code and build apps faster than ever before'
 theme = 'icodewithai'
 languageCode = 'en-us'
 
@@ -8,7 +8,8 @@ languageCode = 'en-us'
   version = "1.2.5"
   last_updated = "2025-07-09"
   author = "Marcelo Lewin"
-  description = "Using AI to Build Digital Products"  
+  description = "With AI, we can now code and build apps faster than ever before. The barrier to entry is gone. Anything is possible. Let’s build something great together."
+  short_description = "With AI, we can now code and build apps faster than ever before."
 
   # Page Slugs
   bio = "/bio/"
@@ -20,10 +21,10 @@ languageCode = 'en-us'
 
   # Community Links
   discord = "https://discord.gg/Mz7vdRmpJH"
-  meetup = "https://www.meetup.com/i-code-with-ai/"
+  meetup = "https://www.meetup.com/icodewith_ai/"
   
   # Social Media Links
-  linkedin = "https://linkedin.com/in/bymarcelolewin"
+  linkedin = "https://www.linkedin.com/in/icodewithai/"
   youtube = "https://www.youtube.com/@icodewith_ai"
   twitter = "https://x.com/icodewith_ai"
   github = "https://github.com/bymarcelolewin"
