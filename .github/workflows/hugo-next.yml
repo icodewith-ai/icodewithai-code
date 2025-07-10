@@ -41,7 +41,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: bymarcelolewin/bml-website-next
+          external_repository: bymarcelolewin/icodewithai-next
           publish_branch: gh-pages
           publish_dir: ./public
           cname: next.icodewith.ai
