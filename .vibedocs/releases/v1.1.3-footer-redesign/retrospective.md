@@ -75,7 +75,7 @@
 ## Metrics and Impact
 
 ### Files Modified: 2
-- `themes/bymarcelolewin/layouts/partials/footer.html` - Complete restructure
+- `themes/icodewithai/layouts/partials/footer.html` - Complete restructure
 - `assets/scss/_components.scss` - New footer styling system
 
 ### Design System Growth

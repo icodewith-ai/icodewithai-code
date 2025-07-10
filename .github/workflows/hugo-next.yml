@@ -1,4 +1,4 @@
-name: Deploy to next.bymarcelolewin.com
+name: Deploy to next.icodewith.ai
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
           external_repository: bymarcelolewin/bml-website-next
           publish_branch: gh-pages
           publish_dir: ./public
-          cname: next.bymarcelolewin.com
+          cname: next.icodewith.ai

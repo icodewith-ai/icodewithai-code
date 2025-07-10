@@ -17,7 +17,7 @@
 ## Migration Implementation
 
 ### File Structure Changes
-- [x] Create `themes/bymarcelolewin/assets/images/` directory
+- [x] Create `themes/icodewithai/assets/images/` directory
 - [x] Move `marcelolewin.jpg` to assets/images/
 - [x] Move `logo-bml.png` to assets/images/
 - [x] Move `icon-contentful-certified-content-manager.png` to assets/images/

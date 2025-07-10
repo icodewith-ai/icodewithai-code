@@ -34,7 +34,7 @@ draft = true
 ## Phase 2: Layout Templates
 
 ### 2.1 Create Presentations List Template
-**File:** `/themes/bymarcelolewin/layouts/presentations/list.html`
+**File:** `/themes/icodewithai/layouts/presentations/list.html`
 - Duplicate apps list structure as baseline
 - Implement grouped sections:
   - "Upcoming Presentations" section (sorted by date ASC)
@@ -44,7 +44,7 @@ draft = true
 - Handle empty state for each section
 
 ### 2.2 Create Presentations Single Template
-**File:** `/themes/bymarcelolewin/layouts/presentations/single.html`
+**File:** `/themes/icodewithai/layouts/presentations/single.html`
 - Duplicate apps single structure as baseline
 - Display all fields: title, date/time with timezone, presenters, status
 - Show full markdown description content
@@ -54,19 +54,19 @@ draft = true
 ## Phase 3: Navigation Integration
 
 ### 3.1 Update Header Navigation
-**File:** `/themes/bymarcelolewin/layouts/partials/header.html`
+**File:** `/themes/icodewithai/layouts/partials/header.html`
 - Add "Presentations" link after "Blog" in main navigation
 - Ensure responsive behavior matches existing nav items
 
 ### 3.2 Update Footer Navigation
-**File:** `/themes/bymarcelolewin/layouts/partials/footer.html`
+**File:** `/themes/icodewithai/layouts/partials/footer.html`
 - Add "Presentations" link after "Blog" in footer navigation
 - Maintain consistent styling and structure
 
 ## Phase 4: Home Page Integration
 
 ### 4.1 Update Home Page Template
-**File:** `/themes/bymarcelolewin/layouts/index.html`
+**File:** `/themes/icodewithai/layouts/index.html`
 - Add "Latest Presentations" section below "Latest Posts"
 - Display latest 2 presentations sorted by date DESC (ignore status)
 - Use same card styling as "Latest Apps" section
@@ -143,16 +143,16 @@ draft = true
 /content/presentations/
   ├── upcoming-ai-ethics-workshop.md
   └── completed-contentful-masterclass.md
-/themes/bymarcelolewin/layouts/presentations/
+/themes/icodewithai/layouts/presentations/
   ├── list.html
   └── single.html
 ```
 
 **Existing files to modify:**
 ```
-/themes/bymarcelolewin/layouts/partials/header.html
-/themes/bymarcelolewin/layouts/partials/footer.html
-/themes/bymarcelolewin/layouts/index.html
+/themes/icodewithai/layouts/partials/header.html
+/themes/icodewithai/layouts/partials/footer.html
+/themes/icodewithai/layouts/index.html
 ```
 
 ## Success Criteria

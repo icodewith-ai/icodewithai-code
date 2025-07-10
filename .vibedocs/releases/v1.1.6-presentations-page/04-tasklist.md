@@ -27,7 +27,7 @@
 
 ### Task 2.1: Create Presentations List Template
 **Responsible:** Claude  
-**File:** `/themes/bymarcelolewin/layouts/presentations/list.html`  
+**File:** `/themes/icodewithai/layouts/presentations/list.html`  
 **Status:** Pending
 
 - [ ] Create presentations directory in layouts
@@ -40,7 +40,7 @@
 
 ### Task 2.2: Create Presentations Single Template
 **Responsible:** Claude  
-**File:** `/themes/bymarcelolewin/layouts/presentations/single.html`  
+**File:** `/themes/icodewithai/layouts/presentations/single.html`  
 **Status:** Pending
 
 - [ ] Duplicate apps single structure as baseline
@@ -55,7 +55,7 @@
 
 ### Task 3.1: Update Header Navigation
 **Responsible:** Claude  
-**File:** `/themes/bymarcelolewin/layouts/partials/header.html`  
+**File:** `/themes/icodewithai/layouts/partials/header.html`  
 **Status:** Pending
 
 - [ ] Read existing header.html to understand structure
@@ -65,7 +65,7 @@
 
 ### Task 3.2: Update Footer Navigation
 **Responsible:** Claude  
-**File:** `/themes/bymarcelolewin/layouts/partials/footer.html`  
+**File:** `/themes/icodewithai/layouts/partials/footer.html`  
 **Status:** Pending
 
 - [ ] Read existing footer.html to understand structure
@@ -77,7 +77,7 @@
 
 ### Task 4.1: Update Home Page Template
 **Responsible:** Claude  
-**File:** `/themes/bymarcelolewin/layouts/index.html`  
+**File:** `/themes/icodewithai/layouts/index.html`  
 **Status:** Pending
 
 - [ ] Read existing home page structure

@@ -34,7 +34,7 @@
 - [x] Used consistent styling with other sections
 
 ### Directory Structure
-- [x] Created `themes/bymarcelolewin/assets/images/podcast/` directory
+- [x] Created `themes/icodewithai/assets/images/podcast/` directory
 - [x] Set up proper image organization structure
 
 ### Hugo Integration
@@ -62,8 +62,8 @@
 ## 📋 Tasks for You to Complete
 
 ### Content Creation
-- [ ] Add main podcast cover image to `themes/bymarcelolewin/assets/images/podcast/podcast-cover.jpg`
-- [ ] Add episode images to `themes/bymarcelolewin/assets/images/podcast/` (following naming convention)
+- [ ] Add main podcast cover image to `themes/icodewithai/assets/images/podcast/podcast-cover.jpg`
+- [ ] Add episode images to `themes/icodewithai/assets/images/podcast/` (following naming convention)
 - [ ] Create real podcast episodes in `content/podcast/` directory
 - [ ] Update podcast name, description, and tagline in `layouts/podcast/list.html` if needed
 - [ ] Use status field: "upcoming" for upcoming episodes, "published" for published episodes
@@ -95,8 +95,8 @@
 
 ### File Locations
 - **Content:** `content/podcast/`
-- **Images:** `themes/bymarcelolewin/assets/images/podcast/`
-- **Layouts:** `themes/bymarcelolewin/layouts/podcast/`
+- **Images:** `themes/icodewithai/assets/images/podcast/`
+- **Layouts:** `themes/icodewithai/layouts/podcast/`
 - **Styles:** `assets/scss/_components.scss` (Podcast Specific section)
 
 ### URL Structure

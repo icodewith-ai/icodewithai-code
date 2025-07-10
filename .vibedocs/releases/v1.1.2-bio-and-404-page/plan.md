@@ -38,7 +38,7 @@ Added a dedicated bio page accessible at `/bio/` and a custom 404 error page to 
 
 ### Content Structure
 - Added `content/bio.md` - Bio page content and metadata (single page approach)
-- Created `themes/bymarcelolewin/layouts/bio/single.html` - Bio page template
+- Created `themes/icodewithai/layouts/bio/single.html` - Bio page template
 
 ### Configuration
 - Updated `hugo.toml` menu configuration to point Bio link to `/bio/` page
@@ -51,12 +51,12 @@ Added a dedicated bio page accessible at `/bio/` and a custom 404 error page to 
 
 ## Files Added
 - `content/bio.md`
-- `themes/bymarcelolewin/layouts/bio/single.html`
-- `themes/bymarcelolewin/layouts/404.html`
+- `themes/icodewithai/layouts/bio/single.html`
+- `themes/icodewithai/layouts/404.html`
 
 ## Files Modified
 - `hugo.toml` (menu navigation updates for Bio and Contact)
-- `themes/bymarcelolewin/layouts/index.html` (streamlined bio section, added navigation links)
+- `themes/icodewithai/layouts/index.html` (streamlined bio section, added navigation links)
 
 ## Next Steps
 - Add actual profile photo to replace placeholder

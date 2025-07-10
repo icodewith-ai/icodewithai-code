@@ -147,11 +147,11 @@ static/
 └── CNAME                        # GitHub Pages domain file
 ```
 
-### `/themes/bymarcelolewin/` - Hugo Theme
+### `/themes/icodewithai/` - Hugo Theme
 Custom Hugo theme containing templates, layouts, and source assets.
 
 ```
-themes/bymarcelolewin/
+themes/icodewithai/
 ├── assets/                      # Theme source assets (processed by Hugo Pipes)
 │   ├── scss/                    # SCSS source files
 │   ├── js/                      # JavaScript source files
@@ -258,16 +258,16 @@ Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets
 2. **Images**: Add thumbnails (`thumbnail.jpg`) and gallery images (`photogallery/image01.jpg`) to app bundles
 3. **Styling**: Modify SCSS files in `/assets/scss/` 
 4. **JavaScript**: Modify JS files in `/assets/js/` 
-5. **Templates**: Update Hugo templates in `/themes/bymarcelolewin/layouts/`
+5. **Templates**: Update Hugo templates in `/themes/icodewithai/layouts/`
 6. **Development Testing**: Run `hugo server --environment local`
-7. **Staging Deployment**: Push to `dev` branch → GitHub Actions → `bml-website-next` repository → `next.bymarcelolewin.com`
-8. **Production Deployment**: Push to `main` branch → GitHub Actions → `bml-website-prod` repository → `www.bymarcelolewin.com`
+7. **Staging Deployment**: Push to `dev` branch → GitHub Actions → `bml-website-next` repository → `next.icodewith.ai`
+8. **Production Deployment**: Push to `main` branch → GitHub Actions → `bml-website-prod` repository → `www.icodewith.ai`
 
 ### Repository Architecture
 - **Source Repository**: `bymarcelolewin/bml-website-code` (private) - Contains Hugo source code, content, and themes
 - **Deployment Repositories**: 
-  - `bml-website-prod`: Production deployment (www.bymarcelolewin.com)
-  - `bml-website-next`: Staging deployment (next.bymarcelolewin.com)
+  - `bml-website-prod`: Production deployment (www.icodewith.ai)
+  - `bml-website-next`: Staging deployment (next.icodewith.ai)
 - **GitHub Actions**: Automatically deploy to appropriate repository based on branch
 
 ## Design System Architecture

@@ -38,7 +38,7 @@ The photo gallery component provides an interactive image viewing experience for
 | `.photo-gallery-nav-next` | Right arrow positioning |
 
 #### JavaScript Functionality
-- **File**: `themes/bymarcelolewin/assets/js/photo-gallery.js`
+- **File**: `themes/icodewithai/assets/js/photo-gallery.js`
 - **Loading**: Conditional (only when gallery exists)
 - **Processing**: Hugo Pipes minification
 

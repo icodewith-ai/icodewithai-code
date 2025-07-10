@@ -41,7 +41,7 @@ Layout structure inspired by supabase.com footer, but using our existing design 
 ## Technical Implementation
 
 ### Files to Modify
-- `themes/bymarcelolewin/layouts/partials/footer.html`
+- `themes/icodewithai/layouts/partials/footer.html`
 - SCSS updates for new footer styling (likely in `_components.scss`)
 
 ### Current Footer Analysis
@@ -125,7 +125,7 @@ Layout structure inspired by supabase.com footer, but using our existing design 
 - **Header Decision**: Explored header container alignment but reverted to original full-width design for better visual balance
 
 ### Files Modified
-- `themes/bymarcelolewin/layouts/partials/footer.html` - Complete footer template restructure
+- `themes/icodewithai/layouts/partials/footer.html` - Complete footer template restructure
 - `assets/scss/_components.scss` - New footer styling with responsive design
 - `hugo.toml` - Version updated to v1.1.3
 

@@ -16,7 +16,7 @@ Successfully completed Phase 3 (Photo Gallery Component), Phase 4 (CSS Design Sy
 ### Technical Implementation
 
 #### Template Integration
-- **Location**: Added to `themes/bymarcelolewin/layouts/apps/single.html`
+- **Location**: Added to `themes/icodewithai/layouts/apps/single.html`
 - **Positioning**: Gallery displays at the top of the page, before the app title
 - **Conditional display**: Only shows when `photogallery/` folder contains images
 - **Image detection**: Automatic detection using `.Resources.Match "photogallery/*"`
@@ -37,7 +37,7 @@ Successfully completed Phase 3 (Photo Gallery Component), Phase 4 (CSS Design Sy
 ```
 
 #### JavaScript Functionality
-- **External file**: `themes/bymarcelolewin/assets/js/photo-gallery.js`
+- **External file**: `themes/icodewithai/assets/js/photo-gallery.js`
 - **Hugo Pipes processing**: Minified and optimized delivery
 - **Performance**: Conditional loading only when gallery exists
 
@@ -155,7 +155,7 @@ font-size: $font-size-2xl          // Arrow icon sizing
 
 ### File Structure
 ```
-themes/bymarcelolewin/
+themes/icodewithai/
 ├── assets/
 │   ├── scss/_components.scss     (updated with gallery styles)
 │   └── js/photo-gallery.js       (new JavaScript module)

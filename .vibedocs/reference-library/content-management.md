@@ -6,8 +6,8 @@
 
 The website now uses a multi-repository architecture:
 - **Source Repository**: `bymarcelolewin/bml-website-code` (private) - Contains Hugo source code, content, and themes
-- **Staging**: `dev` branch → `bml-website-next` repository → `next.bymarcelolewin.com`
-- **Production**: `main` branch → `bml-website-prod` repository → `www.bymarcelolewin.com`
+- **Staging**: `dev` branch → `bml-website-next` repository → `next.icodewith.ai`
+- **Production**: `main` branch → `bml-website-prod` repository → `www.icodewith.ai`
 
 Create new blog posts, app pages, or presentations:
 ```bash
@@ -138,7 +138,7 @@ Episode content in markdown format...
 - **"upcoming"**: Episode appears in Upcoming Episodes section
 
 #### Episode Images
-- **Location**: `themes/bymarcelolewin/assets/images/podcast/`
+- **Location**: `themes/icodewithai/assets/images/podcast/`
 - **Naming**: Use episode slug (e.g., `episode-001.jpg`)
 - **Dimensions**: 1:1 aspect ratio (square) recommended
 - **Formats**: JPG or PNG
@@ -170,7 +170,7 @@ Content automatically includes proper meta tags for rich previews when shared on
 Theme images (logos, profile photos, certificates) are processed through Hugo Pipes for optimization and cache busting:
 
 #### File Location
-- **Source**: `themes/bymarcelolewin/assets/images/`
+- **Source**: `themes/icodewithai/assets/images/`
 - **Generated**: `/public/images/[filename].[hash].[ext]`
 
 #### Supported Images
@@ -207,8 +207,8 @@ Images are referenced using Hugo's `resources.Get` function:
 
 The website implements environment-specific search engine control:
 
-- **Production** (`www.bymarcelolewin.com`): Fully indexed by search engines
-- **Staging** (`next.bymarcelolewin.com`): Blocked from search engines using `noindex, nofollow` meta tags
+- **Production** (`www.icodewith.ai`): Fully indexed by search engines
+- **Staging** (`next.icodewith.ai`): Blocked from search engines using `noindex, nofollow` meta tags
 
 This is configured via the `noindex` parameter in `config/next/config.toml` and automatically adds:
 ```html

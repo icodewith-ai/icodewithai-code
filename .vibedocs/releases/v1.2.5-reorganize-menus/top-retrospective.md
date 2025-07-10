@@ -161,15 +161,15 @@
 ## Technical Specifications
 
 ### Files Modified
-- `themes/bymarcelolewin/layouts/partials/header.html` - Navigation structure
-- `themes/bymarcelolewin/layouts/partials/footer.html` - Added external link icons
+- `themes/icodewithai/layouts/partials/header.html` - Navigation structure
+- `themes/icodewithai/layouts/partials/footer.html` - Added external link icons
 - `assets/scss/_components.scss` - Dropdown and mobile navigation styles
 - `assets/scss/_variables.scss` - Added z-index-dropdown variable
 - `assets/js/mobile-menu.js` - Enhanced mobile dropdown functionality
 - `config/_default/config.toml` - Removed menu system
 
 ### New Files Created
-- `themes/bymarcelolewin/layouts/partials/nav-dropdown.html` - Reusable dropdown component
+- `themes/icodewithai/layouts/partials/nav-dropdown.html` - Reusable dropdown component
 - `assets/js/nav-dropdown.js` - Desktop dropdown functionality
 
 ### Performance Impact

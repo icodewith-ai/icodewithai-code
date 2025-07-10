@@ -20,8 +20,8 @@ The client wanted to remove mobile-only breakpoints (768px) and consolidate to a
 - `assets/scss/_responsive.scss` - Removed mobile-specific responsive styles
 - `assets/scss/_utilities.scss` - Removed mobile utility classes (`.mobile:*`)
 - `assets/scss/_layout.scss` - Removed mobile layout adjustments
-- `themes/bymarcelolewin/layouts/partials/header.html` - Removed mobile menu markup
-- `themes/bymarcelolewin/layouts/_default/baseof.html` - Removed mobile menu script reference
+- `themes/icodewithai/layouts/partials/header.html` - Removed mobile menu markup
+- `themes/icodewithai/layouts/_default/baseof.html` - Removed mobile menu script reference
 - `assets/js/mobile-menu.js` - Deleted file
 
 **Result**: All mobile-only breakpoints successfully removed, leaving only tablet breakpoint
@@ -33,8 +33,8 @@ The client wanted to remove mobile-only breakpoints (768px) and consolidate to a
 - `assets/js/mobile-menu.js` - Recreated with tablet breakpoint (1050px) logic
 - `assets/scss/_variables.scss` - Added `$z-index-mobile-menu: 200`
 - `assets/scss/_components.scss` - Added mobile menu components with tablet breakpoint
-- `themes/bymarcelolewin/layouts/partials/header.html` - Restored mobile menu markup
-- `themes/bymarcelolewin/layouts/_default/baseof.html` - Restored mobile menu script reference
+- `themes/icodewithai/layouts/partials/header.html` - Restored mobile menu markup
+- `themes/icodewithai/layouts/_default/baseof.html` - Restored mobile menu script reference
 - `assets/scss/_responsive.scss` - Updated to activate mobile menu at tablet breakpoint
 
 **Key Changes**:
@@ -54,7 +54,7 @@ The client wanted to remove mobile-only breakpoints (768px) and consolidate to a
 - Updated mobile menu header layout for better visual consistency
 
 **Files Modified**:
-- `themes/bymarcelolewin/layouts/partials/header.html` - Added logo link and environment badge
+- `themes/icodewithai/layouts/partials/header.html` - Added logo link and environment badge
 - `assets/scss/_components.scss` - Updated mobile menu header layout and navigation spacing
 
 ### Phase 4: Documentation Updates

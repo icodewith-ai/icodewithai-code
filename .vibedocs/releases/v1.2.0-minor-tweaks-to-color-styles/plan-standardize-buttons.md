@@ -67,14 +67,14 @@ Both button types will be **identical except for background color**.
 ### **Phase 2: Update HTML Templates**
 
 #### Files to Update:
-1. **Header Template** (`/themes/bymarcelolewin/layouts/partials/header.html`)
+1. **Header Template** (`/themes/icodewithai/layouts/partials/header.html`)
    - Replace `discord-btn` → `btn-primary`
 
-2. **Apps Single Page** (`/themes/bymarcelolewin/layouts/apps/single.html`)
+2. **Apps Single Page** (`/themes/icodewithai/layouts/apps/single.html`)
    - Replace `project-link-primary` → `btn-primary` 
    - Replace `project-link-secondary` → `btn-secondary`
 
-3. **Presentations Single Page** (`/themes/bymarcelolewin/layouts/presentations/single.html`)
+3. **Presentations Single Page** (`/themes/icodewithai/layouts/presentations/single.html`)
    - Replace `project-link-primary` → `btn-primary`
    - Replace `project-link-secondary` → `btn-secondary`
 

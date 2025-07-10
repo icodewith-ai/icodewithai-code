@@ -102,7 +102,7 @@ Integrate Bulma, a modern CSS framework based on Flexbox, with Hugo using SCSS c
 
 ## File Structure
 ```
-themes/bymarcelolewin/static/scss/
+themes/icodewithai/static/scss/
 ├── styles.scss              # Main import file
 ├── _variables.scss          # Bulma variable overrides
 ├── _custom.scss            # Custom components

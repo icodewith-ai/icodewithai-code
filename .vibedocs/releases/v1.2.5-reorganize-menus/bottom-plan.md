@@ -27,7 +27,7 @@ Reorganize the footer from 2 columns (Navigation + Follow Me) to 5 columns (Abou
    - **Action**: Add meetup URL to params section
    - **Addition**: `meetup = "https://www.meetup.com/coding-with-ai/"`
 
-2. **File**: `themes/bymarcelolewin/layouts/partials/footer.html`
+2. **File**: `themes/icodewithai/layouts/partials/footer.html`
    - **Action**: Replace current 2-column structure with 5-column structure
    - **Update**: Use `{{ .Site.Params.meetup }}` for meetup URL
 

@@ -54,12 +54,12 @@
 
 ### Files Added: 3
 - `content/bio.md`
-- `themes/bymarcelolewin/layouts/bio/single.html`
-- `themes/bymarcelolewin/layouts/404.html`
+- `themes/icodewithai/layouts/bio/single.html`
+- `themes/icodewithai/layouts/404.html`
 
 ### Files Modified: 2
 - `hugo.toml` (navigation updates)
-- `themes/bymarcelolewin/layouts/index.html` (streamlined content)
+- `themes/icodewithai/layouts/index.html` (streamlined content)
 
 ### User Experience Improvements
 - Dedicated bio page provides comprehensive professional information

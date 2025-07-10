@@ -20,8 +20,8 @@ This plan outlines the implementation of image support for the apps section, inc
 
 ### Tasks:
 1. **Template updates**
-   - Update `themes/bymarcelolewin/layouts/index.html` (home page)
-   - Update `themes/bymarcelolewin/layouts/apps/list.html` (apps list)
+   - Update `themes/icodewithai/layouts/index.html` (home page)
+   - Update `themes/icodewithai/layouts/apps/list.html` (apps list)
    - Add thumbnail detection logic for both `.jpg` and `.png`
    
 2. **CSS implementation**
@@ -51,7 +51,7 @@ This plan outlines the implementation of image support for the apps section, inc
    - Sort images by filename (image01.jpg, image02.jpg, etc.)
 
 3. **Template integration**
-   - Update `themes/bymarcelolewin/layouts/apps/single.html`
+   - Update `themes/icodewithai/layouts/apps/single.html`
    - Add gallery detection logic (check for photogallery folder + images)
    - Implement conditional display
 

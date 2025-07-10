@@ -21,7 +21,7 @@ Reorganize the header navigation from flat menu items to include dropdown groups
 **Goal**: Build a flexible dropdown partial that can be reused for any navigation group
 
 ### Task 1.1: Create Dropdown Component Partial
-- **File**: `themes/bymarcelolewin/layouts/partials/nav-dropdown.html`
+- **File**: `themes/icodewithai/layouts/partials/nav-dropdown.html`
 - **Parameters**:
   - `title`: Group name (e.g., "Content", "Coding with AI")
   - `items`: Array of menu items with name, url, external properties
@@ -58,7 +58,7 @@ Reorganize the header navigation from flat menu items to include dropdown groups
 **Goal**: Implement new navigation structure using the dropdown component
 
 ### Task 2.1: Update Header HTML Template
-- **File**: `themes/bymarcelolewin/layouts/partials/header.html`
+- **File**: `themes/icodewithai/layouts/partials/header.html`
 - **Desktop Navigation Changes**:
   - Replace current menu loop with hardcoded structure
   - Use dropdown partial for "Content" and "Coding with AI"
@@ -96,7 +96,7 @@ Reorganize the header navigation from flat menu items to include dropdown groups
 - **Blog**: `{{ .Site.Params.blog }}` → `/blog/`
 - **Presentations**: `{{ .Site.Params.presentations }}` → `/presentations/`
 - **Podcast**: `{{ .Site.Params.podcast }}` → `/podcast/`
-- **Contact**: `{{ .Site.Params.contact }}` → `mailto:marcelo@bymarcelolewin.com`
+- **Contact**: `{{ .Site.Params.contact }}` → `mailto:marcelo@icodewith.ai`
 - **Discord**: `{{ .Site.Params.discord }}` → `https://discord.gg/...` (external)
 - **Meetup**: `{{ .Site.Params.meetup }}` → `https://www.meetup.com/...` (external)
 
@@ -132,13 +132,13 @@ Reorganize the header navigation from flat menu items to include dropdown groups
 
 ### New Files
 ```
-themes/bymarcelolewin/layouts/partials/nav-dropdown.html
+themes/icodewithai/layouts/partials/nav-dropdown.html
 assets/js/nav-dropdown.js
 ```
 
 ### Modified Files
 ```
-themes/bymarcelolewin/layouts/partials/header.html
+themes/icodewithai/layouts/partials/header.html
 assets/scss/_components.scss
 assets/js/mobile-menu.js
 config/_default/config.toml

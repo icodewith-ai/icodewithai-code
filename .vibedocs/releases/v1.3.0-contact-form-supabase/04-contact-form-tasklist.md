@@ -45,8 +45,8 @@
 - [ ] Import new styles in main SCSS file
 
 ### 3.2 Hugo Templates (Claude)
-- [ ] Create `/themes/bymarcelolewin/layouts/contact/single.html`
-- [ ] Create `/themes/bymarcelolewin/partials/contact-form.html` component
+- [ ] Create `/themes/icodewithai/layouts/contact/single.html`
+- [ ] Create `/themes/icodewithai/partials/contact-form.html` component
 - [ ] Add proper form structure with all required fields
 - [ ] Implement honeypot field (hidden anti-bot field)
 - [ ] Add accessibility features (labels, ARIA attributes)

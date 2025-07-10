@@ -213,9 +213,9 @@ a {
 ## Files Modified
 
 ### HTML Templates:
-- `themes/bymarcelolewin/layouts/blog/single.html`
-- `themes/bymarcelolewin/layouts/index.html`
-- `themes/bymarcelolewin/layouts/bio/single.html`
+- `themes/icodewithai/layouts/blog/single.html`
+- `themes/icodewithai/layouts/index.html`
+- `themes/icodewithai/layouts/bio/single.html`
 
 ### SCSS Files:
 - `assets/scss/_components.scss` (major updates)

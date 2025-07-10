@@ -1,4 +1,4 @@
-baseURL = "https://next.bymarcelolewin.com"
+baseURL = "https://next.icodewith.ai"
 
 [params]
   noindex = true

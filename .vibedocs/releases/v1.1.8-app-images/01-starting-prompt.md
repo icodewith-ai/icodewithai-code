@@ -2,9 +2,9 @@
 
 This update will affecte 3 sections:
 
-1) Home Page (@themes/bymarcelolewin/layouts/index.html)
-2) Apps List Page (@themes/bymarcelolewin/layouts/apps/list.html)
-3) Apps Details Page (@themes/bymarcelolewin/layouts/apps/single.html)
+1) Home Page (@themes/icodewithai/layouts/index.html)
+2) Apps List Page (@themes/icodewithai/layouts/apps/list.html)
+3) Apps Details Page (@themes/icodewithai/layouts/apps/single.html)
 
 I want to add:
 

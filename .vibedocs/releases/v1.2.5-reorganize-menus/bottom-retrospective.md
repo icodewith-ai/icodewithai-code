@@ -183,7 +183,7 @@ The user's proactive improvements (centralizing URLs in Hugo params) and the fle
 
 **Total Files Modified**: 3
 - `config/_default/config.toml` - Added navigation and community URL params
-- `themes/bymarcelolewin/layouts/partials/footer.html` - Implemented responsive footer structure
+- `themes/icodewithai/layouts/partials/footer.html` - Implemented responsive footer structure
 - `assets/scss/_components.scss` - Added responsive CSS Grid layout
 
 **Total Tasks Completed**: 13 across 2 phases

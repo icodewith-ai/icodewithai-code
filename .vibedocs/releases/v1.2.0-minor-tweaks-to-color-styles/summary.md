@@ -11,7 +11,7 @@ This release includes typography improvements and color refinements to enhance t
 - **Added Google Fonts integration**: 
   - Added preconnect links for performance optimization
   - Included full DM Sans font family with all weights and italic variants
-  - Added to `themes/bymarcelolewin/layouts/_default/baseof.html`
+  - Added to `themes/icodewithai/layouts/_default/baseof.html`
 - **Modified font stack**: Updated `$font-family-base` in `_variables.scss`
   - Before: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`
   - After: `'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif`
@@ -78,19 +78,19 @@ This release includes typography improvements and color refinements to enhance t
   - Updated `@mixin card-base` to use solid background color instead of gradient
 
 ### HTML Templates
-- `themes/bymarcelolewin/layouts/_default/baseof.html`
+- `themes/icodewithai/layouts/_default/baseof.html`
   - Added Google Fonts preconnect links
   - Added DM Sans font family import
 
-- `themes/bymarcelolewin/layouts/partials/header.html`
+- `themes/icodewithai/layouts/partials/header.html`
   - Updated Discord button from `discord-btn` to `btn-primary`
 
-- `themes/bymarcelolewin/layouts/apps/single.html`
+- `themes/icodewithai/layouts/apps/single.html`
   - Updated all project buttons to use standardized classes
   - Preview buttons: `project-link-primary` → `btn-primary`
   - GitHub/NPM buttons: `project-link-secondary` → `btn-secondary`
 
-- `themes/bymarcelolewin/layouts/presentations/single.html`
+- `themes/icodewithai/layouts/presentations/single.html`
   - Updated all presentation buttons to use standardized classes
   - Register buttons: `project-link-primary` → `btn-primary`
   - Learn More/On-Demand buttons: `project-link-secondary` → `btn-secondary`

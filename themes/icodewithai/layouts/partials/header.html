@@ -20,26 +20,26 @@
 
 <!-- Desktop Navigation -->
 <nav class="nav">
-    <a href="{{ .Site.Params.bio }}">Bio</a>
     <a href="{{ .Site.Params.apps }}">Apps</a>
     
     {{ partial "nav-dropdown" (dict 
         "title" "Content"
         "items" (slice 
             (dict "name" "Blog" "url" .Site.Params.blog "external" false)
+            (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
             (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
         )
     ) }}
     
     {{ partial "nav-dropdown" (dict 
-        "title" "Coding with AI"
+        "title" "Community"
         "items" (slice 
-            (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
             (dict "name" "Discord" "url" .Site.Params.discord "external" true)
             (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
         )
     ) }}
     
+    <a href="{{ .Site.Params.bio }}">Bio</a>
     <a href="{{ .Site.Params.contact }}">Contact</a>
 </nav>
 
@@ -62,26 +62,26 @@
         
         <!-- Navigation items (same structure as desktop) -->
         <nav class="mobile-nav">
-            <a href="{{ .Site.Params.bio }}">Bio</a>
             <a href="{{ .Site.Params.apps }}">Apps</a>
             
             {{ partial "nav-dropdown" (dict 
                 "title" "Content"
                 "items" (slice 
                     (dict "name" "Blog" "url" .Site.Params.blog "external" false)
+                    (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
                     (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
                 )
             ) }}
             
             {{ partial "nav-dropdown" (dict 
-                "title" "Coding with AI"
+                "title" "Community"
                 "items" (slice 
-                    (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
                     (dict "name" "Discord" "url" .Site.Params.discord "external" true)
                     (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
                 )
             ) }}
             
+            <a href="{{ .Site.Params.bio }}">Bio</a>
             <a href="{{ .Site.Params.contact }}">Contact</a>
         </nav>
     </div>

@@ -57,7 +57,7 @@ Start with Enhanced CSS and build a **modular component system** that grows with
 
 ### File Structure
 ```
-themes/bymarcelolewin/static/scss/
+themes/icodewithai/static/scss/
 ├── styles.scss              # Main file
 ├── _variables.scss          # Colors, fonts, spacing
 ├── _mixins.scss            # Reusable mixins

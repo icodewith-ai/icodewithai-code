@@ -1,4 +1,4 @@
-name: Deploy to www.bymarcelolewin.com
+name: Deploy to www.icodewith.ai
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
           external_repository: bymarcelolewin/bml-website-prod
           publish_branch: gh-pages
           publish_dir: ./public
-          cname: www.bymarcelolewin.com
+          cname: www.icodewith.ai

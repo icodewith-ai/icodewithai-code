@@ -5,8 +5,8 @@ Refactor the current GitHub Pages deployment to use separate repositories for pr
 
 ## Current State
 - **Source Repository**: `bymarcelolewin/bml-website-code` (private, GitHub Pages enabled)
-- **Production**: Deploys to `gh-pages` branch → `www.bymarcelolewin.com`
-- **Staging**: Deploys to `gh-pages-dev` branch → `next.bymarcelolewin.com` (not working due to GitHub Pages limitations)
+- **Production**: Deploys to `gh-pages` branch → `www.icodewith.ai`
+- **Staging**: Deploys to `gh-pages-dev` branch → `next.icodewith.ai` (not working due to GitHub Pages limitations)
 
 ## Target State
 - **Source Repository**: `bymarcelolewin/bml-website-code` (private, no GitHub Pages)
@@ -19,12 +19,12 @@ Refactor the current GitHub Pages deployment to use separate repositories for pr
 1. **Create `bymarcelolewin/bml-website-prod`**
    - Public repository
    - Enable GitHub Pages (source: `gh-pages` branch)
-   - Add custom domain: `www.bymarcelolewin.com`
+   - Add custom domain: `www.icodewith.ai`
 
 2. **Create `bymarcelolewin/bml-website-next`**
    - Public repository
    - Enable GitHub Pages (source: `gh-pages` branch)
-   - Add custom domain: `next.bymarcelolewin.com`
+   - Add custom domain: `next.icodewith.ai`
 
 ### Phase 2: Generate Personal Access Token
 1. Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
@@ -42,7 +42,7 @@ Refactor the current GitHub Pages deployment to use separate repositories for pr
 
 #### Production Workflow (`.github/workflows/hugo-prod.yml`)
 ```yaml
-name: Deploy to www.bymarcelolewin.com
+name: Deploy to www.icodewith.ai
 
 on:
   push:
@@ -88,12 +88,12 @@ jobs:
           external_repository: bymarcelolewin/bml-website-prod
           publish_branch: gh-pages
           publish_dir: ./public
-          cname: www.bymarcelolewin.com
+          cname: www.icodewith.aicom
 ```
 
 #### Staging Workflow (`.github/workflows/hugo-next.yml`)
 ```yaml
-name: Deploy to next.bymarcelolewin.com
+name: Deploy to next.icodewith.ai
 
 on:
   push:
@@ -139,14 +139,14 @@ jobs:
           external_repository: bymarcelolewin/bml-website-next
           publish_branch: gh-pages
           publish_dir: ./public
-          cname: next.bymarcelolewin.com
+          cname: next.icodewith.ai
 ```
 
 ### Phase 5: Update DNS Configuration (Namecheap)
-1. **Production** (`www.bymarcelolewin.com`):
+1. **Production** (`www.icodewith.ai`):
    - Update CNAME record to point to: `bymarcelolewin.github.io` (from `bml-website-prod` repo)
 
-2. **Staging** (`next.bymarcelolewin.com`):
+2. **Staging** (`next.icodewith.ai`):
    - Update CNAME record to point to: `bymarcelolewin.github.io` (from `bml-website-next` repo)
 
 ### Phase 6: Clean Up Source Repository
@@ -156,8 +156,8 @@ jobs:
    - Delete `gh-pages-dev` branch
 
 ## Testing Strategy
-1. **Test staging first**: Push to `dev` branch and verify `next.bymarcelolewin.com` works
-2. **Test production**: Push to `main` branch and verify `www.bymarcelolewin.com` works
+1. **Test staging first**: Push to `dev` branch and verify `next.icodewith.ai` works
+2. **Test production**: Push to `main` branch and verify `www.icodewith.ai` works
 3. **Verify DNS propagation**: Check both domains resolve correctly
 
 ## Rollback Plan

@@ -6,7 +6,7 @@ Migrate theme images from static folder to Hugo Pipes asset processing for bette
 ## Scope
 
 ### Images to Migrate
-Moving from `themes/bymarcelolewin/static/images/` to `themes/bymarcelolewin/assets/images/`:
+Moving from `themes/icodewithai/static/images/` to `themes/icodewithai/assets/images/`:
 
 1. **`marcelolewin.jpg`** - Profile photo (likely used in bio sections)
 2. **`logo-bml.png`** - Site logo (likely used in header/footer)
@@ -14,7 +14,7 @@ Moving from `themes/bymarcelolewin/static/images/` to `themes/bymarcelolewin/ass
 4. **`icon-contentful-certified-professional.png`** - Certificate icon
 
 ### Images to Keep Static
-Remaining in `themes/bymarcelolewin/static/images/` (browser/PWA requirements):
+Remaining in `themes/icodewithai/static/images/` (browser/PWA requirements):
 
 - `favicon.ico`
 - `favicon-16x16.png`
@@ -30,10 +30,10 @@ Search all template files for current image references:
 
 ```bash
 # Search for each image filename
-grep -r "marcelolewin.jpg" themes/bymarcelolewin/layouts/
-grep -r "logo-bml.png" themes/bymarcelolewin/layouts/
-grep -r "icon-contentful-certified-content-manager.png" themes/bymarcelolewin/layouts/
-grep -r "icon-contentful-certified-professional.png" themes/bymarcelolewin/layouts/
+grep -r "marcelolewin.jpg" themes/icodewithai/layouts/
+grep -r "logo-bml.png" themes/icodewithai/layouts/
+grep -r "icon-contentful-certified-content-manager.png" themes/icodewithai/layouts/
+grep -r "icon-contentful-certified-professional.png" themes/icodewithai/layouts/
 ```
 
 ### 1.2 Reference Documentation
@@ -55,7 +55,7 @@ Evaluate current image files:
 Create new asset directory structure:
 
 ```
-themes/bymarcelolewin/assets/
+themes/icodewithai/assets/
 ├── js/
 │   └── photo-gallery.js          # Existing
 └── images/                       # New
@@ -103,11 +103,11 @@ Apply Hugo image processing for optimization:
 Update each template file that references the migrated images:
 
 **Likely Templates:**
-- `themes/bymarcelolewin/layouts/partials/footer.html`
-- `themes/bymarcelolewin/layouts/partials/header.html` 
-- `themes/bymarcelolewin/layouts/bio/single.html`
-- `themes/bymarcelolewin/layouts/index.html`
-- `themes/bymarcelolewin/layouts/_default/baseof.html`
+- `themes/icodewithai/layouts/partials/footer.html`
+- `themes/icodewithai/layouts/partials/header.html` 
+- `themes/icodewithai/layouts/bio/single.html`
+- `themes/icodewithai/layouts/index.html`
+- `themes/icodewithai/layouts/_default/baseof.html`
 
 ### 3.2 Error Handling
 Add proper error handling for missing images:

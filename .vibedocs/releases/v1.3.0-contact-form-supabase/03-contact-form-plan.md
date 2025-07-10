@@ -101,8 +101,8 @@ This plan implements a contact form component for a Hugo static site hosted on G
 ### New Files to Create:
 ```
 /content/contact.md                     # Page content and configuration
-/themes/bymarcelolewin/layouts/contact/single.html    # Contact page layout
-/themes/bymarcelolewin/partials/contact-form.html     # Reusable form component
+/themes/icodewithai/layouts/contact/single.html    # Contact page layout
+/themes/icodewithai/partials/contact-form.html     # Reusable form component
 /assets/scss/_contact-form.scss         # Form-specific styles
 /static/js/contact-form.js              # Form JavaScript functionality
 ```

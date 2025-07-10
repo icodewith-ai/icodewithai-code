@@ -72,7 +72,7 @@ Convert your existing CSS to SCSS and enhance it with CSS custom properties, usi
 
 ## File Structure
 ```
-themes/bymarcelolewin/static/scss/
+themes/icodewithai/static/scss/
 ├── styles.scss              # Main file
 ├── _variables.scss          # Colors, fonts, spacing
 ├── _mixins.scss            # Reusable mixins

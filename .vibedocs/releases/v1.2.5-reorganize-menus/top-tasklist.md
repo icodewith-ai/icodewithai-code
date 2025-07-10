@@ -8,7 +8,7 @@
 
 ### Task 1.1: Create Dropdown Component Partial
 - **Assignee**: Claude
-- **File**: `themes/bymarcelolewin/layouts/partials/nav-dropdown.html`
+- **File**: `themes/icodewithai/layouts/partials/nav-dropdown.html`
 - **Action**: Create reusable Hugo partial for dropdown menus
 - **Parameters**:
   - `title`: Group name (e.g., "Content", "Coding with AI") 
@@ -93,7 +93,7 @@
 
 ### Task 3.1: Update Desktop Header Navigation
 - **Assignee**: Claude
-- **File**: `themes/bymarcelolewin/layouts/partials/header.html`
+- **File**: `themes/icodewithai/layouts/partials/header.html`
 - **Action**: Replace current menu loop with hardcoded dropdown structure
 - **Changes**:
   - Use dropdown partial for "Content" and "Coding with AI"
@@ -145,7 +145,7 @@
 
 ### Task 4.1: Update Mobile Menu HTML Structure
 - **Assignee**: Claude
-- **File**: `themes/bymarcelolewin/layouts/partials/header.html`
+- **File**: `themes/icodewithai/layouts/partials/header.html`
 - **Action**: Update mobile menu to support accordion-style dropdowns
 - **Changes**:
   - Use same dropdown structure as desktop
@@ -264,18 +264,18 @@
 - **Blog**: `{{ .Site.Params.blog }}` → `/blog/`
 - **Presentations**: `{{ .Site.Params.presentations }}` → `/presentations/`
 - **Podcast**: `{{ .Site.Params.podcast }}` → `/podcast/`
-- **Contact**: `{{ .Site.Params.contact }}` → `mailto:marcelo@bymarcelolewin.com`
+- **Contact**: `{{ .Site.Params.contact }}` → `mailto:marcelo@icodewith.ai`
 - **Discord**: `{{ .Site.Params.discord }}` → External (new tab)
 - **Meetup**: `{{ .Site.Params.meetup }}` → External (new tab)
 
 ### Files Being Modified
-- `themes/bymarcelolewin/layouts/partials/header.html`
+- `themes/icodewithai/layouts/partials/header.html`
 - `assets/scss/_components.scss`
 - `assets/js/mobile-menu.js`
 - `config/_default/config.toml`
 
 ### New Files Being Created
-- `themes/bymarcelolewin/layouts/partials/nav-dropdown.html`
+- `themes/icodewithai/layouts/partials/nav-dropdown.html`
 - `assets/js/nav-dropdown.js`
 
 ### Testing Requirements

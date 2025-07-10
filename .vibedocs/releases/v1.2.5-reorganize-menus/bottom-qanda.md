@@ -67,7 +67,7 @@ Your proposed layout shows 5 sections total. Should the final layout be:
 ## Analysis Summary
 
 ### Current Footer Structure
-- **File**: `themes/bymarcelolewin/layouts/partials/footer.html`
+- **File**: `themes/icodewithai/layouts/partials/footer.html`
 - **CSS**: `assets/scss/_components.scss` (lines 1064-1190)
 - **Layout**: Flexbox with `justify-content: space-between`
 - **Responsive**: No tablet-specific styling currently

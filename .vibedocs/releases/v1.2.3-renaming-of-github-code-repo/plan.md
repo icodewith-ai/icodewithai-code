@@ -182,8 +182,8 @@ If issues arise:
 - [ ] All documentation references updated
 
 ### Functional Validation
-- [ ] `next.bymarcelolewin.com` continues to work
-- [ ] `www.bymarcelolewin.com` continues to work
+- [ ] `next.icodewith.ai` continues to work
+- [ ] `www.icodewith.ai` continues to work
 - [ ] Password protection works on staging
 - [ ] All website features function normally
 - [ ] No broken links or references

@@ -6,7 +6,7 @@ Successfully refactored the GitHub Pages deployment architecture from a single-r
 ## What We Accomplished
 
 ### 🎯 Primary Goals Achieved
-- ✅ **Fixed staging deployment**: `next.bymarcelolewin.com` now works correctly
+- ✅ **Fixed staging deployment**: `next.icodewith.ai` now works correctly
 - ✅ **Separated environments**: Production and staging deploy to independent repositories
 - ✅ **Maintained functionality**: All existing features continue to work as expected
 - ✅ **Improved architecture**: Clear separation of concerns between source code and deployments
@@ -19,8 +19,8 @@ Successfully refactored the GitHub Pages deployment architecture from a single-r
 - **DNS configuration**: Custom domains properly configured for both environments
 
 ### 📊 Results
-- **Production**: `www.bymarcelolewin.com` - fully functional and indexed by search engines
-- **Staging**: `next.bymarcelolewin.com` - fully functional and blocked from search engines
+- **Production**: `www.icodewith.ai` - fully functional and indexed by search engines
+- **Staging**: `next.icodewith.ai` - fully functional and blocked from search engines
 - **Local development**: `localhost:1313` - unchanged workflow
 - **Deployment time**: ~10-15 seconds per environment
 - **Zero downtime**: Seamless transition with no service interruption

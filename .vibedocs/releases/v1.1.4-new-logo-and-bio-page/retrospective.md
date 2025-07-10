@@ -77,7 +77,7 @@
 ## Metrics and Impact
 
 ### Files Modified: 2
-- `themes/bymarcelolewin/layouts/partials/header.html` - Logo image implementation
+- `themes/icodewithai/layouts/partials/header.html` - Logo image implementation
 - `assets/scss/_components.scss` - New logo styling and Discord button color updates
 
 ### Design System Growth

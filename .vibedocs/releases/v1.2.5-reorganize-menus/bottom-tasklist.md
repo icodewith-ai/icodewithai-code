@@ -14,7 +14,7 @@
 
 ### Task 1.2: Update Footer HTML Structure
 - **Assignee**: Claude
-- **File**: `themes/bymarcelolewin/layouts/partials/footer.html`
+- **File**: `themes/icodewithai/layouts/partials/footer.html`
 - **Action**: Replace current 2-column structure with 4-column structure
 - **Details**: 
   - About: Bio, Apps, Contact
@@ -85,7 +85,7 @@
 
 ### Task 2.1: Update Footer HTML for Mobile Content Reorganization
 - **Assignee**: Claude
-- **File**: `themes/bymarcelolewin/layouts/partials/footer.html`
+- **File**: `themes/icodewithai/layouts/partials/footer.html`
 - **Action**: Update HTML structure to support mobile content reorganization
 - **Requirements**:
   - About section must include: Bio, Apps, Blog, Presentations, Contact
@@ -181,7 +181,7 @@
 - **Added navigation page params** to `config/_default/config.toml`:
   - `bio = "/bio/"`
   - `apps = "/apps/"`
-  - `contact = "mailto:marcelo@bymarcelolewin.com"`
+  - `contact = "mailto:marcelo@icodewith.ai"`
   - `blog = "/blog/"`
   - `presentations = "/presentations/"`
   - `podcast = "/podcast/"`

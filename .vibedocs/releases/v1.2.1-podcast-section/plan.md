@@ -85,10 +85,10 @@ Add a podcast section to the website based on the presentations format structure
 ## Technical Considerations
 
 ### Image Storage
-- **Location:** `themes/bymarcelolewin/assets/images/podcast/`
+- **Location:** `themes/icodewithai/assets/images/podcast/`
 - **Organization:** 
-  - Main podcast image: `themes/bymarcelolewin/assets/images/podcast/podcast-cover.jpg`
-  - Episode images: `themes/bymarcelolewin/assets/images/podcast/episode-slug-name.jpg`
+  - Main podcast image: `themes/icodewithai/assets/images/podcast/podcast-cover.jpg`
+  - Episode images: `themes/icodewithai/assets/images/podcast/episode-slug-name.jpg`
 - Use Hugo's asset pipeline for image processing
 - Ensure 1:1 aspect ratio support for episode images
 
