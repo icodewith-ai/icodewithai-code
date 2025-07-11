@@ -24,6 +24,10 @@ og_image_type: "image/png"
 robots: "index, follow"
 canonical_base_url: "https://icodewith.ai"
 
+# Advanced SEO (optional fields)
+# noindex: false  # Set to true to prevent indexing of specific pages
+# search_console_verification: ""  # Google Search Console verification code
+
 # Language/Locale
 language: "en-US"
 locale: "en_US"

@@ -124,9 +124,11 @@ social_image_alt: "Custom alt text for blog listing"
 - **Blog posts**: Include keywords, make clickable
 - **Apps**: Highlight what the app does
 - **Presentations**: Include topic and value
+- **Length**: 50-60 characters optimal (warnings appear over 60)
 
 ### Description Best Practices
-- **Length**: 150-160 characters ideal
+- **Length**: 150-160 characters ideal (warnings appear over 160)
+- **Minimum**: Try to write at least 120 characters for better engagement
 - **Action-oriented**: Use verbs like "Learn", "Discover", "Build"
 - **Value-focused**: What will the reader get?
 - **Avoid**: Generic descriptions, keyword stuffing
@@ -135,6 +137,40 @@ social_image_alt: "Custom alt text for blog listing"
 - **Be descriptive**: Explain what's in the image
 - **Include branding**: Mention iCodeWith.ai
 - **Match content**: Alt text should relate to the page topic
+
+## Advanced SEO Features
+
+### SEO Quality Monitoring
+The system now provides automatic SEO quality checks:
+
+- **Title length warnings**: If your title exceeds 60 characters, you'll see a warning in the page source
+- **Description length warnings**: If your description exceeds 160 characters, you'll see a warning
+- **Description length suggestions**: If your description is under 120 characters, you'll see a suggestion to make it longer
+
+### Page-Specific Indexing Control
+You can now control whether specific pages appear in search engines:
+
+**To prevent a page from being indexed by search engines:**
+```yaml
+# In any SEO YAML file
+noindex: "true"  # Page won't appear in Google search results
+```
+
+**Common use cases:**
+- Draft content not ready for public
+- Thank you pages
+- Private/internal pages
+- Duplicate content pages
+
+### Google Search Console Integration
+Add your Google Search Console verification code:
+
+**In defaults.yaml:**
+```yaml
+search_console_verification: "your-verification-code-here"
+```
+
+This adds the verification meta tag to all pages automatically.
 
 ## Social Media Images
 
@@ -186,6 +222,82 @@ When ready to create custom images:
 3. **Social media tools**:
    - Facebook: [Sharing Debugger](https://developers.facebook.com/tools/debug/)
    - Twitter: [Card Validator](https://cards-dev.twitter.com/validator)
+
+## How to Test Your SEO Changes
+
+### 1. View Page Source
+**To see what SEO tags are generated:**
+1. Visit your page in a web browser
+2. Right-click → "View Page Source"
+3. Look for these sections:
+
+**Basic SEO tags:**
+```html
+<title>Your Page Title</title>
+<meta name="description" content="Your description">
+```
+
+**Social media tags:**
+```html
+<meta property="og:title" content="Your title">
+<meta property="og:description" content="Your description">
+<meta property="og:image" content="...your-image.png">
+<meta name="twitter:card" content="summary_large_image">
+```
+
+**Advanced features (new in Phase 6):**
+```html
+<!-- SEO quality warnings (if any) -->
+<!-- SEO WARNING: Title is 65 characters (optimal: 50-60) -->
+
+<!-- Enhanced blog post tags -->
+<meta property="article:published_time" content="2025-01-01T...">
+<meta property="article:author" content="https://icodewith.ai/about-marcelo/">
+
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@type": "BlogPosting",
+  "headline": "Your Post Title",
+  "datePublished": "2025-01-01",
+  ...
+}
+</script>
+```
+
+### 2. Social Media Testing Tools
+**Test how your pages appear when shared:**
+
+- **Facebook**: [Sharing Debugger](https://developers.facebook.com/tools/debug/)
+- **Twitter**: [Card Validator](https://cards-dev.twitter.com/validator)
+- **LinkedIn**: Share the URL and see the preview
+
+### 3. Search Engine Testing Tools
+**Test structured data and SEO:**
+
+- **Google Rich Results**: [Rich Results Test](https://search.google.com/test/rich-results)
+- **SEO Analysis**: [SEOquake Browser Extension](https://www.seoquake.com/)
+
+### 4. What's New in Phase 6
+**Enhanced features you can now test:**
+
+✅ **Content-specific structured data:**
+- Blog posts show as "BlogPosting" with publish dates
+- Apps show as "SoftwareApplication"
+- Presentations show as "PresentationDigitalDocument"
+- Podcast episodes show as "PodcastEpisode"
+
+✅ **Advanced social media tags:**
+- Blog posts include `article:published_time`
+- All content includes enhanced author information
+
+✅ **SEO quality warnings:**
+- Look for HTML comments with SEO warnings
+- Helps you optimize title and description lengths
+
+✅ **Better search engine understanding:**
+- Enhanced structured data helps Google understand your content type
+- Social media links properly connected to organization
 
 ## Troubleshooting
 
