@@ -1,15 +1,15 @@
-# Homepage SEO Configuration
-# This file contains homepage-specific SEO settings
+# About Marcelo SEO Configuration
+# This file contains about-marcelo page specific SEO settings
 # Uses inheritance from defaults.yaml where appropriate
 
-# Basic SEO - Custom homepage content
-title: "iCodeWith.ai | Build Apps Faster with AI - Code, Create, Deploy"
-description: "Transform your ideas into apps with AI-powered development. Learn to code faster, build smarter, and deploy with confidence. Join thousands of developers using AI to accelerate their coding journey."
+# Basic SEO - Custom about page content
+title: "About Marcelo Lewin | AI-Powered Developer & Tech Educator | iCodeWith.ai"
+description: "Meet Marcelo Lewin, founder of iCodeWith.ai and passionate advocate for AI-powered development. Learn about his journey in tech education, software development, and empowering developers to build faster with AI."
 author: "defaults.author"
 
-# Social Media - Custom homepage social content
+# Social Media - Custom about page social content
 social_image: "defaults.social_image"
-social_image_alt: "iCodeWith.ai - Build Apps Faster with AI - Your gateway to AI-powered development"
+social_image_alt: "About Marcelo Lewin - AI-Powered Developer, Tech Educator, and Founder of iCodeWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
