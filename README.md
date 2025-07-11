@@ -1,6 +1,6 @@
-# By Marcelo Lewin - Personal Website / Portfolio
+# iCodeWith.ai Website
 
-This is the source code for my personal website built with Hugo, featuring a custom dark theme with green accents and modern CSS architecture.
+This is the source code for iCodeWith.ai website.
 
 ## Documentation
 

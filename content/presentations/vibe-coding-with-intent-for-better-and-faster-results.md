@@ -1,7 +1,9 @@
 +++
 title = "Vibe Coding with Intent for Better and Faster Results"
 summary = "Exploring the ethical implications of AI development and best practices for responsible AI implementation in modern software projects."
-date_time = "2024-07-05T14:00:00-08:00"
+audience = "This session is geared toward non-developers (though having a technical background will help); if you’re a developer curious about vibe coding, you’ll find it a great intro as well."
+date_time = "2025-07-05T14:00:00-08:00"
+location = "SoCal Tech Forum"
 timezone = "PST"
 presenters = "Marcelo Lewin"
 status = "completed"
@@ -14,7 +16,6 @@ draft = false
 In today’s fast-paced solo-dev world, vibe coding lets you brainstorm, prototype, and spin up MVPs or
 proofs of concept in minutes—no heavy processes required. But moving straight from an idea to AI-
 generated code can mean skipping vital steps like clarifying goals, defining scope, and capturing intent.
-
 
 > The result? 
 
@@ -31,8 +32,6 @@ your creative spark into organized artifacts.
 - See real examples of how structure improves AI output.
 - Build a small app live, so you can experience the flow from idea to structured code in real time.
 
+{{< space "0rem" >}}
 Make sure to bring your laptop to follow along—we’ll be using Cursor, Claude Code, ChatGPT, Claude Chat,
 and a few other vibe-coding tools.
-Audience
-This session is geared toward non-developers (though having a technical background will help); if you’re a
-developer curious about vibe coding, you’ll find it a great intro as well.

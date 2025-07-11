@@ -1,10 +1,12 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 summary = ""
+audience = ""
 date_time = "{{ .Date }}"
+location = "online | actual location"
 timezone = "PST"
 presenters = "Marcelo Lewin"
-status = "upcoming"
+status = "upcoming | completed"
 learn_more_url = ""
 on_demand_url = ""
 register_url = ""

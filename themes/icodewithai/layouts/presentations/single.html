@@ -6,11 +6,17 @@
                 <div class="post-meta">
                     {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
                     {{ if .Params.presenters }} • Presented by {{ .Params.presenters }}{{ end }}
+                    {{ if .Params.location }} • {{ .Params.location }}{{ end }}
                 </div>
                 
                 <div class="content">
-                    <h3 class="project-links-title">About Presentation</h3>
+                    <h3 class="project-links-title">About the Presentation</h3>
                     {{ .Content }}
+                </div>
+                
+                <div class="content">
+                    <h3 class="project-links-title">Audience</h3>
+                    {{ .Params.audience }}
                 </div>
 
                 {{ if or .Params.learn_more_url .Params.on_demand_url .Params.register_url }}
