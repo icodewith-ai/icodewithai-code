@@ -1,15 +1,15 @@
-# About Marcelo SEO Configuration
-# This file contains about-marcelo page specific SEO settings
+# Presentations List Page SEO Configuration
+# This file contains SEO settings for the presentations listing page (/presentations/)
 # Uses inheritance from defaults.yaml where appropriate
 
-# Basic SEO - Custom about page content
-title: "About Marcelo Lewin | Vibe Coder & Tech Educator | iCodeWith.ai"
-description: "Meet Marcelo Lewin, founder of iCodeWith.ai and passionate advocate for AI-powered development. Learn about his journey in tech education, software development, and empowering developers to build faster with AI."
+# Basic SEO - Custom presentations listing content
+title: "AI Development Presentations & Talks | iCodeWith.ai - Speaking & Knowledge Sharing"
+description: "Watch presentations and talks about AI-powered development, coding best practices, and modern software engineering. Learn from conference talks, workshops, and knowledge sharing sessions."
 author: "defaults.author"
 
-# Social Media - Custom about page social content
+# Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "About Marcelo Lewin - AI-Powered Developer, Tech Educator, and Founder of iCodeWith.ai"
+social_image_alt: "iCodeWith.ai Presentations - AI Development Talks, Workshops, and Knowledge Sharing"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

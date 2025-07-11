@@ -1,15 +1,15 @@
-# About Marcelo SEO Configuration
-# This file contains about-marcelo page specific SEO settings
+# Podcast List Page SEO Configuration
+# This file contains SEO settings for the podcast listing page (/podcast/)
 # Uses inheritance from defaults.yaml where appropriate
 
-# Basic SEO - Custom about page content
-title: "About Marcelo Lewin | Vibe Coder & Tech Educator | iCodeWith.ai"
-description: "Meet Marcelo Lewin, founder of iCodeWith.ai and passionate advocate for AI-powered development. Learn about his journey in tech education, software development, and empowering developers to build faster with AI."
+# Basic SEO - Custom podcast listing content
+title: "Coding with AI Podcast | iCodeWith.ai - AI Development Conversations & Interviews"
+description: "Listen to conversations about AI-powered development, coding innovations, and technology trends. Join discussions with developers, experts, and innovators shaping the future of software development."
 author: "defaults.author"
 
-# Social Media - Custom about page social content
+# Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "About Marcelo Lewin - AI-Powered Developer, Tech Educator, and Founder of iCodeWith.ai"
+social_image_alt: "Coding with AI Podcast - AI Development Conversations, Interviews, and Tech Discussions"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
