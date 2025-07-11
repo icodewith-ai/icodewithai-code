@@ -1,0 +1,20 @@
+# Homepage SEO Configuration
+# This file contains homepage-specific SEO settings
+# Uses inheritance from defaults.yaml where appropriate
+
+# Basic SEO - inherit from defaults
+title: "defaults.title"
+description: "defaults.description"
+author: "defaults.author"
+
+# Social Media - inherit from defaults
+social_image: "defaults.social_image"
+twitter_card_type: "defaults.twitter_card_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"

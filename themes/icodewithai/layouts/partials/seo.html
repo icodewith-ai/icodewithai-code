@@ -1,0 +1,172 @@
+{{/* SEO Partial for iCodeWith.ai */}}
+{{/* This partial handles all SEO meta tags with centralized YAML configuration */}}
+
+{{/* Load defaults */}}
+{{ $defaults := .Site.Data.seo.defaults }}
+
+{{/* Determine the appropriate SEO file to load based on page type */}}
+{{ $seoData := dict }}
+{{ $pageType := "" }}
+
+{{/* Homepage */}}
+{{ if .IsHome }}
+  {{ $pageType = "homepage" }}
+  {{ with index .Site.Data.seo "single-pages" "homepage" }}
+    {{ $seoData = . }}
+  {{ end }}
+{{/* About page */}}
+{{ else if eq .RelPermalink "/about-marcelo/" }}
+  {{ $pageType = "aboutmarcelo" }}
+  {{ with index .Site.Data.seo "single-pages" "aboutmarcelo" }}
+    {{ $seoData = . }}
+  {{ end }}
+{{/* Content sections */}}
+{{ else if .Section }}
+  {{ $pageType = printf "%s-listpage" .Section }}
+  {{ with index .Site.Data.seo "content-types" .Section }}
+    {{ with .listpage }}
+      {{ $seoData = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Helper function to resolve field values with inheritance */}}
+{{ $resolveField := dict }}
+{{ range $field := slice "title" "description" "author" "site_name" "social_image" "social_image_alt" "twitter_card_type" "twitter_site" "twitter_creator" "og_image_width" "og_image_height" "og_image_type" "canonical_base_url" "language" "locale" }}
+  {{ $value := "" }}
+  
+  {{ if $seoData }}
+    {{ $value = index $seoData $field }}
+  {{ end }}
+  
+  {{/* Handle inheritance syntax (defaults.fieldname) */}}
+  {{ if hasPrefix $value "defaults." }}
+    {{ $defaultField := strings.TrimPrefix $value "defaults." }}
+    {{ $value = index $defaults $defaultField }}
+  {{ end }}
+  
+  {{/* Fallback to defaults if no value found */}}
+  {{ if not $value }}
+    {{ $value = index $defaults $field }}
+  {{ end }}
+  
+  {{ $resolveField = merge $resolveField (dict $field $value) }}
+{{ end }}
+
+{{/* Extract resolved values */}}
+{{ $title := index $resolveField "title" }}
+{{ $description := index $resolveField "description" }}
+{{ $author := index $resolveField "author" }}
+{{ $siteName := index $resolveField "site_name" }}
+{{ $socialImage := index $resolveField "social_image" }}
+{{ $socialImageAlt := index $resolveField "social_image_alt" }}
+{{ $twitterCardType := index $resolveField "twitter_card_type" }}
+{{ $twitterSite := index $resolveField "twitter_site" }}
+{{ $twitterCreator := index $resolveField "twitter_creator" }}
+{{ $ogImageWidth := index $resolveField "og_image_width" }}
+{{ $ogImageHeight := index $resolveField "og_image_height" }}
+{{ $ogImageType := index $resolveField "og_image_type" }}
+{{ $canonicalBaseUrl := index $resolveField "canonical_base_url" }}
+{{ $language := index $resolveField "language" }}
+{{ $locale := index $resolveField "locale" }}
+
+{{/* Basic SEO Meta Tags */}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ $author }}">
+
+{{/* Robots meta tag for staging/dev environments */}}
+{{ if .Site.Params.noindex }}
+<meta name="robots" content="noindex, nofollow">
+{{ end }}
+
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ $canonicalBaseUrl }}{{ .RelPermalink }}">
+
+{{/* Open Graph / Social Media */}}
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ $siteName }}">
+<meta property="og:locale" content="{{ $locale }}">
+
+{{/* Enhanced Social Media Image with Fallback Logic */}}
+{{ $finalSocialImage := "" }}
+{{ $finalSocialImageAlt := "" }}
+
+{{/* Step 1: Try page-specific image */}}
+{{ if $socialImage }}
+  {{ $finalSocialImage = $socialImage }}
+  {{ $finalSocialImageAlt = $socialImageAlt }}
+{{ end }}
+
+{{/* Step 2: Try content-type specific image if no page-specific image */}}
+{{ if not $finalSocialImage }}
+  {{ if .Section }}
+    {{ $contentTypeImage := printf "images/seo/content-types/%s/listpage-social.png" .Section }}
+    {{ $finalSocialImage = $contentTypeImage }}
+    {{ $finalSocialImageAlt = printf "%s - %s" .Section $siteName }}
+  {{ end }}
+{{ end }}
+
+{{/* Step 3: Fallback to default image */}}
+{{ if not $finalSocialImage }}
+  {{ $finalSocialImage = "images/seo/default-social.png" }}
+  {{ $finalSocialImageAlt = printf "%s - %s" $siteName $description }}
+{{ end }}
+
+{{/* Generate social media image meta tags */}}
+{{ if $finalSocialImage }}
+<meta property="og:image" content="{{ $finalSocialImage | absURL }}">
+<meta property="og:image:width" content="{{ $ogImageWidth }}">
+<meta property="og:image:height" content="{{ $ogImageHeight }}">
+<meta property="og:image:type" content="{{ $ogImageType }}">
+{{ if $finalSocialImageAlt }}
+<meta property="og:image:alt" content="{{ $finalSocialImageAlt }}">
+{{ end }}
+<meta name="twitter:image" content="{{ $finalSocialImage | absURL }}">
+{{ if $finalSocialImageAlt }}
+<meta name="twitter:image:alt" content="{{ $finalSocialImageAlt }}">
+{{ end }}
+{{ end }}
+
+{{/* Enhanced Twitter Card */}}
+<meta name="twitter:card" content="{{ $twitterCardType }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ if $twitterSite }}
+<meta name="twitter:site" content="{{ $twitterSite }}">
+{{ end }}
+{{ if $twitterCreator }}
+<meta name="twitter:creator" content="{{ $twitterCreator }}">
+{{ end }}
+
+{{/* JSON-LD Structured Data */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ if .IsHome }}WebSite{{ else }}WebPage{{ end }}",
+  "name": "{{ $title }}",
+  "description": "{{ $description }}",
+  "url": "{{ .Permalink }}",
+  {{ if $finalSocialImage }}
+  "image": "{{ $finalSocialImage | absURL }}",
+  {{ end }}
+  "author": {
+    "@type": "Person",
+    "name": "{{ $author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ $siteName }}",
+    "url": "{{ $canonicalBaseUrl }}"
+    {{ if $finalSocialImage }}
+    ,"logo": {
+      "@type": "ImageObject",
+      "url": "{{ $finalSocialImage | absURL }}"
+    }
+    {{ end }}
+  }
+}
+</script>

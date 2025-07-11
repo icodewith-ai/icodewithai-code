@@ -1,0 +1,29 @@
+# SEO Defaults for iCodeWith.ai
+# This file contains site-wide SEO defaults that can be inherited by other SEO files
+# Use inheritance syntax: defaults.fieldname (e.g., defaults.title)
+
+# Basic SEO
+title: "iCodeWith.ai | Using AI to code and build apps faster than ever before"
+site_name: "iCodeWith.ai"
+description: "With AI, we can now code and build apps faster than ever before. The barrier to entry is gone. Anything is possible. Let's build something great together."
+author: "Marcelo Lewin"
+
+# Social Media
+social_image: "images/seo/default-social.png"
+social_image_alt: "iCodeWith.ai - Using AI to code and build apps faster than ever before"
+twitter_card_type: "summary_large_image"
+twitter_site: "@icodewith_ai"
+twitter_creator: "@icodewith_ai"
+
+# Open Graph Image Properties
+og_image_width: 1200
+og_image_height: 630
+og_image_type: "image/png"
+
+# Technical SEO
+robots: "index, follow"
+canonical_base_url: "https://icodewith.ai"
+
+# Language/Locale
+language: "en-US"
+locale: "en_US"
