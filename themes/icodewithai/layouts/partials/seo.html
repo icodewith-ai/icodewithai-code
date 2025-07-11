@@ -20,12 +20,47 @@
   {{ with index .Site.Data.seo "single-pages" "aboutmarcelo" }}
     {{ $seoData = . }}
   {{ end }}
-{{/* Content sections */}}
+{{/* Content sections - List pages vs Individual content */}}
 {{ else if .Section }}
-  {{ $pageType = printf "%s-listpage" .Section }}
-  {{ with index .Site.Data.seo "content-types" .Section }}
-    {{ with .listpage }}
-      {{ $seoData = . }}
+  {{ if and .IsPage (not .IsSection) }}
+    {{/* Individual content item */}}
+    {{ $contentSlug := "" }}
+    {{ if eq .File.BaseFileName "index" }}
+      {{/* For content in folders with index.md, use the folder name */}}
+      {{ $contentSlug = .File.Dir | path.Base }}
+    {{ else }}
+      {{/* For content with direct filenames, use the base filename */}}
+      {{ $contentSlug = .File.BaseFileName }}
+    {{ end }}
+    {{ $pageType = printf "%s-%s" .Section $contentSlug }}
+    
+    {{/* Try to load individual content SEO file */}}
+    {{ with index .Site.Data.seo "content-types" .Section }}
+      {{ $individualSEO := index . $contentSlug }}
+      {{ if $individualSEO }}
+        {{ $seoData = $individualSEO }}
+      {{ else }}
+        {{/* Fallback to frontmatter + content-type defaults */}}
+        {{ $frontmatterSEO := dict }}
+        {{ if $.Params.title }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "title" $.Title) }}{{ end }}
+        {{ if $.Params.description }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "description" $.Params.description) }}{{ end }}
+        {{ if not $.Params.description }}{{ if $.Summary }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "description" $.Summary) }}{{ end }}{{ end }}
+        
+        {{/* Merge with content-type defaults for unspecified fields */}}
+        {{ with .listpage }}
+          {{ $seoData = merge $frontmatterSEO . }}
+        {{ else }}
+          {{ $seoData = $frontmatterSEO }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{/* List page */}}
+    {{ $pageType = printf "%s-listpage" .Section }}
+    {{ with index .Site.Data.seo "content-types" .Section }}
+      {{ with .listpage }}
+        {{ $seoData = . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

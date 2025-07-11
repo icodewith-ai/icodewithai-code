@@ -1,0 +1,28 @@
+# ISO IEC 42001 AI Translations Blog Post SEO Configuration
+# This file contains SEO settings for the ISO/IEC 42001 AI translations blog post
+# Uses inheritance from defaults.yaml where appropriate
+
+# Basic SEO - Custom blog post content
+title: "ISO/IEC 42001 for AI Translations in Contentful | AI Compliance Guide | iCodeWith.ai"
+description: "Learn how to apply ISO/IEC 42001 standards to AI-powered translation systems in Contentful. Discover best practices for AI governance, compliance, and risk management in content management platforms."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "defaults.social_image"
+social_image_alt: "ISO/IEC 42001 AI Compliance Guide - AI-Powered Translation Standards and Best Practices"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"

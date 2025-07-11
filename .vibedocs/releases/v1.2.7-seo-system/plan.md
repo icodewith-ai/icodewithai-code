@@ -202,26 +202,28 @@ social_image: "images/seo/content-types/blog/post1-social.png"
    - Add logic to detect individual content pages
    - Implement fallback hierarchy: SEO file → frontmatter → content-type defaults
    - Handle description fallbacks (description → summary → auto-generated)
+   - Support both folder-based content (index.md) and file-based content
 
 2. **Create sample SEO files for existing content**
    - Create SEO files for key apps, blog posts, presentations
    - Demonstrate inheritance and custom overrides
-   - Show social image override examples
+   - Use defaults.social_image pattern with custom alt text
 
-3. **Social media image handling for content**
-   - Support for `/content/*/social-image.png` pattern
-   - Fallback to content-type defaults
-   - Ultimate fallback to site default
+3. **Individual Content File Naming**
+   - Support folder-based content: `/apps/galactic-invaders/index.md` → `galactic-invaders.yaml`
+   - Support file-based content: `/blog/post-name.md` → `post-name.yaml`
+   - Automatic slug detection from file structure
 
 4. **Test content item SEO**
-   - Test apps, blog posts, presentations
-   - Verify fallback logic works correctly
-   - Test social media sharing with custom images
+   - Test individual content with custom SEO files
+   - Verify content without SEO files falls back to frontmatter
+   - Test social media sharing with custom content
 
 **Deliverables:**
 - Individual content SEO system working
 - Smart fallback hierarchy implemented
-- Sample SEO files created
+- Sample SEO files created for key content
+- Documentation of individual content patterns
 
 ---
 

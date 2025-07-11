@@ -1,0 +1,28 @@
+# Galactic Invaders App SEO Configuration
+# This file contains SEO settings for the Galactic Invaders app page
+# Uses inheritance from defaults.yaml where appropriate
+
+# Basic SEO - Custom app-specific content
+title: "Galactic Invaders | AI-Built Space Game | iCodeWith.ai"
+description: "Play Galactic Invaders, a classic space shooter game built with AI assistance. Experience modern game development powered by artificial intelligence and see how AI can accelerate creative coding projects."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "defaults.social_image"
+social_image_alt: "Galactic Invaders - AI-Built Space Game showcasing AI-powered game development"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"
