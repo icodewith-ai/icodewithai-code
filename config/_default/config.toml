@@ -21,7 +21,7 @@ languageCode = 'en-us'
 
   # Community Links
   discord = "https://discord.gg/Mz7vdRmpJH"
-  meetup = "https://www.meetup.com/icodewith_ai/"
+  meetup = "https://www.meetup.com/coding-with-ai/"
   
   # Social Media Links
   linkedin = "https://www.linkedin.com/in/icodewithai/"
@@ -29,8 +29,8 @@ languageCode = 'en-us'
   twitter = "https://x.com/icodewith_ai"
 
   # Podcast Links
-  podcast_spotify = "https://open.spotify.com/show/i-code-with-ai"
-  podcast_apple = "https://open.spotify.com/show/i-code-with-ai"
+  podcast_spotify = "https://open.spotify.com/show/coding-with-ai"
+  podcast_apple = "https://open.spotify.com/show/coding-with-ai"
   podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
   
   # Developer Site Links
