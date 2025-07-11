@@ -299,6 +299,76 @@ When ready to create custom images:
 - Enhanced structured data helps Google understand your content type
 - Social media links properly connected to organization
 
+## Automated SEO Fields
+
+The system now automatically populates certain SEO fields from your content files - you don't need to manually add these to your SEO YAML files:
+
+### **Publication Dates** (Blog Posts, Presentations, Podcasts)
+**Where it comes from:** Content file frontmatter
+```yaml
+# In your content file (e.g., /content/blog/my-post.md)
+date = '2025-01-01T10:30:00-07:00'
+```
+**What it creates:**
+- `article:published_time` meta tag
+- `datePublished` in structured data
+- Automatic last modified dates
+
+### **Author Information** (All Content)
+**Where it comes from:** `author` field in SEO files (usually inherited from defaults)
+```yaml
+# In SEO files
+author: "defaults.author"  # Becomes "Marcelo Lewin"
+```
+**What it creates:**
+- Enhanced author schema with profile URL
+- `article:author` meta tag for blog posts
+- Consistent author attribution across all content
+
+### **Content Categories** (Blog Posts)
+**Where it comes from:** Content file frontmatter (if you add tags)
+```yaml
+# In your content file
+tags = ['AI', 'Development', 'Tutorial']
+```
+**What it creates:**
+- `article:tag` meta tags for each tag
+- Better content categorization for search engines
+
+### **Social Media Links** (Homepage/Organization)
+**Where it comes from:** Hardcoded in the SEO system based on your existing config.toml
+**What it creates:**
+- Organization schema with all your social media profiles
+- Helps search engines connect your brand across platforms
+
+### **Content Type Detection** (All Pages)
+**Where it comes from:** Hugo's automatic section detection
+**What it creates:**
+- Blog posts → "BlogPosting" schema
+- Apps → "SoftwareApplication" schema  
+- Presentations → "PresentationDigitalDocument" schema
+- Podcast → "PodcastEpisode" schema
+
+### **Image Dimensions** (Social Media)
+**Where it comes from:** Your SEO YAML files
+```yaml
+# Usually inherited from defaults
+og_image_width: "defaults.og_image_width"  # Becomes 1200
+og_image_height: "defaults.og_image_height"  # Becomes 630
+```
+**What it creates:**
+- Proper image dimensions in structured data
+- Better social media image handling
+
+## Fields You Still Control
+
+**These fields are NOT automated** - you manage them in your SEO YAML files:
+- `title` - Always custom per page
+- `description` - Always custom per page  
+- `social_image_alt` - Custom alt text per page
+- `noindex` - Manual control over indexing
+- `search_console_verification` - Manual setup
+
 ## Troubleshooting
 
 ### Page not showing custom SEO
