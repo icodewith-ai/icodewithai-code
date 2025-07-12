@@ -5,8 +5,8 @@ languageCode = 'en-us'
 [params]
 
   # About the Site
-  version = "1.2.6"
-  last_updated = "2025-07-10"
+  version = "1.2.7"
+  last_updated = "2025-07-11"
   author = "Marcelo Lewin"
   description = "With AI, we can now code and build apps faster than ever before. The barrier to entry is gone. Anything is possible. Let’s build something great together."
   short_description = "With AI, we can now code and build apps faster than ever before."
