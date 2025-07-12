@@ -541,6 +541,7 @@
     font-size: $font-size-hero;
     font-weight: $font-weight-bold;
     margin-bottom: $spacing-md;
+    line-height: $line-height-tight; // Tighter line spacing for multi-line hero text
     @include gradient-text;
   }
   
