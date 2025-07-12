@@ -1,15 +1,11 @@
-# Intro to Vibe Coding with Amazon Q Demo Presentation SEO Configuration
-# This file contains SEO settings for this presentation
-# Uses inheritance from defaults.yaml where appropriate
-
 # Basic SEO - Custom content for this presentation
-title: "defaults.title"
-description: "defaults.description"
+title: "Intro to Vibe Coding with Amazon Q Demo | iCodeWith.ai"
+description: "Join Marcelo Lewin for a live in‑person session on vibe coding—overview, coding best practices, and an Amazon Q CLI demo inside VS Code for rapid prototyping."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "defaults.social_image_alt"
+social_image_alt: "Intro to Vibe Coding with Amazon Q Demo | iCodeWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

@@ -1,15 +1,11 @@
-# Homepage SEO Configuration
-# This file contains homepage-specific SEO settings
-# Uses inheritance from defaults.yaml where appropriate
-
 # Basic SEO - Custom homepage content
-title: "iCodeWith.ai | Build Apps Faster with AI - Code, Create, Deploy"
-description: "Transform your ideas into apps with AI-powered development. Learn to code faster, build smarter, and deploy with confidence. Join thousands of developers using AI to accelerate their coding journey."
+title: "defaults.title"
+description: "defaults.description"
 author: "defaults.author"
 
 # Social Media - Custom homepage social content
 social_image: "defaults.social_image"
-social_image_alt: "iCodeWith.ai - Build Apps Faster with AI - Your gateway to AI-powered development"
+social_image_alt: "defaults.social_image_alt"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

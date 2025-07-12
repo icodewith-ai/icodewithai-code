@@ -1,15 +1,11 @@
-# Content Modeling Best Practices to Follow Blog Post SEO Configuration
-# This file contains SEO settings for this blog post
-# Uses inheritance from defaults.yaml where appropriate
-
 # Basic SEO - Custom content for this blog post
-title: "defaults.title"
-description: "defaults.description"
+title: "Content Modeling Best Practices to Follow | iCodeWith.ai"
+description: "Learn about the best practices to follow when modeling content."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "defaults.social_image_alt"
+social_image_alt: "Content Modeling Best Practices to Follow | iCodeWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

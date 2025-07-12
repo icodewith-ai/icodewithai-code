@@ -1,15 +1,11 @@
-# About Marcelo SEO Configuration
-# This file contains about-marcelo page specific SEO settings
-# Uses inheritance from defaults.yaml where appropriate
-
 # Basic SEO - Custom about page content
-title: "About Marcelo Lewin | Vibe Coder & Tech Educator | iCodeWith.ai"
-description: "Meet Marcelo Lewin, founder of iCodeWith.ai and passionate advocate for AI-powered development. Learn about his journey in tech education, software development, and empowering developers to build faster with AI."
+title: "About Marcelo Lewin | I code and build apps with AI | iCodeWith.ai"
+description: "Learn about Marcelo Lewin — a seasoned coder, entrepreneur, and product creator with over 30 years designing and building MVPs, utilities, apps, websites, and more."
 author: "defaults.author"
 
 # Social Media - Custom about page social content
 social_image: "defaults.social_image"
-social_image_alt: "About Marcelo Lewin - AI-Powered Developer, Tech Educator, and Founder of iCodeWith.ai"
+social_image_alt: "About Marcelo Lewin - Developer, Tech Educator, and Founder of iCodeWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
