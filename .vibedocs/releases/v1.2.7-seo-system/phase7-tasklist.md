@@ -3,54 +3,46 @@
 ## Overview
 Complete the SEO system implementation by cleaning up old code, finalizing documentation, and ensuring the entire site uses the centralized SEO system.
 
-## Tasks
+## Updated Tasks Based on User Decisions
 
-### 1. Comprehensive SEO System Audit
-- [ ] Review entire codebase for any remaining hardcoded SEO
-- [ ] Check all layout templates for scattered SEO implementations
-- [ ] Verify all content types are properly handled by the SEO system
-- [ ] Identify any edge cases or missing page types
-- [ ] Document current state of SEO coverage across the site
-
-### 2. Template Cleanup and Consolidation
-- [ ] Audit all layout files in `/themes/icodewithai/layouts/`
+### 1. Full Template Audit (HIGH PRIORITY)
+- [ ] Audit ALL layout files in `/themes/icodewithai/layouts/` recursively
 - [ ] Remove any remaining hardcoded SEO meta tags from templates
 - [ ] Ensure all templates use the centralized SEO partial
 - [ ] Check for any duplicate or conflicting SEO implementations
 - [ ] Verify no templates bypass the centralized system
 
-### 3. Content and Frontmatter Review
-- [ ] Review existing content files for SEO-related frontmatter
-- [ ] Document which frontmatter fields are still needed vs deprecated
-- [ ] Decide on frontmatter field consolidation strategy
-- [ ] Update content creation templates/archetypes if needed
-- [ ] Ensure new content automatically gets proper SEO
+### 2. Content Frontmatter Review (MEDIUM PRIORITY)
+- [ ] Review seo-maintenance.md for automated frontmatter fields
+- [ ] Document which frontmatter fields are used by SEO system (automated ones only)
+- [ ] Leave ALL frontmatter fields alone - no changes to content files
+- [ ] Document that SEO content should come from /data/seo files only
 
-### 4. URL Slug Handling Decision and Implementation
-- [ ] Make final decision on slug management approach
-- [ ] **Option A**: Keep slugs in content files (recommended)
-  - [ ] Document why slugs remain in content structure
-  - [ ] Ensure Hugo's built-in slug handling works properly
-- [ ] **Option B**: Migrate slugs to SEO files
-  - [ ] Create migration plan for existing content
-  - [ ] Update SEO partial to handle slug overrides
-- [ ] Document the chosen approach and reasoning
+### 3. URL Slug Implementation (CONFIRMED)
+- [ ] ✅ **DECISION**: Keep slugs in content files (as recommended)
+- [ ] Document that Hugo's built-in slug handling remains unchanged
+- [ ] Ensure SEO system doesn't interfere with content-based slugs
 
-### 5. Complete Site-Wide SEO Validation
-- [ ] Test every page type for proper SEO tag generation
-- [ ] Verify all content types show appropriate structured data
-- [ ] Check social media image fallback chain works correctly
-- [ ] Test inheritance system across all scenarios
-- [ ] Validate SEO quality warnings appear correctly
-- [ ] Ensure staging noindex behavior works properly
+### 4. Complete Site-Wide SEO Validation (HIGH PRIORITY) 
+Test these page types only:
+- [ ] Homepage (/)
+- [ ] About page (/about-marcelo/)
+- [ ] Blog listing (/blog/)
+- [ ] Individual blog posts
+- [ ] Apps listing (/apps/) 
+- [ ] Individual apps
+- [ ] Presentations listing (/presentations/)
+- [ ] Individual presentations
+- [ ] Podcast listing (/podcast/)
+- [ ] Enable draft podcast episode for testing if desired
 
-### 6. Final Documentation and Migration Guides
-- [ ] Create comprehensive "Adding New Content" guide
-- [ ] Document SEO system architecture for future developers
-- [ ] Create troubleshooting guide for common SEO issues
-- [ ] Update existing documentation with final system state
-- [ ] Create SEO system maintenance schedule recommendations
-- [ ] Document rollback procedures if needed
+Focus: Ensure no hardcoded SEO anywhere except automated fields from seo-maintenance.md
+
+### 5. Documentation Update (MEDIUM PRIORITY)
+- [ ] Update `.vibedocs/reference-library/seo-maintenance.md` with complete Phase 7 information
+- [ ] Focus on content author perspective only (no development documentation)
+- [ ] Include all current SEO system features and usage
+- [ ] Add troubleshooting section for content authors
 
 ### 7. Performance and Build Optimization Final Check
 - [ ] Verify build times are acceptable with full SEO system

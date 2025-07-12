@@ -3,6 +3,13 @@
 ## Overview
 This guide explains how to maintain and update the centralized SEO system for iCodeWith.ai. All SEO content is managed through YAML files, making it easy to update titles, descriptions, and social media content without touching code.
 
+## URL Slug Strategy:
+**Slugs remain in content files** (not moved to SEO files) because:
+- Slugs are part of content structure, not just SEO  
+- Hugo's built-in handling works perfectly
+- Easier content creation workflow
+- Less maintenance complexity
+
 ## Folder Structure
 
 ### SEO Content Files
@@ -278,26 +285,6 @@ When ready to create custom images:
 - **Google Rich Results**: [Rich Results Test](https://search.google.com/test/rich-results)
 - **SEO Analysis**: [SEOquake Browser Extension](https://www.seoquake.com/)
 
-### 4. What's New in Phase 6
-**Enhanced features you can now test:**
-
-✅ **Content-specific structured data:**
-- Blog posts show as "BlogPosting" with publish dates
-- Apps show as "SoftwareApplication"
-- Presentations show as "PresentationDigitalDocument"
-- Podcast episodes show as "PodcastEpisode"
-
-✅ **Advanced social media tags:**
-- Blog posts include `article:published_time`
-- All content includes enhanced author information
-
-✅ **SEO quality warnings:**
-- Look for HTML comments with SEO warnings
-- Helps you optimize title and description lengths
-
-✅ **Better search engine understanding:**
-- Enhanced structured data helps Google understand your content type
-- Social media links properly connected to organization
 
 ## Automated SEO Fields
 
@@ -369,23 +356,6 @@ og_image_height: "defaults.og_image_height"  # Becomes 630
 - `noindex` - Manual control over indexing
 - `search_console_verification` - Manual setup
 
-## Troubleshooting
-
-### Page not showing custom SEO
-- Check file naming: slug must match content folder/file name
-- Verify YAML syntax: use YAML validators
-- Check inheritance: make sure `"defaults.fieldname"` is quoted
-
-### Social media image not appearing
-- Verify image exists at specified path
-- Check image size (must be 1200x630px)
-- Test with social media debugging tools
-
-### Changes not appearing
-- Restart Hugo development server
-- Check YAML syntax for errors
-- Verify file is in correct folder
-
 ## YAML File Template
 
 ```yaml
@@ -418,3 +388,89 @@ canonical_base_url: "defaults.canonical_base_url"
 language: "defaults.language"
 locale: "defaults.locale"
 ```
+
+## Complete YAML Field Reference
+
+This table shows all possible fields that can be used in SEO YAML files, their purpose, and any recommended limits:
+
+| Field Name | Description | Recommended Limits | Example Values | Required |
+|------------|-------------|-------------------|----------------|----------|
+| `title` | Page title (appears in browser tab and search results) | 50-60 characters optimal | `"My App \| iCodeWith.ai"` | Yes |
+| `description` | Meta description for search results and social sharing | 150-160 characters optimal, 120+ for engagement | `"Learn how to build apps with AI..."` | Yes |
+| `author` | Content author name | No limit | `"Marcelo Lewin"` or `"defaults.author"` | Yes |
+| `site_name` | Website/brand name | No limit | `"iCodeWith.ai"` | Yes |
+| `social_image` | Path to social media sharing image | Must be 1200x630px, under 1MB | `"images/seo/my-page-social.png"` | Yes |
+| `social_image_alt` | Alt text for social media image | No strict limit, be descriptive | `"Screenshot showing the main app interface"` | Recommended |
+| `twitter_card_type` | Type of Twitter Card to display | Fixed values only | `"summary_large_image"` or `"summary"` | Yes |
+| `twitter_site` | Twitter handle for the website | Must include @ symbol | `"@icodewith_ai"` | Optional |
+| `twitter_creator` | Twitter handle for content creator | Must include @ symbol | `"@icodewith_ai"` | Optional |
+| `og_image_width` | Open Graph image width in pixels | Must match actual image | `"1200"` (number as string) | Yes |
+| `og_image_height` | Open Graph image height in pixels | Must match actual image | `"630"` (number as string) | Yes |
+| `og_image_type` | MIME type of the image | Must match image format | `"image/png"` or `"image/jpeg"` | Yes |
+| `robots` | Search engine indexing instructions | Standard values only | `"index, follow"` or `"noindex, follow"` | Yes |
+| `noindex` | Page-specific noindex override | String "true" or omit field | `"true"` (prevents search indexing) | Optional |
+| `canonical_base_url` | Base URL for canonical links | Must be full domain | `"https://icodewith.ai"` | Yes |
+| `language` | Content language code | ISO language codes | `"en-US"`, `"es-ES"`, `"fr-FR"` | Yes |
+| `locale` | Open Graph locale | Facebook locale format | `"en_US"`, `"es_ES"`, `"fr_FR"` | Yes |
+| `search_console_verification` | Google Search Console verification code | Google-provided code only | `"abc123def456..."` | Optional |
+
+### Field Inheritance
+**Any field can use inheritance syntax**: `"defaults.fieldname"` to inherit from `defaults.yaml`
+
+### SEO Quality Guidelines
+- **Title length**: System shows warnings if over 60 characters
+- **Description length**: System shows warnings if over 160 characters or suggestions if under 120 characters  
+- **Social images**: Must be exactly 1200x630 pixels for optimal display across all platforms
+- **File paths**: All image paths are relative to `/static/` directory
+
+## Custom Images for Pages
+
+### Image File Naming Convention
+**Custom social media images must match the content filename structure:**
+
+#### For Individual Content Pages:
+The image filename should match the content slug:
+
+**Content Structure** → **Image Path**
+- `/content/apps/my-app/index.md` → `/static/images/seo/content-types/apps/my-app-social.png`
+- `/content/blog/my-post.md` → `/static/images/seo/content-types/blog/my-post-social.png`  
+- `/content/presentations/my-talk.md` → `/static/images/seo/content-types/presentations/my-talk-social.png`
+
+#### For Static Pages:
+- `/content/about-marcelo/` → `/static/images/seo/single-pages/aboutmarcelo-social.png`
+- Homepage → `/static/images/seo/single-pages/homepage-social.png`
+
+#### For List Pages:
+- Apps listing → `/static/images/seo/content-types/apps/listpage-social.png`
+- Blog listing → `/static/images/seo/content-types/blog/listpage-social.png`
+
+### YAML File Naming Convention
+**SEO YAML files must also match the content filename structure:**
+
+**Content Structure** → **SEO YAML File**
+- `/content/apps/my-app/index.md` → `/data/seo/content-types/apps/my-app.yaml`
+- `/content/blog/my-post.md` → `/data/seo/content-types/blog/my-post.yaml`
+- `/content/presentations/my-talk.md` → `/data/seo/content-types/presentations/my-talk.yaml`
+
+### Using Custom Images in YAML Files
+Once you've created a custom image with the correct filename, reference it in your YAML file:
+
+```yaml
+# Instead of using defaults
+social_image: "images/seo/content-types/apps/my-app-social.png"
+social_image_alt: "Custom description of what's shown in this specific image"
+```
+
+### Image Specifications
+- **Size**: Exactly 1200x630 pixels (required)
+- **Format**: PNG or JPG 
+- **File Size**: Keep under 1MB for faster loading
+- **Content**: Include site branding and relevant visual elements
+- **Text Safety**: Keep important text within center 80% of image area
+
+### Fallback Behavior
+If no custom image exists, the system automatically falls back to:
+1. Content-type specific image (if it exists)
+2. Default social image (`/static/images/seo/default-social.png`)
+
+This ensures every page always has a social media image, even without custom ones.
