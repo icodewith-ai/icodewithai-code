@@ -9,49 +9,6 @@
             </div>
         </section>
 
-        <!-- Latest Apps Section -->
-        {{ $apps := .Site.GetPage "/apps" }}
-        {{ if $apps }}
-        {{ $latestApps := first 2 ($apps.Pages.ByParam "date_updated").Reverse }}
-        {{ if $latestApps }}
-        <section id="apps" class="section">
-            <div class="container">
-                <h2>Latest Apps</h2>
-                <div class="apps-grid">
-                    {{ range $latestApps }}
-                        <a href="{{ .Permalink }}" class="app-card-link">
-                            <div class="app-card">
-                                {{ $thumbnail := "" }}
-                                {{ $thumbnailJpg := .Resources.Get "thumbnail.jpg" }}
-                                {{ $thumbnailPng := .Resources.Get "thumbnail.png" }}
-                                {{ if $thumbnailJpg }}
-                                    {{ $thumbnail = $thumbnailJpg }}
-                                {{ else if $thumbnailPng }}
-                                    {{ $thumbnail = $thumbnailPng }}
-                                {{ end }}
-                                {{ if $thumbnail }}
-                                <div class="app-card-thumbnail">
-                                    <img src="{{ $thumbnail.RelPermalink }}" alt="{{ .Title }} thumbnail" loading="lazy">
-                                </div>
-                                {{ end }}
-                                <h3>{{ .Title }}</h3>
-                                <div class="app-meta">
-                                    v{{ with .Params.current_version }}{{ . }}{{ else }}Latest Version{{ end }}
-                                </div>
-                                <p>{{ .Params.description }}</p>
-                                <span class="card-link">Learn more →</span>
-                            </div>
-                        </a>
-                    {{ end }}
-                </div>
-                <div class="section-link-wrapper">
-                    <a href="{{ "apps/" | relURL }}" class="section-link">View All Apps →</a>
-                </div>
-            </div>
-        </section>
-        {{ end }}
-        {{ end }}
-
         <!-- Latest Blog Posts Section -->
         {{ $blog := .Site.GetPage "/blog" }}
         {{ if $blog }}
@@ -151,6 +108,50 @@
         </section>
         {{ end }}
         {{ end }}
+        
+        <!-- Latest Apps Section -->
+        {{ $apps := .Site.GetPage "/apps" }}
+        {{ if $apps }}
+        {{ $latestApps := first 2 ($apps.Pages.ByParam "date_updated").Reverse }}
+        {{ if $latestApps }}
+        <section id="apps" class="section">
+            <div class="container">
+                <h2>Latest Apps</h2>
+                <div class="apps-grid">
+                    {{ range $latestApps }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <div class="app-card">
+                                {{ $thumbnail := "" }}
+                                {{ $thumbnailJpg := .Resources.Get "thumbnail.jpg" }}
+                                {{ $thumbnailPng := .Resources.Get "thumbnail.png" }}
+                                {{ if $thumbnailJpg }}
+                                    {{ $thumbnail = $thumbnailJpg }}
+                                {{ else if $thumbnailPng }}
+                                    {{ $thumbnail = $thumbnailPng }}
+                                {{ end }}
+                                {{ if $thumbnail }}
+                                <div class="app-card-thumbnail">
+                                    <img src="{{ $thumbnail.RelPermalink }}" alt="{{ .Title }} thumbnail" loading="lazy">
+                                </div>
+                                {{ end }}
+                                <h3>{{ .Title }}</h3>
+                                <div class="app-meta">
+                                    v{{ with .Params.current_version }}{{ . }}{{ else }}Latest Version{{ end }}
+                                </div>
+                                <p>{{ .Params.description }}</p>
+                                <span class="card-link">Learn more →</span>
+                            </div>
+                        </a>
+                    {{ end }}
+                </div>
+                <div class="section-link-wrapper">
+                    <a href="{{ "apps/" | relURL }}" class="section-link">View All Apps →</a>
+                </div>
+            </div>
+        </section>
+        {{ end }}
+        {{ end }}
+
 
     </main>
 {{ end }}
