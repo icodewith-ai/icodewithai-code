@@ -3,6 +3,16 @@
 ## Overview
 This guide explains how to maintain and update the centralized SEO system for iCodeWith.ai. All SEO content is managed through YAML files, making it easy to update titles, descriptions, and social media content without touching code.
 
+## ✅ Phase 8 Complete - Improved Folder Organization
+**Enhanced folder structure implemented for better maintainability and scalability.**
+
+### What's New in Phase 8:
+- **✅ Individual entries organized**: All individual content SEO files moved to `entries/` subfolders
+- **✅ List pages prominent**: `listpage.yaml` files are immediately visible at top level
+- **✅ Scalable structure**: Can handle hundreds of entries without cluttering navigation
+- **✅ Zero functionality changes**: All SEO behavior remains identical to Phase 7
+- **✅ Template optimized**: SEO partial updated to use new folder structure
+
 ## URL Slug Strategy:
 **Slugs remain in content files** (not moved to SEO files) because:
 - Slugs are part of content structure, not just SEO  
@@ -18,19 +28,26 @@ data/seo/
 ├── defaults.yaml                    # Site-wide defaults (MOST IMPORTANT)
 ├── content-types/                   # Content type specific SEO
 │   ├── apps/
-│   │   ├── listpage.yaml           # Apps listing page (/apps/)
-│   │   ├── galactic-invaders.yaml  # Individual app (optional)
-│   │   └── my-app.yaml             # Individual app (optional)
+│   │   ├── listpage.yaml           # Apps listing page (/apps/) - IMMEDIATELY VISIBLE
+│   │   └── entries/                # Individual app entries (organized separately)
+│   │       ├── galactic-invaders.yaml
+│   │       ├── content-modeling-cli.yaml
+│   │       └── my-app.yaml
 │   ├── blog/
-│   │   ├── listpage.yaml           # Blog listing page (/blog/)
-│   │   ├── post-name.yaml          # Individual post (optional)
-│   │   └── another-post.yaml       # Individual post (optional)
+│   │   ├── listpage.yaml           # Blog listing page (/blog/) - IMMEDIATELY VISIBLE
+│   │   └── entries/                # Individual blog post entries (organized separately)
+│   │       ├── post-name.yaml
+│   │       ├── another-post.yaml
+│   │       └── content-modeling-best-practices.yaml
 │   ├── presentations/
-│   │   ├── listpage.yaml           # Presentations listing (/presentations/)
-│   │   └── presentation-name.yaml  # Individual presentation (optional)
+│   │   ├── listpage.yaml           # Presentations listing (/presentations/) - IMMEDIATELY VISIBLE
+│   │   └── entries/                # Individual presentation entries (organized separately)
+│   │       ├── presentation-name.yaml
+│   │       └── vibe-coding-intro.yaml
 │   └── podcast/
-│       ├── listpage.yaml           # Podcast listing (/podcast/)
-│       └── episode-name.yaml       # Individual episode (optional)
+│       ├── listpage.yaml           # Podcast listing (/podcast/) - IMMEDIATELY VISIBLE
+│       └── entries/                # Individual episode entries (organized separately)
+│           └── episode-name.yaml
 └── single-pages/                   # Static pages
     ├── homepage.yaml               # Homepage (/)
     └── aboutmarcelo.yaml           # About page (/about-marcelo/)
@@ -445,12 +462,12 @@ The image filename should match the content slug:
 - Blog listing → `/static/images/seo/content-types/blog/listpage-social.png`
 
 ### YAML File Naming Convention
-**SEO YAML files must also match the content filename structure:**
+**SEO YAML files must match the content filename structure and be placed in the `entries/` subfolder:**
 
 **Content Structure** → **SEO YAML File**
-- `/content/apps/my-app/index.md` → `/data/seo/content-types/apps/my-app.yaml`
-- `/content/blog/my-post.md` → `/data/seo/content-types/blog/my-post.yaml`
-- `/content/presentations/my-talk.md` → `/data/seo/content-types/presentations/my-talk.yaml`
+- `/content/apps/my-app/index.md` → `/data/seo/content-types/apps/entries/my-app.yaml`
+- `/content/blog/my-post.md` → `/data/seo/content-types/blog/entries/my-post.yaml`
+- `/content/presentations/my-talk.md` → `/data/seo/content-types/presentations/entries/my-talk.yaml`
 
 ### Using Custom Images in YAML Files
 Once you've created a custom image with the correct filename, reference it in your YAML file:

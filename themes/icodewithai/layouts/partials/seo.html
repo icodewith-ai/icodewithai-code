@@ -34,12 +34,15 @@
     {{ end }}
     {{ $pageType = printf "%s-%s" .Section $contentSlug }}
     
-    {{/* Try to load individual content SEO file */}}
+    {{/* Try to load individual content SEO file from entries subfolder */}}
     {{ with index .Site.Data.seo "content-types" .Section }}
-      {{ $individualSEO := index . $contentSlug }}
-      {{ if $individualSEO }}
-        {{ $seoData = $individualSEO }}
-      {{ else }}
+      {{ with .entries }}
+        {{ $individualSEO := index . $contentSlug }}
+        {{ if $individualSEO }}
+          {{ $seoData = $individualSEO }}
+        {{ end }}
+      {{ end }}
+      {{ if not $seoData }}
         {{/* Fallback to frontmatter + content-type defaults */}}
         {{ $frontmatterSEO := dict }}
         {{ if $.Params.title }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "title" $.Title) }}{{ end }}
