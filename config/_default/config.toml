@@ -8,8 +8,8 @@ languageCode = 'en-us'
   version = "1.2.7"
   last_updated = "2025-07-11"
   author = "Marcelo Lewin"
-  description = "The barrier to entry is gone. Anything is possible. With AI, we can now code and build any apps we dream off, faster than ever before. Let's learn and build, together!"
-  short_description = "You Dream It. AI Builds It. Let's learn and build, together!"
+  description = "Learn how to use AI to code, build and launch your next app."
+  short_description = "Learn how to use AI to code, build and launch your next app."
 
   # Page Slugs
   about_marcelo = "/about-marcelo/"
