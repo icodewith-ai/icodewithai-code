@@ -20,6 +20,10 @@
   padding: $section-spacing-reduced 0;
 }
 
+.section-reduced-top {
+  padding: $section-spacing-reduced 0 $spacing-2xl 0;  // Reduced top, normal bottom
+}
+
 .hero {
   text-align: center;
   padding: $spacing-3xl 0 $hero-bottom-padding 0; // Reduced bottom padding by 20% (6rem to 3.8rem)
