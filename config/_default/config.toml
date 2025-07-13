@@ -8,8 +8,8 @@ languageCode = 'en-us'
   version = "1.2.8"
   last_updated = "2025-07-12"
   author = "Marcelo Lewin"
-  description = "Now learn how work with AI to build maintainable, production-ready apps."
-  short_description = "Learn how to work with AI to build maintainable, production-ready apps."
+  description = "Now learn how to structure your vibe coding to build production-ready, maintainable apps."
+  short_description = "Learn how to structure your vibe coding to build production-ready, maintainable apps."
 
   # Page Slugs
   about_marcelo = "/about-marcelo/"

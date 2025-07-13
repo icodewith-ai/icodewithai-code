@@ -32,7 +32,7 @@ $font-size-lg: 1.3rem;
 $font-size-xl: 1.5rem;
 $font-size-2xl: 1.8rem;
 $font-size-3xl: 2.5rem;
-$font-size-hero: clamp(3rem, 8vw, 6rem);
+$font-size-hero: clamp(3.0rem, 5.5vw, 4.5rem);
 
 // Font Weights
 $font-weight-normal: 400;
@@ -59,6 +59,7 @@ $section-spacing-reduced: 1.5rem; // 24px - for tighter spacing between sections
 $container-max-width: 1200px;
 $container-padding: 2rem;
 $content-max-width: 600px;
+$content-2x-max-width: 750px;
 $blog-content-max-width: 800px;
 $hero-bottom-padding: 3.8rem;
 
