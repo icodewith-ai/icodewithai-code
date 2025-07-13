@@ -8,16 +8,22 @@
 {{ $seoData := dict }}
 {{ $pageType := "" }}
 
-{{/* Homepage */}}
-{{ if .IsHome }}
-  {{ $pageType = "homepage" }}
-  {{ with index .Site.Data.seo "single-pages" "homepage" }}
-    {{ $seoData = . }}
+{{/* Single pages - Dynamic lookup */}}
+{{ if and (not .Section) .IsPage }}
+  {{ $slugName := "" }}
+  {{ if .IsHome }}
+    {{ $slugName = "homepage" }}
+  {{ else }}
+    {{/* Use the content file name as default */}}
+    {{ $slugName = .File.BaseFileName }}
+    {{/* Allow override via frontmatter */}}
+    {{ if .Params.seo_slug }}
+      {{ $slugName = .Params.seo_slug }}
+    {{ end }}
   {{ end }}
-{{/* About page */}}
-{{ else if eq .RelPermalink "/about-marcelo/" }}
-  {{ $pageType = "aboutmarcelo" }}
-  {{ with index .Site.Data.seo "single-pages" "aboutmarcelo" }}
+  
+  {{ $pageType = $slugName }}
+  {{ with index .Site.Data.seo "single-pages" $slugName }}
     {{ $seoData = . }}
   {{ end }}
 {{/* Content sections - List pages vs Individual content */}}

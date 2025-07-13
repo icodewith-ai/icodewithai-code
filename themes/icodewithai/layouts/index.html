@@ -9,149 +9,58 @@
             </div>
         </section>
 
-        <!-- Latest Blog Posts Section -->
-        {{ $blog := .Site.GetPage "/blog" }}
-        {{ if $blog }}
-        {{ $posts := first 2 $blog.Pages }}
-        {{ if $posts }}
+        <!-- Start Learning Button Section -->
+        <section class="section-reduced">
+            <div class="container">
+                <div class="text-center">
+                    <a href="{{ .Site.Params.latest_content }}" class="btn-primary-lg">Start Learning</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Homepage Features Section -->
         <section class="section">
             <div class="container">
-                <h2>Latest Blog Posts</h2>
-                <div class="blog-posts">
-                    {{ range $posts }}
-                        <a href="{{ .Permalink }}" class="blog-card-link">
-                            <article class="blog-post-card">
-                                <h3>{{ .Title }}</h3>
-                                <div class="post-meta">
-                                    {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
-                                </div>
-                                <p>{{ .Summary }}</p>
-                                <span class="card-link">Read more →</span>
-                            </article>
-                        </a>
-                    {{ end }}
-                </div>
-                <div class="section-link-wrapper">
-                    <a href="{{ "blog/" | relURL }}" class="section-link">View All Posts →</a>
-                </div>
-            </div>
-        </section>
-        {{ end }}
-        {{ end }}
-
-        <!-- Latest Podcast Episodes Section -->
-        {{ $podcast := .Site.GetPage "/podcast" }}
-        {{ if $podcast }}
-        {{ $publishedEpisodes := where $podcast.Pages "Params.status" "published" }}
-        {{ $latestEpisodes := first 3 $publishedEpisodes }}
-        {{ if $latestEpisodes }}
-        <section class="section">
-            <div class="container">
-                <h2>Latest Podcast Episodes</h2>
-                <div class="podcast-episodes">
-                    {{ range $latestEpisodes }}
-                        <a href="{{ .Permalink }}" class="blog-card-link">
-                            <article class="podcast-card">
-                                {{ if .Params.image }}
-                                    {{ $episodeImg := resources.Get .Params.image }}
-                                    {{ if $episodeImg }}
-                                    <div class="podcast-card-thumbnail">
-                                        {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
-                                        <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                                    </div>
-                                    {{ end }}
-                                {{ end }}
-                                <h3>{{ .Title }}</h3>
-                                <div class="podcast-meta">
-                                    {{ .Date.Format "January 2, 2006" }}{{ if .Params.guest }} • {{ .Params.guest }}{{ end }}
-                                </div>
-                                <p>{{ .Params.description }}</p>
-                                <span class="card-link">Listen →</span>
-                            </article>
-                        </a>
-                    {{ end }}
-                </div>
-                <div class="section-link-wrapper">
-                    <a href="{{ "podcast/" | relURL }}" class="section-link">View All Episodes →</a>
+                <div class="homepage-features-grid">
+                    <div class="homepage-feature-card">
+                        <h3>Why Choose AI Development?</h3>
+                        <ul class="homepage-feature-list">
+                            <li><span class="checkmark">✓</span> Build faster than ever before</li>
+                            <li><span class="checkmark">✓</span> Focus on creative problem solving</li>
+                            <li><span class="checkmark">✓</span> Learn modern development practices</li>
+                            <li><span class="checkmark">✓</span> Create production-ready applications</li>
+                        </ul>
+                    </div>
+                    <div class="homepage-feature-card">
+                        <h3>What You'll Learn</h3>
+                        <ul class="homepage-feature-list">
+                            <li><span class="checkmark">✓</span> AI-powered coding techniques</li>
+                            <li><span class="checkmark">✓</span> Best practices and patterns</li>
+                            <li><span class="checkmark">✓</span> Real-world project examples</li>
+                            <li><span class="checkmark">✓</span> Industry-standard workflows</li>
+                        </ul>
+                    </div>
+                    <div class="homepage-feature-card">
+                        <h3>How We Help</h3>
+                        <ul class="homepage-feature-list">
+                            <li><span class="checkmark">✓</span> Step-by-step tutorials</li>
+                            <li><span class="checkmark">✓</span> Real-world project guides</li>
+                            <li><span class="checkmark">✓</span> Community support</li>
+                            <li><span class="checkmark">✓</span> Expert tips and insights</li>
+                        </ul>
+                    </div>
+                    <div class="homepage-feature-card">
+                        <h3>Start Your Journey Today</h3>
+                        <ul class="homepage-feature-list">
+                            <li><span class="checkmark">✓</span> No prior AI experience needed</li>
+                            <li><span class="checkmark">✓</span> Learn at your own pace</li>
+                            <li><span class="checkmark">✓</span> Access to all resources</li>
+                            <li><span class="checkmark">✓</span> Join a growing community</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
-        {{ end }}
-        {{ end }}
-
-        <!-- Latest Presentations Section -->
-        {{ $presentations := .Site.GetPage "/presentations" }}
-        {{ if $presentations }}
-        {{ $latestPresentations := first 2 (sort $presentations.Pages ".Params.date_time" "desc") }}
-        {{ if $latestPresentations }}
-        <section class="section">
-            <div class="container">
-                <h2>Latest Presentations</h2>
-                <div class="blog-posts">
-                    {{ range $latestPresentations }}
-                        <a href="{{ .Permalink }}" class="app-card-link">
-                            <article class="app-card">
-                                <h3>{{ .Title }}</h3>
-                                <div class="app-meta">
-                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}
-                                </div>
-                                <p>{{ .Params.summary }}</p>
-                                <span class="card-link">Learn more →</span>
-                            </article>
-                        </a>
-                    {{ end }}
-                </div>
-                <div class="section-link-wrapper">
-                    <a href="{{ "presentations/" | relURL }}" class="section-link">View All Presentations →</a>
-                </div>
-            </div>
-        </section>
-        {{ end }}
-        {{ end }}
-        
-        <!-- Latest Apps Section -->
-        {{ $apps := .Site.GetPage "/apps" }}
-        {{ if $apps }}
-        {{ $latestApps := first 2 ($apps.Pages.ByParam "date_updated").Reverse }}
-        {{ if $latestApps }}
-        <section id="apps" class="section">
-            <div class="container">
-                <h2>Latest Apps</h2>
-                <div class="apps-grid">
-                    {{ range $latestApps }}
-                        <a href="{{ .Permalink }}" class="app-card-link">
-                            <div class="app-card">
-                                {{ $thumbnail := "" }}
-                                {{ $thumbnailJpg := .Resources.Get "thumbnail.jpg" }}
-                                {{ $thumbnailPng := .Resources.Get "thumbnail.png" }}
-                                {{ if $thumbnailJpg }}
-                                    {{ $thumbnail = $thumbnailJpg }}
-                                {{ else if $thumbnailPng }}
-                                    {{ $thumbnail = $thumbnailPng }}
-                                {{ end }}
-                                {{ if $thumbnail }}
-                                <div class="app-card-thumbnail">
-                                    <img src="{{ $thumbnail.RelPermalink }}" alt="{{ .Title }} thumbnail" loading="lazy">
-                                </div>
-                                {{ end }}
-                                <h3>{{ .Title }}</h3>
-                                <div class="app-meta">
-                                    v{{ with .Params.current_version }}{{ . }}{{ else }}Latest Version{{ end }}
-                                </div>
-                                <p>{{ .Params.description }}</p>
-                                <span class="card-link">Learn more →</span>
-                            </div>
-                        </a>
-                    {{ end }}
-                </div>
-                <div class="section-link-wrapper">
-                    <a href="{{ "apps/" | relURL }}" class="section-link">View All Apps →</a>
-                </div>
-            </div>
-        </section>
-        {{ end }}
-        {{ end }}
-
 
     </main>
 {{ end }}

@@ -8,12 +8,13 @@ languageCode = 'en-us'
   version = "1.2.7"
   last_updated = "2025-07-11"
   author = "Marcelo Lewin"
-  description = "Now learn how to build clean, maintainable, production-ready apps with AI."
+  description = "Now learn how work with AI to build clean, maintainable, production-ready apps."
   short_description = "Learn how to build clean, maintainable, production-ready apps with AI."
 
   # Page Slugs
   about_marcelo = "/about-marcelo/"
   apps = "/apps/"
+  latest_content = "/latest-content/"
   contact = "mailto:marcelo@icodewith.ai"  
   podcast = "/podcast/"
   blog = "/blog/"

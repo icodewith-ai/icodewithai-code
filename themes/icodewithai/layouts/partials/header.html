@@ -20,6 +20,7 @@
 
 <!-- Desktop Navigation -->
 <nav class="nav">
+    <a href="{{ .Site.Params.latest_content }}">Latest Content</a>
     <a href="{{ .Site.Params.apps }}">Apps</a>
     
     {{ partial "nav-dropdown" (dict 
@@ -69,6 +70,7 @@
         
         <!-- Navigation items (same structure as desktop) -->
         <nav class="mobile-nav">
+            <a href="{{ .Site.Params.latest_content }}">Latest Content</a>
             <a href="{{ .Site.Params.apps }}">Apps</a>
             
             {{ partial "nav-dropdown" (dict 

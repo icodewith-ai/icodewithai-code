@@ -52,6 +52,7 @@ $spacing-lg: 2rem;            // 32px
 $spacing-xl: 3rem;            // 48px
 $spacing-2xl: 5rem;           // 80px
 $spacing-3xl: 6rem;           // 96px
+$section-spacing-reduced: 1.5rem; // 24px - for tighter spacing between sections
 
 // Layout
 // -----------------------------------------------------------------------------
@@ -88,7 +89,9 @@ $logo-font-size: 1.2rem;
 // Buttons
 $button-height-sm: 40px;
 $button-height-base: 50px;
+$button-height-lg: 60px;
 $button-padding-x: 1.5rem;
+$button-padding-x-lg: 2rem;
 
 // Social Cards
 $social-card-padding: 0.75rem;

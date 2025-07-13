@@ -16,6 +16,10 @@
   padding: $spacing-xl 0;
 }
 
+.section-reduced {
+  padding: $section-spacing-reduced 0;
+}
+
 .hero {
   text-align: center;
   padding: $spacing-3xl 0 $hero-bottom-padding 0; // Reduced bottom padding by 20% (6rem to 3.8rem)
@@ -39,7 +43,7 @@
 
 .facts-certificates-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax($card-min-width, 1fr));
   gap: $spacing-lg;
   align-items: start;
 }
