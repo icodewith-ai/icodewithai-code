@@ -20,12 +20,12 @@
 
 <!-- Desktop Navigation -->
 <nav class="nav">
-    <a href="{{ .Site.Params.latest_content }}">Latest Content</a>
-    <a href="{{ .Site.Params.apps }}">Apps</a>
+    <a href="{{ .Site.Params.apps }}">App Gallery</a>
     
     {{ partial "nav-dropdown" (dict 
         "title" "Learn"
         "items" (slice 
+            (dict "name" "Latest Content" "url" .Site.Params.latest_content "external" false)
             (dict "name" "Blog" "url" .Site.Params.blog "external" false)
             (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
             (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
@@ -70,12 +70,12 @@
         
         <!-- Navigation items (same structure as desktop) -->
         <nav class="mobile-nav">
-            <a href="{{ .Site.Params.latest_content }}">Latest Content</a>
-            <a href="{{ .Site.Params.apps }}">Apps</a>
+            <a href="{{ .Site.Params.apps }}">App Gallery</a>
             
             {{ partial "nav-dropdown" (dict 
                 "title" "Learn"
                 "items" (slice 
+                    (dict "name" "Latest Content" "url" .Site.Params.latest_content "external" false)
                     (dict "name" "Blog" "url" .Site.Params.blog "external" false)
                     (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
                     (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
