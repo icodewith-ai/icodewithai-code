@@ -5,11 +5,11 @@ languageCode = 'en-us'
 [params]
 
   # About the Site
-  version = "1.2.7"
-  last_updated = "2025-07-11"
+  version = "1.2.8"
+  last_updated = "2025-07-12"
   author = "Marcelo Lewin"
-  description = "Now learn how work with AI to build a clean, maintainable, production-ready app."
-  short_description = "Learn how to work with AI to build clean, maintainable, production-ready apps."
+  description = "Now learn how work with AI to build maintainable, production-ready apps."
+  short_description = "Learn how to work with AI to build maintainable, production-ready apps."
 
   # Page Slugs
   about_marcelo = "/about-marcelo/"
