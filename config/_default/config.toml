@@ -6,7 +6,7 @@ languageCode = 'en-us'
 
   # About the Site
   version = "1.2.8"
-  last_updated = "2025-07-12"
+  last_updated = "2025-07-13"
   author = "Marcelo Lewin"
   description = "Now learn how to structure your vibe coding to build production-ready, maintainable apps."
   short_description = "Learn how to structure your vibe coding to build production-ready, maintainable apps."
@@ -36,4 +36,5 @@ languageCode = 'en-us'
   
   # Developer Site Links
   github = "https://github.com/icodewith-ai"
+  vibedocs = "https://github.com/icodewith-ai/vibedocs"
   npm = "https://www.npmjs.com/~bymarcelolewin"
