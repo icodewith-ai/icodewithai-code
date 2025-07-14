@@ -1,12 +1,14 @@
-# Basic SEO
-title: "Code and build apps faster with AI | iCodeWith.ai"
+# Only in default.yaml
 site_name: "iCodeWith.ai"
-description: "With AI, we can now code and build apps faster than ever before. The barrier to entry is gone. Anything is possible. Let's build something great together."
+
+# Basic SEO
+title: "Learn how to structure your vibe coding to build production-ready, maintainable apps. | iCodeWith.ai"
+description: "A weekend of vibe coding delivered an unmaintainable mess, now learn how to structure your vibe coding to build production-ready, maintainable apps."
 author: "Marcelo Lewin"
 
 # Social Media
 social_image: "images/seo/default-social.png"
-social_image_alt: "Code and build apps faster with AI | iCodeWith.ai"
+social_image_alt: "Learn how to structure your vibe coding to build production-ready, maintainable apps. | iCodeWith.ai"
 twitter_card_type: "summary_large_image"
 twitter_site: "@icodewith_ai"
 twitter_creator: "@icodewith_ai"
@@ -19,10 +21,6 @@ og_image_type: "image/png"
 # Technical SEO
 robots: "index, follow"
 canonical_base_url: "https://icodewith.ai"
-
-# Advanced SEO (optional fields)
-# noindex: false  # Set to true to prevent indexing of specific pages
-# search_console_verification: ""  # Google Search Console verification code
 
 # Language/Locale
 language: "en-US"

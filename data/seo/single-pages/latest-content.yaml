@@ -1,11 +1,11 @@
 # Basic SEO - Custom homepage content
 title: "Latest content all about building apps with AI | iCodeWith.ai"
-description: "Check out latest content all about building apps with AI including blog posts, podcasts, presentations, and apps."
+description: "Check out latest content all how to build apps with AI including blog posts, podcasts, presentations, tutorials and apps."
 author: "defaults.author"
 
 # Social Media - Custom homepage social content
 social_image: "defaults.social_image"
-social_image_alt: "defaults.social_image_alt"
+social_image_alt: "Latest content all how to build apps with AI including. | iCodeWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
