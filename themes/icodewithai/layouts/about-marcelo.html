@@ -29,36 +29,65 @@
             </div>
         </section>
 
-        <!-- Quick Facts & Certifications Section -->
+        <!-- Quick Facts Section -->
         <section class="section">
             <div class="container">
-                <div class="facts-certificates-grid">
-                    <div class="facts-card">
-                        <h3>Quick Facts</h3>
-                        <ul class="facts-list-bio-page">
-                            <li><span class="checkmark">✓</span> Vibe Coder / Developer</li>
-                            <li><span class="checkmark">✓</span> Solutions Architect</li>
-                            <li><span class="checkmark">✓</span> Product Creator</li>
-                            <li><span class="checkmark">✓</span> Data Architect</li>
-                            <li><span class="checkmark">✓</span> Serial Entrepreneur</li>
-                            <li><span class="checkmark">✓</span> System Architect</li>
-                        </ul>
+                <div class="facts-card">
+                    <h3>Quick Facts</h3>
+                    <ul class="facts-list-bio-page">
+                        <li><span class="checkmark">✓</span> Vibe Coder / Developer</li>
+                        <li><span class="checkmark">✓</span> Solutions Architect</li>
+                        <li><span class="checkmark">✓</span> Product Creator</li>
+                        <li><span class="checkmark">✓</span> Data Architect</li>
+                        <li><span class="checkmark">✓</span> Serial Entrepreneur</li>
+                        <li><span class="checkmark">✓</span> System Architect</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Certificates Section -->
+        <section class="section">
+            <h2 class="text-center mb-lg">My Certificates</h2>
+            <div class="container">
+                <div class="apps-grid">
+                    <div class="app-card certificate-card">
+                        <div class="certificate-image-container">
+                            {{ $certManager := resources.Get "images/icon-contentful-certified-professional.png" | resources.Fingerprint }}
+                            {{ if $certManager }}
+                            <img src="{{ $certManager.RelPermalink }}" alt="Certificate" class="certificate-image" loading="lazy">
+                            {{ end }}
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Contentful Certified Professional</h3>
+                            <p>Certification for software developers, technical architects, project managers, content architects, and others responsible for the technical design, development, or implementation of Contentful projects.</p>
+                            <a href="https://ti-user-certificates.s3.amazonaws.com/ed258d5d-ccc5-4607-a3e7-90c44a8102ac/ddb37522-b94e-4d4f-accf-8d1a7e231add-marcelo-lewin-f4949ee6-4767-4ec6-a6ac-7a482c7dbad9-certificate.pdf" class="btn" target="_blank">See certificate</a>
+                        </div>
                     </div>
-                    <div class="certificates-card">
-                        <h3>Certifications</h3>
-                        <div class="certificates-list">
-                            <a href="https://www.credly.com/badges/df671773-b0bb-4b86-9772-0fd960a57d4a/public_url" class="certificate-link" title="Contentful Certified Content Manager" target="_blank">
-                                {{ $certManager := resources.Get "images/icon-contentful-certified-content-manager.png" | resources.Fingerprint }}
-                                {{ if $certManager }}
-                                <img src="{{ $certManager.RelPermalink }}" alt="Contentful Certified Content Manager" class="certificate-image" loading="lazy">
-                                {{ end }}
-                            </a>
-                            <a href="https://ti-user-certificates.s3.amazonaws.com/ed258d5d-ccc5-4607-a3e7-90c44a8102ac/ddb37522-b94e-4d4f-accf-8d1a7e231add-marcelo-lewin-f4949ee6-4767-4ec6-a6ac-7a482c7dbad9-certificate.pdf" class="certificate-link" title="Contentful Certified Professional" target="_blank">
-                                {{ $certProfessional := resources.Get "images/icon-contentful-certified-professional.png" | resources.Fingerprint }}
-                                {{ if $certProfessional }}
-                                <img src="{{ $certProfessional.RelPermalink }}" alt="Contentful Certified Professional" class="certificate-image" loading="lazy">
-                                {{ end }}
-                            </a>
+                    <div class="app-card certificate-card">
+                        <div class="certificate-image-container">
+                            {{ $certManager := resources.Get "images/icon-contentful-certified-content-manager.png" | resources.Fingerprint }}
+                            {{ if $certManager }}
+                            <img src="{{ $certManager.RelPermalink }}" alt="Certificate" class="certificate-image" loading="lazy">
+                            {{ end }}
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Contentful Certified Content Manager</h3>
+                            <p>A Contentful Certified Content Manager demonstrates proficiency in content management skills, platform fluency, and strategic thinking.</p>
+                            <a href="https://www.credly.com/badges/df671773-b0bb-4b86-9772-0fd960a57d4a/public_url" class="btn" target="_blank">See certificate</a>
+                        </div>
+                    </div>
+                    <div class="app-card certificate-card">
+                        <div class="certificate-image-container">
+                            {{ $certManager := resources.Get "images/icon-anthropic.png" | resources.Fingerprint }}
+                            {{ if $certManager }}
+                            <img src="{{ $certManager.RelPermalink }}" alt="Certificate" class="certificate-image" loading="lazy">
+                            {{ end }}
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Claude Code in Action</h3>
+                            <p>Comprehensive training on using Claude Code for software development tasks, covering the underlying architecture of AI coding assistants, practical implementation techniques, and advanced integration strategies.</p>
+                            <a href="https://verify.skilljar.com/c/h8nrzsz4q39v" class="btn" target="_blank">See certificate</a>
                         </div>
                     </div>
                 </div>

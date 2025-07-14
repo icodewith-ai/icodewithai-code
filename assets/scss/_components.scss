@@ -814,6 +814,65 @@
   transition: $transition-base;
 }
 
+// Certificate Card 2-Column Layout
+// -----------------------------------------------------------------------------
+.certificate-card {
+  flex-direction: row !important;
+  gap: $spacing-md;
+  align-items: flex-start;
+  
+  @include tablet-down {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.certificate-image-container {
+  flex-shrink: 0;
+  
+  img {
+    width: $certificate-image-width;
+    height: auto;
+    border-radius: $border-radius-sm;
+    transition: $transition-base;
+  }
+}
+
+.certificate-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  
+  @include tablet-down {
+    align-items: center;
+  }
+  
+  h3 {
+    color: var(--color-text);
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-sm;
+    margin-top: 0;
+  }
+  
+  p {
+    color: $neutral-400;
+    margin-bottom: $spacing-sm;
+    flex-grow: 1;
+    line-height: $line-height-relaxed;
+  }
+  
+  .btn {
+    margin-top: auto;
+    align-self: flex-start;
+    
+    @include tablet-down {
+      align-self: center;
+    }
+  }
+}
+
 .facts-list {
   list-style: none;
   display: grid;

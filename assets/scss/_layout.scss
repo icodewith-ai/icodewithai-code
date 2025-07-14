@@ -43,6 +43,16 @@
   grid-template-columns: 2fr 1fr;
   gap: $spacing-lg;
   align-items: start;
+  
+  @include tablet-down {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: $spacing-lg;
+    
+    .bio-photo {
+      order: -1;
+    }
+  }
 }
 
 .facts-certificates-grid {
