@@ -7,8 +7,8 @@ npm_url = ""
 preview_url = "https://galacticinvaders.icodewith.ai"
 preview_label = "Play Now!"
 date_created = "2025-05-06"
-date_updated = "2025-05-13"
-current_version = "0.6.2"
+date_updated = "2025-07-18"
+current_version = "0.6.4"
 draft=false
 +++
 
@@ -34,11 +34,16 @@ A 2D retro-style space shooter where you protect your city from incoming waves o
 - Special nuke power-up to clear the screen
 - Scrolling starfield background for immersive space atmosphere
 
-### Controls
+### Game Play Controls
 - ←, ↑, →, ↓ or \[WASD] : Move
 - \[Space] : Shoot
 - \[Q] : Activate nuke (when available)
 - \[M] : Toggle sound on/off
+
+Other Controls
+- [Shift] 6 : Toggle Developer Mode
+- [Shift] 5 : Show release notes
+- [H] : Show/Hide help
 
 ### Why I Created It
 I created this game as an experiment in learning Vibe Coding techniques and exploring AI-assisted development tools. I have zero game dev experience, so I figured, if I can, then anyone else can.  I did.  Now you can too!
@@ -51,6 +56,7 @@ I created this game as an experiment in learning Vibe Coding techniques and expl
 - CSS3 for styling
 
 ### Tools Used
-- [Cursor](https://www.cursor.com/) (using various models)
+- Cursor
+- Claude Code
 - ChatGPT
 - Git / GitHub
