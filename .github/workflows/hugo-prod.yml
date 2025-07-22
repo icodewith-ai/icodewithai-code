@@ -35,7 +35,7 @@ jobs:
           sudo cp -r dart-sass/* /usr/local/bin/
 
       - name: Build site
-        run: hugo --environment prod --minify
+        run: hugo --environment prod --minify --buildFuture
 
       - name: Deploy to Production
         uses: peaceiris/actions-gh-pages@v3

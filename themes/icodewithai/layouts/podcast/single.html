@@ -2,9 +2,10 @@
     <main>
         <article class="blog-single">
             <div class="container">
+                {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }}
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
-                    {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.guest }}with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
                 </div>
                 
                 <!-- YouTube Video Embed -->

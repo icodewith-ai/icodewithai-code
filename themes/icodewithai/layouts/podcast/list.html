@@ -27,9 +27,9 @@
         </section>
 
         <!-- Episodes Sections -->
-        {{ $pages := .Pages }}
-        {{ $upcomingEpisodes := where $pages "Params.status" "upcoming" }}
-        {{ $publishedEpisodes := where $pages "Params.status" "published" }}
+        {{ $allPodcastPages := where .Site.AllPages "Section" "podcast" }}
+        {{ $upcomingEpisodes := where $allPodcastPages "Params.status" "upcoming" }}
+        {{ $publishedEpisodes := where $allPodcastPages "Params.status" "published" }}
         {{ $hasContent := or (gt (len $upcomingEpisodes) 0) (gt (len $publishedEpisodes) 0) }}
 
         {{ if $hasContent }}
@@ -55,7 +55,7 @@
                                         <div class="podcast-meta">
                                             {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
                                         </div>
-                                        <p>{{ .Params.description }}</p>
+                                        <!-- <p>{{ .Params.description }}</p> -->
                                         <span class="card-link">Learn More →</span>
                                     </article>
                                 </a>
@@ -87,7 +87,7 @@
                                         <div class="podcast-meta">
                                             {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
                                         </div>
-                                        <p>{{ .Params.description }}</p>
+                                        <!-- <p>{{ .Params.description }}</p> -->
                                         <span class="card-link">Listen →</span>
                                     </article>
                                 </a>

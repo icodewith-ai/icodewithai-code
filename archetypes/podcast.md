@@ -2,34 +2,30 @@
 title = ""
 slug = ""
 date = "yyyy-mm-dd"
-draft = true
-status = "published | upcoming"
+draft = false
+status = "upcoming | published"
 description = ""
-image = "images/podcast/xxx.png"
-video_id = "sample-video-id"
-audio_id = "sample-episode-id"
+image = "images/podcast/xxxx.png"
+video_id = ""
+audio_id = ""
 host = "Marcelo Lewin"
 guest = "Full Name, Title @ Company"
 +++
 
-[About this episode]
+[About Episode]
 
-## Key Topics Covered
+## Key Topics
 
-- **Topic**: About Topic
-- **Topic**: About Topic
-- **Topic**: About Topic
+1. Topic 1
+2. Topic 2
 
-## Resources Mentioned
+## Resources to Check Out
 
 - [Resource](link)
-- [Resource](link)
-- [Resource](link)
 
-## Guest Bio
+## About the Guest
 
-[About the guest]
+Guest Bio
 
-- X: [name](link)
-- LinkedIn: [name](link)
-- Blog: [Name](link)
+- [Social Media](link)
+- [Website](link)
