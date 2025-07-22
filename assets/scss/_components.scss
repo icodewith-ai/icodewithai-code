@@ -1261,6 +1261,18 @@ h2 + .guest-photo-section {
   margin-top: $spacing-sm;
 }
 
+// Podcast Episodes Grid - responsive 3-column layout
+.podcast-episodes {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: repeat(3, 1fr);
+  
+  // Mobile/Tablet responsive: single column at tablet breakpoint
+  @include tablet-down {
+    grid-template-columns: 1fr;
+  }
+}
+
 // Podcast tagline - responsive single line
 .podcast-tagline {
   font-size: $font-size-2xl;
