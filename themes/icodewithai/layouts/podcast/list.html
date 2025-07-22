@@ -53,7 +53,7 @@
                                         {{ end }}
                                         <h3>{{ .Title }}</h3>
                                         <div class="podcast-meta">
-                                            {{ .Date.Format "January 2, 2006" }}{{ if .Params.guest }} • {{ .Params.guest }}{{ end }}
+                                            {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
                                         </div>
                                         <p>{{ .Params.description }}</p>
                                         <span class="card-link">Learn More →</span>
@@ -85,7 +85,7 @@
                                         {{ end }}
                                         <h3>{{ .Title }}</h3>
                                         <div class="podcast-meta">
-                                            {{ .Date.Format "January 2, 2006" }}{{ if .Params.guest }} • {{ .Params.guest }}{{ end }}
+                                            {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
                                         </div>
                                         <p>{{ .Params.description }}</p>
                                         <span class="card-link">Listen →</span>
@@ -102,7 +102,7 @@
                 <div class="container">
                     <div class="blog-post-card">
                         <h3>Episodes Coming Soon</h3>
-                        <p>I'm working on getting guests for more episodes, all focused on AI, coding and how to use AI to build digital products.</p>
+                        <p>We're working on getting guests for more episodes, stay tuned!</p>
                     </div>
                 </div>
             </section>

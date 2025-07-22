@@ -55,7 +55,7 @@
                                 {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 <div class="podcast-meta">
-                                    {{ .Date.Format "January 2, 2006" }}{{ if .Params.guest }} • {{ .Params.guest }}{{ end }}
+                                    {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
                                 </div>
                                 <p>{{ .Params.description }}</p>
                                 <span class="card-link">Listen →</span>
