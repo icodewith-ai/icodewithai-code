@@ -1184,12 +1184,24 @@
   letter-spacing: 0.025rem;
 }
 
+.content + h2,
+.guest-photo-section + h2 {
+  margin-top: $spacing-xl;
+  color: $primary-500;
+  font-size: $font-size-2xl;
+  margin-bottom: $spacing-lg;
+}
+
 .guest-photo-section {
-  margin: calc($spacing-xl - 5px) 0 $spacing-xl 0;
+  margin: 0 0 $spacing-xl 0;
   padding: $spacing-lg;
   background: $neutral-800;
   border-radius: $border-radius-base;
   border: 1px solid $neutral-700;
+}
+
+h2 + .guest-photo-section {
+  margin-top: 0;
 }
 
 .guest-content {

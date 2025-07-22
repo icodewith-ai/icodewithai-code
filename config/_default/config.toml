@@ -10,6 +10,12 @@ languageCode = 'en-us'
   author = "Marcelo Lewin"
   description = "Now learn how to structure your vibe coding to build production-ready, maintainable apps."
   short_description = "Learn how to structure your vibe coding to build production-ready, maintainable apps."
+  
+  # Podcast Host
+  podcast_host_details = "Marcelo Lewin, Founder @ iCodeWith.ai"
+  podcast_host_description = "Marcelo codes and build apps using modern development tools powered by AI—with a focus on MVPs, proof-of-concepts, utilities, and experiments. He loves diving into early ideas, rapidly iterating, and using those prototypes to test and validate concepts before moving into full-on planning or production."
+  podcast_host_learn_more_link = "https://www.linkedin.com/in/icodewithai/"
+  podcast_host_image = "images/guests/marcelo-lewin.png"
 
   # Page Slugs
   about_marcelo = "/about-marcelo/"

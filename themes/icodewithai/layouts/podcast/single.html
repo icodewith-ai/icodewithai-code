@@ -46,6 +46,7 @@
                 
                 <!-- Guest Photo Section (if available) -->
                 {{ if .Params.guest_image }}
+                <h2>About the Guest</h2>
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
@@ -63,6 +64,33 @@
                             {{ if and .Params.guest_learn_more_link (ne .Params.guest_learn_more_link "") }}
                             <div class="guest-link-wrapper">
                                 <a href="{{ .Params.guest_learn_more_link }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+                
+                <!-- Host Photo Section -->
+                {{ if .Site.Params.podcast_host_image }}
+                <h2>About the Host</h2>
+                <div class="guest-photo-section">
+                    <div class="guest-content">
+                        <div class="guest-photo">
+                            {{ $hostImg := resources.Get .Site.Params.podcast_host_image }}
+                            {{ if $hostImg }}
+                                {{ $hostImgFingerprint := $hostImg | resources.Fingerprint }}
+                                <img src="{{ $hostImgFingerprint.RelPermalink }}" alt="{{ .Site.Params.podcast_host_details }}" loading="lazy">
+                            {{ else }}
+                                <p>Debug: Image not found at {{ .Site.Params.podcast_host_image }}</p>
+                            {{ end }}
+                        </div>
+                        <div class="guest-info">
+                            <h3>{{ .Site.Params.podcast_host_details }}</h3>
+                            <p>{{ .Site.Params.podcast_host_description }}</p>
+                            {{ if and .Site.Params.podcast_host_learn_more_link (ne .Site.Params.podcast_host_learn_more_link "") }}
+                            <div class="guest-link-wrapper">
+                                <a href="{{ .Site.Params.podcast_host_learn_more_link }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
                             {{ end }}
                         </div>
