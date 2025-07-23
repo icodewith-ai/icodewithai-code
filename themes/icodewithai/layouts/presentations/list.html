@@ -15,7 +15,7 @@
                             <article class="app-card">
                                 <h3>{{ .Title }}</h3>
                                 <div class="app-meta">
-                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>
                                 <p>{{ .Params.summary }}</p>
                                 <span class="card-link">Learn more →</span>
@@ -33,7 +33,7 @@
                             <article class="app-card">
                                 <h3>{{ .Title }}</h3>
                                 <div class="app-meta">
-                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>
                                 <p>{{ .Params.summary }}</p>
                                 <span class="card-link">Learn more →</span>

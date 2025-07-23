@@ -10,6 +10,7 @@ status = "upcoming | completed"
 learn_more_url = ""
 on_demand_url = ""
 register_url = ""
+meeting_type = "in-person | online"
 draft = true
 +++
 

@@ -1,6 +1,6 @@
 +++
 title = "Intro to Vibe Coding with Amazon Kiro Demo"
-summary = "This session is for both developers and technically inclined non-developers. You’ll walk away with a solid intro to vibe coding and how to structure your sessions for better AI-assisted results."
+summary = "Get a solid intro to vibe coding and how to structure your sessions for better AI-assisted results."
 audience = "This session is for both developers and technically inclined non-developers. Whether you’re coding regularly or just comfortable with tech, you’ll walk away with a solid intro to vibe coding and how to structure your sessions for better AI-assisted results."
 date_time = "2025-07-17T14:00:00-08:00"
 location = "AWS Orange County User Group"
@@ -10,6 +10,7 @@ status = "completed"
 learn_more_url = "https://www.meetup.com/aws-orange-county-official-events/events/309124407/"
 on_demand_url = ""
 register_url = "https://www.meetup.com/aws-orange-county-official-events/events/309124407/"
+meeting_type = "in-person"
 draft = false
 +++
 

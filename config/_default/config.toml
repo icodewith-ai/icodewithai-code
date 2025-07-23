@@ -20,7 +20,6 @@ languageCode = 'en-us'
   # Page Slugs
   about_marcelo = "/about-marcelo/"
   apps = "/apps/"
-  latest_content = "/latest-content/"
   contact = "mailto:marcelo@icodewith.ai"  
   podcast = "/podcast/"
   blog = "/blog/"
