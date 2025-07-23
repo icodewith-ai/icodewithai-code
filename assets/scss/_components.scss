@@ -1266,6 +1266,7 @@ h2 + .guest-photo-section {
   // Mobile/Tablet responsive: single column at tablet breakpoint
   @include tablet-down {
     grid-template-columns: 1fr;
+    justify-items: center; // Center cards within their grid area
   }
 }
 
