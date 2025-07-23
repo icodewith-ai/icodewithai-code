@@ -1261,6 +1261,14 @@ h2 + .guest-photo-section {
   margin-top: $spacing-sm;
 }
 
+// Blog Posts Grid - responsive layout
+.blog-posts {
+  // Mobile/Tablet responsive: single column at tablet breakpoint
+  @include tablet-down {
+    grid-template-columns: 1fr;
+  }
+}
+
 // Podcast Episodes Grid - responsive 3-column layout
 .podcast-episodes {
   display: grid;
