@@ -8,24 +8,6 @@
             </div>
         </section>
 
-        <!-- Podcast Overview Section -->
-        <section class="section">
-            <div class="container">
-                <div class="bio-page-grid">
-                    <div class="bio-text">
-                        <p>Conversations with creators who build apps using AI: from vibe coders and citizen developers to professional engineers, product owners, product managers, marketing pros, and project managers. We dig into the real tools, workflows, and stories behind AI-assisted creation. Whether you're launching an MVP, experimenting with new features, or enabling teams to build faster with AI, this show explores how vibe coding works, why it matters, and where it's going.</p>
-                    </div>
-                    <div class="bio-photo">
-                        {{ $podcastImg := resources.Get "images/podcast/podcast-cover.png" }}
-                        {{ if $podcastImg }}
-                        {{ $podcastImgFingerprint := $podcastImg | resources.Fingerprint }}
-                        <img src="{{ $podcastImgFingerprint.RelPermalink }}" alt="Podcast Cover" class="bio-image" loading="lazy">
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Episodes Sections -->
         {{ $allPodcastPages := where .Site.AllPages "Section" "podcast" }}
         {{ $upcomingEpisodes := where $allPodcastPages "Params.status" "upcoming" }}

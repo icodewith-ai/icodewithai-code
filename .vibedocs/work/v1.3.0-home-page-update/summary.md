@@ -1,0 +1,3 @@
+- Changed tagline
+- Streamlined the homepage
+- Cleaned out podcast list page
