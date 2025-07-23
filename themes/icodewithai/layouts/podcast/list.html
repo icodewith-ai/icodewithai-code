@@ -4,7 +4,7 @@
         <section class="hero">
             <div class="container">
                 <h1>Coding with AI<br /><span class="highlight">Podcast</span></h1>
-                <p class="tagline">Conversations with humans coding and building apps with AI.</p>
+                <p class="tagline">Conversations with humans building apps with AI.</p>
             </div>
         </section>
 
@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="bio-page-grid">
                     <div class="bio-text">
-                        <p>Join Marcelo as he has conversations with makers coding and building apps using AI. From vibe coders and citizen developers to professional engineers and tool creators, he explores the tools, workflows, and real-world stories behind AI-assisted creation. Whether you’re spinning up MVPs, experimenting with new ideas, or helping others build faster with AI, this podcast dives into all things vibe coding—how it’s done, why it matters, and where it’s headed. If you’re curious about the future of creativity, code, and collaboration with AI, this podcast is for you.</p>
+                        <p>Conversations with creators who build apps using AI: from vibe coders and citizen developers to professional engineers, product owners, product managers, marketing pros, and project managers. We dig into the real tools, workflows, and stories behind AI-assisted creation. Whether you're launching an MVP, experimenting with new features, or enabling teams to build faster with AI, this show explores how vibe coding works, why it matters, and where it's going.</p>
                     </div>
                     <div class="bio-photo">
                         {{ $podcastImg := resources.Get "images/podcast/podcast-cover.png" }}
@@ -51,10 +51,15 @@
                                             </div>
                                             {{ end }}
                                         {{ end }}
-                                        <h3>{{ .Title }}</h3>
-                                        <div class="podcast-meta">
-                                            {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
+                                        <div class="podcast-date">
+                                            {{ .Date.Format "January 2, 2006" }}
                                         </div>
+                                        <h3>{{ .Title }}</h3>
+                                        {{ if .Params.guest }}
+                                        <div class="podcast-meta">
+                                            with {{ .Params.guest }}
+                                        </div>
+                                        {{ end }}
                                         <!-- <p>{{ .Params.description }}</p> -->
                                         <span class="card-link">Learn More →</span>
                                     </article>
@@ -83,10 +88,15 @@
                                             </div>
                                             {{ end }}
                                         {{ end }}
-                                        <h3>{{ .Title }}</h3>
-                                        <div class="podcast-meta">
-                                            {{ if .Params.guest }} with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
+                                        <div class="podcast-date">
+                                            {{ .Date.Format "January 2, 2006" }}
                                         </div>
+                                        <h3>{{ .Title }}</h3>
+                                        {{ if .Params.guest }}
+                                        <div class="podcast-meta">
+                                            with {{ .Params.guest }}
+                                        </div>
+                                        {{ end }}
                                         <!-- <p>{{ .Params.description }}</p> -->
                                         <span class="card-link">Listen →</span>
                                     </article>

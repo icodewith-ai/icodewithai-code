@@ -1292,7 +1292,15 @@ h2 + .guest-photo-section {
 .podcast-meta {
   color: $primary-500;
   font-size: $font-size-sm;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-xs;
+  font-weight: $font-weight-medium;
+}
+
+// Podcast episode date styling
+.podcast-date {
+  color: $neutral-400;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-xs;
   font-weight: $font-weight-medium;
 }
 

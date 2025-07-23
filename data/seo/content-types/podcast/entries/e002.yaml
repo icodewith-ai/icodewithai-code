@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this app
-title: "Is Code a Thing of the Past in Vibe Coding? | iCodeWith.ai"
-description: "Is code becoming obsolete—or just evolving? In this kickoff episode, Marcelo is joined by Eric Provencher, founder of Repo Prompt, to explore what vibe coding really means?"
+title: "Why Testing Matters More Than Ever in Vibe Coding | iCodeWith.ai"
+description: "Join Marcelo and Microsoft's Debbie O'Brien to explore why testing is critical in vibe coding—covering unit, integration, E2E, performance tests, and AI-powered workflows."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Is Code a Thing of the Past in Vibe Coding? | iCodeWith.ai"
+social_image_alt: "Why Testing Matters More Than Ever in Vibe Coding | iCodeWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
