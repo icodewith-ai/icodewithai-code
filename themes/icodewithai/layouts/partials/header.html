@@ -25,7 +25,6 @@
     {{ partial "nav-dropdown" (dict 
         "title" "Learn"
         "items" (slice 
-            (dict "name" "Latest Content" "url" .Site.Params.latest_content "external" false)
             (dict "name" "Blog" "url" .Site.Params.blog "external" false)
             (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
             (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
@@ -75,7 +74,6 @@
             {{ partial "nav-dropdown" (dict 
                 "title" "Learn"
                 "items" (slice 
-                    (dict "name" "Latest Content" "url" .Site.Params.latest_content "external" false)
                     (dict "name" "Blog" "url" .Site.Params.blog "external" false)
                     (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
                     (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
