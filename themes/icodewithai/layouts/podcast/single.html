@@ -5,7 +5,11 @@
                 {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }}
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
-                    {{ if .Params.guest }}with {{ .Params.guest }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.guest }}
+                    {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
+                    {{ $guestData := index .Site.Data.people $guestKey }}
+                    {{ if $guestData }}with {{ $guestData.fullName }}{{ end }}
+                    {{ end }} • {{ .Date.Format "January 2, 2006" }}
                 </div>
                 
                 <!-- YouTube Video Embed -->
@@ -45,52 +49,57 @@
                 </div>
                 
                 <!-- Guest Photo Section (if available) -->
-                {{ if .Params.guest_image }}
+                {{ if .Params.guest }}
+                {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
+                {{ $guestData := index .Site.Data.people $guestKey }}
+                {{ if $guestData }}
                 <h2>About the Guest</h2>
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $guestImg := resources.Get .Params.guest_image }}
+                            {{ $guestImg := resources.Get $guestData.image }}
                             {{ if $guestImg }}
                                 {{ $guestImgFingerprint := $guestImg | resources.Fingerprint }}
-                                <img src="{{ $guestImgFingerprint.RelPermalink }}" alt="{{ .Params.guest }}" loading="lazy">
+                                <img src="{{ $guestImgFingerprint.RelPermalink }}" alt="{{ $guestData.fullName }}" loading="lazy">
                             {{ else }}
-                                <p>Debug: Image not found at {{ .Params.guest_image }}</p>
+                                <p>Debug: Image not found at {{ $guestData.image }}</p>
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ .Params.guest }}</h3>
-                            <p>{{ .Params.guest_details }}</p>
-                            {{ if and .Params.guest_learn_more_link (ne .Params.guest_learn_more_link "") }}
+                            <h3>{{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</h3>
+                            <p>{{ $guestData.bio }}</p>
+                            {{ if and $guestData.learnMoreLink (ne $guestData.learnMoreLink "") }}
                             <div class="guest-link-wrapper">
-                                <a href="{{ .Params.guest_learn_more_link }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                                <a href="{{ $guestData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
                             {{ end }}
                         </div>
                     </div>
                 </div>
                 {{ end }}
+                {{ end }}
                 
                 <!-- Host Photo Section -->
-                {{ if .Site.Params.podcast_host_image }}
+                {{ $hostData := index .Site.Data.people "marcelo-lewin" }}
+                {{ if $hostData }}
                 <h2>About the Host</h2>
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $hostImg := resources.Get .Site.Params.podcast_host_image }}
+                            {{ $hostImg := resources.Get $hostData.image }}
                             {{ if $hostImg }}
                                 {{ $hostImgFingerprint := $hostImg | resources.Fingerprint }}
-                                <img src="{{ $hostImgFingerprint.RelPermalink }}" alt="{{ .Site.Params.podcast_host_details }}" loading="lazy">
+                                <img src="{{ $hostImgFingerprint.RelPermalink }}" alt="{{ $hostData.fullName }}" loading="lazy">
                             {{ else }}
-                                <p>Debug: Image not found at {{ .Site.Params.podcast_host_image }}</p>
+                                <p>Debug: Image not found at {{ $hostData.image }}</p>
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ .Site.Params.podcast_host_details }}</h3>
-                            <p>{{ .Site.Params.podcast_host_description }}</p>
-                            {{ if and .Site.Params.podcast_host_learn_more_link (ne .Site.Params.podcast_host_learn_more_link "") }}
+                            <h3>{{ $hostData.fullName }}, {{ $hostData.title }} @ {{ $hostData.company }}</h3>
+                            <p>{{ $hostData.bio }}</p>
+                            {{ if and $hostData.learnMoreLink (ne $hostData.learnMoreLink "") }}
                             <div class="guest-link-wrapper">
-                                <a href="{{ .Site.Params.podcast_host_learn_more_link }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                                <a href="{{ $hostData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
                             {{ end }}
                         </div>

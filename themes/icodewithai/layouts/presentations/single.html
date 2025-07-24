@@ -6,7 +6,11 @@
                 <div class="post-meta">
                     {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
                     <br>
-                    {{ if .Params.presenters }}Presented by {{ .Params.presenters }}{{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
+                    {{ if .Params.presenter }}
+                    {{ $presenterKey := strings.Replace .Params.presenter ".json" "" 1 }}
+                    {{ $presenterData := index .Site.Data.people $presenterKey }}
+                    {{ if $presenterData }}Presented by {{ $presenterData.fullName }}{{ end }}
+                    {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
                     <br>
                     {{ if .Params.meeting_type }}This is an {{ .Params.meeting_type }} presentation.{{ end }}
                 </div>

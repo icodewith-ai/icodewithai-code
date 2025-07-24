@@ -20,9 +20,10 @@
                         <p><a href="{{ .Site.Params.linkedin }}" target="_blank">Learn more at LinkedIn</a></p>
                     </div>
                     <div class="bio-photo">
-                        {{ $profileImg := resources.Get "images/marcelolewin.jpg" | resources.Fingerprint }}
+                        {{ $profileImg := resources.Get "images/people/marcelo-lewin.png" }}
                         {{ if $profileImg }}
-                        <img src="{{ $profileImg.RelPermalink }}" alt="Marcelo Lewin" class="bio-image" loading="lazy">
+                        {{ $profileImgFingerprint := $profileImg | resources.Fingerprint }}
+                        <img src="{{ $profileImgFingerprint.RelPermalink }}" alt="Marcelo Lewin" class="bio-image" loading="lazy">
                         {{ end }}
                     </div>
                 </div>

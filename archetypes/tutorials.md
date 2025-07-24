@@ -7,7 +7,7 @@ status = "upcoming | published"
 description = ""
 image = "images/tutorials/placeholder.png"
 video_id = ""
-presenter = "Marcelo Lewin"
+presenter = "full-name.json"
 +++
 
 [About Tutorial]

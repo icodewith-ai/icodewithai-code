@@ -5,7 +5,11 @@
                 {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }}
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
-                    {{ if .Params.presenter }}Presented by {{ .Params.presenter }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
+                    {{ if .Params.presenter }}
+                    {{ $presenterKey := strings.Replace .Params.presenter ".json" "" 1 }}
+                    {{ $presenterData := index .Site.Data.people $presenterKey }}
+                    {{ if $presenterData }}Presented by {{ $presenterData.fullName }}{{ end }}
+                    {{ end }} • {{ .Date.Format "January 2, 2006" }}
                 </div>
                 
                 <!-- YouTube Video Embed or Image Fallback -->
@@ -36,25 +40,26 @@
                 </div>
                 
                 <!-- Presenter Photo Section -->
-                {{ if .Site.Params.podcast_host_image }}
+                {{ $presenterData := index .Site.Data.people "marcelo-lewin" }}
+                {{ if $presenterData }}
                 <h2>About the Presenter</h2>
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $hostImg := resources.Get .Site.Params.podcast_host_image }}
-                            {{ if $hostImg }}
-                                {{ $hostImgFingerprint := $hostImg | resources.Fingerprint }}
-                                <img src="{{ $hostImgFingerprint.RelPermalink }}" alt="{{ .Site.Params.podcast_host_details }}" loading="lazy">
+                            {{ $presenterImg := resources.Get $presenterData.image }}
+                            {{ if $presenterImg }}
+                                {{ $presenterImgFingerprint := $presenterImg | resources.Fingerprint }}
+                                <img src="{{ $presenterImgFingerprint.RelPermalink }}" alt="{{ $presenterData.fullName }}" loading="lazy">
                             {{ else }}
-                                <p>Debug: Image not found at {{ .Site.Params.podcast_host_image }}</p>
+                                <p>Debug: Image not found at {{ $presenterData.image }}</p>
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ .Site.Params.podcast_host_details }}</h3>
-                            <p>{{ .Site.Params.podcast_host_description }}</p>
-                            {{ if and .Site.Params.podcast_host_learn_more_link (ne .Site.Params.podcast_host_learn_more_link "") }}
+                            <h3>{{ $presenterData.fullName }}, {{ $presenterData.title }} @ {{ $presenterData.company }}</h3>
+                            <p>{{ $presenterData.bio }}</p>
+                            {{ if and $presenterData.learnMoreLink (ne $presenterData.learnMoreLink "") }}
                             <div class="guest-link-wrapper">
-                                <a href="{{ .Site.Params.podcast_host_learn_more_link }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                                <a href="{{ $presenterData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
                             {{ end }}
                         </div>

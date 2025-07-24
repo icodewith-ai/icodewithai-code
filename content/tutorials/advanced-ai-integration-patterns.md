@@ -7,7 +7,7 @@ status = "d"
 description = "Explore advanced patterns for integrating AI into your applications, including streaming responses, error handling, and performance optimization."
 image = "images/tutorials/placeholder.png"
 video_id = ""
-presenter = "Marcelo Lewin"
+presenter = "marcelo-lewin.json"
 +++
 
 This upcoming tutorial will dive deep into advanced patterns for AI integration in modern applications. We'll cover sophisticated techniques that go beyond basic API calls.

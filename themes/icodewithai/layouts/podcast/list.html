@@ -27,9 +27,13 @@
                                         </div>
                                         <h3>{{ .Title }}</h3>
                                         {{ if .Params.guest }}
+                                        {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
+                                        {{ $guestData := index .Site.Data.people $guestKey }}
+                                        {{ if $guestData }}
                                         <div class="podcast-meta">
-                                            with {{ .Params.guest }}
+                                            with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}
                                         </div>
+                                        {{ end }}
                                         {{ end }}
                                         <!-- <p>{{ .Params.description }}</p> -->
                                         <span class="card-link">Learn More →</span>
@@ -59,9 +63,13 @@
                                 </div>
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.guest }}
+                                {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
+                                {{ $guestData := index .Site.Data.people $guestKey }}
+                                {{ if $guestData }}
                                 <div class="podcast-meta">
-                                    with {{ .Params.guest }}
+                                    with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}
                                 </div>
+                                {{ end }}
                                 {{ end }}
                                 <!-- <p>{{ .Params.description }}</p> -->
                                 <span class="card-link">Listen →</span>

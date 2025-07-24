@@ -8,11 +8,8 @@ description = ""
 image = "images/podcast/episode.png"
 video_id = ""
 audio_id = ""
-host = "Marcelo Lewin"
-guest = "Full Name, Title @ Company"
-guest_image = "images/guests/guest-name.png"
-guest_details = ""
-guest_learn_more_link = "URL or empty"
+host = "fullname.json"
+guest = "fullname.json"
 +++
 
 [About Episode]
