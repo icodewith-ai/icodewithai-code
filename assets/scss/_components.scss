@@ -1943,3 +1943,85 @@ h2 + .guest-photo-section {
     }
   }
 }
+
+// Generic Split Card Component
+// -----------------------------------------------------------------------------
+.split-card {
+  background: $neutral-800;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-base;
+  overflow: hidden;
+  transition: $transition-base;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    border-color: $primary-500;
+    transform: translateY($hover-lift-small);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
+  }
+}
+
+.split-card-icon-section {
+  background: $neutral-900;
+  padding: $spacing-lg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  border-bottom: 1px solid $neutral-700;
+  
+  img {
+    width: 48px;
+    height: 48px;
+    transition: $transition-base;
+    filter: brightness(0.9);
+  }
+}
+
+.split-card-content-section {
+  padding: $spacing-lg;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.split-card-title {
+  color: $primary-500;
+  margin: 0 0 $spacing-md 0;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-medium;
+}
+
+.split-card-description {
+  color: $neutral-400;
+  margin: 0 0 $spacing-md 0;
+  flex: 1;
+  line-height: $line-height-relaxed;
+}
+
+.split-card-actions {
+  margin-top: auto;
+}
+
+// Hover effects for the entire card
+.split-card:hover {
+  .split-card-icon-section img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
+}
+
+// Split Card Modifiers
+// -----------------------------------------------------------------------------
+// Wide modifier - spans 2 columns in grid layouts
+.split-card--wide {
+  // Works with CSS Grid - spans 2 columns
+  grid-column: span 2;
+  
+  // Alternative for specific grid layouts
+  &.wide {
+    grid-column: span 2;
+  }
+}

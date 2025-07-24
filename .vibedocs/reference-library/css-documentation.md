@@ -595,6 +595,71 @@ Content wrapper with max-width and horizontal padding.
 #### .app-card, .blog-post-card
 Content cards with gradient backgrounds, hover effects, and consistent internal spacing.
 
+#### .split-card (Generic Split Card Component)
+A versatile card component with separated icon and content sections for use throughout the site.
+
+**Structure:**
+```html
+<div class="split-card">
+  <div class="split-card-icon-section">
+    <img src="..." alt="...">
+  </div>
+  <div class="split-card-content-section">
+    <h3 class="split-card-title">Title</h3>
+    <p class="split-card-description">Description</p>
+    <div class="split-card-actions">
+      <a href="..." class="btn-primary">Action</a>
+    </div>
+  </div>
+</div>
+```
+
+**CSS Classes:**
+- `.split-card` - Main container with border, hover effects, and flexbox layout
+- `.split-card-icon-section` - Top section with darker background (`$neutral-900`) for icons
+- `.split-card-content-section` - Bottom content area with standard background (`$neutral-800`)
+- `.split-card-title` - Title styling with primary color
+- `.split-card-description` - Description text with secondary color
+- `.split-card-actions` - Container for buttons/actions, aligned to bottom
+
+**Features:**
+- Hover effects: Border color change, lift animation, icon scale
+- Responsive design: Works with any grid system
+- Consistent spacing using design system variables
+- Icon section has `min-height: 80px` for visual consistency
+- Flexbox layout ensures equal height cards
+
+**Modifiers:**
+
+##### .split-card--wide
+Modifier class for cards that span 2 columns in grid layouts.
+
+```scss
+.split-card--wide {
+  grid-column: span 2;
+  
+  // Alternative for specific grid layouts
+  &.wide {
+    grid-column: span 2;
+  }
+}
+```
+
+**Usage Examples:**
+```html
+<!-- Standard card -->
+<div class="split-card">...</div>
+
+<!-- Wide card spanning 2 columns -->
+<div class="split-card split-card--wide">...</div>
+```
+
+**Design Notes:**
+- Icon section uses darker background to create visual separation
+- Border line automatically separates icon and content sections
+- Maintains all existing color scheme and hover behaviors
+- Can be used anywhere on the site for consistent card appearance
+
 #### .app-card-thumbnail
 Responsive thumbnail images for app cards with hover effects and optimized aspect ratios.
 
