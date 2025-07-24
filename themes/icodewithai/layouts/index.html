@@ -16,7 +16,7 @@
                 
                 <!-- First Row -->
                 <div class="homepage-features-grid">
-                    <div class="split-card">
+                    <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $blogIcon := resources.Get "images/icons/icon-blog.png" }}
                             <img src="{{ $blogIcon.RelPermalink }}" alt="Blog icon">
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="split-card">
+                    <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $podcastIcon := resources.Get "images/icons/icon-podcast.png" }}
                             <img src="{{ $podcastIcon.RelPermalink }}" alt="Podcast icon">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="split-card">
+                    <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $tutorialsIcon := resources.Get "images/icons/icon-tutorials.png" }}
                             <img src="{{ $tutorialsIcon.RelPermalink }}" alt="Tutorials icon">
@@ -59,7 +59,7 @@
 
                 <!-- Second Row -->
                 <div class="homepage-features-grid-2plus1 mt-lg">
-                    <div class="split-card split-card--wide">
+                    <div class="split-card split-card--wide split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $appsIcon := resources.Get "images/icons/icon-apps.png" }}
                             <img src="{{ $appsIcon.RelPermalink }}" alt="Apps icon">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="split-card">
+                    <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $presentationIcon := resources.Get "images/icons/icon-presentation.png" }}
                             <img src="{{ $presentationIcon.RelPermalink }}" alt="Presentations icon">
@@ -94,25 +94,37 @@
             <div class="container">
                 <h2 class="text-center text-white-important">Structure Meets Creativity</h2>
                 <div class="homepage-features-grid-2col">
-                    <div class="homepage-feature-card">
-                        <h3>Add Structure</h3>
-                        <ul class="homepage-feature-list">
-                            <li><span class="checkmark">✓</span> Think like an architect</li>
-                            <li><span class="checkmark">✓</span> Define your project vision clearly</li>
-                            <li><span class="checkmark">✓</span> Break your work into manageable chunks</li>
-                            <li><span class="checkmark">✓</span> Create "just enough" documentation</li>
-                            <li><span class="checkmark">✓</span> Keep your tasks focused</li>
-                        </ul>
+                    <div class="split-card split-card--icon-left">
+                        <div class="split-card-icon-section">
+                            {{ $structureIcon := resources.Get "images/icons/icon-structure.png" }}
+                            <img src="{{ $structureIcon.RelPermalink }}" alt="Structure icon">
+                        </div>
+                        <div class="split-card-content-section">
+                            <h3 class="split-card-title">Add Structure</h3>
+                            <ul class="homepage-feature-list">
+                                <li><span class="checkmark">✓</span> Think like an architect</li>
+                                <li><span class="checkmark">✓</span> Define your project vision clearly</li>
+                                <li><span class="checkmark">✓</span> Break your work into manageable chunks</li>
+                                <li><span class="checkmark">✓</span> Create "just enough" documentation</li>
+                                <li><span class="checkmark">✓</span> Keep your tasks focused</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="homepage-feature-card">
-                        <h3>Keep the Vibe</h3>
-                        <ul class="homepage-feature-list">
-                            <li><span class="checkmark">✓</span> Space to explore freely</li>
-                            <li><span class="checkmark">✓</span> Room for messy magic</li>
-                            <li><span class="checkmark">✓</span> Quick sparks of clarity</li>
-                            <li><span class="checkmark">✓</span> Moments of wild intuition</li>
-                            <li><span class="checkmark">✓</span> Creative momentum</li>
-                        </ul>
+                    <div class="split-card split-card--icon-left">
+                        <div class="split-card-icon-section">
+                            {{ $vibeIcon := resources.Get "images/icons/icon-keep-the-vibe.png" }}
+                            <img src="{{ $vibeIcon.RelPermalink }}" alt="Vibe icon">
+                        </div>
+                        <div class="split-card-content-section">
+                            <h3 class="split-card-title">Keep the Vibe</h3>
+                            <ul class="homepage-feature-list">
+                                <li><span class="checkmark">✓</span> Space to explore freely</li>
+                                <li><span class="checkmark">✓</span> Room for messy magic</li>
+                                <li><span class="checkmark">✓</span> Quick sparks of clarity</li>
+                                <li><span class="checkmark">✓</span> Moments of wild intuition</li>
+                                <li><span class="checkmark">✓</span> Creative momentum</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

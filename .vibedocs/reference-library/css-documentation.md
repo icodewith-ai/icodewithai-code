@@ -645,14 +645,106 @@ Modifier class for cards that span 2 columns in grid layouts.
 }
 ```
 
+##### Icon Positioning Modifiers
+Control where the icon section appears in relation to the content. **All split-cards require an explicit positioning modifier:**
+
+- `.split-card--icon-top` - Icon at top, content at bottom (vertical layout)
+- `.split-card--icon-bottom` - Icon at bottom, content at top (vertical layout)
+- `.split-card--icon-left` - Icon on left, content on right (horizontal layout)
+- `.split-card--icon-right` - Icon on right, content on left (horizontal layout)
+
+**CSS Implementation:**
+```scss
+// Icon at top (explicit positioning required)
+.split-card--icon-top {
+  flex-direction: column;
+  
+  .split-card-icon-section {
+    min-height: 80px;
+    border-bottom: 1px solid $neutral-700;
+  }
+}
+
+// Icon at bottom
+.split-card--icon-bottom {
+  flex-direction: column-reverse;
+  
+  .split-card-icon-section {
+    border-bottom: none;
+    border-top: 1px solid $neutral-700;
+  }
+}
+
+// Icon on left
+.split-card--icon-left {
+  flex-direction: row;
+  
+  .split-card-icon-section {
+    border-bottom: none;
+    border-right: 1px solid $neutral-700;
+    min-width: 120px;
+    min-height: auto;
+  }
+  
+  // Responsive: revert to vertical on mobile
+  @include tablet-down {
+    flex-direction: column;
+    
+    .split-card-icon-section {
+      border-right: none;
+      border-bottom: 1px solid $neutral-700;
+      min-width: auto;
+      min-height: 80px;
+    }
+  }
+}
+
+// Icon on right  
+.split-card--icon-right {
+  flex-direction: row-reverse;
+  
+  .split-card-icon-section {
+    border-bottom: none;
+    border-left: 1px solid $neutral-700;
+    min-width: 120px;
+    min-height: auto;
+  }
+  
+  // Responsive: revert to vertical on mobile
+  @include tablet-down {
+    flex-direction: column;
+    
+    .split-card-icon-section {
+      border-left: none;
+      border-bottom: 1px solid $neutral-700;
+      min-width: auto;
+      min-height: 80px;
+    }
+  }
+}
+```
+
 **Usage Examples:**
 ```html
-<!-- Standard card -->
-<div class="split-card">...</div>
+<!-- All positioning requires explicit modifier classes -->
+<div class="split-card split-card--icon-top">...</div>
+<div class="split-card split-card--icon-bottom">...</div>
+<div class="split-card split-card--icon-left">...</div>
+<div class="split-card split-card--icon-right">...</div>
 
-<!-- Wide card spanning 2 columns -->
-<div class="split-card split-card--wide">...</div>
+<!-- Combine with wide modifier -->
+<div class="split-card split-card--wide split-card--icon-top">...</div>
+<div class="split-card split-card--wide split-card--icon-left">...</div>
+<div class="split-card split-card--wide split-card--icon-right">...</div>
+<div class="split-card split-card--wide split-card--icon-bottom">...</div>
 ```
+
+**Important:** The base `.split-card` class no longer has default positioning. You **must** include one of the four positioning modifiers or the card will not display properly.
+
+**Responsive Behavior:**
+- **Desktop**: Uses specified icon position
+- **Tablet/Mobile**: Horizontal layouts (left/right) automatically revert to vertical (icon top) for better mobile experience
+- **All positions**: Maintain consistent hover effects and styling
 
 **Design Notes:**
 - Icon section uses darker background to create visual separation

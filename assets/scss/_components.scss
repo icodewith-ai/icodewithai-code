@@ -1954,7 +1954,7 @@ h2 + .guest-photo-section {
   transition: $transition-base;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  // Note: No default flex-direction - must use explicit positioning modifier
   
   &:hover {
     border-color: $primary-500;
@@ -1969,8 +1969,6 @@ h2 + .guest-photo-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80px;
-  border-bottom: 1px solid $neutral-700;
   
   img {
     width: 48px;
@@ -2023,5 +2021,83 @@ h2 + .guest-photo-section {
   // Alternative for specific grid layouts
   &.wide {
     grid-column: span 2;
+  }
+}
+
+// Icon positioning modifiers
+// -----------------------------------------------------------------------------
+// Icon at top (default vertical layout)
+.split-card--icon-top {
+  flex-direction: column;
+  
+  .split-card-icon-section {
+    min-height: 80px;
+    border-bottom: 1px solid $neutral-700;
+  }
+}
+
+// Icon at bottom (reverse vertical order)
+.split-card--icon-bottom {
+  flex-direction: column-reverse;
+  
+  .split-card-icon-section {
+    border-bottom: none;
+    border-top: 1px solid $neutral-700;
+  }
+}
+
+// Icon on left (horizontal layout)
+.split-card--icon-left {
+  flex-direction: row;
+  
+  .split-card-icon-section {
+    border-bottom: none;
+    border-right: 1px solid $neutral-700;
+    min-width: 120px;
+    min-height: auto;
+  }
+  
+  .split-card-content-section {
+    flex: 1;
+  }
+  
+  // Responsive: revert to vertical on mobile
+  @include tablet-down {
+    flex-direction: column;
+    
+    .split-card-icon-section {
+      border-right: none;
+      border-bottom: 1px solid $neutral-700;
+      min-width: auto;
+      min-height: 80px;
+    }
+  }
+}
+
+// Icon on right (reverse horizontal order)
+.split-card--icon-right {
+  flex-direction: row-reverse;
+  
+  .split-card-icon-section {
+    border-bottom: none;
+    border-left: 1px solid $neutral-700;
+    min-width: 120px;
+    min-height: auto;
+  }
+  
+  .split-card-content-section {
+    flex: 1;
+  }
+  
+  // Responsive: revert to vertical on mobile
+  @include tablet-down {
+    flex-direction: column;
+    
+    .split-card-icon-section {
+      border-left: none;
+      border-bottom: 1px solid $neutral-700;
+      min-width: auto;
+      min-height: 80px;
+    }
   }
 }
