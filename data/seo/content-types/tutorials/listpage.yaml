@@ -1,11 +1,11 @@
 # Basic SEO - Custom tutorials listing content
 title: "Tutorials | iCodeWith.ai"
-description: "Learn to build apps with AI through step-by-step tutorials covering modern development tools, frameworks, and AI-powered coding techniques."
+description: "Learn to build apps with AI by watching tutorials covering modern development tools, frameworks, and AI-powered coding techniques."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "AI Coding Tutorials | iCodeWith.ai | Step-by-Step AI Development Guides"
+social_image_alt: "Tutorials | iCodeWith.a"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
