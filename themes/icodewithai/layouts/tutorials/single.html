@@ -1,0 +1,71 @@
+{{ define "main" }}
+    <main>
+        <article class="blog-single">
+            <div class="container">
+                {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }}
+                <h1>{{ .Title }}</h1>
+                <div class="post-meta">
+                    {{ if .Params.presenter }}Presented by {{ .Params.presenter }}{{ end }} • {{ .Date.Format "January 2, 2006" }}
+                </div>
+                
+                <!-- YouTube Video Embed or Image Fallback -->
+                {{ if and .Params.video_id (ne .Params.video_id "") }}
+                <div class="podcast-embed-section">
+                    <div class="video-embed-responsive">
+                        <iframe 
+                            src="https://www.youtube.com/embed/{{ .Params.video_id }}" 
+                            frameborder="0" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                {{ else if .Params.image }}
+                <div class="podcast-embed-section">
+                    <div class="tutorial-image-fallback">
+                        {{ $tutorialImg := resources.Get .Params.image }}
+                        {{ if $tutorialImg }}
+                            {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
+                            <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                
+                <div class="content">
+                    {{ .Content }}
+                </div>
+                
+                <!-- Presenter Photo Section -->
+                {{ if .Site.Params.podcast_host_image }}
+                <h2>About the Presenter</h2>
+                <div class="guest-photo-section">
+                    <div class="guest-content">
+                        <div class="guest-photo">
+                            {{ $hostImg := resources.Get .Site.Params.podcast_host_image }}
+                            {{ if $hostImg }}
+                                {{ $hostImgFingerprint := $hostImg | resources.Fingerprint }}
+                                <img src="{{ $hostImgFingerprint.RelPermalink }}" alt="{{ .Site.Params.podcast_host_details }}" loading="lazy">
+                            {{ else }}
+                                <p>Debug: Image not found at {{ .Site.Params.podcast_host_image }}</p>
+                            {{ end }}
+                        </div>
+                        <div class="guest-info">
+                            <h3>{{ .Site.Params.podcast_host_details }}</h3>
+                            <p>{{ .Site.Params.podcast_host_description }}</p>
+                            {{ if and .Site.Params.podcast_host_learn_more_link (ne .Site.Params.podcast_host_learn_more_link "") }}
+                            <div class="guest-link-wrapper">
+                                <a href="{{ .Site.Params.podcast_host_learn_more_link }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+                
+                <div class="blog-back-section">
+                    <a href="{{ "tutorials/" | relURL }}" class="blog-back-link">← Back to Tutorials</a>
+                </div>
+            </div>
+        </article>
+    </main>
+{{ end }}

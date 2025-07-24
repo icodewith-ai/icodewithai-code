@@ -1,27 +1,16 @@
 {{ define "main" }}
     <main>
-        <!-- Podcast Hero Section -->
-        <section class="hero">
+        <section class="blog-list">
             <div class="container">
-                <h1>Coding with AI<br /><span class="highlight">Podcast</span></h1>
-                <p class="tagline">Conversations with humans building apps with AI.</p>
-            </div>
-        </section>
-
-        <!-- Episodes Sections -->
-        {{ $allPodcastPages := where .Site.AllPages "Section" "podcast" }}
-        {{ $upcomingEpisodes := where $allPodcastPages "Params.status" "upcoming" }}
-        {{ $publishedEpisodes := where $allPodcastPages "Params.status" "published" }}
-        {{ $hasContent := or (gt (len $upcomingEpisodes) 0) (gt (len $publishedEpisodes) 0) }}
-
-        {{ if $hasContent }}
-            <!-- Upcoming Episodes Section -->
-            {{ if gt (len $upcomingEpisodes) 0 }}
-                <section class="section">
-                    <div class="container">
-                        <h2>Upcoming Episodes</h2>
-                        <div class="podcast-episodes">
-                            {{ range first 3 (sort $upcomingEpisodes "Date" "asc") }}
+                <h1>Podcast</h1>
+                
+                {{ $upcomingEpisodes := where .Pages ".Params.status" "upcoming" }}
+                {{ $publishedEpisodes := where .Pages ".Params.status" "published" }}
+                
+                {{ if $upcomingEpisodes }}
+                <h2>Upcoming</h2>
+                <div class="podcast-episodes">
+                    {{ range sort $upcomingEpisodes ".Date" "asc" }}
                                 <a href="{{ .Permalink }}" class="blog-card-link">
                                     <article class="podcast-card">
                                         {{ if .Params.image }}
@@ -46,58 +35,49 @@
                                         <span class="card-link">Learn More →</span>
                                     </article>
                                 </a>
-                            {{ end }}
-                        </div>
-                    </div>
-                </section>
-            {{ end }}
-
-            <!-- All Episodes Section -->
-            {{ if gt (len $publishedEpisodes) 0 }}
-                <section class="section">
-                    <div class="container">
-                        <h2>All Episodes</h2>
-                        <div class="podcast-episodes">
-                            {{ range $publishedEpisodes }}
-                                <a href="{{ .Permalink }}" class="blog-card-link">
-                                    <article class="podcast-card">
-                                        {{ if .Params.image }}
-                                            {{ $episodeImg := resources.Get .Params.image }}
-                                            {{ if $episodeImg }}
-                                            <div class="podcast-card-thumbnail">
-                                                {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
-                                                <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                                            </div>
-                                            {{ end }}
-                                        {{ end }}
-                                        <div class="podcast-date">
-                                            {{ .Date.Format "January 2, 2006" }}
-                                        </div>
-                                        <h3>{{ .Title }}</h3>
-                                        {{ if .Params.guest }}
-                                        <div class="podcast-meta">
-                                            with {{ .Params.guest }}
-                                        </div>
-                                        {{ end }}
-                                        <!-- <p>{{ .Params.description }}</p> -->
-                                        <span class="card-link">Listen →</span>
-                                    </article>
-                                </a>
-                            {{ end }}
-                        </div>
-                    </div>
-                </section>
-            {{ end }}
-        {{ else }}
-            <!-- No Episodes Yet -->
-            <section class="section">
-                <div class="container">
-                    <div class="blog-post-card">
-                        <h3>Episodes Coming Soon</h3>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if $publishedEpisodes }}
+                {{ if $upcomingEpisodes }}<h2>Published</h2>{{ end }}
+                <div class="podcast-episodes">
+                    {{ range sort $publishedEpisodes ".Date" "desc" }}
+                        <a href="{{ .Permalink }}" class="blog-card-link">
+                            <article class="podcast-card">
+                                {{ if .Params.image }}
+                                    {{ $episodeImg := resources.Get .Params.image }}
+                                    {{ if $episodeImg }}
+                                    <div class="podcast-card-thumbnail">
+                                        {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
+                                        <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="podcast-date">
+                                    {{ .Date.Format "January 2, 2006" }}
+                                </div>
+                                <h3>{{ .Title }}</h3>
+                                {{ if .Params.guest }}
+                                <div class="podcast-meta">
+                                    with {{ .Params.guest }}
+                                </div>
+                                {{ end }}
+                                <!-- <p>{{ .Params.description }}</p> -->
+                                <span class="card-link">Listen →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if and (eq (len $upcomingEpisodes) 0) (eq (len $publishedEpisodes) 0) }}
+                    <div class="podcast-card">
+                        <h3>No episodes yet</h3>
                         <p>We're working on getting guests for more episodes, stay tuned!</p>
                     </div>
-                </div>
-            </section>
-        {{ end }}
+                {{ end }}
+            </div>
+        </section>
     </main>
 {{ end }}

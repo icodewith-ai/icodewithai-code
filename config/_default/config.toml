@@ -5,7 +5,7 @@ languageCode = 'en-us'
 [params]
 
   # About the Site
-  version = "1.3.1"
+  version = "1.3.2"
   last_updated = "2025-07-24"
   author = "Marcelo Lewin"
   description = "Learn how to structure your vibe coding to build production-ready, maintainable apps."
@@ -24,7 +24,7 @@ languageCode = 'en-us'
   podcast = "/podcast/"
   blog = "/blog/"
   presentations = "/presentations/"
-  tutorials = "https://www.youtube.com/@icodewith_ai"
+  tutorials = "/tutorials/"
 
   # Community Links
   discord = "https://discord.gg/Mz7vdRmpJH"

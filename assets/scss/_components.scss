@@ -1282,6 +1282,63 @@ h2 + .guest-photo-section {
   }
 }
 
+// Tutorial Episodes Grid - responsive 3-column layout
+.tutorial-episodes {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: $spacing-xl; // Matches blog-posts spacing between sections
+  
+  // Mobile/Tablet responsive: single column at tablet breakpoint
+  @include tablet-down {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Spacing for tutorial episodes after h2 headings (matches blog-posts)
+.blog-list {
+  h2 + .tutorial-episodes {
+    margin-top: $spacing-md; // 24px spacing between heading and cards
+  }
+  
+  h2 + .podcast-episodes {
+    margin-top: $spacing-md; // 24px spacing between heading and cards
+  }
+}
+
+// Tutorial Card Thumbnail - 16:9 aspect ratio for tutorial cards
+.tutorial-card-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: $border-radius-base;
+  margin-bottom: $spacing-md;
+  background: $neutral-800;
+  position: relative;
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Tutorial Image Fallback - when no video_id is provided
+.tutorial-image-fallback {
+  width: 100%;
+  margin-bottom: $spacing-lg;
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-base;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
+  }
+}
+
 // Podcast tagline - responsive single line
 .podcast-tagline {
   font-size: $font-size-2xl;
@@ -1370,7 +1427,7 @@ h2 + .guest-photo-section {
   padding: $spacing-2xl 0;
   
   .container {
-    max-width: $blog-content-max-width;
+    max-width: $container-max-width; // Match list pages width (1200px)
   }
   
   h1 {

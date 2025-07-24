@@ -1,0 +1,71 @@
+{{ define "main" }}
+    <main>
+        <section class="blog-list">
+            <div class="container">
+                <h1>Tutorials</h1>
+                
+                {{ $upcomingTutorials := where .Pages ".Params.status" "upcoming" }}
+                {{ $publishedTutorials := where .Pages ".Params.status" "published" }}
+                
+                {{ if $upcomingTutorials }}
+                <h2>Upcoming</h2>
+                <div class="tutorial-episodes">
+                    {{ range sort $upcomingTutorials ".Date" "asc" }}
+                        <a href="{{ .Permalink }}" class="blog-card-link">
+                            <article class="podcast-card">
+                                {{ if .Params.image }}
+                                    {{ $tutorialImg := resources.Get .Params.image }}
+                                    {{ if $tutorialImg }}
+                                    <div class="tutorial-card-thumbnail">
+                                        {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
+                                        <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="podcast-date">
+                                    {{ .Date.Format "January 2, 2006" }}
+                                </div>
+                                <h3>{{ .Title }}</h3>
+                                <span class="card-link">Preview →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if $publishedTutorials }}
+                {{ if $upcomingTutorials }}<h2>Published</h2>{{ end }}
+                <div class="tutorial-episodes">
+                    {{ range sort $publishedTutorials ".Date" "desc" }}
+                        <a href="{{ .Permalink }}" class="blog-card-link">
+                            <article class="podcast-card">
+                                {{ if .Params.image }}
+                                    {{ $tutorialImg := resources.Get .Params.image }}
+                                    {{ if $tutorialImg }}
+                                    <div class="tutorial-card-thumbnail">
+                                        {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
+                                        <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="podcast-date">
+                                    {{ .Date.Format "January 2, 2006" }}
+                                </div>
+                                <h3>{{ .Title }}</h3>
+                                <span class="card-link">Watch →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                {{ if and (eq (len $upcomingTutorials) 0) (eq (len $publishedTutorials) 0) }}
+                    <div class="podcast-card">
+                        <h3>No tutorials published</h3>
+                        <p>Check back as they are coming soon!</p>
+                    </div>
+                {{ end }}
+            </div>
+        </section>
+    </main>
+{{ end }}
