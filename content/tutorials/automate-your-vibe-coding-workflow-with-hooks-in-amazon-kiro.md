@@ -36,7 +36,6 @@ Learn how to leverage Kiro's agent hooks that monitor file‑system events (like
 
 ## Resources to Check Out
 
-- [Kiro Documentation: Hooks Overview – Agent Hooks introduction, setup, trigger types, and workflow](https://kiro.dev/docs/hooks/) 
-- [Kiro Blog: Automate Your Development Workflow with Kiro’s AI Agent Hooks – real‑world use cases and how‑to guide](https://kiro.dev/blog/automate-your-development-workflow-with-agent-hooks/) 
-- [Dev.to Guide: Kiro Hooks Complete Documentation Guide – detailed breakdown of hook types, configurations, best practices](https://dev.to/czmilo/kiro-hooks-complete-documentation-guide-3pm0)  
-- [Kiro Blog: Introducing Kiro – context on spec‑driven development, hooks, and overall workflow philosophy](https://kiro.dev/blog/introducing-kiro/)
+- [Kiro Documentation: Hooks Overview](https://kiro.dev/docs/hooks/) 
+- [Kiro Blog: Automate Your Development Workflow](https://kiro.dev/blog/automate-your-development-workflow-with-agent-hooks/) 
+- [Dev.to Guide: Kiro Hooks Complete Documentation Guide ](https://dev.to/czmilo/kiro-hooks-complete-documentation-guide-3pm0)
