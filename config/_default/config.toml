@@ -24,7 +24,7 @@ languageCode = 'en-us'
   podcast = "/podcast/"
   blog = "/blog/"
   presentations = "/presentations/"
-  tutorials = "/tutorials/"
+  tutorials = "https://www.youtube.com/@icodewith_ai"
 
   # Community Links
   discord = "https://discord.gg/Mz7vdRmpJH"
