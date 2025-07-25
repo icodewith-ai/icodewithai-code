@@ -8,7 +8,7 @@
                 {{ $publishedEpisodes := where .Pages ".Params.status" "published" }}
                 
                 {{ if $upcomingEpisodes }}
-                <h2>Upcoming</h2>
+                <h2>Upcoming Live</h2>
                 <div class="podcast-episodes">
                     {{ range sort $upcomingEpisodes ".Date" "asc" }}
                                 <a href="{{ .Permalink }}" class="blog-card-link">
@@ -23,7 +23,7 @@
                                             {{ end }}
                                         {{ end }}
                                         <div class="podcast-date">
-                                            {{ .Date.Format "January 2, 2006" }}
+                                            {{ .Date.Format "January 2, 2006" }} at {{ .Params.time }}
                                         </div>
                                         <h3>{{ .Title }}</h3>
                                         {{ if .Params.guest }}
@@ -36,7 +36,7 @@
                                         {{ end }}
                                         {{ end }}
                                         <!-- <p>{{ .Params.description }}</p> -->
-                                        <span class="card-link">Learn More →</span>
+                                        <br /><span class="card-link">Get More Details and Register →</span>
                                     </article>
                                 </a>
                     {{ end }}
@@ -44,7 +44,7 @@
                 {{ end }}
                 
                 {{ if $publishedEpisodes }}
-                {{ if $upcomingEpisodes }}<h2>Published</h2>{{ end }}
+                {{ if $upcomingEpisodes }}<h2>On-Demand</h2>{{ end }}
                 <div class="podcast-episodes">
                     {{ range sort $publishedEpisodes ".Date" "desc" }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
@@ -72,7 +72,7 @@
                                 {{ end }}
                                 {{ end }}
                                 <!-- <p>{{ .Params.description }}</p> -->
-                                <span class="card-link">Listen →</span>
+                                <br /><span class="card-link">Watch Now →</span>
                             </article>
                         </a>
                     {{ end }}
