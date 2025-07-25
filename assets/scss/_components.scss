@@ -198,7 +198,7 @@
   margin: 0;
   font-family: $font-family-base;
   font-size: inherit;
-  font-weight: inherit;
+  font-weight: $font-weight-medium;
   line-height: inherit;
   
   &:hover {
@@ -1937,10 +1937,10 @@ h2 + .guest-photo-section {
   display: grid;
   gap: $spacing-lg;
   
-  // 2 cards: first spans 2 columns, second spans 1 column
-  grid-template-columns: repeat(3, 1fr);
+  // 2 cards: equal width layout
+  grid-template-columns: repeat(2, 1fr);
   grid-template-areas: 
-    "card1 card1 card2";
+    "card1 card2";
   
   .homepage-feature-card {
     background: $neutral-800;
@@ -1962,7 +1962,7 @@ h2 + .guest-photo-section {
       font-weight: $font-weight-medium;
     }
     
-    &.wide { grid-area: card1; }
+    &:nth-child(1) { grid-area: card1; }
     &:nth-child(2) { grid-area: card2; }
   }
   
