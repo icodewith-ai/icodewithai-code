@@ -1,0 +1,110 @@
+{{ define "main" }}
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Contact <span class="highlight">Us</span></h1>
+                <p class="tagline">We'd love to hear from you. Whether you have a question, feedback, or just want to say hi, feel free to reach out.</p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-form-wrapper">
+                    <!-- Contact Form -->
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <!-- First Name -->
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                                <div class="error-message" id="firstName-error"></div>
+                            </div>
+                            
+                            <!-- Last Name -->
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                                <div class="error-message" id="lastName-error"></div>
+                            </div>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+
+                        <!-- Reason for contacting us -->
+                        <div class="form-group">
+                            <label for="reason">Reason for contacting us</label>
+                            <select id="reason" name="reason">
+                                <option value="">Please select a reason</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Support Request</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="reason-error"></div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+                            <div class="error-message" id="message-error"></div>
+                        </div>
+
+                        <!-- CAPTCHA and Submit Button -->
+                        <div class="form-group">
+                            <div class="captcha-submit-container">
+                                <!-- reCAPTCHA v2 - Visible checkbox verification -->
+                                <div class="g-recaptcha" data-sitekey="6LfcPJArAAAAAASyqO4Os-fIJEd1CHpnAELH59nS" data-callback="onRecaptchaSuccess"></div>
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn-primary">Send Message</button>
+                                <!-- Fallback for users without JavaScript -->
+                                <noscript>
+                                    <div class="captcha-placeholder">
+                                        <label>
+                                            <input type="checkbox" id="captcha" name="captcha" required>
+                                            <span class="checkmark">I'm not a robot (JavaScript required for verification)</span>
+                                        </label>
+                                    </div>
+                                </noscript>
+                            </div>
+                            <div class="error-message" id="captcha-error"></div>
+                        </div>
+                    </form>
+
+                    <!-- Thank You Message (Hidden by default) -->
+                    <div id="thank-you-message" class="thank-you-message" style="display: none;">
+                        <h3>Thank you!</h3>
+                        <p>We'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- reCAPTCHA v3 Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Contact Form Script -->
+    {{ $contactFormJS := resources.Get "js/contact-form.js" | resources.Minify | resources.Fingerprint }}
+    {{ if $contactFormJS }}
+    <script src="{{ $contactFormJS.RelPermalink }}"></script>
+    {{ end }}
+    
+    <!-- reCAPTCHA Callback -->
+    <script>
+        // Global callback for reCAPTCHA success
+        function onRecaptchaSuccess(token) {
+            // This will be called when reCAPTCHA is verified
+            if (window.contactForm && window.contactForm.onRecaptchaSuccess) {
+                window.contactForm.onRecaptchaSuccess(token);
+            }
+        }
+    </script>
+{{ end }}

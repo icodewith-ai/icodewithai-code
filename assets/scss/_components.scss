@@ -973,6 +973,246 @@
   }
 }
 
+// Contact Form
+// -----------------------------------------------------------------------------
+.contact-form-wrapper {
+  max-width: $content-2x-max-width;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: $neutral-800;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid $neutral-700;
+  transition: $transition-base;
+  
+  &:hover {
+    border-color: rgba($primary-500, 0.3);
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  
+  @include tablet-down {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.form-group {
+  margin-bottom: $spacing-lg;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-group label {
+  display: block;
+  color: $neutral-100;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-xs;
+  
+  .required {
+    color: $error-500;
+    margin-left: $spacing-2xs;
+  }
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: $spacing-sm;
+  background: $neutral-900;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-base;
+  color: $neutral-100;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  transition: $transition-base;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-500;
+    box-shadow: 0 0 0 2px rgba($primary-500, 0.2);
+  }
+  
+  &::placeholder {
+    color: $neutral-600;
+  }
+  
+  &:invalid {
+    border-color: transparent; // Hide default browser validation
+  }
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: $line-height-relaxed;
+}
+
+.form-group select {
+  cursor: pointer;
+  
+  option {
+    background: $neutral-900;
+    color: $neutral-100;
+  }
+}
+
+.error-message {
+  color: $error-500;
+  font-size: $font-size-sm;
+  margin-top: $spacing-xs;
+  margin-bottom: 0;
+  opacity: 0;
+  transition: opacity $transition-fast;
+  
+  &.show {
+    opacity: 1;
+  }
+}
+
+// CAPTCHA Styling
+.captcha-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.captcha-submit-container {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+  
+  @include tablet-down {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+// Style reCAPTCHA to match dark theme and remove border
+.g-recaptcha {
+  position: relative;
+  overflow: hidden;
+  
+  // Use pseudo-element to hide the border
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: $neutral-800;
+    z-index: -1;
+    border-radius: 0;
+  }
+  
+  iframe {
+    filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Alternative approach - target Google's classes globally
+div[class^="rc-anchor"] {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+div[class*="rc-anchor"] {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+// More specific targeting
+iframe[src*="recaptcha"] {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.captcha-placeholder {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  
+  label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+    margin-bottom: 0;
+    
+    input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+    
+    .checkmark {
+      color: $neutral-400;
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// Form Actions
+.form-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: $spacing-lg;
+}
+
+// Thank You Message
+.thank-you-message {
+  text-align: center;
+  padding: $spacing-xl;
+  background: $neutral-800;
+  border-radius: $border-radius-lg;
+  border: 1px solid $primary-500;
+  
+  h3 {
+    color: $primary-500;
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+    margin-top: 0;
+  }
+  
+  p {
+    color: $neutral-400;
+    font-size: $font-size-lg;
+    margin: 0;
+    line-height: $line-height-relaxed;
+  }
+}
+
+// Form Validation States
+.form-group.has-error {
+  input,
+  select,
+  textarea {
+    border-color: $error-500;
+    
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($error-500, 0.3);
+    }
+  }
+}
+
 // Buttons
 // -----------------------------------------------------------------------------
 // Standardized Button System
@@ -987,6 +1227,9 @@
   padding: 0 $button-padding-x;
   color: $neutral-100 !important;
   position: relative;
+  border: none; // Remove default button border
+  border-radius: $border-radius-sm; // Ensure border radius is applied
+  font-size: $font-size-lg; // Match app gallery button font size
   
   // Explicit transition control to prevent color flashing
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
