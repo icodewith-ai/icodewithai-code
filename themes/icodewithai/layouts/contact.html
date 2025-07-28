@@ -57,24 +57,11 @@
                             <div class="error-message" id="message-error"></div>
                         </div>
 
-                        <!-- CAPTCHA and Submit Button -->
+                        <!-- Submit Button -->
                         <div class="form-group">
-                            <div class="captcha-submit-container">
-                                <!-- reCAPTCHA v2 - Visible checkbox verification -->
-                                <div class="g-recaptcha" data-sitekey="6LfcPJArAAAAAASyqO4Os-fIJEd1CHpnAELH59nS" data-callback="onRecaptchaSuccess"></div>
-                                <!-- Submit Button -->
+                            <div class="submit-container">
                                 <button type="submit" class="btn-primary">Send Message</button>
-                                <!-- Fallback for users without JavaScript -->
-                                <noscript>
-                                    <div class="captcha-placeholder">
-                                        <label>
-                                            <input type="checkbox" id="captcha" name="captcha" required>
-                                            <span class="checkmark">I'm not a robot (JavaScript required for verification)</span>
-                                        </label>
-                                    </div>
-                                </noscript>
                             </div>
-                            <div class="error-message" id="captcha-error"></div>
                         </div>
                     </form>
 
@@ -88,23 +75,9 @@
         </section>
     </main>
 
-    <!-- reCAPTCHA v3 Script -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
     <!-- Contact Form Script -->
     {{ $contactFormJS := resources.Get "js/contact-form.js" | resources.Minify | resources.Fingerprint }}
     {{ if $contactFormJS }}
     <script src="{{ $contactFormJS.RelPermalink }}"></script>
     {{ end }}
-    
-    <!-- reCAPTCHA Callback -->
-    <script>
-        // Global callback for reCAPTCHA success
-        function onRecaptchaSuccess(token) {
-            // This will be called when reCAPTCHA is verified
-            if (window.contactForm && window.contactForm.onRecaptchaSuccess) {
-                window.contactForm.onRecaptchaSuccess(token);
-            }
-        }
-    </script>
 {{ end }}

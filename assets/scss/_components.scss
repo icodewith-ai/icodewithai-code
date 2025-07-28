@@ -1081,18 +1081,12 @@
   }
 }
 
-// CAPTCHA Styling
-.captcha-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+// Contact Form Submit Styling
 
-.captcha-submit-container {
+.submit-container {
   display: flex;
-  align-items: center;
-  gap: $spacing-lg;
-  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
   
   @include tablet-down {
     flex-direction: column;
@@ -1101,74 +1095,7 @@
   }
 }
 
-// Style reCAPTCHA to match dark theme and remove border
-.g-recaptcha {
-  position: relative;
-  overflow: hidden;
-  
-  // Use pseudo-element to hide the border
-  &::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: $neutral-800;
-    z-index: -1;
-    border-radius: 0;
-  }
-  
-  iframe {
-    filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
-    position: relative;
-    z-index: 1;
-  }
-}
 
-// Alternative approach - target Google's classes globally
-div[class^="rc-anchor"] {
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-div[class*="rc-anchor"] {
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-// More specific targeting
-iframe[src*="recaptcha"] {
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-.captcha-placeholder {
-  display: flex;
-  align-items: center;
-  gap: $spacing-sm;
-  
-  label {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-    cursor: pointer;
-    margin-bottom: 0;
-    
-    input[type="checkbox"] {
-      width: auto;
-      margin: 0;
-    }
-    
-    .checkmark {
-      color: $neutral-400;
-      font-size: $font-size-base;
-    }
-  }
-}
 
 // Form Actions
 .form-actions {

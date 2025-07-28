@@ -14,7 +14,6 @@
             emailInvalid: "Email format is invalid",
             reason: "Please select a reason for contacting us",
             message: "Message is required",
-            captcha: "Please complete the CAPTCHA"
         },
         successMessage: "Thank you. We'll get back to you within 24 hours.",
         reasonOptions: [
@@ -29,7 +28,6 @@
     // Form elements
     let form, thankYouMessage;
     let fields = {};
-    let recaptchaToken = null;
 
     // Initialize when DOM is ready
     function init() {
@@ -47,17 +45,12 @@
             lastName: document.getElementById('lastName'),
             email: document.getElementById('email'),
             reason: document.getElementById('reason'),
-            message: document.getElementById('message'),
-            captcha: document.getElementById('captcha')
+            message: document.getElementById('message')
         };
 
         setupEventListeners();
         populateReasonDropdown();
         
-        // Expose methods for reCAPTCHA callback
-        window.contactForm = {
-            onRecaptchaSuccess: handleRecaptchaSuccess
-        };
     }
 
     // Setup event listeners
@@ -124,13 +117,6 @@
                 }
                 break;
                 
-            case 'captcha':
-                // For reCAPTCHA v3, check if we have a token
-                if (!recaptchaToken) {
-                    isValid = false;
-                    errorMessage = CONFIG.errorMessages.captcha;
-                }
-                break;
                 
             // Reason is optional, so no validation needed
             case 'reason':
@@ -167,33 +153,13 @@
     function handleSubmit(event) {
         event.preventDefault();
         
-        // First validate all fields except CAPTCHA
-        const fieldsToValidate = Object.keys(fields).filter(fieldName => fieldName !== 'captcha');
+        // Validate all fields
+        const fieldsToValidate = Object.keys(fields);
         const validations = fieldsToValidate.map(fieldName => validateField(fieldName));
         const fieldsValid = validations.every(valid => valid);
         
         if (fieldsValid) {
-            // If fields are valid, check reCAPTCHA v2
-            if (typeof grecaptcha !== 'undefined') {
-                // Check if reCAPTCHA v2 is completed
-                const response = grecaptcha.getResponse();
-                if (response.length > 0) {
-                    recaptchaToken = response;
-                    proceedWithSubmission();
-                } else {
-                    // reCAPTCHA not completed
-                    validateField('captcha');
-                }
-            } else {
-                // Fallback for when reCAPTCHA is not available
-                const captchaField = fields.captcha;
-                if (captchaField && captchaField.checked) {
-                    recaptchaToken = 'fallback-token';
-                    proceedWithSubmission();
-                } else {
-                    validateField('captcha');
-                }
-            }
+            proceedWithSubmission();
         } else {
             // Focus on first invalid field
             const firstInvalidField = fieldsToValidate.find(fieldName => {
@@ -207,22 +173,10 @@
         }
     }
     
-    // Handle reCAPTCHA success
-    function handleRecaptchaSuccess(token) {
-        recaptchaToken = token;
-        // Clear any CAPTCHA error
-        const captchaError = document.getElementById('captcha-error');
-        if (captchaError) {
-            captchaError.textContent = '';
-            captchaError.classList.remove('show');
-        }
-        // Proceed with form submission
-        proceedWithSubmission();
-    }
     
-    // Proceed with actual form submission after validation and CAPTCHA
+    // Proceed with actual form submission after validation
     function proceedWithSubmission() {
-        // Final validation including CAPTCHA
+        // Final validation
         const allValidations = Object.keys(fields).map(fieldName => validateField(fieldName));
         const allValid = allValidations.every(valid => valid);
         
