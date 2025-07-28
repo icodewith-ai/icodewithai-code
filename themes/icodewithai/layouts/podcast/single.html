@@ -43,6 +43,10 @@
                     </div>
                 </div>
                 {{ end }}
+
+                {{ if eq .Params.status "upcoming" }}
+                    {{ partial "reminder-widget.html" (dict "title" "Don't Miss This Episode" "description" "Sign up to get a reminder when this episode goes live." "buttonLabel" "Remind Me" "thankYouMessage" "An email reminder was sent to you.") }}
+                {{ end }}
                 
                 <div class="content">
                     {{ .Content }}

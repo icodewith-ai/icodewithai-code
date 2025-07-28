@@ -1,0 +1,78 @@
+{{/* Reminder Widget Partial Template */}}
+{{/* Usage: {{ partial "reminder-widget.html" (dict "title" "Never Miss an Episode" "description" "Sign up to get a reminder when this episode goes live." "buttonLabel" "Remind Me") }} */}}
+
+{{/* Generate unique ID for this reminder widget */}}
+{{ $uniqueId := printf "reminder-%d" now.Unix }}
+{{ $title := .title | default "Never Miss an Episode" }}
+{{ $description := .description | default "Sign up to get a reminder when this goes live." }}
+{{ $buttonLabel := .buttonLabel | default "Remind Me" }}
+{{ $thankYouMessage := .thankYouMessage | default "An email reminder was sent to you." }}
+
+<!-- Reminder Widget -->
+<div class="reminder-widget-wrapper">
+    <div class="contact-form-wrapper">
+        <div class="contact-form">
+            <!-- Widget Header -->
+            <div class="reminder-header">
+                <h3>{{ $title }}</h3>
+                <p>{{ $description }}</p>
+            </div>
+
+            <!-- Reminder Form -->
+            <form id="{{ $uniqueId }}" class="reminder-form" data-reminder-form>
+                <div class="form-row">
+                    <!-- First Name -->
+                    <div class="form-group">
+                        <label for="{{ $uniqueId }}-firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="{{ $uniqueId }}-firstName" name="firstName" required>
+                        <div class="error-message" id="{{ $uniqueId }}-firstName-error"></div>
+                    </div>
+                    
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label for="{{ $uniqueId }}-lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="{{ $uniqueId }}-lastName" name="lastName" required>
+                        <div class="error-message" id="{{ $uniqueId }}-lastName-error"></div>
+                    </div>
+                </div>
+
+                <!-- Email Address + Submit Button Row -->
+                <div class="reminder-email-row">
+                    <!-- Email Address -->
+                    <div class="form-group email-field">
+                        <label for="{{ $uniqueId }}-email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="{{ $uniqueId }}-email" name="email" placeholder="you@example.com" required>
+                        <div class="error-message" id="{{ $uniqueId }}-email-error"></div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group button-field">
+                        <div class="submit-container">
+                            <button type="submit" class="btn-primary">
+                                <span class="button-text">{{ $buttonLabel }}</span>
+                                <span class="button-loading" style="display: none;">Sending...</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="{{ $uniqueId }}-success-message" class="thank-you-message" style="display: none;">
+                <h3>Thank you!</h3>
+                <p>{{ $thankYouMessage }}</p>
+            </div>
+
+            <!-- Error Message (Hidden by default) -->
+            <div id="{{ $uniqueId }}-error-message" class="error-container" style="display: none; background: #2a1f1f; border: 1px solid #dc2626; border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                <p style="color: #ef4444; margin: 0; font-size: 0.9rem;"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Load Reminder Form JavaScript -->
+{{ $reminderFormJS := resources.Get "js/reminder-form.js" | resources.Minify | resources.Fingerprint }}
+{{ if $reminderFormJS }}
+<script src="{{ $reminderFormJS.RelPermalink }}"></script>
+{{ end }}

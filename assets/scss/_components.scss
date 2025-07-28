@@ -980,6 +980,109 @@
   margin: 0 auto;
 }
 
+// Reminder Widget
+// -----------------------------------------------------------------------------
+.reminder-widget-wrapper {
+  margin: $spacing-xl 0; // Space above and below the reminder widget
+  
+  .contact-form-wrapper {
+    max-width: none; // Remove max-width to extend full width
+    margin: 0; // Remove auto centering margin
+  }
+}
+
+.reminder-header {
+  margin-bottom: $spacing-lg; // Space between description and form fields
+  
+  h3 {
+    color: $primary-500;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    margin: 0 0 $spacing-sm 0;
+  }
+  
+  p {
+    color: $neutral-400;
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+}
+
+// Reminder form email row (desktop: email + button side by side)
+.reminder-email-row {
+  display: grid;
+  grid-template-columns: 1.8fr auto; // Email field shorter by ~20px equivalent, button auto-sizes
+  gap: $spacing-md;
+  
+  @include tablet-down {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+  
+  .form-group {
+    &.email-field {
+      margin-bottom: 0; // Remove margin to align with button
+      
+      @include tablet-down {
+        margin-bottom: $spacing-lg; // Keep spacing on mobile
+      }
+    }
+    
+    &.button-field {
+      margin-bottom: 0; // Remove bottom margin
+      
+      // Align button to be at the same level as the email input field
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      
+      // Add top margin to push button down to input field level  
+      // Label font-size + label margin-bottom + adjustment for perfect alignment
+      padding-top: calc(#{$font-size-base} + #{$spacing-xs} + #{$spacing-tight});
+      
+      @include tablet-down {
+        padding-top: 0; // Remove padding on mobile
+        margin-bottom: 0;
+      }
+      
+      .submit-container {
+        margin: 0; // Remove any margins
+        display: flex;
+        
+        @include tablet-down {
+          justify-content: center; // Center button on mobile
+        }
+      }
+      
+      .btn-primary {
+        margin: 0; // Remove all margins from button
+      }
+    }
+  }
+}
+
+// Reminder success message styling
+.reminder-widget-wrapper .thank-you-message {
+  background: none !important;
+  border: none !important;
+  padding: $spacing-sm 0 !important;
+  text-align: center;
+  
+  h3 {
+    display: none; // Hide "Thank you!" title
+  }
+  
+  p {
+    color: $neutral-100 !important; // White text
+    font-size: $font-size-base !important;
+    font-weight: $font-weight-medium !important;
+    margin: 0 !important;
+  }
+}
+
 .contact-form {
   background: $neutral-800;
   padding: $spacing-xl;
@@ -1000,7 +1103,12 @@
   
   @include tablet-down {
     grid-template-columns: 1fr;
-    gap: $spacing-md;
+    gap: $spacing-sm; // Reduce gap between First Name and Last Name on mobile
+  }
+  
+  // Remove bottom margin from form-groups inside form-row to prevent double spacing
+  .form-group {
+    margin-bottom: 0;
   }
 }
 
