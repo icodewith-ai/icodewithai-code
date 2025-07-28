@@ -146,10 +146,8 @@ function initializeReminderForm(form) {
                 pageTitle: formData.pageTitle
             });
 
-            // Submit to Netlify function
-            const functionUrl = window.location.hostname === 'localhost' 
-                ? 'https://icodewithai.netlify.app/.netlify/functions/reminder-form'
-                : '/.netlify/functions/reminder-form';
+            // Submit to Netlify function (always use absolute URL since site isn't hosted on Netlify)
+            const functionUrl = 'https://icodewithai.netlify.app/.netlify/functions/reminder-form';
             
             const response = await fetch(functionUrl, {
                 method: 'POST',
