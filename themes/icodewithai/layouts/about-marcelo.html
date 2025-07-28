@@ -54,7 +54,7 @@
                 <div class="apps-grid">
                     <div class="app-card certificate-card">
                         <div class="certificate-image-container">
-                            {{ $certManager := resources.Get "images/icon-contentful-certified-professional.png" | resources.Fingerprint }}
+                            {{ $certManager := resources.Get "images/certificates/icon-contentful-certified-professional.png" | resources.Fingerprint }}
                             {{ if $certManager }}
                             <img src="{{ $certManager.RelPermalink }}" alt="Certificate" class="certificate-image" loading="lazy">
                             {{ end }}
@@ -67,7 +67,7 @@
                     </div>
                     <div class="app-card certificate-card">
                         <div class="certificate-image-container">
-                            {{ $certManager := resources.Get "images/icon-contentful-certified-content-manager.png" | resources.Fingerprint }}
+                            {{ $certManager := resources.Get "images/certificates/icon-contentful-certified-content-manager.png" | resources.Fingerprint }}
                             {{ if $certManager }}
                             <img src="{{ $certManager.RelPermalink }}" alt="Certificate" class="certificate-image" loading="lazy">
                             {{ end }}
@@ -80,7 +80,7 @@
                     </div>
                     <div class="app-card certificate-card">
                         <div class="certificate-image-container">
-                            {{ $certManager := resources.Get "images/icon-anthropic.png" | resources.Fingerprint }}
+                            {{ $certManager := resources.Get "images/certificates/icon-anthropic.png" | resources.Fingerprint }}
                             {{ if $certManager }}
                             <img src="{{ $certManager.RelPermalink }}" alt="Certificate" class="certificate-image" loading="lazy">
                             {{ end }}
@@ -89,6 +89,28 @@
                             <h3>Claude Code in Action</h3>
                             <p>Comprehensive training on using Claude Code for software development tasks, covering the underlying architecture of AI coding assistants, practical implementation techniques, and advanced integration strategies.</p>
                             <a href="https://verify.skilljar.com/c/h8nrzsz4q39v" class="btn" target="_blank">See certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interviews Section -->
+        <section class="section">
+            <h2 class="text-center mb-lg">Interviews</h2>
+            <div class="container">
+                <div class="apps-grid">
+                    <div class="app-card certificate-card">
+                        <div class="certificate-image-container">
+                            {{ $certManager := resources.Get "images/interviews/tech-connect-podcast.png" | resources.Fingerprint }}
+                            {{ if $certManager }}
+                            <a href="https://www.podbean.com/media/share/pb-hdyjr-1914510?" target="_blank"><img src="{{ $certManager.RelPermalink }}" alt="Certificate" class="certificate-image" loading="lazy"></a>
+                            {{ end }}
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Tech Connect Podcast</h3>
+                            <p>In this episode Chris Daden, Jason Martin and Marcelo Lewin dive into vibe coding, a new approach that uses AI to transform ideas into prototypes at speed. They explore how vibe coding is reshaping developers, product teams and marketing and what it means for the future of building and launching products.</p>
+                            <a href="https://www.podbean.com/media/share/pb-hdyjr-1914510?" class="btn" target="_blank">Listen</a>
                         </div>
                     </div>
                 </div>
