@@ -1,8 +1,15 @@
 {{ define "main" }}
     <main>
-        <section class="blog-list">
+        <!-- Presentations Hero Section -->
+        <section class="hero">
             <div class="container">
-                <h1>Presentations</h1>
+                <h1><span class="highlight">Presentations</span></h1>
+                <p class="tagline">Live in-person presentations on how to build apps with AI.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 
                 {{ $upcomingPresentations := where .Pages ".Params.status" "upcoming" }}
                 {{ $completedPresentations := where .Pages ".Params.status" "completed" }}

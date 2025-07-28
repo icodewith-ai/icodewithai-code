@@ -1,8 +1,15 @@
 {{ define "main" }}
     <main>
-        <section class="blog-list">
+        <!-- Podcast Hero Section -->
+        <section class="hero">
             <div class="container">
-                <h1>Podcast</h1>
+                <h1><span class="highlight">Podcast</span></h1>
+                <p class="tagline">Conversations with humans building apps with AI.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 
                 {{ $upcomingEpisodes := where .Pages ".Params.status" "upcoming" }}
                 {{ $publishedEpisodes := where .Pages ".Params.status" "published" }}

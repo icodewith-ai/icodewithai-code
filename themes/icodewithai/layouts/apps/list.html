@@ -1,8 +1,15 @@
 {{ define "main" }}
     <main>
-        <section class="blog-list">
+        <!-- App Gallery Hero Section -->
+        <section class="hero">
             <div class="container">
-                <h1>App Gallery</h1>
+                <h1>App <span class="highlight">Gallery</span></h1>
+                <p class="tagline">A growing collection of apps built in partnership with AI.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 
                 <div class="blog-posts">
                     {{ range sort .Pages ".Params.date_updated" "desc" }}

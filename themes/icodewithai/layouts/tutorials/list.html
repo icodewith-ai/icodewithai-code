@@ -1,8 +1,15 @@
 {{ define "main" }}
     <main>
-        <section class="blog-list">
+        <!-- Tutorials Hero Section -->
+        <section class="hero">
             <div class="container">
-                <h1>Tutorials</h1>
+                <h1><span class="highlight">Tutorials</span></h1>
+                <p class="tagline">Tutorials on how to build apps with AI.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 
                 {{ $upcomingTutorials := where .Pages ".Params.status" "upcoming" }}
                 {{ $publishedTutorials := where .Pages ".Params.status" "published" }}

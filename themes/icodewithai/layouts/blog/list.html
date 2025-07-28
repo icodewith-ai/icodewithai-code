@@ -1,8 +1,15 @@
 {{ define "main" }}
     <main>
-        <section class="blog-list">
+        <!-- Blog Hero Section -->
+        <section class="hero">
             <div class="container">
-                <h1>Blog</h1>
+                <h1><span class="highlight">Blog</span></h1>
+                <p class="tagline">Articles with insights on how to build apps with AI. </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 
                 <div class="blog-posts">
                     {{ range .Pages }}
