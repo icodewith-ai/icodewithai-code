@@ -175,17 +175,59 @@
     
     
     // Proceed with actual form submission after validation
-    function proceedWithSubmission() {
+    async function proceedWithSubmission() {
         // Final validation
         const allValidations = Object.keys(fields).map(fieldName => validateField(fieldName));
         const allValid = allValidations.every(valid => valid);
         
-        if (allValid) {
-            // Form is valid - show success message
-            showSuccessMessage();
-        } else {
-            // This should not happen if we got here, but just in case
+        if (!allValid) {
             console.error('Form submission failed final validation');
+            return;
+        }
+
+        // Show loading state
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        try {
+            // Prepare form data
+            const formData = {
+                firstName: fields.firstName.value.trim(),
+                lastName: fields.lastName.value.trim(),
+                email: fields.email.value.trim(),
+                reason: fields.reason.value || '',
+                message: fields.message.value.trim()
+            };
+
+            // Submit to Netlify function
+            const response = await fetch('https://icodewithai.netlify.app/.netlify/functions/contact-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                // Success - show success message
+                showSuccessMessage();
+            } else {
+                // Server returned an error
+                throw new Error(result.error || 'Failed to send message');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            
+            // Show error message to user
+            alert('Sorry, there was an error sending your message. Please try again later or contact us directly.');
+            
+            // Reset button
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
         }
     }
 
