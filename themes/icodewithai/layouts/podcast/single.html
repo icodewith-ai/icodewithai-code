@@ -4,13 +4,13 @@
             <div class="container">
                 {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }}
                 <h1>{{ .Title }}</h1>
-                <h2>
+                <h3>
                     {{ if .Params.guest }}
                         {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
                         {{ $guestData := index .Site.Data.people $guestKey }}
-                        {{ if $guestData }}A conversation with {{ $guestData.fullName }}{{ end }}
+                        {{ if $guestData }}A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}{{ end }}
                     {{ end }}
-                </h2>
+                </h3>
 
                 <div class="post-meta">
                     {{ if eq .Params.status "upcoming" }} Airs {{ end }}{{ .Date.Format "January 2, 2006" }}  {{ if eq .Params.status "upcoming" }}  at {{ .Params.time }} {{ end }}
