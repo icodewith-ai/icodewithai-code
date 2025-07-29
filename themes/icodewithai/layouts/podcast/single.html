@@ -10,6 +10,24 @@
                     {{ $guestData := index .Site.Data.people $guestKey }}
                     {{ if $guestData }}with {{ $guestData.fullName }}{{ end }}
                     {{ end }} • {{ .Date.Format "January 2, 2006" }}
+                    
+                    <!-- Podcast Icons Inline -->
+                    <span class="podcast-icons-inline">
+                        <a href="{{ .Site.Params.podcast_apple }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
+                            {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
+                            {{ if $appleIcon }}
+                            {{ $appleIconFingerprint := $appleIcon | resources.Fingerprint }}
+                            <img src="{{ $appleIconFingerprint.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-icon-inline">
+                            {{ end }}
+                        </a>
+                        <a href="{{ .Site.Params.podcast_rss }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
+                            {{ $rssIcon := resources.Get "images/icons/icon-rss.png" }}
+                            {{ if $rssIcon }}
+                            {{ $rssIconFingerprint := $rssIcon | resources.Fingerprint }}
+                            <img src="{{ $rssIconFingerprint.RelPermalink }}" alt="RSS Feed" class="podcast-icon-inline">
+                            {{ end }}
+                        </a>
+                    </span>
                 </div>
                 
                 <!-- YouTube Video Embed -->

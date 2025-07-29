@@ -32,7 +32,7 @@ languageCode = 'en-us'
 
   # Podcast Links
   podcast_spotify = "https://open.spotify.com/show/coding-with-ai"
-  podcast_apple = "https://open.spotify.com/show/coding-with-ai"
+  podcast_apple = "https://apple.com/podcasts"
   podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
   
   # Developer Site Links

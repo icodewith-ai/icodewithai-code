@@ -5,6 +5,24 @@
             <div class="container">
                 <h1><span class="highlight">Podcast</span></h1>
                 <p class="tagline">Conversations with humans building apps with AI.</p>
+                
+                <!-- Podcast Icons -->
+                <div class="podcast-icons">
+                    <a href="{{ .Site.Params.podcast_apple }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link">
+                        {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
+                        {{ if $appleIcon }}
+                        {{ $appleIconFingerprint := $appleIcon | resources.Fingerprint }}
+                        <img src="{{ $appleIconFingerprint.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-icon">
+                        {{ end }}
+                    </a>
+                    <a href="{{ .Site.Params.podcast_rss }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link">
+                        {{ $rssIcon := resources.Get "images/icons/icon-rss.png" }}
+                        {{ if $rssIcon }}
+                        {{ $rssIconFingerprint := $rssIcon | resources.Fingerprint }}
+                        <img src="{{ $rssIconFingerprint.RelPermalink }}" alt="RSS Feed" class="podcast-icon">
+                        {{ end }}
+                    </a>
+                </div>
             </div>
         </section>
 
