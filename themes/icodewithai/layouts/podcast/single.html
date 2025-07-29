@@ -9,7 +9,7 @@
                     {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
                     {{ $guestData := index .Site.Data.people $guestKey }}
                     {{ if $guestData }}with {{ $guestData.fullName }}{{ end }}
-                    {{ end }} • {{ .Date.Format "January 2, 2006" }}
+                    {{ end }} • {{ .Date.Format "January 2, 2006" }}  {{ if eq .Params.status "upcoming" }}  at {{ .Params.time }} {{ end }}
                     
                     <!-- Podcast Icons Inline -->
                     <span class="podcast-icons-inline">
