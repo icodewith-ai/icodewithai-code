@@ -1452,45 +1452,6 @@
   }
 }
 
-// Inline podcast icons for single pages
-.podcast-icons-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: $spacing-xs;
-  margin-left: $spacing-sm;
-  vertical-align: middle;
-}
-
-.podcast-icon-link-inline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: $transition-base;
-  vertical-align: middle;
-  
-  &:hover {
-    transform: translateY($hover-lift-small);
-  }
-}
-
-.podcast-icon-inline {
-  width: 20px;
-  height: 20px;
-  transition: $transition-base;
-  filter: brightness(0.7);
-  vertical-align: middle;
-  
-  @include tablet-down {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .podcast-icon-link-inline:hover & {
-    filter: brightness(1.2);
-    transform: scale(1.1);
-  }
-}
-
 .podcast-embed-section {
   margin: $spacing-xl 0;
   padding: $spacing-lg;
@@ -1809,7 +1770,7 @@ h2 + .guest-photo-section {
   h1 {
     font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    margin-bottom: $spacing-sm;
+    margin-bottom: $spacing-2xs;
     color: $neutral-100;
   }
   

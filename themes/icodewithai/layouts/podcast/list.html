@@ -52,13 +52,11 @@
                                         </div>
                                         <h3>{{ .Title }}</h3>
                                         {{ if .Params.guest }}
-                                        {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
-                                        {{ $guestData := index .Site.Data.people $guestKey }}
-                                        {{ if $guestData }}
-                                        <div class="podcast-meta">
-                                            with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}
-                                        </div>
-                                        {{ end }}
+                                            {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
+                                            {{ $guestData := index .Site.Data.people $guestKey }}
+                                            {{ if $guestData }}
+                                                <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
+                                            {{ end }}
                                         {{ end }}
                                         <!-- <p>{{ .Params.description }}</p> -->
                                         <br /><span class="card-link">Get More Details and Register →</span>
@@ -69,7 +67,7 @@
                 {{ end }}
                 
                 {{ if $publishedEpisodes }}
-                {{ if $upcomingEpisodes }}<h2>On-Demand</h2>{{ end }}
+                <h2>On-Demand</h2>
                 <div class="podcast-episodes">
                     {{ range sort $publishedEpisodes ".Date" "desc" }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
@@ -88,13 +86,11 @@
                                 </div>
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.guest }}
-                                {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
-                                {{ $guestData := index .Site.Data.people $guestKey }}
-                                {{ if $guestData }}
-                                <div class="podcast-meta">
-                                    with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}
-                                </div>
-                                {{ end }}
+                                    {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
+                                    {{ $guestData := index .Site.Data.people $guestKey }}
+                                    {{ if $guestData }}
+                                        <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
+                                    {{ end }}
                                 {{ end }}
                                 <!-- <p>{{ .Params.description }}</p> -->
                                 <br /><span class="card-link">Watch Now →</span>
