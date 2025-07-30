@@ -8,7 +8,7 @@ image = "/images/blog/vibe-coding.png"
 displayImageInline = true
 +++
 
-When people hear about vibe coding, a common question that often comes up is *"How good at coding do I need to be to do this?"* Some folks are skeptical to vibe coding, comparing AI code assistants to asking a junior developer to build something, only to spend more time reviewing their work than writing it themselves. It's a fair concern.
+When people hear about vibe coding, a common question that often comes up is *"How good at coding do I need to be to do this?"* Some people are skeptical of vibe coding, comparing AI code assistants to asking a junior developer to build something, only to spend more time reviewing their work than writing it themselves. It's a fair concern.
 
 > But the real answer to how good you have to be really depends.
 
