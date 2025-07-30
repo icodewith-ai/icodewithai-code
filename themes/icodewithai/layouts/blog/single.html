@@ -7,6 +7,17 @@
                     Published on {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
                 </div>
                 
+                {{ if and .Params.image .Params.displayImageInline }}
+                    {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+                    {{ $blogImg := resources.Get $imagePath }}
+                    {{ if $blogImg }}
+                        {{ $blogImgFingerprint := $blogImg | resources.Fingerprint }}
+                        <div class="blog-single-image">
+                            <img src="{{ $blogImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                        </div>
+                    {{ end }}
+                {{ end }}
+                
                 <div class="content">
                     {{ .Content }}
                 </div>

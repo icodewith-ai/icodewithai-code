@@ -5,8 +5,8 @@ languageCode = 'en-us'
 [params]
 
   # About the Site
-  version = "1.3.5"
-  last_updated = "2025-07-29"
+  version = "1.3.6"
+  last_updated = "2025-07-30"
   author = "Marcelo Lewin"
   description = "Learn how to structure your vibe coding to build production-ready, maintainable apps."
   short_description = "Learn how to structure your vibe coding to build production-ready, maintainable apps."

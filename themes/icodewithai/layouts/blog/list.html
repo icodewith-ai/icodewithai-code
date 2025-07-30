@@ -15,6 +15,16 @@
                     {{ range .Pages }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
                             <article class="blog-post-card">
+                                {{ if .Params.image }}
+                                    {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $blogImg := resources.Get $imagePath }}
+                                    {{ if $blogImg }}
+                                        {{ $blogImgFingerprint := $blogImg | resources.Fingerprint }}
+                                        <div class="blog-card-image">
+                                            <img src="{{ $blogImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                        </div>
+                                    {{ end }}
+                                {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 <div class="post-meta">
                                     {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
