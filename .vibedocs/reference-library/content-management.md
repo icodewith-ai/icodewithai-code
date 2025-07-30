@@ -52,6 +52,36 @@ hugo new content presentations/my-presentation-topic.md
 hugo new content podcast/episode-name.md
 ```
 
+## Deployment Automation
+
+### Moving Content to Production
+
+Use the automated deployment script to move changes from dev to production:
+```bash
+./automations/move-to-prod.sh
+```
+
+The script performs the following git operations:
+1. **Switch to main**: `git checkout main`
+2. **Update main**: `git pull origin main`
+3. **Merge dev**: `git merge dev`
+4. **Deploy to production**: `git push origin main`
+5. **Switch back to dev**: `git checkout dev`
+6. **Update dev**: `git pull origin dev`
+7. **Sync branches**: `git merge main`
+
+**Features:**
+- ✅ Error checking at each step with clear feedback
+- ✅ Keeps both branches synchronized
+- ✅ Returns to dev branch when complete
+- ✅ Comprehensive status reporting
+
+**Workflow:**
+1. Create/edit content on `dev` branch
+2. Test on staging environment (`next.icodewith.ai`)
+3. Run `./automations/move-to-prod.sh` to deploy
+4. Content goes live on production (`www.icodewith.ai`)
+
 ## Content Structure
 
 - `content/blog/` - Blog posts
