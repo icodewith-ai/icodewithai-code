@@ -9,27 +9,47 @@ The website now uses a multi-repository architecture:
 - **Staging**: `dev` branch → `icodewithai-next` repository → `next.icodewith.ai`
 - **Production**: `main` branch → `icodewithai-prod` repository → `www.icodewith.ai`
 
-Create new blog posts, app pages, or presentations:
+Create new blog posts, app pages, or presentations using the automated script with titles:
 ```bash
 # Blog posts
-hugo new content blog/my-new-blog-article.md
-hugo new content blog/building-with-claude.md
-hugo new content blog/javascript-tips.md
+./automations/create-content.sh blog "My New Blog Article"
+./automations/create-content.sh blog "Building with Claude"
+./automations/create-content.sh blog "JavaScript Tips"
 
-# App showcase pages (creates page bundles)
-hugo new content apps/my-new-app-name/index.md
-hugo new content apps/todo-cli/index.md
-hugo new content apps/weather-widget/index.md
+# App showcase pages
+./automations/create-content.sh apps "My New App Name"
+./automations/create-content.sh apps "Todo CLI"
+./automations/create-content.sh apps "Weather Widget"
 
 # Presentations
-hugo new content presentations/my-presentation-topic.md
-hugo new content presentations/ai-ethics-workshop.md
-hugo new content presentations/contentful-masterclass.md
+./automations/create-content.sh presentations "My Presentation Topic"
+./automations/create-content.sh presentations "AI Ethics Workshop"
+./automations/create-content.sh presentations "Contentful Masterclass"
 
 # Podcast episodes
+./automations/create-content.sh podcast "Episode Name"
+./automations/create-content.sh podcast "AI Product Development"
+./automations/create-content.sh podcast "No Code Future"
+
+# Tutorials
+./automations/create-content.sh tutorials "My Tutorial Name"
+```
+
+The automation script automatically creates:
+1. **Content file**: `content/{type}/{filename}.md` using Hugo archetypes with the actual title pre-filled
+2. **SEO file**: `data/seo/content-types/{type}/entries/{filename}.yaml` with:
+   - Title formatted as `[Title] | iCodeWith.ai`
+   - Placeholder description `[Add description here]`
+   - All required SEO metadata with default values
+3. **Filename conversion**: Converts titles to URL-friendly filenames (e.g., "How Good at Coding?" → `how-good-at-coding.md`)
+
+**Manual Hugo commands** (if needed):
+```bash
+# Legacy method - requires manual SEO file creation
+hugo new content blog/my-new-blog-article.md
+hugo new content apps/my-new-app-name/index.md
+hugo new content presentations/my-presentation-topic.md
 hugo new content podcast/episode-name.md
-hugo new content podcast/ai-product-development.md
-hugo new content podcast/no-code-future.md
 ```
 
 ## Content Structure
