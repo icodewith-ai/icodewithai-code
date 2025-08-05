@@ -50,24 +50,44 @@ Create directory and add default presentation image:
 2. Follow blog post pattern for image processing
 3. Implement fallback to default image
 
-**Template Code Addition**:
+**Template Code Addition (with Security Hardening)**:
 ```html
 <!-- Add to presentation card structure -->
 {{ if .Params.image }}
     {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-    {{ $presentationImg := resources.Get $imagePath }}
+    {{ $sanitizedPath := $imagePath }}
+    
+    <!-- Security: Restrict to presentations directory -->
+    {{ if not (strings.HasPrefix $sanitizedPath "images/presentations/") }}
+        {{ $sanitizedPath = "images/presentations/default.png" }}
+    {{ end }}
+    
+    <!-- Security: Prevent path traversal -->
+    {{ if or (strings.Contains $sanitizedPath "..") (strings.Contains $sanitizedPath "~") (strings.Contains $sanitizedPath "//") }}
+        {{ $sanitizedPath = "images/presentations/default.png" }}
+    {{ end }}
+    
+    {{ $presentationImg := resources.Get $sanitizedPath }}
     {{ if $presentationImg }}
         {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
         <div class="presentation-card-image">
-            <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+            <img src="{{ $presentationImgFingerprint.RelPermalink }}" 
+                 alt="{{ .Title | htmlEscape }}" 
+                 loading="lazy"
+                 width="{{ $presentationImg.Width }}"
+                 height="{{ $presentationImg.Height }}">
         </div>
     {{ else }}
-        <!-- Fallback to default image -->
+        <!-- Secure fallback to default image -->
         {{ $defaultImg := resources.Get "images/presentations/default.png" }}
         {{ if $defaultImg }}
             {{ $defaultImgFingerprint := $defaultImg | resources.Fingerprint }}
             <div class="presentation-card-image">
-                <img src="{{ $defaultImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                <img src="{{ $defaultImgFingerprint.RelPermalink }}" 
+                     alt="{{ .Title | htmlEscape }}" 
+                     loading="lazy"
+                     width="{{ $defaultImg.Width }}"
+                     height="{{ $defaultImg.Height }}">
             </div>
         {{ end }}
     {{ end }}
@@ -77,7 +97,11 @@ Create directory and add default presentation image:
     {{ if $defaultImg }}
         {{ $defaultImgFingerprint := $defaultImg | resources.Fingerprint }}
         <div class="presentation-card-image">
-            <img src="{{ $defaultImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+            <img src="{{ $defaultImgFingerprint.RelPermalink }}" 
+                 alt="{{ .Title | htmlEscape }}" 
+                 loading="lazy"
+                 width="{{ $defaultImg.Width }}"
+                 height="{{ $defaultImg.Height }}">
         </div>
     {{ end }}
 {{ end }}
@@ -143,24 +167,44 @@ Create directory and add default presentation image:
 2. Support `displayImageInline` parameter
 3. Position image appropriately within content flow
 
-**Template Code Addition**:
+**Template Code Addition (with Security Hardening)**:
 ```html
 <!-- Add after title section, before content -->
 {{ if and .Params.image .Params.displayImageInline }}
     {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-    {{ $presentationImg := resources.Get $imagePath }}
+    {{ $sanitizedPath := $imagePath }}
+    
+    <!-- Security: Restrict to presentations directory -->
+    {{ if not (strings.HasPrefix $sanitizedPath "images/presentations/") }}
+        {{ $sanitizedPath = "images/presentations/default.png" }}
+    {{ end }}
+    
+    <!-- Security: Prevent path traversal -->
+    {{ if or (strings.Contains $sanitizedPath "..") (strings.Contains $sanitizedPath "~") (strings.Contains $sanitizedPath "//") }}
+        {{ $sanitizedPath = "images/presentations/default.png" }}
+    {{ end }}
+    
+    {{ $presentationImg := resources.Get $sanitizedPath }}
     {{ if $presentationImg }}
         {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
         <div class="presentation-single-image">
-            <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+            <img src="{{ $presentationImgFingerprint.RelPermalink }}" 
+                 alt="{{ .Title | htmlEscape }}" 
+                 loading="lazy"
+                 width="{{ $presentationImg.Width }}"
+                 height="{{ $presentationImg.Height }}">
         </div>
     {{ else }}
-        <!-- Fallback to default image if specified image not found -->
+        <!-- Secure fallback to default image if specified image not found -->
         {{ $defaultImg := resources.Get "images/presentations/default.png" }}
         {{ if $defaultImg }}
             {{ $defaultImgFingerprint := $defaultImg | resources.Fingerprint }}
             <div class="presentation-single-image">
-                <img src="{{ $defaultImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                <img src="{{ $defaultImgFingerprint.RelPermalink }}" 
+                     alt="{{ .Title | htmlEscape }}" 
+                     loading="lazy"
+                     width="{{ $defaultImg.Width }}"
+                     height="{{ $defaultImg.Height }}">
             </div>
         {{ end }}
     {{ end }}
@@ -273,6 +317,14 @@ Create directory and add default presentation image:
 - [ ] Proper error handling for missing images
 - [ ] Consistent code formatting and documentation
 
+### Security Requirements
+- [ ] Path validation prevents directory traversal attacks (`../`, `~`, `//`)
+- [ ] Image paths restricted to `images/presentations/` directory only
+- [ ] HTML content properly escaped (`htmlEscape` filter used)
+- [ ] All image processing uses secure Hugo Pipes patterns
+- [ ] Fallback logic prevents exposure of system paths
+- [ ] Image dimensions explicitly set to prevent layout manipulation
+
 ## Risk Mitigation Strategies
 
 ### Image Loading Failures
@@ -291,4 +343,23 @@ Create directory and add default presentation image:
 **Risk**: Updating existing presentations may be time-consuming
 **Mitigation**: Make image field optional, provide clear default image, document migration process
 
-This comprehensive plan ensures the presentation images feature integrates seamlessly with existing patterns while maintaining high performance and visual consistency across the site.
+### Security Vulnerabilities
+**Risk**: Malicious image paths could attempt directory traversal or system file access
+**Mitigation**: Implement comprehensive path validation and sanitization in all templates, restrict paths to presentations directory only, use secure fallback mechanisms
+
+**Risk**: Template injection through malicious frontmatter content
+**Mitigation**: Use Hugo's built-in `htmlEscape` filter for all user-controllable content, validate all image paths before processing
+
+## Security Implementation Notes
+
+The security measures implemented in this plan include:
+
+1. **Path Sanitization**: All image paths are validated to ensure they only access the `images/presentations/` directory
+2. **Directory Traversal Prevention**: Explicit checks for `..`, `~`, and `//` characters that could be used for path traversal
+3. **HTML Escaping**: All title content used in alt attributes is properly escaped
+4. **Secure Fallbacks**: When validation fails, paths automatically fall back to the secure default image
+5. **Explicit Dimensions**: Width and height attributes prevent potential layout manipulation attacks
+
+These measures ensure the feature is secure by default while maintaining usability and performance.
+
+This comprehensive plan ensures the presentation images feature integrates seamlessly with existing patterns while maintaining high performance, visual consistency, and robust security across the site.

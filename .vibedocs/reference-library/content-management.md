@@ -89,6 +89,94 @@ The script performs the following git operations:
 - `content/podcast/` - Podcast episodes
 - `content/presentations/` - Presentation pages
 
+## People Management
+
+### Creating New People Profiles
+
+People profiles are used for podcast guests, presentation hosts, and site contributors. Each person requires both a JSON data file and a corresponding profile image.
+
+#### Step 1: Create JSON Data File
+Create a new JSON file in `data/people/` by duplicating an existing profile:
+
+```bash
+# Copy an existing profile as template
+cp data/people/marcelo-lewin.json data/people/new-person-name.json
+```
+
+**JSON Structure**:
+```json
+{
+    "fullName": "Person Full Name",
+    "firstName": "Person",
+    "lastName": "Name", 
+    "title": "Job Title",
+    "company": "Company Name",
+    "bio": "Brief professional biography describing their background and expertise.",
+    "learnMoreLink": "https://linkedin.com/in/username or personal website",
+    "image": "images/people/person-name.png"
+}
+```
+
+**Required Fields**:
+- `fullName` - Complete name for display
+- `firstName` - First name for personalized content
+- `lastName` - Last name for formal references
+- `title` - Professional title/role
+- `company` - Current organization
+- `bio` - Professional background (keep under 200 words)
+- `learnMoreLink` - LinkedIn profile or personal website
+- `image` - Path to profile image (must match actual file)
+
+#### Step 2: Add Profile Image
+Add the corresponding profile image to `themes/icodewithai/assets/images/people/`:
+
+**Image Requirements**:
+- **Dimensions**: Square aspect ratio (1:1) recommended, minimum 300x300px
+- **Formats**: PNG preferred, JPG acceptable
+- **File Naming**: Use kebab-case matching the JSON filename
+  - JSON: `debbie-o-brien.json` → Image: `debbie-o-brien.png`
+- **File Size**: Keep under 100KB for optimal loading
+- **Content**: Professional headshot or profile photo
+
+**Example File Structure**:
+```
+data/people/
+├── marcelo-lewin.json
+├── debbie-o-brien.json
+└── new-person-name.json
+
+themes/icodewithai/assets/images/people/
+├── marcelo-lewin.png
+├── debbie-o-brien.png
+└── new-person-name.png
+```
+
+#### Step 3: Usage in Content
+Reference people in content using their JSON filename (without extension):
+
+**Podcast Episodes**:
+```yaml
++++
+host = "marcelo-lewin"
+guest = "debbie-o-brien"
++++
+```
+
+**Presentations**:
+```yaml
++++
+presenter = "marcelo-lewin.json"  # Note: presentations use .json extension
++++
+```
+
+#### People Profile Checklist
+- [ ] JSON file created in `data/people/` with all required fields
+- [ ] Profile image added to `themes/icodewithai/assets/images/people/`
+- [ ] Image path in JSON matches actual file location
+- [ ] Image is properly sized and optimized
+- [ ] Bio is professional and under 200 words
+- [ ] Learn more link is valid and accessible
+
 ### App Page Bundles
 Apps use Hugo page bundles for better organization and image management:
 
