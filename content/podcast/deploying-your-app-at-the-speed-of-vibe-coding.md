@@ -25,4 +25,5 @@ Deploying vibe-coded apps doesn't have to be daunting! In this episode, we dive 
 
 ## Resources to Check Out
 
-- [TBD](https://icodewith.ai/)
+- [Deployment Tools by Expo](https://expo.dev/)
+- [GitHub Actions](https://github.com/features/actions)
