@@ -21,6 +21,12 @@
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
+                                    {{ if $presenterData }}
+                                        <div class="post-author">Presented by {{ $presenterData.fullName }}</div>
+                                    {{ end }}
+                                {{ end }}
                                 <div class="app-meta">
                                     {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>
@@ -39,6 +45,12 @@
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
+                                    {{ if $presenterData }}
+                                        <div class="post-author">Presented by {{ $presenterData.fullName }}</div>
+                                    {{ end }}
+                                {{ end }}
                                 <div class="app-meta">
                                     {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>

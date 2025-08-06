@@ -23,6 +23,38 @@
                     <h3 class="project-links-title">Audience</h3>
                     {{ .Params.audience }}
                 </div>
+                
+                <!-- About the Presenter Section -->
+                {{ if .Params.presenter }}
+                {{ $presenterData := index .Site.Data.people .Params.presenter }}
+                {{ if $presenterData }}
+                <div class="content">
+                    <h3 class="project-links-title">About the Presenter</h3>
+                </div>
+                <div class="guest-photo-section">
+                    <div class="guest-content">
+                        <div class="guest-photo">
+                            {{ $presenterImg := resources.Get $presenterData.image }}
+                            {{ if $presenterImg }}
+                                {{ $presenterImgFingerprint := $presenterImg | resources.Fingerprint }}
+                                <img src="{{ $presenterImgFingerprint.RelPermalink }}" alt="{{ $presenterData.fullName }}" loading="lazy">
+                            {{ else }}
+                                <p>Debug: Image not found at {{ $presenterData.image }}</p>
+                            {{ end }}
+                        </div>
+                        <div class="guest-info">
+                            <h3>{{ $presenterData.fullName }}, {{ $presenterData.title }} @ {{ $presenterData.company }}</h3>
+                            <p>{{ $presenterData.bio }}</p>
+                            {{ if and $presenterData.learnMoreLink (ne $presenterData.learnMoreLink "") }}
+                            <div class="guest-link-wrapper">
+                                <a href="{{ $presenterData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+                {{ end }}
 
                 {{ if or .Params.learn_more_url .Params.on_demand_url .Params.register_url }}
                 <div class="project-links-section">

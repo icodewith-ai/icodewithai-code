@@ -33,6 +33,13 @@
                                     {{ .Date.Format "January 2, 2006" }}
                                 </div>
                                 <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
+                                    {{ if $presenterData }}
+                                        <div class="post-author">Presented by {{ $presenterData.fullName }}</div>
+                                    {{ end }}
+                                {{ end }}
+                                <br>
                                 <span class="card-link">Preview →</span>
                             </article>
                         </a>
@@ -59,6 +66,13 @@
                                     {{ .Date.Format "January 2, 2006" }}
                                 </div>
                                 <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
+                                    {{ if $presenterData }}
+                                        <div class="post-author">Presented by {{ $presenterData.fullName }}</div>
+                                    {{ end }}
+                                {{ end }}
+                                <br>
                                 <span class="card-link">Watch →</span>
                             </article>
                         </a>
