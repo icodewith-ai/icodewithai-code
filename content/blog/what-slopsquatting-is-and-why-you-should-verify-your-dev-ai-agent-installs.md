@@ -1,6 +1,7 @@
 +++
 title = "What Slopsquatting Is and Why You Should Verify Your Dev AI Agent Installs"
 date = "2025-08-05T07:12:34-07:00"
+author = "marcelo-lewin"
 draft = false
 description = "Learn what slopsquatting attacks are, how they target AI development tools and essential practices for verifying legitimate AI agent installations."
 summary = "Learn what slopsquatting attacks are, how they target AI development tools and essential practices for verifying legitimate AI agent installations."

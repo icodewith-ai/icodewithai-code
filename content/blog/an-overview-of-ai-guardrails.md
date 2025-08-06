@@ -1,6 +1,7 @@
 +++
 title = "An Overview of AI Guardrails"
 date = "2025-06-05T12:58:47-07:00"
+author = "marcelo-lewin"
 draft = false
 description = "Learn what AI guardrails are, some terminology, the types of guardrails available and where they can be applied to in the AI lifecycle."
 summary = "Learn what AI guardrails are, some terminology, the types of guardrails available and where they can be applied to in the AI lifecycle."

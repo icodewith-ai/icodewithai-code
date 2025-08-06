@@ -6,8 +6,7 @@
                 <h1>{{ .Title }}</h1>
                 <h3>
                     {{ if .Params.guest }}
-                        {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
-                        {{ $guestData := index .Site.Data.people $guestKey }}
+                        {{ $guestData := index .Site.Data.people .Params.guest }}
                         {{ if $guestData }}A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}{{ end }}
                     {{ end }}
                 </h3>
@@ -58,8 +57,7 @@
                 
                 <!-- Guest Photo Section (if available) -->
                 {{ if .Params.guest }}
-                {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
-                {{ $guestData := index .Site.Data.people $guestKey }}
+                {{ $guestData := index .Site.Data.people .Params.guest }}
                 {{ if $guestData }}
                 <h2>About the Guest</h2>
                 <div class="guest-photo-section">

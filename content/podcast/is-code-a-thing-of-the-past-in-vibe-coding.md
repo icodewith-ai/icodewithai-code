@@ -9,8 +9,8 @@ description = "Is code becoming obsolete—or just evolving? In this kickoff epi
 image = "images/podcast/e001.png"
 video_id = "zWyzAQQ5VoY"
 audio_id = ""
-host = "marcelo-lewin.json"
-guest = "eric-provencher.json"
+host = "marcelo-lewin"
+guest = "eric-provencher"
 +++
 
 In this inaugural episode of Coding with AI, Marcelo sits down with Eric Provencher, founder of Repo Prompt, to unpack the rise of vibe coding—an emerging approach to building software through conversation, intuition, and collaboration with AI. They discuss what separates vibe coding from traditional development, the shifting role of code in the age of large language models, and how AI tools are helping shape the future of AI-assisted creation. Along the way, they explore topics like prompt engineering, tooling for non-developers, and whether we’re witnessing the beginning of a post-code era or just a new way to express logic and structure.

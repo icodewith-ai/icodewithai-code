@@ -52,8 +52,7 @@
                                         </div>
                                         <h3>{{ .Title }}</h3>
                                         {{ if .Params.guest }}
-                                            {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
-                                            {{ $guestData := index .Site.Data.people $guestKey }}
+                                            {{ $guestData := index .Site.Data.people .Params.guest }}
                                             {{ if $guestData }}
                                                 <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
                                             {{ end }}
@@ -86,8 +85,7 @@
                                 </div>
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.guest }}
-                                    {{ $guestKey := strings.Replace .Params.guest ".json" "" 1 }}
-                                    {{ $guestData := index .Site.Data.people $guestKey }}
+                                    {{ $guestData := index .Site.Data.people .Params.guest }}
                                     {{ if $guestData }}
                                         <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
                                     {{ end }}

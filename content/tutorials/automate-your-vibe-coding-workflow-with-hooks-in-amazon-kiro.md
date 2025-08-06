@@ -7,7 +7,7 @@ status = "upcoming"
 description = "Learn what agent hooks are, the types of hooks you can set up, how to manage them effectively, and practical best practices and use cases in Amazon Kiro."
 image = "images/tutorials/e001.png"
 video_id = ""
-presenter = "marcelo-lewin.json"
+presenter = "marcelo-lewin"
 +++
 
 Learn how to leverage Kiro's agent hooks that monitor file‑system events (like saving or creating files) and automatically trigger AI powered actions to streamline your development workflow. This tutorial covers hook types, setup, management, and best practices, with real-world use cases that show how hooks can enhance your productivity in a vibe coding environment.

@@ -9,8 +9,8 @@ description = "Join Marcelo and Debbie O’Brien, Principal Technical Program Ma
 image = "images/podcast/e002.png"
 video_id = "JT4cR4iU2EM"
 audio_id = ""
-host = "marcelo-lewin.json"
-guest = "debbie-o-brien.json"
+host = "marcelo-lewin"
+guest = "debbie-o-brien"
 +++
 
 In this episode, Marcelo welcomes Debbie O'Brien, Microsoft's Principal Technical Program Manager behind Playwright's Model Context Protocol (MCP). Together they explore why testing is now more crucial than ever in vibe coding, examining how rigorous testing prevents regressions and builds resilient AI-generated systems. They unpack the full testing spectrum—from unit and integration to E2E, performance, and exploratory tests—and delve into various AI powered tools (include Playwright) that will help you get your testing done quicker and more efficiently through natural-language prompts and agent-powered workflows.

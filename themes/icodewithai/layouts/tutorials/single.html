@@ -6,8 +6,7 @@
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
                     {{ if .Params.presenter }}
-                    {{ $presenterKey := strings.Replace .Params.presenter ".json" "" 1 }}
-                    {{ $presenterData := index .Site.Data.people $presenterKey }}
+                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
                     {{ if $presenterData }}Presented by {{ $presenterData.fullName }}{{ end }}
                     {{ end }} • {{ .Date.Format "January 2, 2006" }}
                 </div>
@@ -40,7 +39,8 @@
                 </div>
                 
                 <!-- Presenter Photo Section -->
-                {{ $presenterData := index .Site.Data.people "marcelo-lewin" }}
+                {{ if .Params.presenter }}
+                {{ $presenterData := index .Site.Data.people .Params.presenter }}
                 {{ if $presenterData }}
                 <h2>About the Presenter</h2>
                 <div class="guest-photo-section">
@@ -65,6 +65,7 @@
                         </div>
                     </div>
                 </div>
+                {{ end }}
                 {{ end }}
                 
                 <div class="blog-back-section">

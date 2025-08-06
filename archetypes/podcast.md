@@ -9,8 +9,8 @@ description = ""
 image = "images/podcast/episode.png"
 video_id = ""
 audio_id = ""
-host = "fullname.json"
-guest = "fullname.json"
+host = "first-last"
+guest = "first-last"
 +++
 
 [About Episode]

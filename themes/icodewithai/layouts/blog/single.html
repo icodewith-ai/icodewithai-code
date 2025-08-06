@@ -22,6 +22,34 @@
                     {{ .Content }}
                 </div>
                 
+                <!-- Author Photo Section -->
+                {{ $authorData := index .Site.Data.people .Params.author }}
+                {{ if $authorData }}
+                <h2>About the Author</h2>
+                <div class="guest-photo-section">
+                    <div class="guest-content">
+                        <div class="guest-photo">
+                            {{ $authorImg := resources.Get $authorData.image }}
+                            {{ if $authorImg }}
+                                {{ $authorImgFingerprint := $authorImg | resources.Fingerprint }}
+                                <img src="{{ $authorImgFingerprint.RelPermalink }}" alt="{{ $authorData.fullName }}" loading="lazy">
+                            {{ else }}
+                                <p>Debug: Image not found at {{ $authorData.image }}</p>
+                            {{ end }}
+                        </div>
+                        <div class="guest-info">
+                            <h3>{{ $authorData.fullName }}, {{ $authorData.title }} @ {{ $authorData.company }}</h3>
+                            <p>{{ $authorData.bio }}</p>
+                            {{ if and $authorData.learnMoreLink (ne $authorData.learnMoreLink "") }}
+                            <div class="guest-link-wrapper">
+                                <a href="{{ $authorData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+                
                 <div class="blog-back-section">
                     <a href="{{ "blog/" | relURL }}" class="blog-back-link">← Back to Blog</a>
                 </div>

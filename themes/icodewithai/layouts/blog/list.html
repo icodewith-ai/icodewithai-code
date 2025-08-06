@@ -26,6 +26,12 @@
                                     {{ end }}
                                 {{ end }}
                                 <h3>{{ .Title }}</h3>
+                                {{ if .Params.author }}
+                                    {{ $authorData := index .Site.Data.people .Params.author }}
+                                    {{ if $authorData }}
+                                        <div class="post-author">Written by {{ $authorData.fullName }}</div>
+                                    {{ end }}
+                                {{ end }}
                                 <div class="post-meta">
                                     {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
                                 </div>

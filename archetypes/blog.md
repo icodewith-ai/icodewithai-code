@@ -1,6 +1,7 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 date = "{{ .Date }}"
+author = "first-last"
 draft = true
 description = ""
 summary = ""

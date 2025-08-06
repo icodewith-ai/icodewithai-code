@@ -7,8 +7,7 @@
                     {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
                     <br>
                     {{ if .Params.presenter }}
-                    {{ $presenterKey := strings.Replace .Params.presenter ".json" "" 1 }}
-                    {{ $presenterData := index .Site.Data.people $presenterKey }}
+                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
                     {{ if $presenterData }}Presented by {{ $presenterData.fullName }}{{ end }}
                     {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
                     <br>

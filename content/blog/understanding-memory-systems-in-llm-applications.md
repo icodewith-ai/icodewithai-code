@@ -1,6 +1,7 @@
 +++
 title = "Understanding Memory Systems in LLM Applications"
 date = "2025-05-05T11:36:57-07:00"
+author = "marcelo-lewin"
 draft = false
 description = "Learn about six memory systems that can be implemented in your LLM-powered applications."
 summary = "Learn about six memory systems that can be implemented in your LLM-powered applications."

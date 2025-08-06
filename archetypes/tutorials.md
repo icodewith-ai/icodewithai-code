@@ -7,7 +7,7 @@ status = "upcoming | published"
 description = ""
 image = "images/tutorials/placeholder.png"
 video_id = ""
-presenter = "full-name.json"
+presenter = "first-last"
 +++
 
 [About Tutorial]
