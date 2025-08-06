@@ -1,5 +1,5 @@
 +++
-title = "From Vibe Coding to Shippable Solutions + Vibe Coding Session"
+title = "From Vibe Coding to Shippable Solution + Vibe Coding Session"
 summary = "Learn how to go from a demo app to a shippable solution using structured documentation frameworks."
 audience = "Whether you’re a developer, a product owner, or just curious about AI-assisted creation, this session will help you code with confidence and get better results from your AI tools."
 date_time = "2025-08-21T18:30:00-08:00"
