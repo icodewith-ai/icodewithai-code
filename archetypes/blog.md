@@ -1,12 +1,12 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 date = "{{ .Date }}"
-author = "first-last"
+author = "marcelo-lewin"
 draft = true
 description = ""
 summary = ""
 image = "/images/blog/default.png"
-displayImageInline = false
+displayImageInline = true
 +++
 
 Write your blog post content here...

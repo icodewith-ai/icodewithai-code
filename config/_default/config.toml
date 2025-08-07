@@ -1,4 +1,4 @@
-title = 'iCodeWith.ai | Using AI to code and build apps faster than ever before'
+title = 'iCodeWith.ai | From Vibe Coding To Shippable Solution'
 theme = 'icodewithai'
 languageCode = 'en-us'
 
@@ -6,7 +6,7 @@ languageCode = 'en-us'
 
   # About the Site
   version = "1.3.8"
-  last_updated = "2025-08-06"
+  last_updated = "2025-08-07"
   author = "Marcelo Lewin"
   description = "Learn how to structure your vibe coding to deliver the results you want."
   short_description = "Learn how to structure your vibe coding to deliver the results you want."
