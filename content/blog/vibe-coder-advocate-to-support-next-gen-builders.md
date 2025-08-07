@@ -1,5 +1,5 @@
 +++
-title = "We Need a 'Vibe Coder Advocate' Person to Support the Next Generation of Builders"
+title = "We Need a 'Vibe Coder Advocate' to Support the Next Generation of Builders"
 date = "2025-08-07T08:57:44-07:00"
 author = "marcelo-lewin"
 draft = false
