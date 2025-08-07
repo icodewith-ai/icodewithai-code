@@ -18,24 +18,23 @@ Not long ago (earlier this year 😉), building apps meant knowing how to code. 
 
 But AI is shifting that.
 
-Today, more and more non-developers are building automations, tools, and even full apps by talking to AI. We're writing prompts instead of code. We’re experimenting in Notion, Zapier, Airtable, Claude, and ChatGPT. Some (yours truly) are even creating full production apps and websites using advanced vibe coding tools such as Claude Code, Cursor, Amazon Kiro and Google Gemini Code Assist.
+Today, more and more non-developers are building automations, tools, and even full apps by talking to AI. We're writing prompts instead of code. We’re experimenting in Notion, Zapier, Airtable, Claude, and ChatGPT. Some (yours truly) are even creating full production apps and websites (like this one) using advanced vibe coding tools such as Claude Code, Cursor, Amazon Kiro and Google Gemini Code Assist.
 
 We're all building solutions to solve business problems, fast.
 
-But with things changing at blazing speed, it's hard to know what the standards are, which tools to trust, or how to build something that lasts.
-
-> Enter... the Vibe Coder Advocate
+But with changes happening daily with AI, it's hard to know what the standards are, which tools to use, or how to build something that lasts.
 
 ## Who Are Vibe Coders?
 
-First, let me define who I'm speaking about when I talk about vibe coders. These are not your typical software engineers, but rather:
+First, let me define vibe coders. These are not your typical software engineers, but rather:
 
 - Product managers
+- Project managers
 - Marketers
 - Operations pros
 - Analysts
 - Content strategists
-- And yes, maybe even developers
+- Anyone else creating apps to solve business problems using AI
 
 {{< space "1.5rem" >}}
 
@@ -75,7 +74,7 @@ Here's how the two roles differ — not in importance, but in **audience, mindse
 - **Community:** Forums, GitHub discussions, Stack Overflow  
 
 ### Vibe Coder Advocate
-- **Primary Audience:** Non-dev technical users (PMs, marketers, analysts, ops, creators)  
+- **Primary Audience:** Non-dev technical users
 - **Main Goal:** Help vibe coders solve business problems using AI tools  
 - **Preferred Resources:** Prompt templates, workflows, use-case guides  
 - **Common Tools:** ChatGPT, Claude Caude, Kiro, Notion AI, Replit, Airtable  
@@ -96,27 +95,25 @@ They need hands-on experience with tools like Claude Code, Amazon Kiro, Google C
 ### Understand business use cases.
 This person bridges the gap between tooling and outcome. They understand pain points across departments and help vibe coders find AI-assisted solutions that work.
 
-### Teach through enablement.
+### Teach through enablement and evangelism.
 
 - Create guided workflows
 - Develop prompt libraries
 - Create use-case playbooks
 - Perform live demos
-- Create nteractive content and templates
+- Create interactive content and templates
 - Organize Meetups
 - Create actual working apps and websites
 - Write blog articles
 - Create and host podcasts
 - Create tutorials
-- Create / follow / prompote standards and best practices
-
-{{< space "1.5rem" >}}
+- Create / follow / promote standards and best practices
 
 ### Foster community.
-They create safe, supportive spaces for people to share, learn, and grow their skills — even if they don't identify as "technical."
+Vibe Coder Advocates would create safe, supportive spaces for people to share, learn, and grow their skills, even if they don't identify as "technical."
 
 ### Close the feedback loop.
-They collect insights from vibe coders and bring them back to product and engineering teams to improve the tools.
+Vibe Coder Advocates would collect insights from vibe coders and bring them back to product and engineering teams to improve the tools.
 
 ## Why This Role Matters Now
 
@@ -134,13 +131,11 @@ That’s a missed opportunity. If we invest in them, they’ll go even further.
 - Build a community that makes them feel seen and supported.
 - Help them feel empowered and follow best practices to create a solution that lasts.
 
-## The Call to Action
+## Closing
 
-Vibe coders are here. They’re building fast, smart, and differently.
+Vibe coders are here. They’re building fast, smart, and differently. They don’t need code bootcamps or API docs. They need someone who understands what they're trying to do and helps them do it better.
 
-They don’t need code bootcamps or API docs. They need someone who understands what they're trying to do and helps them do it better.
-
-It’s time for the **Vibe Coder Advocate**.
+> It’s time for the **Vibe Coder Advocate**.
 
 Are you ready to support the next generation of builders?
 
