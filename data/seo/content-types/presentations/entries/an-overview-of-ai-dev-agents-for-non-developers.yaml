@@ -1,0 +1,24 @@
+# Basic SEO - Custom content for this presentations
+title: "An Overview of AI Dev Agents for Non-Developers | iCodeWith.ai"
+description: "Get a deep-dive into AI development agents designed for professionals who work alongside development teams but don't write code daily. This session explains how specialized AI agents are changing software development workflows and what technical leaders need to know about this emerging technology."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "defaults.social_image"
+social_image_alt: "An Overview of AI Dev Agents for Non-Developers | iCodeWith.ai"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"
