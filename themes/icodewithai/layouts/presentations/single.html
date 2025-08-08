@@ -14,6 +14,17 @@
                     {{ if .Params.meeting_type }}This is an {{ .Params.meeting_type }} presentation.{{ end }}
                 </div>
                 
+                {{ if and .Params.image .Params.displayImageInline }}
+                    {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+                    {{ $presentationImg := resources.Get $imagePath }}
+                    {{ if $presentationImg }}
+                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
+                        <div class="blog-single-image">
+                            <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                        </div>
+                    {{ end }}
+                {{ end }}
+                
                 <div class="content">
                     <h3 class="project-links-title">About the Presentation</h3>
                     {{ .Content }}

@@ -2,6 +2,7 @@
 title = "Vibe Coding with Intent for Better and Faster Results"
 summary = "Learn how to express intent in your vibe coding through structured documentation frameworks."
 audience = "This session is geared toward non-developers (though having a technical background will help); if you’re a developer curious about vibe coding, you’ll find it a great intro as well."
+image = "/images/presentations/default.png"
 date_time = "2025-07-05T14:00:00-08:00"
 location = "SoCal Tech Forum"
 timezone = "PST"
@@ -12,6 +13,7 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person"
 draft = false
+displayImageInline = false
 +++
 
 In today’s fast-paced solo-dev world, vibe coding lets you brainstorm, prototype, and spin up MVPs or

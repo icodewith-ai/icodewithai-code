@@ -20,6 +20,15 @@
                     {{ range sort $upcomingPresentations ".Params.date_time" "asc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
+                                {{ if .Params.image }}
+                                    {{ $presentationImg := resources.Get .Params.image }}
+                                    {{ if $presentationImg }}
+                                    <div class="presentation-card-thumbnail">
+                                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
+                                        <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.presenter }}
                                     {{ $presenterData := index .Site.Data.people .Params.presenter }}
@@ -44,6 +53,15 @@
                     {{ range sort $completedPresentations ".Params.date_time" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
+                                {{ if .Params.image }}
+                                    {{ $presentationImg := resources.Get .Params.image }}
+                                    {{ if $presentationImg }}
+                                    <div class="presentation-card-thumbnail">
+                                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
+                                        <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.presenter }}
                                     {{ $presenterData := index .Site.Data.people .Params.presenter }}
