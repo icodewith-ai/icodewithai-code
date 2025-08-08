@@ -26,3 +26,4 @@ In this inaugural episode of Coding with AI, Marcelo sits down with Eric Provenc
 ## Resources to Check Out
 
 - [Repo Prompt](https://repoprompt.com/)
+- [GitKraken](https://www.gitkraken.com/)

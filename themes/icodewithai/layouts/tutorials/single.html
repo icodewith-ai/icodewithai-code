@@ -13,7 +13,7 @@
                 
                 <!-- YouTube Video Embed or Image Fallback -->
                 {{ if and .Params.video_id (ne .Params.video_id "") }}
-                <div class="podcast-embed-section">
+                <div class="blog-single-image">
                     <div class="video-embed-responsive">
                         <iframe 
                             src="https://www.youtube.com/embed/{{ .Params.video_id }}" 
@@ -23,14 +23,12 @@
                     </div>
                 </div>
                 {{ else if .Params.image }}
-                <div class="podcast-embed-section">
-                    <div class="tutorial-image-fallback">
-                        {{ $tutorialImg := resources.Get .Params.image }}
-                        {{ if $tutorialImg }}
-                            {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
-                            <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                        {{ end }}
-                    </div>
+                <div class="blog-single-image">
+                    {{ $tutorialImg := resources.Get .Params.image }}
+                    {{ if $tutorialImg }}
+                        {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
+                        <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                    {{ end }}
                 </div>
                 {{ end }}
                 

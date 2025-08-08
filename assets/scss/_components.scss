@@ -1570,7 +1570,8 @@
   border: 1px solid $neutral-700;
 }
 
-h2 + .guest-photo-section {
+h2 + .guest-photo-section,
+h2 + .podcast-embed-section {
   margin-top: 0;
 }
 
@@ -1696,18 +1697,6 @@ h2 + .guest-photo-section {
   }
 }
 
-// Tutorial Image Fallback - when no video_id is provided
-.tutorial-image-fallback {
-  width: 100%;
-  margin-bottom: $spacing-lg;
-  
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: $border-radius-base;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
-  }
-}
 
 // Presentation Card Thumbnail - 16:9 aspect ratio for presentation cards
 .presentation-card-thumbnail {
