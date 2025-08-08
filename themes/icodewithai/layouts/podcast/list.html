@@ -15,6 +15,13 @@
                         <img src="{{ $appleIconFingerprint.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-icon">
                         {{ end }}
                     </a>
+                    <a href="{{ .Site.Params.podcast_spotify }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link">
+                        {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
+                        {{ if $spotifyIcon }}
+                        {{ $spotifyIconFingerprint := $spotifyIcon | resources.Fingerprint }}
+                        <img src="{{ $spotifyIconFingerprint.RelPermalink }}" alt="Listen on Spotify" class="podcast-icon">
+                        {{ end }}
+                    </a>
                     <a href="{{ .Site.Params.podcast_rss }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link">
                         {{ $rssIcon := resources.Get "images/icons/icon-rss.png" }}
                         {{ if $rssIcon }}
