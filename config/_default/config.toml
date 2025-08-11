@@ -2,6 +2,9 @@ title = 'iCodeWith.ai | From Vibe Coding To Shippable Solution'
 theme = 'icodewithai'
 languageCode = 'en-us'
 
+# Enable robots.txt generation
+enableRobotsTXT = true
+
 [params]
 
   # About the Site
