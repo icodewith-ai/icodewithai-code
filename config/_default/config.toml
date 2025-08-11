@@ -5,6 +5,12 @@ languageCode = 'en-us'
 # Enable robots.txt generation
 enableRobotsTXT = true
 
+# Sitemap configuration
+[sitemap]
+  changefreq = "daily"
+  filename = "sitemap.xml"
+  priority = 0.5
+
 [params]
 
   # About the Site

@@ -1,0 +1,43 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+{{ if eq hugo.Environment "prod" }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{ range .Data.Pages }}
+    {{ if and (not .Params.private) (not .Params.draft) (ne .Section "admin") }}
+      <url>
+        <loc>{{ .Permalink }}</loc>
+        <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
+        <changefreq>daily</changefreq>
+        
+        {{ $priority := 0.5 }}
+        
+        {{/* Homepage - Priority 1.0 */}}
+        {{ if eq .RelPermalink "/" }}
+          {{ $priority = 1.0 }}
+        
+        {{/* Main Section Pages - Priority 0.9 */}}
+        {{ else if or (eq .RelPermalink "/blog/") (eq .RelPermalink "/podcast/") (eq .RelPermalink "/tutorials/") (eq .RelPermalink "/presentations/") (eq .RelPermalink "/apps/") }}
+          {{ $priority = 0.9 }}
+        
+        {{/* Individual Content - Priority 0.8 */}}
+        {{ else if or (eq .Section "blog") (eq .Section "podcast") (eq .Section "tutorials") (eq .Section "presentations") (eq .Section "apps") }}
+          {{ $priority = 0.8 }}
+        
+        {{/* Community Section - Priority 0.7 */}}
+        {{ else if eq .Section "community" }}
+          {{ $priority = 0.7 }}
+        
+        {{/* About Page - Priority 0.6 */}}
+        {{ else if eq .RelPermalink "/about-marcelo/" }}
+          {{ $priority = 0.6 }}
+        
+        {{/* Contact and other pages - Priority 0.4 */}}
+        {{ else if eq .RelPermalink "/contact/" }}
+          {{ $priority = 0.4 }}
+        {{ end }}
+        
+        <priority>{{ $priority }}</priority>
+      </url>
+    {{ end }}
+  {{ end }}
+</urlset>
+{{ end }}

@@ -491,3 +491,225 @@ If no custom image exists, the system automatically falls back to:
 2. Default social image (`/static/images/seo/default-social.png`)
 
 This ensures every page always has a social media image, even without custom ones.
+
+## Sitemap System
+
+### Overview
+The site implements a custom sitemap.xml system that automatically generates a comprehensive sitemap for all content, with environment-aware behavior and intelligent priority ranking.
+
+### Technical Implementation
+
+#### Custom Sitemap Template
+- **Location**: `/themes/icodewithai/layouts/sitemap.xml`
+- **Type**: Custom Hugo template overriding default sitemap generation
+- **Environment-aware**: Only generates full sitemap in production environment
+- **Integration**: Works seamlessly with existing robots.txt configuration
+
+#### Environment Behavior
+**Production Environment:**
+- Generates complete sitemap with all 36+ pages
+- Includes proper XML formatting and timestamps
+- Uses priority-based ranking system
+- Updates automatically on deployment
+
+**Staging/Development Environments:**
+- Returns empty sitemap to respect noindex configuration
+- Prevents staging content from appearing in search engines
+- Maintains consistent behavior with development workflow
+
+### Priority Structure
+
+The sitemap uses a strategic priority system to help search engines understand content importance:
+
+#### Priority 1.0 (Highest)
+- **Homepage** (`/`)
+  - Primary entry point and most important page
+
+#### Priority 0.9 (Very High)
+- **Main Content Sections:**
+  - Blog listing (`/blog/`)
+  - Podcast listing (`/podcast/`)
+  - Tutorials listing (`/tutorials/`)
+  - Presentations listing (`/presentations/`)
+  - Apps listing (`/apps/`)
+
+#### Priority 0.8 (High)
+- **Individual Content Pages:**
+  - Blog posts (`/blog/post-name/`)
+  - Podcast episodes (`/podcast/episode-name/`)
+  - Tutorials (`/tutorials/tutorial-name/`)
+  - Presentations (`/presentations/presentation-name/`)
+  - Apps (`/apps/app-name/`)
+
+#### Priority 0.7 (Medium-High)
+- **Community Section Content:**
+  - All pages under `/community/`
+
+#### Priority 0.6 (Medium)
+- **About Pages:**
+  - About Marcelo (`/about-marcelo/`)
+
+#### Priority 0.4 (Medium-Low)
+- **Utility Pages:**
+  - Contact page (`/contact/`)
+
+#### Priority 0.5 (Default)
+- **Other Pages:**
+  - Category pages (`/categories/`)
+  - Tag pages (`/tags/`)
+  - Any other unlisted pages
+
+### Change Frequency
+All pages use **daily** change frequency, matching the site's active daily update schedule and encouraging regular search engine crawling.
+
+### Configuration
+
+#### Hugo Config Settings
+The sitemap system is configured in `/config/_default/config.toml`:
+
+```toml
+# Sitemap configuration
+[sitemap]
+changefreq = "daily"
+priority = 0.5
+filename = "sitemap.xml"
+```
+
+#### Environment Detection
+The sitemap template automatically detects the current environment and adjusts behavior accordingly, ensuring staging sites don't interfere with production SEO.
+
+### Integration Points
+
+#### Robots.txt Integration
+- The existing `robots.txt` already references `sitemap.xml`
+- No additional configuration needed
+- Works automatically with search engine crawlers
+
+#### Hugo Built-in Override
+- Custom template overrides Hugo's default sitemap generation
+- Maintains compatibility with Hugo's URL and content detection
+- Uses Hugo's built-in functions for reliability
+
+#### SEO System Integration
+- Works alongside existing SEO YAML configuration
+- Respects `noindex` settings from SEO files
+- Coordinates with social media and structured data systems
+
+### Modifying Priorities for New Sections
+
+#### Adding New Content Types
+When adding new content types (e.g., `/courses/`, `/tools/`):
+
+1. **Edit the sitemap template** (`/themes/icodewithai/layouts/sitemap.xml`)
+2. **Add priority rules** in the appropriate section:
+
+```xml
+{{- else if eq .Section "courses" -}}
+  {{- if .IsPage -}}
+    <priority>0.8</priority>  <!-- Individual courses -->
+  {{- else -}}
+    <priority>0.9</priority>  <!-- Course listing page -->
+  {{- end -}}
+```
+
+#### Recommended Priority Guidelines
+- **0.9-1.0**: Main entry points and primary sections
+- **0.8**: Individual content pages (the actual valuable content)
+- **0.7**: Secondary content sections
+- **0.6**: About/profile pages
+- **0.4-0.5**: Utility and reference pages
+- **0.3 or lower**: Archive, tag, and category pages
+
+### Troubleshooting
+
+#### Common Issues
+
+**Sitemap appears empty:**
+- **Cause**: Site is running in development/staging environment
+- **Solution**: This is expected behavior - only production generates full sitemap
+- **Test**: Deploy to production or check environment variables
+
+**Pages missing from sitemap:**
+- **Cause**: Content may have `noindex: "true"` in SEO configuration
+- **Solution**: Check corresponding SEO YAML file for noindex setting
+- **Verification**: Remove noindex or confirm it's intentional
+
+**Wrong priorities showing:**
+- **Cause**: Content section doesn't match sitemap template rules
+- **Solution**: Update sitemap template with rules for new content types
+- **Location**: `/themes/icodewithai/layouts/sitemap.xml`
+
+#### Testing the Sitemap
+
+**View current sitemap:**
+1. **Production**: Visit `https://icodewith.ai/sitemap.xml`
+2. **Local development**: Visit `http://localhost:1313/sitemap.xml` (will be empty)
+
+**Validate sitemap format:**
+- Use [XML Sitemap Validator](https://www.xml-sitemaps.com/validate-xml-sitemap.html)
+- Check for proper XML formatting and valid URLs
+- Verify all URLs return 200 status codes
+
+**Submit to search engines:**
+- **Google Search Console**: Submit sitemap URL
+- **Bing Webmaster Tools**: Add sitemap reference
+- **Automatic**: Most crawlers find sitemap via robots.txt
+
+### Maintenance Tasks
+
+#### Regular Maintenance (No Action Required)
+- **Automatic rebuilds**: Sitemap updates automatically on each deployment
+- **URL detection**: Hugo automatically detects new content and includes it
+- **Timestamp updates**: Last modified dates update automatically
+
+#### Periodic Review (Monthly)
+1. **Check sitemap completeness**: Verify all important pages are included
+2. **Review priorities**: Ensure priorities still match content strategy
+3. **Monitor search console**: Check for sitemap errors or warnings
+4. **Validate XML**: Ensure sitemap remains properly formatted
+
+#### When Making Major Site Changes
+1. **New content sections**: Update priority rules in sitemap template
+2. **URL structure changes**: Test sitemap generation after changes
+3. **Large content additions**: Monitor sitemap size and performance
+4. **Domain changes**: Update canonical URLs and resubmit sitemap
+
+### Advanced Features
+
+#### Custom Page Exclusion
+To exclude specific pages from the sitemap, add conditions to the template:
+
+```xml
+{{- if not (in .Permalink "private-page") -}}
+  <!-- Include page in sitemap -->
+{{- end -}}
+```
+
+#### Section-Specific Change Frequencies
+While currently all pages use "daily", you can implement section-specific frequencies:
+
+```xml
+{{- if eq .Section "blog" -}}
+  <changefreq>daily</changefreq>
+{{- else if eq .Section "apps" -}}
+  <changefreq>weekly</changefreq>
+{{- else -}}
+  <changefreq>monthly</changefreq>
+{{- end -}}
+```
+
+### Integration with Search Console
+
+#### Setup Steps
+1. **Verify sitemap URL**: Ensure `https://icodewith.ai/sitemap.xml` loads correctly
+2. **Submit to Google**: Add sitemap in Google Search Console
+3. **Monitor status**: Check for crawl errors or warnings
+4. **Review coverage**: Ensure important pages are being indexed
+
+#### Monitoring Metrics
+- **Pages submitted**: Total pages in sitemap
+- **Pages indexed**: How many Google has actually indexed
+- **Errors**: Any crawl or processing errors
+- **Last read**: When Google last accessed the sitemap
+
+The sitemap system provides a robust foundation for search engine optimization, automatically maintaining up-to-date content maps while respecting environment-specific requirements and SEO best practices.
