@@ -1297,7 +1297,10 @@
   position: relative;
   border: none; // Remove default button border
   border-radius: $border-radius-sm; // Ensure border radius is applied
-  font-size: $font-size-lg; // Match app gallery button font size
+  font-family: $font-family-base; // Ensure DM Sans font family
+  font-weight: $font-weight-medium; // Ensure medium weight (500)
+  font-size: 1rem; // 16px font size
+  line-height: $line-height-base; // Consistent line height
   
   // Explicit transition control to prevent color flashing
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
