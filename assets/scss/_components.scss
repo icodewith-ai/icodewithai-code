@@ -2074,7 +2074,7 @@ h2 + .podcast-embed-section {
     color: $neutral-100;
     font-size: $font-size-base;
     font-weight: $font-weight-medium;
-    margin-bottom: $spacing-md;
+    margin-bottom: .75rem; // $spacing-md (24px) - 5px = 19px
     margin-top: 0;
   }
   
@@ -2095,7 +2095,7 @@ h2 + .podcast-embed-section {
       @include link-base;
       @include link-underline;
       color: $neutral-400;
-      font-size: $font-size-sm;
+      font-size: $font-size-xs;
       
       &:hover {
         @include link-hover;
@@ -2122,6 +2122,28 @@ h2 + .podcast-embed-section {
     .footer-version {
       font-size: $font-size-xs;
       color: $neutral-600;
+    }
+  }
+  
+  // Stacked footer column styles (desktop only)
+  .footer-column-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      
+      
+      .footer-links {
+        margin-bottom: 0;
+      }
+    }
+    
+    // Add extra spacing between sections in stacked columns
+    .footer-section:not(:last-child) {
+      margin-bottom: $spacing-xs;
     }
   }
 }
