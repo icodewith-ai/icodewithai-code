@@ -76,11 +76,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Close menu on window resize if desktop size
+  // Close menu on window resize if desktop size (debounced to prevent forced reflows)
+  let resizeTimer;
   window.addEventListener('resize', function() {
-    if (window.innerWidth > 1024) { // tablet breakpoint
-      closeMobileMenu();
-    }
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      if (window.innerWidth > 1024) { // tablet breakpoint
+        closeMobileMenu();
+      }
+    }, 100);
   });
   
   // Handle navigation links

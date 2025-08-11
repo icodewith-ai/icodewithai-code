@@ -23,14 +23,53 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ "images/android-chrome-192x192.png" | absURL }}">
     <link rel="icon" type="image/png" sizes="512x512" href="{{ "images/android-chrome-512x512.png" | absURL }}">
     
-    <!-- Google Fonts -->
+    <!-- Resource Preconnect Hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     
-    <!-- Stylesheet -->
+    <!-- Preload critical resources -->
+    {{ $logo := resources.Get "images/logo.png" | resources.Fingerprint }}
+    {{ if $logo }}
+    <link rel="preload" href="{{ $logo.RelPermalink }}" as="image">
+    {{ end }}
+    
+    <!-- Critical CSS (Inlined) -->
+    <style>
+        /* Critical Above-the-fold CSS */
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--color-primary:#10b981;--color-bg:#0a0a0a;--color-text:#f3f4f6;--color-text-secondary:#9ca3af;--transition-base:0.3s ease}
+        html{scroll-behavior:smooth}
+        body{font-family:"DM Sans",system-ui,-apple-system,sans-serif;background-color:#0a0a0a;color:#f3f4f6;line-height:1.6;font-display:swap}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+        .header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #374151;padding:1rem 0}
+        .logo-section{display:flex;align-items:center;gap:0.75rem}
+        .logo-image{height:2.5rem;width:auto}
+        .hero{text-align:center;padding:4rem 0 3rem 0}
+        .hero h1{font-size:3rem;font-weight:700;margin-bottom:1rem;background:linear-gradient(135deg,#10b981,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .highlight{color:#10b981}
+        .tagline{font-size:1.25rem;color:#9ca3af;margin-bottom:2rem}
+        @media (max-width:768px){
+            .container{padding:0 1rem}
+            .hero h1{font-size:2rem}
+            .tagline{font-size:1.1rem}
+        }
+    </style>
+    
+    <!-- Google Fonts (Optimized with font-display:swap and reduced font weights) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap"></noscript>
+    
+    <!-- Main Stylesheet (Deferred) -->
     {{ $style := resources.Get "scss/styles.scss" | css.Sass | resources.Minify }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="preload" href="{{ $style.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ $style.Permalink }}"></noscript>
+    
+    <!-- Fallback script for async CSS loading -->
+    <script>
+        !function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function d(){a.addEventListener&&a.removeEventListener("load",d),a.media=r||"all"}var i=e.document,a=i.createElement("link");if(n)a.id=n;a.rel="stylesheet",a.href=t,a.media="only x",o(function(){i.head.appendChild(a)}),setTimeout(d),a.addEventListener&&a.addEventListener("load",d)};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+    </script>
 </head>
 <body>
     <!-- Staging Password Protection -->
@@ -123,16 +162,16 @@
     </script>
     {{ end }}
     
-    <!-- Mobile Menu Script -->
+    <!-- Mobile Menu Script (Deferred) -->
     {{ $mobileMenuJS := resources.Get "js/mobile-menu.js" | resources.Minify | resources.Fingerprint }}
     {{ if $mobileMenuJS }}
-    <script src="{{ $mobileMenuJS.RelPermalink }}"></script>
+    <script defer src="{{ $mobileMenuJS.RelPermalink }}"></script>
     {{ end }}
     
-    <!-- Navigation Dropdown Script -->
+    <!-- Navigation Dropdown Script (Deferred) -->
     {{ $navDropdownJS := resources.Get "js/nav-dropdown.js" | resources.Minify | resources.Fingerprint }}
     {{ if $navDropdownJS }}
-    <script src="{{ $navDropdownJS.RelPermalink }}"></script>
+    <script defer src="{{ $navDropdownJS.RelPermalink }}"></script>
     {{ end }}
 </body>
 </html>
