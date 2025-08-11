@@ -20,7 +20,6 @@
 
 <!-- Desktop Navigation -->
 <nav class="nav">
-    <a href="{{ .Site.Params.apps }}">App Gallery</a>
     
     {{ partial "nav-dropdown" (dict 
         "title" "Learn"
@@ -29,6 +28,20 @@
             (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
             (dict "name" "Tutorials" "url" .Site.Params.tutorials "external" false)
             (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
+        )
+    ) }}
+
+    {{ partial "nav-dropdown" (dict 
+        "title" "Explore"
+        "items" (slice 
+            (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
+        )
+    ) }}
+
+    {{ partial "nav-dropdown" (dict 
+        "title" "Build"
+        "items" (slice 
+            (dict "name" "Vibedocs" "url" .Site.Params.vibedocs "external" true)
         )
     ) }}
     
@@ -70,7 +83,6 @@
         
         <!-- Navigation items (same structure as desktop) -->
         <nav class="mobile-nav">
-            <a href="{{ .Site.Params.apps }}">App Gallery</a>
             
             {{ partial "nav-dropdown" (dict 
                 "title" "Learn"
@@ -79,6 +91,20 @@
                     (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
                     (dict "name" "Tutorials" "url" .Site.Params.tutorials "external" false)
                     (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
+                )
+            ) }}
+
+            {{ partial "nav-dropdown" (dict 
+                "title" "Explore"
+                "items" (slice 
+                    (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
+                )
+            ) }}
+
+            {{ partial "nav-dropdown" (dict 
+                "title" "Build"
+                "items" (slice 
+                    (dict "name" "Vibedocs" "url" .Site.Params.vibedocs "external" true)
                 )
             ) }}
             
