@@ -11,7 +11,7 @@
                     {{ if $presenterData }}Presented by {{ $presenterData.fullName }}{{ end }}
                     {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
                     <br>
-                    {{ if .Params.meeting_type }}This is an {{ .Params.meeting_type }} presentation.{{ end }}
+                    {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} presentation.{{ end }}
                 </div>
                 
                 {{ if and .Params.image .Params.displayImageInline }}
