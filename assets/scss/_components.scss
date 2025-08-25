@@ -2235,6 +2235,20 @@ h2 + .podcast-embed-section {
 
 
 
+// Content Type Header
+// -----------------------------------------------------------------------------
+.content-type-header {
+  display: block;
+  color: $primary-500;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  font-family: $font-family-base;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: $spacing-xs;
+  line-height: 1;
+}
+
 // Blog Components
 // -----------------------------------------------------------------------------
 .blog-back-section {

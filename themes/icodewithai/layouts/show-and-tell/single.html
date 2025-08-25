@@ -2,7 +2,8 @@
     <main>
         <article class="blog-single">
             <div class="container">
-                {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }}
+                {{/* {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }} */}}
+                <span class="content-type-header">Show & Tell</span>
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
                     {{ if .Params.presenter }}
