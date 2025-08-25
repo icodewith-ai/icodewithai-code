@@ -1656,8 +1656,8 @@ h2 + .podcast-embed-section {
   }
 }
 
-// Built with Vibes Episodes Grid - responsive 3-column layout
-.built-with-vibes-episodes {
+// Show & Tell Episodes Grid - responsive 3-column layout
+.show-and-tell-episodes {
   display: grid;
   gap: $spacing-lg;
   grid-template-columns: repeat(3, 1fr);
@@ -1669,9 +1669,9 @@ h2 + .podcast-embed-section {
   }
 }
 
-// Spacing for tutorial episodes after h2 headings (matches blog-posts)
+// Spacing for show & tell episodes after h2 headings (matches blog-posts)
 .blog-list {
-  h2 + .built-with-vibes-episodes {
+  h2 + .show-and-tell-episodes {
     margin-top: $spacing-md; // 24px spacing between heading and cards
   }
   
@@ -1680,8 +1680,8 @@ h2 + .podcast-embed-section {
   }
 }
 
-// Built with Vibes Card Thumbnail - 16:9 aspect ratio for built-with-vibes cards
-.built-with-vibes-card-thumbnail {
+// Show & Tell Card Thumbnail - 16:9 aspect ratio for show-and-tell cards
+.show-and-tell-card-thumbnail {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;

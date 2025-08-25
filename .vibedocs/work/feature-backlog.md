@@ -14,6 +14,19 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.4.1-rename-to-show-and-tell - 🟢 Completed
+Rebranding "Built with Vibes" to "Show & Tell" - maintaining the same show format but with a more generic, universally understood name.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 2.1 | Section Rebranding | Rename "Built with Vibes" to "Show & Tell" throughout codebase | High | 🟢 Completed |
+| 2.2 | URL Structure Update | Change `/built-with-vibes/` to `/show-and-tell/` | High | 🟢 Completed |
+| 2.3 | Directory Structure Rename | Rename all built-with-vibes-related directories and files | High | 🟢 Completed |
+| 2.4 | Template Updates | Update Hugo templates with new section references | High | 🟢 Completed |
+| 2.5 | CSS Class Renaming | Update CSS classes from `.built-with-vibes-*` to `.show-and-tell-*` | Medium | 🟢 Completed |
+| 2.6 | Automation Script Updates | Update content creation scripts for new content type | Medium | 🟢 Completed |
+| 2.7 | Navigation Updates | Update site navigation and menus | High | 🟢 Completed |
+
 ## v1.4.0-rename-tutorials-to-built-with-vibes - 🟢 Completed
 Complete rebranding of the "Tutorials" section to "Built with Vibes" - a new show format where vibe coders share their screens and walk through real projects.
 

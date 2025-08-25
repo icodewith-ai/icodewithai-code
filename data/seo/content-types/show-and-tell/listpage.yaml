@@ -1,11 +1,11 @@
 # Basic SEO - Custom built-with-vibes listing content
-title: "Built with Vibes | iCodeWith.ai"
-description: "Built with Vibes is a show where vibe coders share their screens and walk through real projects they’ve built. Explore the tech stacks, prompts, and tools that brought ideas to life."
+title: "Show & Tell | iCodeWith.ai"
+description: "A show & tell video series where vibe coders and developers walk us through how they built their projects with AI."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Built with Vibes | iCodeWith.ai"
+social_image_alt: "Show & Tell | iCodeWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

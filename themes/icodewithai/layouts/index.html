@@ -36,7 +36,7 @@
                         </div>
                         <div class="split-card-content-section">
                             <h3 class="split-card-title">Podcast</h3>
-                            <p class="split-card-description">Conversations with product managers, marketers, UX designers, project managers, and more as they share their vibe coding journeys.</p>
+                            <p class="split-card-description">Conversations with product managers, marketers, UX designers, project managers, and other builders as they share their vibe coding journeys.</p>
                             <div class="split-card-actions">
                                 <a href="{{ .Site.Params.podcast }}" class="section-link">Listen →</a>
                             </div>
@@ -44,14 +44,14 @@
                     </div>
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
-                            {{ $builtWithVibesIcon := resources.Get "images/icons/icon-built-with-vibes.png" }}
-                            <img src="{{ $builtWithVibesIcon.RelPermalink }}" alt="Built with Vibes">
+                            {{ $showAndTellIcon := resources.Get "images/icons/icon-show-and-tell.png" }}
+                            <img src="{{ $showAndTellIcon.RelPermalink }}" alt="Show & Tell">
                         </div>
                         <div class="split-card-content-section">
                             <h3 class="split-card-title">Show & Tell</h3>
-                            <p class="split-card-description">A "show and tell" video series where vibe coders walk you through how they built their projects with AI.</p>
+                            <p class="split-card-description">A show & tell video series where vibe coders and developers walk us through how they built their projects with AI.</p>
                             <div class="split-card-actions">
-                                <a href="{{ .Site.Params.tutorials }}" class="section-link">Watch →</a>
+                                <a href="{{ .Site.Params.showandtell }}" class="section-link">Watch →</a>
                             </div>
                         </div>
                     </div>
