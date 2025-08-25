@@ -1,31 +1,31 @@
 {{ define "main" }}
     <main>
-        <!-- Tutorials Hero Section -->
+        <!-- Built with Vibes Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1><span class="highlight">Tutorials</span></h1>
-                <p class="tagline">Tutorials on how to build apps with AI.</p>
+                <h1><span class="highlight">Built with Vibes</span></h1>
+                <p class="tagline">A show & tell where vibe coders walk you through how they built their projects with AI.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 
-                {{ $upcomingTutorials := where .Pages ".Params.status" "upcoming" }}
-                {{ $publishedTutorials := where .Pages ".Params.status" "published" }}
+                {{ $upcomingBuiltWithVibes := where .Pages ".Params.status" "upcoming" }}
+                {{ $publishedBuiltWithVibes := where .Pages ".Params.status" "published" }}
                 
-                {{ if $upcomingTutorials }}
+                {{ if $upcomingBuiltWithVibes }}
                 <h2>Upcoming</h2>
-                <div class="tutorial-episodes">
-                    {{ range sort $upcomingTutorials ".Date" "asc" }}
+                <div class="built-with-vibes-episodes">
+                    {{ range sort $upcomingBuiltWithVibes ".Date" "asc" }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
                             <article class="podcast-card">
                                 {{ if .Params.image }}
-                                    {{ $tutorialImg := resources.Get .Params.image }}
-                                    {{ if $tutorialImg }}
-                                    <div class="tutorial-card-thumbnail">
-                                        {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
-                                        <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    {{ $builtWithVibesImg := resources.Get .Params.image }}
+                                    {{ if $builtWithVibesImg }}
+                                    <div class="built-with-vibes-card-thumbnail">
+                                        {{ $builtWithVibesImgFingerprint := $builtWithVibesImg | resources.Fingerprint }}
+                                        <img src="{{ $builtWithVibesImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                                     </div>
                                     {{ end }}
                                 {{ end }}
@@ -47,18 +47,18 @@
                 </div>
                 {{ end }}
                 
-                {{ if $publishedTutorials }}
-                {{ if $upcomingTutorials }}<h2>Published</h2>{{ end }}
-                <div class="tutorial-episodes">
-                    {{ range sort $publishedTutorials ".Date" "desc" }}
+                {{ if $publishedBuiltWithVibes }}
+                {{ if $upcomingBuiltWithVibes }}<h2>Published</h2>{{ end }}
+                <div class="built-with-vibes-episodes">
+                    {{ range sort $publishedBuiltWithVibes ".Date" "desc" }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
                             <article class="podcast-card">
                                 {{ if .Params.image }}
-                                    {{ $tutorialImg := resources.Get .Params.image }}
-                                    {{ if $tutorialImg }}
-                                    <div class="tutorial-card-thumbnail">
-                                        {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
-                                        <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    {{ $builtWithVibesImg := resources.Get .Params.image }}
+                                    {{ if $builtWithVibesImg }}
+                                    <div class="built-with-vibes-card-thumbnail">
+                                        {{ $builtWithVibesImgFingerprint := $builtWithVibesImg | resources.Fingerprint }}
+                                        <img src="{{ $builtWithVibesImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                                     </div>
                                     {{ end }}
                                 {{ end }}
@@ -80,9 +80,9 @@
                 </div>
                 {{ end }}
                 
-                {{ if and (eq (len $upcomingTutorials) 0) (eq (len $publishedTutorials) 0) }}
+                {{ if and (eq (len $upcomingBuiltWithVibes) 0) (eq (len $publishedBuiltWithVibes) 0) }}
                     <div class="podcast-card">
-                        <h3>No tutorials published</h3>
+                        <h3>No episodes published</h3>
                         <p>Check back as they are coming soon!</p>
                     </div>
                 {{ end }}

@@ -31,8 +31,8 @@ Create new blog posts, app pages, or presentations using the automated script wi
 ./automations/create-content.sh podcast "AI Product Development"
 ./automations/create-content.sh podcast "No Code Future"
 
-# Tutorials
-./automations/create-content.sh tutorials "My Tutorial Name"
+# Built with Vibes
+./automations/create-content.sh built-with-vibes "My New Episode"
 ```
 
 The automation script automatically creates:

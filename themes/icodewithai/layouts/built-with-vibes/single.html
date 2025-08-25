@@ -24,10 +24,10 @@
                 </div>
                 {{ else if .Params.image }}
                 <div class="blog-single-image">
-                    {{ $tutorialImg := resources.Get .Params.image }}
-                    {{ if $tutorialImg }}
-                        {{ $tutorialImgFingerprint := $tutorialImg | resources.Fingerprint }}
-                        <img src="{{ $tutorialImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                    {{ $builtWithVibesImg := resources.Get .Params.image }}
+                    {{ if $builtWithVibesImg }}
+                        {{ $builtWithVibesImgFingerprint := $builtWithVibesImg | resources.Fingerprint }}
+                        <img src="{{ $builtWithVibesImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                     {{ end }}
                 </div>
                 {{ end }}
@@ -67,7 +67,7 @@
                 {{ end }}
                 
                 <div class="blog-back-section">
-                    <a href="{{ "tutorials/" | relURL }}" class="blog-back-link">← Back to Tutorials</a>
+                    <a href="{{ "built-with-vibes/" | relURL }}" class="blog-back-link">← Back to Built with Vibes</a>
                 </div>
             </div>
         </article>

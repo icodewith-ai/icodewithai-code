@@ -2,10 +2,10 @@
 title = "Automate Your Vibe Coding Workflow with Hooks in Amazon Kiro"
 slug = "automate-your-vibe-coding-workflow-with-hooks-in-amazon-kiro"
 date = "2025-08-10"
-draft = true
+draft = false
 status = "upcoming"
 description = "Learn what agent hooks are, the types of hooks you can set up, how to manage them effectively, and practical best practices and use cases in Amazon Kiro."
-image = "images/tutorials/e001.png"
+image = "images/built-with-vibes/e001.png"
 video_id = ""
 presenter = "marcelo-lewin"
 +++
