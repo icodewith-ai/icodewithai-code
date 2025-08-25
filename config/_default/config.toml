@@ -19,11 +19,11 @@ enableRobotsTXT = true
 
   # About the Site
   version = "1.3.9"
-  last_updated = "2025-08-24"
+  last_updated = "2025-08-25"
   author = "Marcelo Lewin"
-  description = "Learn the skills you need to build production-ready, maintainable apps with AI."
-  short_description = "Learn the skills you need to build production-ready, maintainable apps with AI."
-  footer_description = "Your hub for learning, exploring, and building with vibe coding."
+  description = "Learn the vibe coding skills you need to build production-ready, maintainable apps with AI."
+  short_description = "Learn the vibe coding skills you need to build production-ready, maintainable apps with AI."
+  footer_description = "The place to learn, explore, and build with vibe coding."
   
 
   # Page Slugs
