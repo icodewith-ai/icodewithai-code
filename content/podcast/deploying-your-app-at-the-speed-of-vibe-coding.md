@@ -13,7 +13,7 @@ host = "marcelo-lewin"
 guest = "josh-thornes"
 +++
 
-Deploying vibe-coded apps doesn't have to be daunting! In this episode, we dive deep into the practical side of taking your AI-powered prototypes from development to live, production-ready apps. Join Marcelo and his guest, Josh Thornes, Director of AI and Software Engineering at e360, as they cover the best platforms for deployment, setting up seamless CI/CD pipelines, overcoming common deployment hurdles, and ensuring your vibe-coded apps are secure, reliable, and ready to scale. 
+In this episode, we dive deep into the practical side of how to deploy your app into production. Join Marcelo and his guest, Josh Thornes, Director of AI and Software Engineering at e360, as they cover the best platforms for deployment, setting up seamless CI/CD pipelines, overcoming common deployment hurdles, and ensuring your vibe-coded apps are secure, reliable, and ready to scale. 
 
 ## Key Topics Covered
 
