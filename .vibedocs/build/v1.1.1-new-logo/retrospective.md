@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This retrospective covers the enhancement of the logo and branding elements in the header of the By Marcelo Lewin website, focusing on visual improvements and interactive animations.
+This retrospective covers the enhancement of the logo and branding elements in the header of the iCodeWith.ai website, focusing on visual improvements and interactive animations.
 
 **Enhancement Period:** June 24, 2025  
 **Scope:** Logo styling, text treatment, and spacing optimization  
@@ -19,7 +19,7 @@ This retrospective covers the enhancement of the logo and branding elements in t
   - Shine animation that sweeps across the logo surface
 - **Color Variables**: Added `$primary-400` and `$primary-700` to extend the design system
 
-### Logo Text ("By Marcelo Lewin") Improvements ✅
+### Logo Text ("iCodeWith.ai") Improvements ✅
 - **Typography Enhancement**: Increased font size from `$font-size-base` (1.1rem) to `$font-size-lg` (1.3rem) for better balance
 - **Gradient Text**: Applied subtle white-to-gray gradient using `-webkit-background-clip: text`
 - **Interactive Underline**: Added consistent green underline animation matching navigation links

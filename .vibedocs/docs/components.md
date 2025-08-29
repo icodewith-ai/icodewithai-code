@@ -1,6 +1,6 @@
 # UI Components Documentation
 
-This document provides detailed specifications for reusable UI components in the By Marcelo Lewin website.
+This document provides detailed specifications for reusable UI components in the iCodeWith.ai website.
 
 ## Photo Gallery Component
 
@@ -572,7 +572,7 @@ Theme images are now processed through Hugo Pipes for consistent asset managemen
 ```html
 {{ $logo := resources.Get "images/logo.png" | resources.Fingerprint }}
 {{ if $logo }}
-<img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+<img src="{{ $logo.RelPermalink }}" alt="iCodeWith.ai" class="logo-image">
 {{ end }}
 ```
 

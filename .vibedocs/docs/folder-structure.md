@@ -1,6 +1,6 @@
 # Project Folder Structure
 
-This document outlines the complete folder structure of the By Marcelo Lewin website project, built with Hugo and enhanced SCSS architecture.
+This document outlines the complete folder structure of the iCodeWith.ai website project, built with Hugo and enhanced SCSS architecture.
 
 ## Root Directory
 

@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-The v1.1.5 Project Clean-Up release represented a comprehensive overhaul of the CSS architecture for the By Marcelo Lewin website. This systematic cleanup transformed the codebase from having scattered hardcoded values and inline styles to a professional-grade, fully systematized CSS architecture with comprehensive variable coverage.
+The v1.1.5 Project Clean-Up release represented a comprehensive overhaul of the CSS architecture for the iCodeWith.ai website. This systematic cleanup transformed the codebase from having scattered hardcoded values and inline styles to a professional-grade, fully systematized CSS architecture with comprehensive variable coverage.
 
 ## Major Accomplishments
 

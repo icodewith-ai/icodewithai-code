@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This retrospective covers the migration from a single CSS file to an Enhanced CSS system using SCSS, modular architecture, and Hugo Pipes integration for the By Marcelo Lewin website.
+This retrospective covers the migration from a single CSS file to an Enhanced CSS system using SCSS, modular architecture, and Hugo Pipes integration for the iCodeWith.ai website.
 
 **Migration Period:** June 24, 2025  
 **Total Tasks:** 55 planned tasks across 7 phases  

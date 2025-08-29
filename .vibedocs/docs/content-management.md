@@ -293,7 +293,7 @@ The site automatically uses the best available description:
 - **Open Graph tags** - Facebook, LinkedIn sharing previews
 - **Twitter Card support** - Twitter sharing previews
 - **Author meta tags** - Content attribution
-- **Structured page titles** - "Page Title | By Marcelo Lewin"
+- **Structured page titles** - "Page Title | iCodeWith.ai"
 
 ### Social Media Sharing
 Content automatically includes proper meta tags for rich previews when shared on:

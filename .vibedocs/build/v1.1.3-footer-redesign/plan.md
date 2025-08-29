@@ -113,7 +113,7 @@ Layout structure inspired by supabase.com footer, but using our existing design 
 - ✅ **Navigation Column**: All menu items from hugo.toml with proper linking
 - ✅ **Follow Me Column**: Clean social media links (GitHub, NPM, LinkedIn, YouTube, X)
 - ✅ **Logo Enhancement**: Larger circular ML logo (72px) with two-line text layout
-- ✅ **Typography**: "By Marcelo Lewin" on first line, "I build digital products with AI" on second line
+- ✅ **Typography**: "iCodeWith.ai" on first line, "I build digital products with AI" on second line
 - ✅ **Responsive Design**: Mobile-friendly with stacked layout and appropriate sizing
 - ✅ **Spacing Optimization**: 100px responsive spacing between columns, 8px gap between text lines
 

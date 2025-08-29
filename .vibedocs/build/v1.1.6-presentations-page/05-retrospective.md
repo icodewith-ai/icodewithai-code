@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-The v1.1.6 Presentations Page release successfully implemented a comprehensive presentations section for the By Marcelo Lewin website. This feature-complete addition mirrors the existing apps section architecture while introducing presentation-specific functionality including grouped display, multiple link types, and enhanced metadata management.
+The v1.1.6 Presentations Page release successfully implemented a comprehensive presentations section for the iCodeWith.ai website. This feature-complete addition mirrors the existing apps section architecture while introducing presentation-specific functionality including grouped display, multiple link types, and enhanced metadata management.
 
 ## Major Accomplishments
 

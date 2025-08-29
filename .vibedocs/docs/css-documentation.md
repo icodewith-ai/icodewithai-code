@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides comprehensive documentation for the Enhanced CSS system implemented for the By Marcelo Lewin website. The system uses SCSS (Sass) with a modular architecture, CSS custom properties for dynamic theming, and a comprehensive utility class system.
+This document provides comprehensive documentation for the Enhanced CSS system implemented for the iCodeWith.ai website. The system uses SCSS (Sass) with a modular architecture, CSS custom properties for dynamic theming, and a comprehensive utility class system.
 
 ## File Structure
 

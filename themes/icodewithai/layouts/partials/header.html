@@ -3,7 +3,7 @@
     <a href="/">
         {{ $logo := resources.Get "images/logo.png" | resources.Fingerprint }}
         {{ if $logo }}
-        <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+        <img src="{{ $logo.RelPermalink }}" alt="iCodeWith.ai" class="logo-image">
         {{ end }}
     </a>
     {{ if or (eq hugo.Environment "next") (eq hugo.Environment "local") }}
@@ -72,7 +72,7 @@
             <div class="mobile-menu-logo">
                 <a href="/">
                     {{ if $logo }}
-                    <img src="{{ $logo.RelPermalink }}" alt="By Marcelo Lewin Logo" class="logo-image">
+                    <img src="{{ $logo.RelPermalink }}" alt="iCodeWith.ai" class="logo-image">
                     {{ end }}
                 </a>
                 {{ if or (eq hugo.Environment "next") (eq hugo.Environment "local") }}
