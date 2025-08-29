@@ -18,7 +18,7 @@ enableRobotsTXT = true
 [params]
 
   # About the Site
-  version = "1.4.0"
+  version = "1.4.1"
   last_updated = "2025-08-29"
   author = "Marcelo Lewin"
   description = "Learn the skills you need to build production-ready, maintainable apps with AI."
