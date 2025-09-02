@@ -19,7 +19,7 @@ enableRobotsTXT = true
 
   # About the Site
   version = "1.4.1"
-  last_updated = "2025-08-29"
+  last_updated = "2025-09-02"
   author = "Marcelo Lewin"
   description = "Learn the skills you need to build production-ready, maintainable apps with AI."
   short_description = "Learn the skills you need to build production-ready, maintainable apps with AI."
