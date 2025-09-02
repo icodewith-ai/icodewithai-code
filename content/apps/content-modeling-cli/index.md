@@ -2,7 +2,7 @@
 title = "Content Modeling CLI"
 description = "Built for content modeling architects, developers and teams working in Contentful. Spend less time clicking through the UI and more time designing scalable, reusable content models—fast."
 url_slug = "content-modeling-cli"
-github_url = "https://github.com/icodewith-ai/content-modeling-cli"
+github_url = "https://github.com/bymarcelolewin/content-modeling-cli"
 npm_url = "https://www.npmjs.com/package/@icodewith-ai/content-modeling-cli"
 preview_url = ""
 preview_label = ""

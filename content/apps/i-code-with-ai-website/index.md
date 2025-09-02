@@ -1,18 +1,18 @@
 +++
 title = "iCodeWith.ai Website"
-description = "First site I've vibe coded from scratch. Switched from Wix and Framer to Hugo SSG framework for full control, hosted in GitHub pages.  Loving the speed and simplicity of static site generators."
+description = "First site I've vibe coded from scratch. Switched from Wix and Framer to Hugo SSG framework for full control, hosted in GitHub pages."
 github_url = "https://github.com/icodewith-ai/icodewithai-code"
 npm_url = ""
 preview_url = ""
 preview_label = "Check it Out!"
 date_created = "2025-06-01T17:51:19-07:00"
-date_updated = "2025-07-02T17:51:19-07:00"
-current_version = "1.2.0"
+date_updated = "2025-09-02T17:51:19-07:00"
+current_version = "1.4.2"
 draft = false
 +++
 
 ### About
-This (where you are at now) is the first site I've vibe coded from scratch. After relying on tools like Wix and Framer, I wanted full control again—and I got it. It's also my first time using the Hugo SSG framwework, and I'm quickly seeing the benefits of static site generators: fast performance, a lightweight codebase, and clean, responsive output.
+First site I've built from scratch using vibe coding techniques. After relying on tools like Wix and Framer, I wanted full control over what I create. It's also my first time using the Hugo SSG framwework, and I'm quickly seeing the benefits of static site generators: fast performance, a lightweight codebase, and clean, responsive output.
 
 ### Technology Stack
 - **Hugo** : Static site generator with custom theme architecture

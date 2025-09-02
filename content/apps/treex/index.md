@@ -1,7 +1,7 @@
 +++
 title = "TreeX"
 description = "TreeX is a cross-platform CLI tool for visualizing and exporting folder structures. It provides emoji-based directory trees with extensive export capabilities to multiple formats text documents and images."
-github_url = "https://github.com/icodewith-ai/treex"
+github_url = "https://github.com/bymarcelolewin/treex"
 npm_url = "https://www.npmjs.com/package/@icodewith-ai/treex"
 preview_url = ""
 preview_label = "Check it Out!"
