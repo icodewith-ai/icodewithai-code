@@ -29,15 +29,9 @@
                                 </div>
                                 {{ end }}
                                 <h3>{{ .Title }}</h3>
-                                {{ if .Params.current_version }}
                                 <div class="app-meta">
-                                    v{{ .Params.current_version }}{{ if .Params.date_updated }} • Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
+                                    v{{ .Params.current_version }} • Created by {{ .Params.builder }}
                                 </div>
-                                {{ else if .Params.date_updated }}
-                                <div class="app-meta">
-                                    Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}
-                                </div>
-                                {{ end }}
                                 <p>{{ .Params.description }}</p>
                                 <span class="card-link">Learn more →</span>
                             </article>

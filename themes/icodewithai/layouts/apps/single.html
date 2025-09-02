@@ -23,9 +23,8 @@
 
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
-                    {{ if .Params.current_version }} v{{ .Params.current_version }}{{ end }}
-                    {{ if and .Params.current_version .Params.date_updated }} • {{ end }}
-                    {{ if .Params.date_updated }}Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}{{ end }}
+                    v{{ .Params.current_version }} • Created by {{ .Params.builder }}<br>
+                    Updated {{ dateFormat "January 2, 2006" .Params.date_updated }}
                 </div>
                 
                 <div class="content">

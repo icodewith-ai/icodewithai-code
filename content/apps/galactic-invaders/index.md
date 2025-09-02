@@ -10,6 +10,7 @@ date_created = "2025-05-06"
 date_updated = "2025-07-18"
 current_version = "0.6.4"
 draft=false
+builder = "Marcelo Lewin"
 +++
 
 ### About
