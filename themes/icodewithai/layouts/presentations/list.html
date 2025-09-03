@@ -31,9 +31,27 @@
                                 {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.presenter }}
-                                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
-                                    {{ if $presenterData }}
-                                        <div class="post-author">Presented by {{ $presenterData.fullName }}</div>
+                                    {{ $presenterKeys := split .Params.presenter "," }}
+                                    {{ $presenterNames := slice }}
+                                    {{ range $presenterKeys }}
+                                        {{ $key := trim . " " }}
+                                        {{ $presenterData := index $.Site.Data.people $key }}
+                                        {{ if $presenterData }}
+                                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ if $presenterNames }}
+                                        <div class="post-author">Presented by 
+                                        {{ if eq (len $presenterNames) 1 }}
+                                            {{ index $presenterNames 0 }}
+                                        {{ else if eq (len $presenterNames) 2 }}
+                                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                        {{ else }}
+                                            {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                            {{ range $i, $name := $presenterNames }}
+                                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                            {{ end }}
+                                        {{ end }}</div>
                                     {{ end }}
                                 {{ end }}
                                 <div class="app-meta">
@@ -64,9 +82,27 @@
                                 {{ end }}
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.presenter }}
-                                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
-                                    {{ if $presenterData }}
-                                        <div class="post-author">Presented by {{ $presenterData.fullName }}</div>
+                                    {{ $presenterKeys := split .Params.presenter "," }}
+                                    {{ $presenterNames := slice }}
+                                    {{ range $presenterKeys }}
+                                        {{ $key := trim . " " }}
+                                        {{ $presenterData := index $.Site.Data.people $key }}
+                                        {{ if $presenterData }}
+                                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ if $presenterNames }}
+                                        <div class="post-author">Presented by 
+                                        {{ if eq (len $presenterNames) 1 }}
+                                            {{ index $presenterNames 0 }}
+                                        {{ else if eq (len $presenterNames) 2 }}
+                                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                        {{ else }}
+                                            {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                            {{ range $i, $name := $presenterNames }}
+                                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                            {{ end }}
+                                        {{ end }}</div>
                                     {{ end }}
                                 {{ end }}
                                 <div class="app-meta">

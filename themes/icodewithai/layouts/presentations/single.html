@@ -8,8 +8,28 @@
                     {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
                     <br>
                     {{ if .Params.presenter }}
-                    {{ $presenterData := index .Site.Data.people .Params.presenter }}
-                    {{ if $presenterData }}Presented by {{ $presenterData.fullName }}{{ end }}
+                    {{ $presenterKeys := split .Params.presenter "," }}
+                    {{ $presenterNames := slice }}
+                    {{ range $presenterKeys }}
+                        {{ $key := trim . " " }}
+                        {{ $presenterData := index $.Site.Data.people $key }}
+                        {{ if $presenterData }}
+                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                        {{ end }}
+                    {{ end }}
+                    {{ if $presenterNames }}
+                        Presented by 
+                        {{ if eq (len $presenterNames) 1 }}
+                            {{ index $presenterNames 0 }}
+                        {{ else if eq (len $presenterNames) 2 }}
+                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                        {{ else }}
+                            {{ $lastIndex := sub (len $presenterNames) 1 }}
+                            {{ range $i, $name := $presenterNames }}
+                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
                     {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
                     <br>
                     {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} presentation.{{ end }}
@@ -36,35 +56,45 @@
                     {{ .Params.audience }}
                 </div>
                 
-                <!-- About the Presenter Section -->
+                <!-- About the Presenter(s) Section -->
                 {{ if .Params.presenter }}
-                {{ $presenterData := index .Site.Data.people .Params.presenter }}
-                {{ if $presenterData }}
+                {{ $presenterKeys := split .Params.presenter "," }}
+                {{ $presentersData := slice }}
+                {{ range $presenterKeys }}
+                    {{ $key := trim . " " }}
+                    {{ $presenterData := index $.Site.Data.people $key }}
+                    {{ if $presenterData }}
+                        {{ $presentersData = $presentersData | append $presenterData }}
+                    {{ end }}
+                {{ end }}
+                {{ if $presentersData }}
                 <div class="content">
-                    <h3 class="project-links-title">About the Presenter</h3>
+                    <h3 class="project-links-title">About the {{ if eq (len $presentersData) 1 }}Presenter{{ else }}Presenters{{ end }}</h3>
                 </div>
+                {{ range $presentersData }}
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $presenterImg := resources.Get $presenterData.image }}
+                            {{ $presenterImg := resources.Get .image }}
                             {{ if $presenterImg }}
                                 {{ $presenterImgFingerprint := $presenterImg | resources.Fingerprint }}
-                                <img src="{{ $presenterImgFingerprint.RelPermalink }}" alt="{{ $presenterData.fullName }}" loading="lazy">
+                                <img src="{{ $presenterImgFingerprint.RelPermalink }}" alt="{{ .fullName }}" loading="lazy">
                             {{ else }}
-                                <p>Debug: Image not found at {{ $presenterData.image }}</p>
+                                <p>Debug: Image not found at {{ .image }}</p>
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ $presenterData.fullName }}, {{ $presenterData.title }} @ {{ $presenterData.company }}</h3>
-                            <p>{{ $presenterData.bio }}</p>
-                            {{ if and $presenterData.learnMoreLink (ne $presenterData.learnMoreLink "") }}
+                            <h3>{{ .fullName }}, {{ .title }} @ {{ .company }}</h3>
+                            <p>{{ .bio }}</p>
+                            {{ if and .learnMoreLink (ne .learnMoreLink "") }}
                             <div class="guest-link-wrapper">
-                                <a href="{{ $presenterData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                                <a href="{{ .learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
                             </div>
                             {{ end }}
                         </div>
                     </div>
                 </div>
+                {{ end }}
                 {{ end }}
                 {{ end }}
 

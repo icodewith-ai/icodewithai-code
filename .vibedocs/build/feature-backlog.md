@@ -14,6 +14,17 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.4.3-support-multiple-presenters-in-prezos - 🟢 Completed
+Extend presentations system to support multiple presenters while maintaining backward compatibility with single presenter presentations.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 3.1 | Multi-presenter parsing | Parse comma-separated presenter values from frontmatter | High | 🟢 Completed |
+| 3.2 | Name formatting enhancement | Implement proper grammar formatting with Oxford comma rules | High | 🟢 Completed |
+| 3.3 | Single.html template updates | Update individual presentation page for multiple presenters | High | 🟢 Completed |
+| 3.4 | List.html template updates | Update presentations listing for multiple presenters | High | 🟢 Completed |
+| 3.5 | Responsive design maintenance | Ensure multiple presenter boxes maintain responsive behavior | Medium | 🟢 Completed |
+
 ## v1.4.1-rename-to-show-and-tell - 🟢 Completed
 Rebranding "Built with Vibes" to "Show & Tell" - maintaining the same show format but with a more generic, universally understood name.
 
