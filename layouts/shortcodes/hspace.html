@@ -1,0 +1,2 @@
+{{- $count := .Get 0 | default "1" -}}
+{{- range seq (int $count) -}}&nbsp;{{- end -}}

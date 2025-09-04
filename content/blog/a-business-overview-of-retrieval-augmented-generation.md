@@ -3,7 +3,6 @@ title = "A Business Overview of Retrieval Augmented Generation"
 date = "2025-05-15T12:23:58-07:00"
 author = "marcelo-lewin"
 draft = false
-description = "Get a good overview of what Retrieval Augmented Generation (RAG) is and how your company can use it to generate accurate insights from your enterprise content."
 summary = "Get a good overview of what Retrieval Augmented Generation (RAG) is and how your company can use it to generate accurate insights from your enterprise content."
 image = "/images/blog/default.png"
 displayImageInline = false

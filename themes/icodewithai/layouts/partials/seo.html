@@ -52,8 +52,7 @@
         {{/* Fallback to frontmatter + content-type defaults */}}
         {{ $frontmatterSEO := dict }}
         {{ if $.Params.title }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "title" $.Title) }}{{ end }}
-        {{ if $.Params.description }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "description" $.Params.description) }}{{ end }}
-        {{ if not $.Params.description }}{{ if $.Summary }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "description" $.Summary) }}{{ end }}{{ end }}
+        {{ if $.Summary }}{{ $frontmatterSEO = merge $frontmatterSEO (dict "description" $.Summary) }}{{ end }}
         
         {{/* Merge with content-type defaults for unspecified fields */}}
         {{ with .listpage }}

@@ -3,7 +3,6 @@ title = "How Good at Coding do You Need to Be to Vibe Code?"
 date = "2025-07-30T06:22:15-07:00"
 author = "marcelo-lewin"
 draft = false
-description = "When people hear about vibe coding, a common question that always comes up is 'How good at coding do I need to be to do this?'  The answer, of course, is it depends."
 summary = "When people hear about vibe coding, a common question that always comes up is 'How good at coding do I need to be to do this?'  The answer, of course, is it depends."
 image = "/images/blog/vibe-coding.png"
 displayImageInline = true

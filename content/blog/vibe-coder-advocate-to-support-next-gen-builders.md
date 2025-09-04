@@ -3,7 +3,6 @@ title = "We Need a 'Vibe Coder Advocate' to Support the Next Generation of Build
 date = "2025-08-07T08:57:44-07:00"
 author = "marcelo-lewin"
 draft = false
-description = "Vibe coders are reshaping how software gets built and now its time we support them with a new kind of advocate."
 summary = "Vibe coders are reshaping how software gets built and now its time we support them with a new kind of advocate."
 image = "/images/blog/vide-coder-relations.png"
 displayImageInline = true

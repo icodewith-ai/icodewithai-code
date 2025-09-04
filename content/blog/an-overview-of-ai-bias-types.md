@@ -3,7 +3,6 @@ title = "An Overview of AI Bias Types"
 date = "2025-05-25T12:40:48-07:00"
 author = "marcelo-lewin"
 draft = false
-description = "Get an overview the various types of bias that can affect AI models, what they are and where they can manifest in the AI lifecycle."
 summary = "Get an overview the various types of bias that can affect AI models, what they are and where they can manifest in the AI lifecycle."
 image = "/images/blog/default.png"
 displayImageInline = false
