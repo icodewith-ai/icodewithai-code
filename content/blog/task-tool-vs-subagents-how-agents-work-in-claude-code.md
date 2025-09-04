@@ -79,17 +79,24 @@ Subagents automate the manual process that some developers were already doing wi
 | Feature | Task Tool Agent {{< hspace "3" >}} | Subagent (@agent) |
 :---------|:----------------:|:-------------------:|
 | **Invocation by Human** | ✅ | ✅ |
-| **Automatic Invocation by Main Agent** | ❌ | ✅ |
+| **Automatic Invocation by Main Agent** | ❌{{< sup "1" >}} | ✅ |
 | **Parallel Execution** | ✅ | ✅ |
 | **Context Isolation** | ✅ | ✅ |
 | **Reports back to Main Agent** | ✅  | ✅ |
-| **Agent Specialization** | ❌ | ✅ |
+| **Agent Specialization** | ❌{{< sup "2" >}} | ✅ |
 | **Granular Tool Permissions** | ❌ | ✅ |
 | **Configuration Persistence** | ❌ | ✅ |
 | **Team Collaboration** | ❌ | ✅ |
 | **Agent Color Coding** | ❌ | ✅ |
 | **Agent Naming** | ❌ | ✅ |
 | **Model Selection Per Agent** | ❌ | ✅ |
+
+{{< space "1.5rem" >}}
+
+#### Notes
+{{< sup "1" >}} Technically, you could say tha tthe Main Agent automatically invocates the task tool, but this happens only because the human initiated it, not by the Main Agent on its own.
+
+{{< sup "2" >}} You could create your own markdown file and when you tell the main agent to spawn new subagents, you also tell it to use that markdown file, which can provide context to the subagent with specialization.  But it's not built in.
 
 ## The Relationship Between @agent and Task Tool
 
