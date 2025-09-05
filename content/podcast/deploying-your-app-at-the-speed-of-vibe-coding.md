@@ -8,7 +8,7 @@ status = "published"
 description = "Join Marcelo and his guest, Josh Thornes, Director of AI and Software Engineering at e360, as they cover the best platforms for deployment, setting up seamless CI/CD pipelines, overcoming common deployment hurdles, and ensuring your vibe-coded apps are secure, reliable, and ready to scale."
 image = "images/podcast/e003.png"
 video_id = "eD19fkPujIU"
-audio_id = "1cTBfbjX80FNQpUAjKOJto"
+audio_id = "65npceasRghM4oCI4TSJtz"
 host = "marcelo-lewin"
 guest = "josh-thornes"
 +++
