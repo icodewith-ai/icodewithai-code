@@ -19,11 +19,11 @@ enableRobotsTXT = true
 
   # About the Site
   version = "1.4.3"
-  last_updated = "2025-09-05"
+  last_updated = "2025-09-08"
   author = "Marcelo Lewin"
-  description = "Learn the skills you need to build production-ready, maintainable apps with AI."
-  short_description = "Learn the skills you need to build production-ready, maintainable apps with AI."
-  footer_description = "The place to learn, explore, and build with vibe coding."
+  description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
+  short_description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
+  footer_description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
   
 
   # Page Slugs
@@ -51,5 +51,5 @@ enableRobotsTXT = true
   
   # Developer Site Links
   github = "https://github.com/icodewith-ai"
-  vibedocs = "https://github.com/icodewith-ai/vibedocs"
+  cody = "https://github.com/icodewith-ai/cody-framework"
   npm = "https://www.npmjs.com/~bymarcelolewin"
