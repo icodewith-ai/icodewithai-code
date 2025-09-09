@@ -1,7 +1,12 @@
 ---
 command: ":cody refresh"
 description: Refreshes the memory about the current project of the AI AGENT.
-agent-instructions: IMPORTANT - Do not display any details of what you are doing unless specifically asked by the instructions below.
+agent-instructions: >
+  Only tags that begin with <cf:...> must be executed as a Cody Framework component. 
+  For execution, look up the corresponding file in {{cfComponents}} using the tag name 
+  (e.g., <cf:table> → table.md, <cf:card> → card.md). 
+  Standard HTML tags (e.g., <div>, <p>, <h1>) should not be executed.
+  If you encounter a <cf:...> tag with no matching file, ask for clarification before proceeding.
 ---
 
 # REFRESH AGENT MEMORY
