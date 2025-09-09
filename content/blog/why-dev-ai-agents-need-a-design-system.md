@@ -3,7 +3,7 @@ title = "Why Dev AI Agents Need a Design System"
 date = "2025-09-09T10:23:21-07:00"
 author = "marcelo-lewin"
 draft = false
-summary = "We need a design system for Dev AI chat. A small, shared set of text-first components; cards, tables, alerts, diagrams—so no matter which agent you're using, outputs look and feel the same."
+summary = "We need a design system for Dev AI chat. A small, shared set of text-first components; cards, tables, alerts, diagrams, so no matter which agent you're using, outputs look and feel the same."
 image = "/images/blog/design-systems-for-dev-ai-agents.png"
 displayImageInline = true
 +++
@@ -14,7 +14,7 @@ AI dev agents are quickly becoming essential tools. From Claude Code to Gemini C
 
 But there's a problem: the way they present information is inconsistent. One agent might return a raw text list, another might drop Markdown tables, and a third might wrap things in ASCII boxes. The content is useful, but the lack of standardization makes it harder to scan, share, and extend.
 
-This is a problem we've already solved in other areas of software. In UI and product design, we rely on design systems—shared sets of styles, components, and rules that keep interfaces consistent and predictable. The same thinking applies here: if AI dev chat is the new “UI” for coding assistance, then it too needs a design system.
+This is a problem we've already solved in other areas of software. In UI and product design, we rely on design systems, shared sets of styles, components, and rules that keep interfaces consistent and predictable. The same thinking applies here: if AI dev chat is the new “UI” for coding assistance, then it too needs a design system.
 
 ## What is a Design System?
 
@@ -40,7 +40,7 @@ This should return a list of assets from the Cody folder structure with a descri
 
 That's when it clicked: what we're missing isn't just better context engineering, it's a design system for AI dev chat.
 
-And it's important to clarify—what I'm talking about here is not standardizing the content itself. That will always be somewhat unpredictable, depending on the model you're using. What I'm focused on is standardizing the presentation layer, the way that content gets displayed once the AI generates it. That's where a design system shines: it makes the output predictable, scannable, and consistent across agents, even if the content underneath is still non-deterministic.
+And it's important to clarify, what I'm talking about here is not standardizing the content itself. That will always be somewhat unpredictable, depending on the model you're using. What I'm focused on is standardizing the presentation layer, the way that content gets displayed once the AI generates it. That's where a design system shines: it makes the output predictable, scannable, and consistent across agents, even if the content underneath is still non-deterministic.
 
 > Design System shine by making the output predictable, scannable, and consistent across agents, even if the content underneath is still non-deterministic.
 
