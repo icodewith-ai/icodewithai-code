@@ -5,7 +5,7 @@ description: Lists all the files stored in the assets folder, along with their k
 
 # LIST ALL ASSETS
 
-<cf:card headline="List of Assets in the Assets Folder" width="50">
+<cf:card headline="List of Assets in the Assets Folder" width="100">
 
 - List all the assets available in the {{cfAssets}} folder.
 - Provide any details you know about each asset next to it. 
