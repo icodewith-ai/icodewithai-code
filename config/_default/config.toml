@@ -19,7 +19,7 @@ enableRobotsTXT = true
 
   # About the Site
   version = "1.4.3"
-  last_updated = "2025-09-11"
+  last_updated = "2025-09-15"
   author = "Marcelo Lewin"
   description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
   short_description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
