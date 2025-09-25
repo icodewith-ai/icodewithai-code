@@ -16,7 +16,7 @@
                 
                 {{ if $upcomingPresentations }}
                 <h2>Upcoming</h2>
-                <div class="blog-posts">
+                <div class="podcast-episodes">
                     {{ range sort $upcomingPresentations ".Params.date_time" "asc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
@@ -67,7 +67,7 @@
                 
                 {{ if $completedPresentations }}
                 <h2>Completed</h2>
-                <div class="blog-posts">
+                <div class="podcast-episodes">
                     {{ range sort $completedPresentations ".Params.date_time" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">

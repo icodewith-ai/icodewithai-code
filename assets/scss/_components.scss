@@ -1656,47 +1656,10 @@ h2 + .podcast-embed-section {
   }
 }
 
-// Show & Tell Episodes Grid - responsive 3-column layout
-.show-and-tell-episodes {
-  display: grid;
-  gap: $spacing-lg;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: $spacing-xl; // Matches blog-posts spacing between sections
-  
-  // Mobile/Tablet responsive: single column at tablet breakpoint
-  @include tablet-down {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Spacing for show & tell episodes after h2 headings (matches blog-posts)
+// Spacing for podcast episodes after h2 headings (matches blog-posts)
 .blog-list {
-  h2 + .show-and-tell-episodes {
-    margin-top: $spacing-md; // 24px spacing between heading and cards
-  }
-  
   h2 + .podcast-episodes {
     margin-top: $spacing-md; // 24px spacing between heading and cards
-  }
-}
-
-// Show & Tell Card Thumbnail - 16:9 aspect ratio for show-and-tell cards
-.show-and-tell-card-thumbnail {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: $border-radius-base;
-  margin-bottom: $spacing-md;
-  background: $neutral-800;
-  position: relative;
-  
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 }
 

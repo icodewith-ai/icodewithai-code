@@ -4,7 +4,7 @@
         <section class="hero">
             <div class="container">
                 <h1><span class="highlight">Show & Tell</span></h1>
-                <p class="tagline">See vibe coders walk through their projects and explain how they built apps with AI in a structured way.</p>
+                <p class="tagline">Watch vibe coders walk through their projects and explain how they’ve built their app with AI.</p>
             </div>
         </section>
 
@@ -16,14 +16,14 @@
                 
                 {{ if $upcomingShowAndTell }}
                 <h2>Upcoming</h2>
-                <div class="show-and-tell-episodes">
+                <div class="podcast-episodes">
                     {{ range sort $upcomingShowAndTell ".Date" "asc" }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
                             <article class="podcast-card">
                                 {{ if .Params.image }}
                                     {{ $showAndTellImg := resources.Get .Params.image }}
                                     {{ if $showAndTellImg }}
-                                    <div class="show-and-tell-card-thumbnail">
+                                    <div class="podcast-card-thumbnail">
                                         {{ $showAndTellImgFingerprint := $showAndTellImg | resources.Fingerprint }}
                                         <img src="{{ $showAndTellImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                                     </div>
@@ -49,14 +49,14 @@
                 
                 {{ if $publishedShowAndTell }}
                 {{ if $upcomingShowAndTell }}<h2>Published</h2>{{ end }}
-                <div class="show-and-tell-episodes">
+                <div class="podcast-episodes">
                     {{ range sort $publishedShowAndTell ".Date" "desc" }}
                         <a href="{{ .Permalink }}" class="blog-card-link">
                             <article class="podcast-card">
                                 {{ if .Params.image }}
                                     {{ $showAndTellImg := resources.Get .Params.image }}
                                     {{ if $showAndTellImg }}
-                                    <div class="show-and-tell-card-thumbnail">
+                                    <div class="podcast-card-thumbnail">
                                         {{ $showAndTellImgFingerprint := $showAndTellImg | resources.Fingerprint }}
                                         <img src="{{ $showAndTellImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                                     </div>
