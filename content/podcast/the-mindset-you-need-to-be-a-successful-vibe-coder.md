@@ -1,8 +1,8 @@
 +++
 title = "The Mindset You Need to Be a Successful Vibe Coder"
 slug = "the-mindset-you-need-to-be-a-successful-vibe-coder"
-date = "2025-10-01"
-time = "9:00 AM PT"
+date = "2025-10-03"
+time = "8:00 AM PT"
 draft = false
 status = "upcoming"
 description = "Join Marcelo and Mike Bird, AI Engineering Lead at BoxOne Ventures and host of Tool Use, as they dive into what it really takes to thrive as a vibe coder. "
