@@ -25,4 +25,4 @@ Join Marcelo and Mike Bird, AI Engineering Lead at BoxOne Ventures and host of T
 
 ## Resources to Check Out
 
-- [I Code with AI](https://icodewith.ai/)
+- [Tool Use AI Podcast](https://www.youtube.com/@ToolUsePodcast)
