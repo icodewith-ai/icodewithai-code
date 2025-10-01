@@ -2,7 +2,7 @@
 title = "How Vibe Coding Will Affect Traditional Dev Teams"
 slug = "how-vibe-coding-will-affect-traditional-dev-teams"
 date = "2025-10-15"
-time = "9:30 AM PT"
+time = "10:00 AM PT"
 draft = false
 status = "upcoming"
 description = ""
