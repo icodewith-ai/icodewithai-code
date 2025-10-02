@@ -6,6 +6,25 @@
 echo "🚀 Starting move to production..."
 echo ""
 
+# Version and date update
+CONFIG_FILE="config/_default/config.toml"
+CURRENT_VERSION=$(grep -E '^\s*version = ' "$CONFIG_FILE" | sed -E 's/.*version = "(.*)"/\1/')
+
+echo "📝 The current version of your site is set to $CURRENT_VERSION"
+echo "   Feel free to type in a new version or leave it as is (press Enter to skip):"
+read -r NEW_VERSION
+
+# Update version if user provided a new one
+if [ -n "$NEW_VERSION" ] && [ "$NEW_VERSION" != "$CURRENT_VERSION" ]; then
+    echo "   Updating version to $NEW_VERSION..."
+    sed -i '' "s/version = \"$CURRENT_VERSION\"/version = \"$NEW_VERSION\"/" "$CONFIG_FILE"
+fi
+
+# Always update last_updated to today's date
+TODAY=$(date +%Y-%m-%d)
+echo "   Updating last_updated to $TODAY..."
+sed -i '' "s/last_updated = \".*\"/last_updated = \"$TODAY\"/" "$CONFIG_FILE"
+
 # Function to check if git command succeeded
 check_git_status() {
     if [ $? -ne 0 ]; then
@@ -17,6 +36,21 @@ check_git_status() {
 # Get current branch to return to it later
 CURRENT_BRANCH=$(git branch --show-current)
 echo "📍 Current branch: $CURRENT_BRANCH"
+echo ""
+
+# Commit config changes if any were made
+if [ -n "$NEW_VERSION" ] && [ "$NEW_VERSION" != "$CURRENT_VERSION" ]; then
+    echo "   Committing config updates..."
+    git add "$CONFIG_FILE"
+    git commit -m "Update version to $NEW_VERSION and last_updated to $TODAY"
+    check_git_status "git commit config updates"
+else
+    echo "   Committing last_updated change..."
+    git add "$CONFIG_FILE"
+    git commit -m "Update last_updated to $TODAY"
+    check_git_status "git commit config updates"
+fi
+
 echo ""
 
 # Step 1: Checkout main
