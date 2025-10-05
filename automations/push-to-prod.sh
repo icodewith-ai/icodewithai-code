@@ -88,6 +88,11 @@ echo "7️⃣  Merging main back into dev to keep branches in sync..."
 git merge main
 check_git_status "git merge main"
 
+# Step 8: Push dev to origin
+echo "8️⃣  Pushing dev to origin..."
+git push origin dev
+check_git_status "git push origin dev"
+
 echo ""
 echo "✅ Move to production completed successfully!"
 echo ""
