@@ -39,16 +39,20 @@ echo "📍 Current branch: $CURRENT_BRANCH"
 echo ""
 
 # Commit config changes if any were made
-if [ -n "$NEW_VERSION" ] && [ "$NEW_VERSION" != "$CURRENT_VERSION" ]; then
-    echo "   Committing config updates..."
-    git add "$CONFIG_FILE"
-    git commit -m "Update version to $NEW_VERSION and last_updated to $TODAY"
-    check_git_status "git commit config updates"
+if git diff --quiet "$CONFIG_FILE"; then
+    echo "   No config changes to commit (already up to date)..."
 else
-    echo "   Committing last_updated change..."
-    git add "$CONFIG_FILE"
-    git commit -m "Update last_updated to $TODAY"
-    check_git_status "git commit config updates"
+    if [ -n "$NEW_VERSION" ] && [ "$NEW_VERSION" != "$CURRENT_VERSION" ]; then
+        echo "   Committing config updates..."
+        git add "$CONFIG_FILE"
+        git commit -m "Update version to $NEW_VERSION and last_updated to $TODAY"
+        check_git_status "git commit config updates"
+    else
+        echo "   Committing last_updated change..."
+        git add "$CONFIG_FILE"
+        git commit -m "Update last_updated to $TODAY"
+        check_git_status "git commit config updates"
+    fi
 fi
 
 echo ""
