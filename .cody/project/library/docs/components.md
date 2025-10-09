@@ -39,6 +39,7 @@ The photo gallery component provides an interactive image viewing experience for
 
 #### JavaScript Functionality
 - **File**: `themes/icodewithai/assets/js/photo-gallery.js`
+- **Location**: All JavaScript now centralized in theme assets folder
 - **Loading**: Conditional (only when gallery exists)
 - **Processing**: Hugo Pipes minification
 
@@ -407,6 +408,7 @@ The component is implemented as a Hugo partial with the following structure:
 
 ##### JavaScript Functionality
 - **File**: `themes/icodewithai/assets/js/nav-dropdown.js`
+- **Location**: All JavaScript now centralized in theme assets folder
 - **Loading**: Conditional (only when dropdown exists)
 - **Processing**: Hugo Pipes minification
 
@@ -498,7 +500,8 @@ The mobile menu component provides a responsive navigation solution that activat
 | `.mobile-nav` | Navigation links container |
 
 ##### JavaScript Functionality
-- **File**: `assets/js/mobile-menu.js`
+- **File**: `themes/icodewithai/assets/js/mobile-menu.js`
+- **Location**: All JavaScript now centralized in theme assets folder
 - **Loading**: Minified and fingerprinted via Hugo Pipes
 - **Processing**: Automatic resource optimization
 
@@ -609,11 +612,14 @@ Theme images are now processed through Hugo Pipes for consistent asset managemen
 - **Error Handling**: Graceful degradation when images are missing
 - **Performance**: Lazy loading and optimized asset delivery
 - **Consistency**: Unified pipeline with SCSS and JavaScript assets
-- **Maintainability**: Centralized image management in assets folder
+- **Maintainability**: Centralized image management in theme assets folder
 
 #### Migration Notes
-- **v1.1.9**: Migrated from `static/images/` to `assets/images/` for theme images
-- **Favicon Management**: Static favicons remain in `static/images/` for browser compatibility
+- **v1.1.9**: Migrated from `static/images/` to `themes/icodewithai/assets/images/` for theme images
+- **v1.4.4**: Consolidated all images to `themes/icodewithai/assets/images/` (67 files organized by category)
+- **v1.4.5**: Consolidated all JS and SCSS to `themes/icodewithai/assets/` - eliminated root assets folder
+- **Build Performance**: 54% improvement from asset consolidation (69ms → 32ms)
+- **Favicon Management**: Static favicons remain in `themes/icodewithai/static/images/` for browser compatibility
 - **Content Images**: App thumbnails and galleries continue using page bundle resources
 
 ---

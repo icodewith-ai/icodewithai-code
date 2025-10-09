@@ -6,8 +6,10 @@ This document provides comprehensive documentation for the Enhanced CSS system i
 
 ## File Structure
 
+All SCSS files are now consolidated in the theme assets folder (v1.4.5):
+
 ```
-assets/scss/
+themes/icodewithai/assets/scss/
 ├── styles.scss              # Main import file
 ├── _variables.scss          # Design tokens (colors, spacing, typography)
 ├── _mixins.scss            # Reusable mixins and utilities
@@ -17,6 +19,11 @@ assets/scss/
 ├── _utilities.scss         # Utility classes for rapid development
 └── _responsive.scss        # Mobile-specific responsive overrides
 ```
+
+**Asset Consolidation (v1.4.4 - v1.4.5):**
+- All theme assets now in single location: `themes/icodewithai/assets/`
+- Root `assets/` folder eliminated completely
+- 54% build performance improvement (69ms → 32ms combined)
 
 ## Import Order
 

@@ -6,17 +6,25 @@ This document outlines the complete folder structure of the iCodeWith.ai website
 
 ```
 /
+├── .claude/                     # Claude Code configuration and workflows
+├── .cody/                       # Cody Framework spec-driven development structure
+├── .github/                     # GitHub Actions workflows and automation
+├── .gitignore                   # Git ignore patterns
+├── .hugo_build.lock             # Hugo build lock file
 ├── README.md                    # Project documentation and setup instructions
-├── hugo.toml                    # Hugo configuration file with site settings, menus, and params
 ├── archetypes/                  # Hugo content templates for new posts/apps
-├── assets/                      # Source assets processed by Hugo Pipes
+├── automations/                 # Automation scripts for content and deployment
+├── backend/                     # Netlify Functions backend (separate git repo)
+├── config/                      # Environment-specific Hugo configurations
 ├── content/                     # Markdown content files for site pages
-├── public/                      # Generated static site (Hugo build output)
-├── resources/                   # Hugo's internal resource cache
-├── static/                      # Static files copied directly to public/
-├── themes/                      # Hugo theme files
-└── .vibedocs/                   # Project documentation and architecture notes
+├── data/                        # Hugo data files (people profiles, SEO metadata)
+├── layouts/                     # Hugo shortcodes and custom layouts
+├── public/                      # Generated static site (Hugo build output) - git ignored
+├── resources/                   # Hugo's internal resource cache - git ignored
+└── themes/                      # Hugo theme (icodewithai) with all assets
 ```
+
+**Note:** Root `assets/` folder eliminated in v1.4.5 - all assets now in `themes/icodewithai/assets/`
 
 ## Detailed Structure
 
@@ -28,41 +36,101 @@ archetypes/
 ├── apps.md                      # Template for new app pages
 ├── blog.md                      # Template for new blog posts
 ├── podcast.md                   # Template for new podcast episodes
-└── presentations.md             # Template for new presentation pages
+├── presentations.md             # Template for new presentation pages
+└── show-and-tell.md             # Template for new Show & Tell pages
 ```
 
-### `/assets/` - Source Files
-Source files processed by Hugo Pipes. Includes SCSS and JavaScript assets.
+### `/automations/`
+Scripts for automating content creation and deployment workflows.
 
 ```
-assets/
-├── scss/
-│   ├── styles.scss              # Main SCSS entry point (imports all partials)
-│   ├── _variables.scss          # Design system variables (colors, spacing, typography)
-│   ├── _mixins.scss             # Reusable SCSS mixins for common patterns
-│   ├── _base.scss               # Base styles (reset, typography, scrollbars)
-│   ├── _layout.scss             # Layout components (container, sections, grids)
-│   ├── _components.scss         # UI components (cards, buttons, navigation, photo gallery)
-│   ├── _utilities.scss          # Utility classes (spacing, typography, display)
-│   └── _responsive.scss         # Media queries and responsive utilities
-└── js/
-    └── photo-gallery.js         # Photo gallery navigation and touch gesture functionality
+automations/
+├── create-content.sh            # Interactive script for creating new content (blog, podcast, etc.)
+└── push-to-prod.sh             # Deployment script for production releases
 ```
 
-**SCSS Import Order:**
-1. `_variables` - Design tokens and configuration
-2. `_mixins` - Reusable functions and mixins
-3. `_base` - Foundation styles and resets
-4. `_layout` - Layout and structural components
-5. `_components` - UI components and patterns
-6. `_utilities` - Utility classes for rapid development
-7. `_responsive` - Media queries and responsive overrides
+### `/backend/`
+Netlify Functions backend (separate git repository). Contains serverless functions for:
+- Contact form processing
+- Newsletter/reminder form handling
+- API integrations with Resend email service
+
+```
+backend/
+├── netlify/
+│   └── functions/
+│       ├── contact-form.js      # Contact form submission handler
+│       └── reminder-form.js     # Reminder/newsletter form handler
+├── netlify.toml                 # Netlify configuration
+└── package.json                 # Backend dependencies
+```
+
+### `/config/`
+Environment-specific Hugo configurations using Hugo's config directory structure.
+
+```
+config/
+├── _default/
+│   └── config.toml              # Default Hugo configuration (base settings, menus, params)
+├── local/
+│   └── config.toml              # Local development overrides
+├── next/
+│   └── config.toml              # Staging environment config (next.icodewith.ai)
+└── prod/
+    └── config.toml              # Production environment config (www.icodewith.ai)
+```
+
+### `/data/`
+Hugo data files accessible in templates.
+
+```
+data/
+├── people/                      # People profile data (presenters, guests, authors)
+│   ├── marcelo-lewin.json
+│   ├── brian-madison.json
+│   ├── debbie-o-brien.json
+│   ├── devon-streelman.json
+│   ├── eric-provencher.json
+│   ├── erin-carpenter.json
+│   ├── jonathan-lewin.json
+│   ├── josh-grossman.json
+│   ├── josh-thornes.json
+│   └── tim-benniks.json
+└── seo/                         # SEO metadata for pages
+    ├── blog.yaml
+    ├── podcast.yaml
+    └── presentations.yaml
+```
+
+### `/layouts/`
+Custom Hugo layouts and shortcodes (extends theme templates).
+
+```
+layouts/
+└── shortcodes/                  # Custom Hugo shortcodes
+    ├── hspace.html              # Horizontal spacing
+    ├── reminder.html            # Newsletter reminder widget
+    ├── space.html               # Vertical spacing
+    └── sup.html                 # Superscript text
+```
+
+### ~~`/assets/`~~ - ELIMINATED IN v1.4.5
+
+**Asset Consolidation Complete (v1.4.4 - v1.4.5):**
+- Root `assets/` folder completely removed
+- All SCSS, JavaScript, and images moved to `themes/icodewithai/assets/`
+- Single-location asset management for better organization
+- 54% build performance improvement (69ms → 32ms combined)
+
+All assets are now located in `themes/icodewithai/assets/` - see theme structure below.
 
 ### `/content/` - Site Content
 Markdown files organized by content type. Apps use page bundles for image management.
 
 ```
 content/
+├── about-marcelo.md                # About page (professional bio)
+├── contact.md                      # Contact page
 ├── apps/                           # App showcase pages (page bundles)
 │   ├── app-name/                   # App page bundle
 │   │   ├── index.md                # App content and metadata
@@ -71,16 +139,18 @@ content/
 │   │       ├── image01.jpg         # Gallery images (800x450px)
 │   │       ├── image02.jpg         # Sorted by filename
 │   │       └── image03.jpg
-│   └── ...                     
-├── bio.md                          # Bio page with professional background
+│   └── ...
 ├── blog/                           # Blog posts
-│   ├── blog-article-name.md        # A blog article
+│   ├── blog-article-name.md        # Individual blog articles
 │   └── ...
 ├── podcast/                        # Podcast episodes
 │   ├── episode-name.md             # Individual podcast episodes
 │   └── ...
-└── presentations/                  # Presentation pages
-    ├── presentation-name.md        # A detailed page for presentations
+├── presentations/                  # Presentation pages
+│   ├── presentation-name.md        # Individual presentation pages
+│   └── ...
+└── show-and-tell/                  # Show & Tell tutorials
+    ├── tutorial-name.md            # Individual Show & Tell pages
     └── ...
 ```
 
@@ -100,8 +170,10 @@ public/
 │       ├── index.html           # App detail page
 │       ├── thumbnail.jpg        # App thumbnail (if exists)
 │       └── photogallery/       # Gallery images (if exist)
-├── bio/                         # Generated bio page
-│   └── index.html               # Bio page with professional background (single page)
+├── about-marcelo/               # Generated about page
+│   └── index.html               # About page with professional background
+├── contact/                     # Generated contact page
+│   └── index.html               # Contact form page
 ├── 404.html                     # Custom 404 error page
 ├── blog/                        # Generated blog pages
 │   ├── index.html               # Blog listing page
@@ -115,13 +187,21 @@ public/
 │   ├── index.html               # Presentations listing page
 │   ├── index.xml                # Presentations RSS feed
 │   └── [presentation-name]/     # Individual presentation pages
+├── show-and-tell/               # Generated Show & Tell pages
+│   ├── index.html               # Show & Tell listing page
+│   ├── index.xml                # Show & Tell RSS feed
+│   └── [tutorial-name]/        # Individual Show & Tell pages
 ├── categories/                  # Category taxonomy pages
 ├── tags/                        # Tag taxonomy pages
-├── images/                      # Favicon and app icons
+├── images/                      # Processed images with fingerprinting
 ├── scss/                        # Compiled CSS
 │   └── styles.min.css           # Minified CSS output from SCSS
 └── js/                          # Compiled JavaScript
-    └── photo-gallery.min.js     # Minified JavaScript for photo gallery functionality
+    ├── contact-form.min.[hash].js    # Contact form handler
+    ├── mobile-menu.min.[hash].js     # Mobile menu toggle
+    ├── nav-dropdown.min.[hash].js    # Navigation dropdowns
+    ├── photo-gallery.min.js          # Photo gallery functionality
+    └── reminder-form.min.[hash].js   # Reminder form handler
 ```
 
 ### `/resources/` - Hugo Cache
@@ -139,39 +219,49 @@ resources/
             └── photo-gallery.js_[hash].json     # JavaScript asset metadata
 ```
 
-### `/static/` - Static Assets
-Files copied directly to `/public/` without processing.
-
-```
-static/
-└── CNAME                        # GitHub Pages domain file
-```
+**Note:** The `public/` and `resources/` directories are auto-generated and git-ignored. They should never be manually edited.
 
 ### `/themes/icodewithai/` - Hugo Theme
 Custom Hugo theme containing templates, layouts, and source assets.
 
 ```
 themes/icodewithai/
-├── assets/                      # Theme source assets (processed by Hugo Pipes)
-│   ├── scss/                    # SCSS source files
-│   ├── js/                      # JavaScript source files
-│   └── images/                  # Theme images (processed by Hugo Pipes)
-│       ├── marcelolewin.jpg     # Profile photo
-│       ├── logo.png         # Site logo
-│       ├── icon-contentful-certified-content-manager.png
-│       ├── icon-contentful-certified-professional.png
-│       └── podcast/             # Podcast images
-│           ├── podcast-cover.png  # Main podcast image
-│           └── episode-*.jpg    # Individual episode images
+├── assets/                      # ALL theme assets (consolidated v1.4.4-v1.4.5)
+│   ├── scss/                    # SCSS source files (9 files)
+│   │   ├── styles.scss          # Main SCSS entry point
+│   │   ├── _variables.scss      # Design system variables
+│   │   ├── _mixins.scss         # Reusable SCSS mixins
+│   │   ├── _base.scss           # Base styles and resets
+│   │   ├── _layout.scss         # Layout components
+│   │   ├── _components.scss     # UI components
+│   │   ├── _utilities.scss      # Utility classes
+│   │   └── _responsive.scss     # Media queries
+│   ├── js/                      # JavaScript source files (5 files)
+│   │   ├── contact-form.js
+│   │   ├── mobile-menu.js
+│   │   ├── nav-dropdown.js
+│   │   ├── photo-gallery.js
+│   │   └── reminder-form.js
+│   └── images/                  # Theme images (67 files organized by category)
+│       ├── blog/                # Blog post images
+│       ├── certificates/        # Certificate badges
+│       ├── icons/               # Site icons
+│       ├── people/              # Profile photos (marcelolewin.jpg, etc.)
+│       ├── podcast/             # Podcast images
+│       │   ├── podcast-cover.png
+│       │   └── episode-*.jpg
+│       ├── presentations/       # Presentation images
+│       ├── seo/                 # SEO/social media images
+│       └── show-and-tell/       # Show and tell images
 ├── layouts/                     # Hugo template files
 │   ├── _default/
 │   │   └── baseof.html          # Base template with <head>, <body> structure
+│   ├── about-marcelo.html       # About/bio page template
+│   ├── contact.html             # Contact form page template
+│   ├── 404.html                 # Custom 404 error page template
 │   ├── apps/
 │   │   ├── list.html            # Apps listing page template (with thumbnails)
 │   │   └── single.html          # Individual app page template (with photo gallery)
-│   ├── bio/
-│   │   └── single.html          # Bio page template with professional background
-│   ├── 404.html                 # Custom 404 error page template
 │   ├── blog/
 │   │   ├── list.html            # Blog listing page template
 │   │   └── single.html          # Individual blog post template
@@ -181,10 +271,15 @@ themes/icodewithai/
 │   ├── presentations/
 │   │   ├── list.html            # Presentations listing page template
 │   │   └── single.html          # Individual presentation page template
-│   ├── index.html               # Homepage template (with thumbnails)
+│   ├── show-and-tell/
+│   │   ├── list.html            # Show & Tell listing page template
+│   │   └── single.html          # Individual Show & Tell page template
+│   ├── index.html               # Homepage template
 │   └── partials/
 │       ├── header.html          # Site header with navigation
-│       └── footer.html          # Site footer with social links
+│       ├── footer.html          # Site footer with social links
+│       ├── seo.html             # SEO meta tags and Open Graph
+│       └── reminder-widget.html # Newsletter reminder widget
 └── static/
     └── images/                  # Static images (favicons, PWA icons)
         ├── favicon.ico          # Browser favicon
@@ -195,31 +290,40 @@ themes/icodewithai/
         └── android-chrome-512x512.png  # Large Android app icon
 ```
 
-### `/.vibedocs/` - Project Documentation
-Internal documentation for project architecture and processes.
+### `/.cody/` - Cody Framework
+Spec-driven development framework structure for systematic project development.
 
 ```
-.vibedocs/
-├── architecture/
-│   ├── content-management.md    # Content structure and workflow documentation
-│   ├── css-documentation.md     # SCSS architecture and design system guide
-│   └── folder-structure.md      # Complete project structure
-└── releases/
-    ├── v1.1.0-migrating-to-css-framework/
-    │   └── retrospective.md     # Migration retrospective and lessons learned
-    ├── v1.1.1-new-logo/
-    │   └── retrospective.md     # New logo implementation retrospective
-    ├── v1.1.2-bio-and-404-page/
-    │   ├── plan.md              # Bio page and 404 page implementation plan
-    │   └── retrospective.md     # Bio page and 404 page retrospective
-    └── v1.1.3-footer-redesign/
-        ├── plan.md              # Footer redesign implementation plan and updates
-        └── retrospective.md     # Footer redesign retrospective and lessons learned
+.cody/
+├── config/                      # Cody Framework configuration
+│   ├── agent.md                 # Agent instructions and commands
+│   ├── settings.json            # Framework version and settings
+│   ├── commands/                # Cody command definitions
+│   ├── scripts/                 # Utility scripts (upgrade, etc.)
+│   └── templates/               # Document templates
+└── project/                     # Project-specific Cody files
+    ├── build/                   # Build phase (versions)
+    │   ├── feature-backlog.md   # Feature backlog across versions
+    │   ├── v1.4.4-consolidate-images/
+    │   └── v1.4.5-consolidate-asset-folders/
+    ├── library/                 # Project documentation library
+    │   ├── docs/                # Reference documentation
+    │   │   ├── agent-reference.md
+    │   │   ├── components.md
+    │   │   ├── content-management.md
+    │   │   ├── css-documentation.md
+    │   │   ├── folder-structure.md
+    │   │   └── seo-maintenance.md
+    │   └── assets/              # Asset files for documentation
+    └── plan/                    # Plan phase documents
+        ├── discovery.md
+        ├── prd.md
+        └── plan.md
 ```
 
 ## Key Configuration Files
 
-### `hugo.toml`
+### `/config/_default/config.toml`
 Main Hugo configuration containing:
 - Site metadata (title, baseURL, language)
 - Theme configuration
@@ -227,41 +331,60 @@ Main Hugo configuration containing:
 - Site parameters (author info, social links)
 - Manual version tracking (`version` and `last_updated`)
 
-### Asset Processing
-Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets:
+### Environment-Specific Configs
+- `/config/local/config.toml` - Local development overrides
+- `/config/next/config.toml` - Staging (next.icodewith.ai)
+- `/config/prod/config.toml` - Production (www.icodewith.ai)
 
-**CSS Processing** (`/assets/scss/` → `/public/scss/styles.min.css`):
+### Asset Processing
+
+All assets consolidated in `themes/icodewithai/assets/` (v1.4.4-v1.4.5). Hugo Pipes processes SCSS, JavaScript, and images:
+
+**CSS Processing** (`themes/icodewithai/assets/scss/` → `/public/scss/styles.min.css`):
 - SCSS compilation
 - CSS minification
 - Autoprefixing
 - Asset fingerprinting for cache busting
+- 9 SCSS files in modular architecture
 
-**JavaScript Processing** (`/assets/js/` → `/public/js/[filename].min.js`):
+**JavaScript Processing** (`themes/icodewithai/assets/js/` → `/public/js/[filename].min.js`):
 - JavaScript minification
 - Asset fingerprinting for cache busting
 - Conditional loading (only when needed)
+- 5 JavaScript files for different components
 
-**Image Processing** (`/assets/images/` → `/public/images/[filename].[hash].[ext]`):
+**Image Processing** (`themes/icodewithai/assets/images/` → `/public/images/[filename].[hash].[ext]`):
 - Asset fingerprinting for cache busting
 - Error handling for missing images
 - Lazy loading attributes
+- 67 images organized by category (blog, podcast, presentations, seo, people, icons)
 - Consistent asset pipeline with SCSS and JavaScript
+
+**Build Performance (v1.4.4-v1.4.5):**
+- Asset consolidation: 37% improvement from images (v1.4.4)
+- Full consolidation: 3% additional improvement from JS/SCSS (v1.4.5)
+- Combined total: 54% build improvement (69ms → 32ms)
+- Single-location asset management improves maintainability
 
 ## Development Workflow
 
-### New Multi-Repository Architecture (v1.2.2+)
+### Multi-Repository Architecture (v1.2.2+) with Consolidated Assets (v1.4.4-v1.4.5)
 
-1. **Content Creation**: 
+1. **Content Creation**:
    - Blog/Presentations: Add new `.md` files to `/content/blog/` or `/content/presentations/`
    - Podcasts: Add new `.md` files to `/content/podcast/`
    - Apps: Create page bundles in `/content/apps/app-name/` with `index.md` + images
-2. **Images**: Add thumbnails (`thumbnail.jpg`) and gallery images (`photogallery/image01.jpg`) to app bundles
-3. **Styling**: Modify SCSS files in `/assets/scss/` 
-4. **JavaScript**: Modify JS files in `/assets/js/` 
-5. **Templates**: Update Hugo templates in `/themes/icodewithai/layouts/`
+2. **Images**:
+   - App content: Add to app bundles (`thumbnail.jpg` and `photogallery/image01.jpg`)
+   - Theme images: Add to `themes/icodewithai/assets/images/` (organized by category)
+3. **Styling**: Modify SCSS files in `themes/icodewithai/assets/scss/` (not root assets/)
+4. **JavaScript**: Modify JS files in `themes/icodewithai/assets/js/` (not root assets/)
+5. **Templates**: Update Hugo templates in `themes/icodewithai/layouts/`
 6. **Development Testing**: Run `hugo server --environment local`
 7. **Staging Deployment**: Push to `dev` branch → GitHub Actions → `icodewithai-next` repository → `next.icodewith.ai`
 8. **Production Deployment**: Push to `main` branch → GitHub Actions → `icodewithai-prod` repository → `www.icodewith.ai`
+
+**Important:** All theme assets are now in `themes/icodewithai/assets/` - the root `assets/` folder no longer exists.
 
 ### Repository Architecture
 - **Source Repository**: `icodewith-ai/icodewithai-code` (private) - Contains Hugo source code, content, and themes
@@ -273,10 +396,31 @@ Hugo Pipes processes both SCSS and JavaScript files, outputting optimized assets
 ## Design System Architecture
 
 The SCSS system follows a structured approach:
+- **Location**: All SCSS in `themes/icodewithai/assets/scss/` (consolidated v1.4.5)
 - **Variables**: All design tokens centralized in `_variables.scss`
 - **Components**: Reusable UI patterns with consistent styling
 - **Utilities**: Rapid development classes for spacing, typography, layout
 - **Responsive**: Mobile-first design with consistent breakpoints
 - **No Hardcoded Values**: All dimensions, colors, spacing use variables
+
+## Asset Consolidation Benefits (v1.4.4-v1.4.5)
+
+**Organization:**
+- Single location for all theme assets: `themes/icodewithai/assets/`
+- 67 images organized by category (blog, podcast, presentations, seo, people, icons)
+- 9 SCSS files in modular architecture
+- 5 JavaScript files for different components
+
+**Performance:**
+- 54% build improvement (69ms → 32ms combined)
+- Faster Hugo resource lookups
+- Reduced path complexity
+- Simplified deployment
+
+**Maintainability:**
+- Easier to locate all theme assets
+- Consistent file organization
+- Better separation from content
+- Clearer project structure
 
 This architecture ensures maintainability, consistency, and scalability as the site grows.

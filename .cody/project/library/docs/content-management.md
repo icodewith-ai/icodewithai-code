@@ -277,6 +277,7 @@ Episode content in markdown format...
 
 #### Episode Images
 - **Location**: `themes/icodewithai/assets/images/podcast/`
+- **Organization**: All images consolidated in theme assets folder (v1.4.4)
 - **Naming**: Use episode slug (e.g., `episode-001.jpg`)
 - **Dimensions**: 1:1 aspect ratio (square) recommended
 - **Formats**: JPG or PNG
@@ -308,7 +309,8 @@ Content automatically includes proper meta tags for rich previews when shared on
 Theme images (logos, profile photos, certificates) are processed through Hugo Pipes for optimization and cache busting:
 
 #### File Location
-- **Source**: `themes/icodewithai/assets/images/`
+- **Source**: `themes/icodewithai/assets/images/` (consolidated in v1.4.4)
+- **Organization**: 67 image files organized by category (blog, podcast, presentations, seo, people, icons)
 - **Generated**: `/public/images/[filename].[hash].[ext]`
 
 #### Supported Images
@@ -335,8 +337,10 @@ Images are referenced using Hugo's `resources.Get` function:
 - **Consistency**: Unified asset pipeline with SCSS and JavaScript
 
 #### File Management
-- **Static Images**: Favicons and PWA icons remain in `static/images/`
-- **Theme Images**: Logos, profiles, icons processed through Hugo Pipes
+- **Static Images**: Favicons and PWA icons remain in `themes/icodewithai/static/images/`
+- **Theme Images**: All images consolidated in `themes/icodewithai/assets/images/` (v1.4.4)
+- **Asset Consolidation**: All JS and SCSS also in `themes/icodewithai/assets/` (v1.4.5)
+- **Performance**: 54% build improvement from consolidation (69ms → 32ms)
 - **Content Images**: App thumbnails and galleries remain as page bundle resources
 
 ## SEO and Search Engine Control

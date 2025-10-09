@@ -55,7 +55,7 @@ data/seo/
 
 ### Social Media Images
 ```
-static/images/seo/
+themes/icodewithai/assets/images/seo/
 ├── default-social.png              # Default image (1200x630px)
 ├── content-types/                  # Future: Content-type specific images
 │   ├── apps/
@@ -66,6 +66,8 @@ static/images/seo/
     ├── homepage-social.png
     └── aboutmarcelo-social.png
 ```
+
+**Note:** SEO images consolidated to theme assets folder in v1.4.4
 
 ## How Inheritance Works
 
@@ -199,7 +201,7 @@ This adds the verification meta tag to all pages automatically.
 ## Social Media Images
 
 ### Current Setup
-**All pages use the same image**: `images/seo/default-social.png`
+**All pages use the same image**: `images/seo/default-social.png` (located in `themes/icodewithai/assets/images/seo/`)
 
 ### Image Specifications
 - **Size**: 1200x630 pixels (required)
@@ -211,14 +213,16 @@ This adds the verification meta tag to all pages automatically.
 When ready to create custom images:
 
 1. **Content-type images**: One per content type
-   - `static/images/seo/content-types/apps/listpage-social.png`
-   - `static/images/seo/content-types/blog/listpage-social.png`
+   - `themes/icodewithai/assets/images/seo/content-types/apps/listpage-social.png`
+   - `themes/icodewithai/assets/images/seo/content-types/blog/listpage-social.png`
 
 2. **Individual content images**: For special content
-   - `static/images/seo/content-types/apps/my-app-social.png`
-   - `static/images/seo/content-types/blog/important-post-social.png`
+   - `themes/icodewithai/assets/images/seo/content-types/apps/my-app-social.png`
+   - `themes/icodewithai/assets/images/seo/content-types/blog/important-post-social.png`
 
 3. **Update YAML files**: Change from `"defaults.social_image"` to specific path
+
+**Note:** All SEO images are now in `themes/icodewithai/assets/images/seo/` (consolidated v1.4.4)
 
 ## Quick Reference
 
@@ -449,17 +453,19 @@ This table shows all possible fields that can be used in SEO YAML files, their p
 The image filename should match the content slug:
 
 **Content Structure** → **Image Path**
-- `/content/apps/my-app/index.md` → `/static/images/seo/content-types/apps/my-app-social.png`
-- `/content/blog/my-post.md` → `/static/images/seo/content-types/blog/my-post-social.png`  
-- `/content/presentations/my-talk.md` → `/static/images/seo/content-types/presentations/my-talk-social.png`
+- `/content/apps/my-app/index.md` → `/themes/icodewithai/assets/images/seo/content-types/apps/my-app-social.png`
+- `/content/blog/my-post.md` → `/themes/icodewithai/assets/images/seo/content-types/blog/my-post-social.png`
+- `/content/presentations/my-talk.md` → `/themes/icodewithai/assets/images/seo/content-types/presentations/my-talk-social.png`
 
 #### For Static Pages:
-- `/content/about-marcelo/` → `/static/images/seo/single-pages/aboutmarcelo-social.png`
-- Homepage → `/static/images/seo/single-pages/homepage-social.png`
+- `/content/about-marcelo/` → `/themes/icodewithai/assets/images/seo/single-pages/aboutmarcelo-social.png`
+- Homepage → `/themes/icodewithai/assets/images/seo/single-pages/homepage-social.png`
 
 #### For List Pages:
-- Apps listing → `/static/images/seo/content-types/apps/listpage-social.png`
-- Blog listing → `/static/images/seo/content-types/blog/listpage-social.png`
+- Apps listing → `/themes/icodewithai/assets/images/seo/content-types/apps/listpage-social.png`
+- Blog listing → `/themes/icodewithai/assets/images/seo/content-types/blog/listpage-social.png`
+
+**Note:** All SEO images consolidated in theme assets folder (v1.4.4)
 
 ### YAML File Naming Convention
 **SEO YAML files must match the content filename structure and be placed in the `entries/` subfolder:**
@@ -488,9 +494,11 @@ social_image_alt: "Custom description of what's shown in this specific image"
 ### Fallback Behavior
 If no custom image exists, the system automatically falls back to:
 1. Content-type specific image (if it exists)
-2. Default social image (`/static/images/seo/default-social.png`)
+2. Default social image (`themes/icodewithai/assets/images/seo/default-social.png`)
 
 This ensures every page always has a social media image, even without custom ones.
+
+**Note:** All SEO images are now in the theme assets folder for better organization (v1.4.4)
 
 ## Sitemap System
 
