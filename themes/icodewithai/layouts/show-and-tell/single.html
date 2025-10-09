@@ -25,7 +25,8 @@
                 </div>
                 {{ else if .Params.image }}
                 <div class="blog-single-image">
-                    {{ $showAndTellImg := resources.Get .Params.image }}
+                    {{ $showAndTellImgPath := strings.TrimPrefix "/" .Params.image }}
+                    {{ $showAndTellImg := resources.Get $showAndTellImgPath }}
                     {{ if $showAndTellImg }}
                         {{ $showAndTellImgFingerprint := $showAndTellImg | resources.Fingerprint }}
                         <img src="{{ $showAndTellImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
@@ -45,7 +46,8 @@
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $presenterImg := resources.Get $presenterData.image }}
+                            {{ $presenterImgPath := strings.TrimPrefix "/" $presenterData.image }}
+                            {{ $presenterImg := resources.Get $presenterImgPath }}
                             {{ if $presenterImg }}
                                 {{ $presenterImgFingerprint := $presenterImg | resources.Fingerprint }}
                                 <img src="{{ $presenterImgFingerprint.RelPermalink }}" alt="{{ $presenterData.fullName }}" loading="lazy">

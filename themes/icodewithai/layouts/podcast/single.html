@@ -45,7 +45,8 @@
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $guestImg := resources.Get $guestData.image }}
+                            {{ $guestImgPath := strings.TrimPrefix "/" $guestData.image }}
+                            {{ $guestImg := resources.Get $guestImgPath }}
                             {{ if $guestImg }}
                                 {{ $guestImgFingerprint := $guestImg | resources.Fingerprint }}
                                 <img src="{{ $guestImgFingerprint.RelPermalink }}" alt="{{ $guestData.fullName }}" loading="lazy">
@@ -74,7 +75,8 @@
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $hostImg := resources.Get $hostData.image }}
+                            {{ $hostImgPath := strings.TrimPrefix "/" $hostData.image }}
+                            {{ $hostImg := resources.Get $hostImgPath }}
                             {{ if $hostImg }}
                                 {{ $hostImgFingerprint := $hostImg | resources.Fingerprint }}
                                 <img src="{{ $hostImgFingerprint.RelPermalink }}" alt="{{ $hostData.fullName }}" loading="lazy">

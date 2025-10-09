@@ -5,7 +5,7 @@ date = "2025-08-10"
 draft = true
 status = "upcoming"
 description = "Learn what agent hooks are, the types of hooks you can set up, how to manage them effectively, and practical best practices and use cases in Amazon Kiro."
-image = "images/show-and-tell/e001.png"
+image = "/images/show-and-tell/e001.png"
 video_id = ""
 presenter = "marcelo-lewin"
 +++

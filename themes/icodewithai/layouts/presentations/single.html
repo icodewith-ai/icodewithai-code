@@ -75,7 +75,8 @@
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $presenterImg := resources.Get .image }}
+                            {{ $presenterImgPath := strings.TrimPrefix "/" .image }}
+                            {{ $presenterImg := resources.Get $presenterImgPath }}
                             {{ if $presenterImg }}
                                 {{ $presenterImgFingerprint := $presenterImg | resources.Fingerprint }}
                                 <img src="{{ $presenterImgFingerprint.RelPermalink }}" alt="{{ .fullName }}" loading="lazy">

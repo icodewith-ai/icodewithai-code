@@ -46,7 +46,8 @@
                                 <a href="{{ .Permalink }}" class="blog-card-link">
                                     <article class="podcast-card">
                                         {{ if .Params.image }}
-                                            {{ $episodeImg := resources.Get .Params.image }}
+                                            {{ $episodeImgPath := strings.TrimPrefix "/" .Params.image }}
+                                            {{ $episodeImg := resources.Get $episodeImgPath }}
                                             {{ if $episodeImg }}
                                             <div class="podcast-card-thumbnail">
                                                 {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
@@ -79,7 +80,8 @@
                         <a href="{{ .Permalink }}" class="blog-card-link">
                             <article class="podcast-card">
                                 {{ if .Params.image }}
-                                    {{ $episodeImg := resources.Get .Params.image }}
+                                    {{ $episodeImgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $episodeImg := resources.Get $episodeImgPath }}
                                     {{ if $episodeImg }}
                                     <div class="podcast-card-thumbnail">
                                         {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}

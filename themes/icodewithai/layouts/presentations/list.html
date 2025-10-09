@@ -21,7 +21,8 @@
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 {{ if .Params.image }}
-                                    {{ $presentationImg := resources.Get .Params.image }}
+                                    {{ $presentationImgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $presentationImg := resources.Get $presentationImgPath }}
                                     {{ if $presentationImg }}
                                     <div class="presentation-card-thumbnail">
                                         {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
@@ -72,7 +73,8 @@
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 {{ if .Params.image }}
-                                    {{ $presentationImg := resources.Get .Params.image }}
+                                    {{ $presentationImgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $presentationImg := resources.Get $presentationImgPath }}
                                     {{ if $presentationImg }}
                                     <div class="presentation-card-thumbnail">
                                         {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}

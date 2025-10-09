@@ -30,7 +30,8 @@
                 <div class="guest-photo-section">
                     <div class="guest-content">
                         <div class="guest-photo">
-                            {{ $authorImg := resources.Get $authorData.image }}
+                            {{ $authorImgPath := strings.TrimPrefix "/" $authorData.image }}
+                            {{ $authorImg := resources.Get $authorImgPath }}
                             {{ if $authorImg }}
                                 {{ $authorImgFingerprint := $authorImg | resources.Fingerprint }}
                                 <img src="{{ $authorImgFingerprint.RelPermalink }}" alt="{{ $authorData.fullName }}" loading="lazy">

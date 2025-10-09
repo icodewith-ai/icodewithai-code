@@ -187,23 +187,38 @@
 
 {{/* Step 1: Try page-specific image */}}
 {{ if $socialImage }}
-  {{ $finalSocialImage = $socialImage }}
-  {{ $finalSocialImageAlt = $socialImageAlt }}
+  {{/* Check if it's a path (string starting with "images/") */}}
+  {{ if hasPrefix $socialImage "images/" }}
+    {{ $pageImage := resources.Get $socialImage }}
+    {{ if $pageImage }}
+      {{ $finalSocialImage = $pageImage.RelPermalink }}
+      {{ $finalSocialImageAlt = $socialImageAlt }}
+    {{ end }}
+  {{ else }}
+    {{/* Assume it's already a full URL */}}
+    {{ $finalSocialImage = $socialImage }}
+    {{ $finalSocialImageAlt = $socialImageAlt }}
+  {{ end }}
 {{ end }}
 
 {{/* Step 2: Try content-type specific image if no page-specific image */}}
 {{ if not $finalSocialImage }}
   {{ if .Section }}
-    {{ $contentTypeImage := printf "images/seo/content-types/%s/listpage-social.png" .Section }}
-    {{ $finalSocialImage = $contentTypeImage }}
-    {{ $finalSocialImageAlt = printf "%s - %s" .Section $siteName }}
+    {{ $contentTypeImagePath := printf "images/seo/content-types/%s/listpage-social.png" .Section }}
+    {{ $contentTypeImage := resources.Get $contentTypeImagePath }}
+    {{ if $contentTypeImage }}
+      {{ $finalSocialImage = $contentTypeImage.RelPermalink }}
+      {{ $finalSocialImageAlt = printf "%s - %s" .Section $siteName }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
 {{/* Step 3: Fallback to default image */}}
 {{ if not $finalSocialImage }}
-  {{ $finalSocialImage = "images/seo/default-social.png" }}
-  {{ $finalSocialImageAlt = printf "%s - %s" $siteName $description }}
+  {{ with resources.Get "images/seo/default-social.png" }}
+    {{ $finalSocialImage = .RelPermalink }}
+    {{ $finalSocialImageAlt = printf "%s - %s" $siteName $description }}
+  {{ end }}
 {{ end }}
 
 {{/* Generate social media image meta tags */}}
