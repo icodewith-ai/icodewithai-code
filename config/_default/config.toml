@@ -18,7 +18,7 @@ enableRobotsTXT = true
 [params]
 
   # About the Site
-  version = "1.4.4"
+  version = "1.4.5"
   last_updated = "2025-10-09"
   author = "Marcelo Lewin"
   description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
