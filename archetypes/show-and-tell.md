@@ -5,7 +5,7 @@ date = "yyyy-mm-dd"
 draft = false
 status = "upcoming | published"
 description = ""
-image = "images/show-and-tell/placeholder.png"
+image = "/images/show-and-tell/placeholder.png"
 video_id = ""
 presenter = "first-last"
 +++

@@ -14,6 +14,28 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.4.5-consolidate-asset-folders - 🟢 Completed
+Consolidate JS and SCSS assets from root `assets/` folder to `themes/icodewithai/assets/` for consistency with image consolidation (v1.4.4) and improved maintainability. Achieved 3% build performance improvement.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 5.1 | Move JS assets | Move all JS files from `assets/js/` to `themes/icodewithai/assets/js/` | High | 🟢 Completed |
+| 5.2 | Move SCSS assets | Move all SCSS files from `assets/scss/` to `themes/icodewithai/assets/scss/` | High | 🟢 Completed |
+| 5.3 | Verify asset resolution | Test that Hugo still resolves assets correctly via cascading lookup | High | 🟢 Completed |
+| 5.4 | Clean up root assets | Remove empty root `assets/` folder after successful migration | Medium | 🟢 Completed |
+| 5.5 | Build performance test | Measure build performance before/after consolidation | Low | 🟢 Completed |
+
+## v1.4.4-consolidate-images - 🟢 Completed
+Consolidate scattered image assets from 5 locations into single organized structure within `themes/icodewithai/assets/images/`. Achieved 37% build performance improvement.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 4.1 | Image migration | Move SEO images from static to assets, organize by category | High | 🟢 Completed |
+| 4.2 | Template updates | Update 16 template references with TrimPrefix pattern | High | 🟢 Completed |
+| 4.3 | Data standardization | Standardize all paths to `/images/...` format | High | 🟢 Completed |
+| 4.4 | SEO partial updates | Implement 3-step fallback for social images | High | 🟢 Completed |
+| 4.5 | Performance validation | Verify 37% build performance improvement | Medium | 🟢 Completed |
+
 ## v1.4.3-support-multiple-presenters-in-prezos - 🟢 Completed
 Extend presentations system to support multiple presenters while maintaining backward compatibility with single presenter presentations.
 
