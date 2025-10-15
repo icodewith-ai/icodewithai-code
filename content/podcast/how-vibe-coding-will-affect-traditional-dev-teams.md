@@ -25,4 +25,6 @@ In this episode of Coding with AI, Marcelo sits down with Brian Madison, creator
 
 ## Resources to Check Out
 
-- [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD)
+- [BMad Method GitHub](https://github.com/bmad-code-org/BMAD-METHOD)
+- [BMad Method YouTube](http://youtube.com/@bmadcode)
+- [BMad Method Discord](discord.gg/gk8jAdXWmj)
