@@ -2322,42 +2322,54 @@ h2 + .podcast-embed-section {
 .homepage-features-grid-2plus1 {
   display: grid;
   gap: $spacing-lg;
-  
+
   // 2 cards: equal width layout
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: 
+  grid-template-areas:
     "card1 card2";
-  
+
   .homepage-feature-card {
     background: $neutral-800;
     border: 1px solid $neutral-700;
     border-radius: $border-radius-base;
     padding: $spacing-lg;
     transition: $transition-base;
-    
+
     &:hover {
       border-color: $primary-500;
       transform: translateY($hover-lift-small);
       box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
     }
-    
+
     h3 {
       color: $primary-500;
       margin-bottom: $spacing-md;
       font-size: $font-size-xl;
       font-weight: $font-weight-medium;
     }
-    
+
     &:nth-child(1) { grid-area: card1; }
     &:nth-child(2) { grid-area: card2; }
   }
-  
+
   // Mobile/Tablet responsive: single column
   @media (max-width: $breakpoint-tablet) {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "card1"
       "card2";
+  }
+}
+
+.homepage-app-gallery-fullwidth {
+  display: grid;
+  gap: $spacing-lg;
+
+  // Single full-width card layout
+  grid-template-columns: 1fr;
+
+  .split-card {
+    width: 100%;
   }
 }
 

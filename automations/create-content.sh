@@ -5,7 +5,7 @@
 
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <content-type> \"<title>\""
-    echo "Content types: blog, apps, podcast, presentations, show-and-tell"
+    echo "Content types: blog, apps, podcast, presentations"
     echo "Example: $0 blog \"How Good at Coding Do You Need to Be to Vibe Code?\""
     exit 1
 fi
@@ -14,7 +14,7 @@ CONTENT_TYPE=$1
 TITLE=$2
 
 # Valid content types
-VALID_TYPES=("blog" "apps" "podcast" "presentations" "show-and-tell")
+VALID_TYPES=("blog" "apps" "podcast" "presentations")
 
 # Check if content type is valid
 if [[ ! " ${VALID_TYPES[@]} " =~ " ${CONTENT_TYPE} " ]]; then
@@ -60,9 +60,6 @@ case "$CONTENT_TYPE" in
         sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
         ;;
     "podcast")
-        sed -i.bak "s/title = \"\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
-        ;;
-    "show-and-tell")
         sed -i.bak "s/title = \"\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
         ;;
 esac

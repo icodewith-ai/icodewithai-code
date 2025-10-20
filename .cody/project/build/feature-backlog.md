@@ -14,6 +14,22 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.4.6-home-page-updates-part-1 - 🟢 Completed
+Remove Show & Tell section entirely and update home page layout by moving Presentations box to Show & Tell's position and extending App Gallery to full width.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 6.1 | Delete Show & Tell content | Remove `content/show-and-tell/` directory | High | 🟢 Completed |
+| 6.2 | Delete Show & Tell archetypes | Remove `archetypes/show-and-tell.md` | High | 🟢 Completed |
+| 6.3 | Delete Show & Tell SEO data | Remove `data/seo/content-types/show-and-tell/` directory | High | 🟢 Completed |
+| 6.4 | Delete Show & Tell layouts | Remove `themes/icodewithai/layouts/show-and-tell/` directory | High | 🟢 Completed |
+| 6.5 | Delete Show & Tell images | Remove 3 image locations (show-and-tell folder, icon, SEO images) | High | 🟢 Completed |
+| 6.6 | Remove Show & Tell from navigation | Remove from header and footer templates | High | 🟢 Completed |
+| 6.7 | Remove Show & Tell config | Remove `showandtell` parameter from config files | High | 🟢 Completed |
+| 6.8 | Update home page layout | Move Presentations to first row, extend App Gallery to full width | High | 🟢 Completed |
+| 6.9 | Update home page CSS | Adjust CSS for new full-width App Gallery layout | Medium | 🟢 Completed |
+| 6.10 | Test responsive behavior | Verify layout works on mobile, tablet, and desktop | High | 🟢 Completed |
+
 ## v1.4.5-consolidate-asset-folders - 🟢 Completed
 Consolidate JS and SCSS assets from root `assets/` folder to `themes/icodewithai/assets/` for consistency with image consolidation (v1.4.4) and improved maintainability. Achieved 3% build performance improvement.
 

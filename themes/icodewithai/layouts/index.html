@@ -44,21 +44,21 @@
                     </div>
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
-                            {{ $showAndTellIcon := resources.Get "images/icons/icon-show-and-tell.png" }}
-                            <img src="{{ $showAndTellIcon.RelPermalink }}" alt="Show & Tell">
+                            {{ $presentationIcon := resources.Get "images/icons/icon-presentation.png" }}
+                            <img src="{{ $presentationIcon.RelPermalink }}" alt="Attend Presentations">
                         </div>
                         <div class="split-card-content-section">
-                            <h3 class="split-card-title">Show & Tell</h3>
-                            <p class="split-card-description">See vibe coders walk through their projects and explain how they built apps with AI in a structured, scalable, and maintainable way.</p>
+                            <h3 class="split-card-title">Presentations</h3>
+                            <p class="split-card-description">In-person and online sessions exploring vibe coding, from core concepts to real-world projects.</p>
                             <div class="split-card-actions">
-                                <a href="{{ .Site.Params.showandtell }}" class="section-link">Watch →</a>
+                                <a href="{{ .Site.Params.presentations }}" class="section-link">Attend →</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Second Row -->
-                <div class="homepage-features-grid-2plus1 mt-lg">
+                <div class="homepage-app-gallery-fullwidth mt-lg">
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $appsIcon := resources.Get "images/icons/icon-apps.png" }}
@@ -69,19 +69,6 @@
                             <p class="split-card-description">A growing collection of live, vibe-coded apps. Try them, grab the code, and see how they were built.</p>
                             <div class="split-card-actions">
                                 <a href="{{ .Site.Params.apps }}" class="section-link">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-card split-card--icon-top">
-                        <div class="split-card-icon-section">
-                            {{ $presentationIcon := resources.Get "images/icons/icon-presentation.png" }}
-                            <img src="{{ $presentationIcon.RelPermalink }}" alt="Attend Presentations">
-                        </div>
-                        <div class="split-card-content-section">
-                            <h3 class="split-card-title">Presentations</h3>
-                            <p class="split-card-description">In-person and online sessions exploring vibe coding, from core concepts to real-world projects.</p>
-                            <div class="split-card-actions">
-                                <a href="{{ .Site.Params.presentations }}" class="section-link">Attend →</a>
                             </div>
                         </div>
                     </div>
