@@ -14,6 +14,20 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.5.0-faq-component - 🟢 Completed
+Create a reusable FAQ accordion component for displaying frequently asked questions throughout the site. Individual FAQ content files stored in `content/faq/` with flexible ordering via Hugo shortcode.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 7.1 | FAQ content structure | Create `content/faq/` folder and archetype template | High | 🟢 Completed |
+| 7.2 | FAQ shortcode | Create Hugo shortcode for flexible FAQ display with comma-separated FAQ IDs | High | 🟢 Completed |
+| 7.3 | FAQ CSS component | Build accordion-style CSS with dark theme, green accents, and rounded borders | High | 🟢 Completed |
+| 7.4 | FAQ JavaScript | Implement accordion interaction (one open at a time, chevron animation) | High | 🟢 Completed |
+| 7.5 | Home page integration | Add FAQ section below "Next Generation App Builders" section | High | 🟢 Completed |
+| 7.6 | Sample FAQ content | Create 5 sample FAQ markdown files for testing | Medium | 🟢 Completed |
+| 7.7 | Responsive design | Ensure FAQ component works on mobile, tablet, and desktop | High | 🟢 Completed |
+| 7.8 | Accessibility | Add ARIA attributes for screen readers and keyboard navigation | Medium | 🟢 Completed |
+
 ## v1.4.6-home-page-updates-part-1 - 🟢 Completed
 Remove Show & Tell section entirely and update home page layout by moving Presentations box to Show & Tell's position and extending App Gallery to full width.
 

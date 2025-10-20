@@ -105,72 +105,13 @@
             </div>
         </section>
 
-        <!-- What is SDD Section -->
+        <!-- Frequently Asked Questions Section -->
         <section class="section">
             <div class="container">
-                <h2 class="text-center text-white-important">Spec Driven Development (SDD)</h2>
-                <div class="homepage-features-grid">
-                    <div class="homepage-feature-card">
-                        <h3>Specifications Drive Everything</h3>
-                        <p>Detailed specs aren't documentation, they're executable artifacts that generate code, tests, and validation. Write what you want once, and AI transforms it into working software.</p>
-                    </div>
-                    <div class="homepage-feature-card">
-                        <h3>SDD is Built for AI Collaboration</h3>
-                        <p>Developers become specification authors while AI handles implementation. Clear specs enable AI agents to generate accurate code, perfect for GitHub Copilot and modern AI tools.</p>
-                    </div>
-                    <div class="homepage-feature-card">
-                        <h3>Living Documentation That Executes</h3>
-                        <p>Specs stay synchronized with code as the authoritative source—serving as stakeholder contracts, executable tests, and team documentation all in one.</p>
-                    </div>
-                </div>
+                <h2 class="text-center text-white-important">Frequently Asked Questions</h2>
+                {{ partial "faq-accordion.html" (dict "faqs" "who-is-a-vibe-coder,who-is-a-professional-builder,positions-that-must-know-ai-coding,what-can-you-build-with-ai,what-is-spec-drive-development" "context" .) }}
             </div>
         </section>
-
-        <!-- Next Generation of App Builders Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="text-center text-white-important">Next Generation App Builders</h2>
-                <div class="homepage-features-grid-2col">
-                    <div class="split-card split-card--icon-left">
-                        <div class="split-card-icon-section">
-                            {{ $structureIcon := resources.Get "images/icons/icon-vibe-coder.png" }}
-                            <img src="{{ $structureIcon.RelPermalink }}" alt="Meet the Vibe Coders">
-                        </div>
-                        <div class="split-card-content-section">
-                            <h3 class="split-card-title">Vibe Coders Are</h3>
-                            <ul class="homepage-feature-list">
-                                <li><span class="checkmark">✓</span> Product Managers</li>
-                                <li><span class="checkmark">✓</span> Business Analysts</li>
-                                <li><span class="checkmark">✓</span> Marketing Managers</li>
-                                <li><span class="checkmark">✓</span> Content Strategists</li>
-                                <li><span class="checkmark">✓</span> UX Designers</li>
-                                <li><span class="checkmark">✓</span> Project Managers</li>
-                                <li><span class="checkmark">✓</span> ... and more!</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="split-card split-card--icon-left">
-                        <div class="split-card-icon-section">
-                            {{ $vibeIcon := resources.Get "images/icons/icon-keep-the-vibe.png" }}
-                            <img src="{{ $vibeIcon.RelPermalink }}" alt="See What They Build">
-                        </div>
-                        <div class="split-card-content-section">
-                            <h3 class="split-card-title">Vibe Coders Build</h3>
-                            <ul class="homepage-feature-list">
-                                <li><span class="checkmark">✓</span> Internal Business Apps</li>
-                                <li><span class="checkmark">✓</span> Mobile Apps</li>
-                                <li><span class="checkmark">✓</span> Automation Scripts</li>
-                                <li><span class="checkmark">✓</span> API Integrations</li>
-                                <li><span class="checkmark">✓</span> Task Automation</li>
-                                <li><span class="checkmark">✓</span> Game Prototypes</li>
-                                <li><span class="checkmark">✓</span> ... and more!</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
     </main>
 {{ end }}

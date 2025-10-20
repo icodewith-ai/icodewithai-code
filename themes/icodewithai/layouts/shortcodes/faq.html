@@ -1,0 +1,134 @@
+{{/*
+  FAQ Accordion Shortcode
+
+  Creates an accessible, interactive FAQ accordion component with expand/collapse functionality.
+  Only one FAQ can be open at a time. Supports keyboard navigation and screen readers.
+
+  Usage in Content Files:
+  ----------------------
+  {{< faq "what-is-sdd,who-are-vibe-coders,what-do-vibe-coders-build" />}}
+
+  Parameters:
+  -----------
+  - First positional parameter (required): Comma-separated list of FAQ slugs
+    - Slugs are the filenames (without .md extension) of FAQ files in content/faq/
+    - Order of slugs determines display order
+    - Whitespace around slugs is automatically trimmed
+
+  FAQ Content Files:
+  ------------------
+  Create FAQ files in content/faq/ with the following frontmatter:
+
+  +++
+  question = "Your question here?"
+  date = "2025-10-20"
+  draft = false
+  +++
+
+  Your answer here. Supports full markdown including links, lists, code blocks, etc.
+
+  Examples:
+  ---------
+  Single FAQ:
+  {{< faq "what-is-sdd" />}}
+
+  Multiple FAQs:
+  {{< faq "what-is-sdd,how-does-sdd-work-with-ai,who-are-vibe-coders" />}}
+
+  With whitespace (works fine):
+  {{< faq "what-is-sdd, how-does-sdd-work-with-ai, who-are-vibe-coders" />}}
+
+  Features:
+  ---------
+  - Accessible: Full ARIA attributes, keyboard navigation (Enter/Space to toggle, Arrow keys to navigate)
+  - Interactive: Smooth animations, hover states, one FAQ open at a time
+  - Responsive: Adapts to mobile, tablet, and desktop screens
+  - Reusable: Multiple FAQ components can exist on the same page
+  - Flexible: Display any FAQs in any order
+
+  Notes:
+  ------
+  - If an FAQ slug is not found, an error will display in development mode only
+  - The JavaScript for accordion behavior is automatically included
+  - Component does not include a section heading - add your own heading as needed
+*/}}
+
+{{/* Generate unique ID for this FAQ component instance */}}
+{{ $uniqueId := printf "faq-%d" now.Unix }}
+
+{{/* Get the FAQ slugs from the parameter */}}
+{{ $faqSlugs := "" }}
+{{ if .Inner }}
+  {{ $faqSlugs = .Inner | trim }}
+{{ else }}
+  {{ $faqSlugs = .Get 0 | default "" }}
+{{ end }}
+
+{{/* Split the slugs by comma */}}
+{{ $slugList := split $faqSlugs "," }}
+
+{{/* Start FAQ accordion container */}}
+<div class="faq-accordion" data-faq-accordion>
+  {{ range $index, $slug := $slugList }}
+    {{/* Trim whitespace from slug */}}
+    {{ $slug = trim $slug " " }}
+
+    {{/* Look up the FAQ page by slug */}}
+    {{ $faqPath := printf "/faq/%s" $slug }}
+    {{ $faqPage := site.GetPage $faqPath }}
+
+    {{ if $faqPage }}
+      {{/* Generate unique IDs for this FAQ item */}}
+      {{ $itemId := printf "%s-item-%d" $uniqueId $index }}
+      {{ $headerId := printf "%s-header-%d" $uniqueId $index }}
+      {{ $contentId := printf "%s-content-%d" $uniqueId $index }}
+
+      {{/* FAQ Item */}}
+      <div class="faq-item" data-faq-item>
+        {{/* FAQ Header (clickable question) */}}
+        <button
+          class="faq-header"
+          id="{{ $headerId }}"
+          aria-expanded="false"
+          aria-controls="{{ $contentId }}"
+          data-faq-toggle
+        >
+          <span class="faq-question">{{ $faqPage.Params.question }}</span>
+          <span class="faq-chevron" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+
+        {{/* FAQ Content (answer) */}}
+        <div
+          class="faq-content"
+          id="{{ $contentId }}"
+          aria-labelledby="{{ $headerId }}"
+          role="region"
+          hidden
+        >
+          <div class="faq-answer">
+            {{ $faqPage.Content }}
+          </div>
+        </div>
+      </div>
+    {{ else }}
+      {{/* FAQ not found - show warning in development */}}
+      {{ if hugo.IsServer }}
+        <div class="faq-error" style="background: #2a1f1f; border: 1px solid #dc2626; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+          <p style="color: #ef4444; margin: 0; font-size: 0.9rem;">
+            <strong>FAQ Not Found:</strong> Could not find FAQ with slug "<code>{{ $slug }}</code>" at path "<code>{{ $faqPath }}</code>"
+          </p>
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+
+{{/* Load FAQ Accordion JavaScript */}}
+{{ $faqJS := resources.Get "js/faq-accordion.js" | resources.Minify | resources.Fingerprint }}
+{{ if $faqJS }}
+<script src="{{ $faqJS.RelPermalink }}"></script>
+{{ end }}
