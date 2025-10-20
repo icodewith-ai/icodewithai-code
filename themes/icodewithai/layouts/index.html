@@ -4,7 +4,7 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1>From Vibe Coding<br/><span class="highlight">To Shippable Solution</span></h1>
+                <h1>From Vibe Coder<br/><span class="highlight">To Professional Builder</span></h1>
                 <p class="tagline">{{ .Site.Params.description }}</p>
             </div>
         </section>
@@ -12,9 +12,8 @@
         <!-- Start Your Journey Section -->
         <section class="section">
             <div class="container">
-                <h2 class="text-center text-white-important">Start Your Journey</h2>
+                <h2 class="text-center text-white-important">Learn</h2>
 
-                <!-- First Row -->
                 <div class="homepage-features-grid">
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
@@ -56,9 +55,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Second Row -->
-                <div class="homepage-app-gallery-fullwidth mt-lg">
+        <!-- Explore Vibe Coded Apps Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center text-white-important">Explore</h2>
+
+                <div class="homepage-app-gallery-fullwidth">
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $appsIcon := resources.Get "images/icons/icon-apps.png" }}
@@ -76,6 +81,30 @@
             </div>
         </section>
 
+        <!-- Build with Cody SDD Framework Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center text-white-important">Build</h2>
+                <div class="homepage-features-grid">
+                    <div class="homepage-feature-card">
+                        <h3>About Cody</h3>
+                        <p>Cody, a spec driven development framework, turns raw ideas into actionable plans. It guides you through discovery, requirements, and implementation so you know what to build and why, before AI starts coding.</p>
+                    </div>
+                    <div class="homepage-feature-card">
+                        <h3>Build with Structure</h3>
+                        <p>Cody breaks projects into manageable versions. It organizes your backlog, tasks, and retrospectives so you can move fast, stay aligned, and iterate without chaos.</p>
+                    </div>
+                    <div class="homepage-feature-card">
+                        <h3>Collaborate with AI</h3>
+                        <p>Cody works inside your AI coding tools; Claude Code, Cursor, Gemini CLI, Copilot, and more. It keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
+                        <div class="mt-md">
+                            <a href="{{ .Site.Params.cody }}" class="btn-primary" target="_blank">Start building with Cody</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- What is SDD Section -->
         <section class="section">
             <div class="container">
@@ -83,7 +112,7 @@
                 <div class="homepage-features-grid">
                     <div class="homepage-feature-card">
                         <h3>Specifications Drive Everything</h3>
-                        <p>Detailed specs aren't documentation, they're executable artifacts that generate code, tests, and validation. Write what you want once, and AI transforms it into working software.</p>                   
+                        <p>Detailed specs aren't documentation, they're executable artifacts that generate code, tests, and validation. Write what you want once, and AI transforms it into working software.</p>
                     </div>
                     <div class="homepage-feature-card">
                         <h3>SDD is Built for AI Collaboration</h3>
@@ -136,30 +165,6 @@
                                 <li><span class="checkmark">✓</span> Game Prototypes</li>
                                 <li><span class="checkmark">✓</span> ... and more!</li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How We Support Vibe Coders Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="text-center text-white-important">Build with Cody SDD Framework</h2>
-                <div class="homepage-features-grid">
-                    <div class="homepage-feature-card">
-                        <h3>About Cody</h3>
-                        <p>Cody turns raw ideas into actionable plans. It guides you through discovery, requirements, and implementation so you know what to build and why, before AI starts coding.</p>                   
-                    </div>
-                    <div class="homepage-feature-card">
-                        <h3>Build with Structure</h3>
-                        <p>Cody breaks projects into manageable versions. It organizes your backlog, tasks, and retrospectives so you can move fast, stay aligned, and iterate without chaos.</p>
-                    </div>
-                    <div class="homepage-feature-card">
-                        <h3>Collaborate with AI</h3>
-                        <p>Cody works inside your AI coding tools; Claude Code, Cursor, Gemini CLI, Copilot, and more. It keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
-                        <div class="mt-md">
-                            <a href="{{ .Site.Params.cody }}" class="btn-primary" target="_blank">Build with Cody</a>
                         </div>
                     </div>
                 </div>
