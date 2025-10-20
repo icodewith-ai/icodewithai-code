@@ -1,5 +1,5 @@
 +++
-question = "What can you build with AI?"
+question = "What can I build with AI?"
 date = "2025-10-20"
 draft = false
 +++
