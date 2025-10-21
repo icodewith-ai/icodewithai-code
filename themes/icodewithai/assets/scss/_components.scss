@@ -586,6 +586,17 @@
   color: $primary-500;
 }
 
+// Section Tagline
+// -----------------------------------------------------------------------------
+.section-tagline {
+  font-size: $font-size-xl;
+  color: $neutral-400;
+  max-width: $content-2x-max-width;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+  font-weight: $font-weight-normal;
+}
+
 // Bio Section
 // -----------------------------------------------------------------------------
 .bio-content {
