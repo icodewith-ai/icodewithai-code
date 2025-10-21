@@ -1,0 +1,89 @@
+{{/*
+  Scrolling Carousel Partial
+
+  Used for template files (not content files). For content files, use the scrolling-carousel shortcode.
+
+  Parameters:
+  - scroll: "auto" | "none" (default: "auto")
+  - speed: "slow" | "fast" (default: "slow")
+  - direction: "left" | "right" (default: "left")
+  - width: Card width (default: "300px")
+  - height: Card height (default: "200px")
+  - items: Array of dicts with icon, heading, description, link
+  - context: Current page context (pass with "context" .)
+*/}}
+
+{{ $scroll := .scroll | default "auto" }}
+{{ $speed := .speed | default "slow" }}
+{{ $direction := .direction | default "left" }}
+{{ $width := .width | default "300px" }}
+{{ $height := .height | default "220px" }}
+{{ $items := .items }}
+{{ $context := .context }}
+
+{{ $uniqueId := printf "carousel-%d" now.UnixNano }}
+
+<div
+  class="scrolling-carousel"
+  id="{{ $uniqueId }}"
+  data-carousel
+  data-scroll="{{ $scroll }}"
+  data-speed="{{ $speed }}"
+  data-direction="{{ $direction }}"
+  data-width="{{ $width }}"
+  data-height="{{ $height }}"
+  role="region"
+  aria-label="Scrolling content carousel"
+>
+  <div class="scrolling-carousel__container">
+    <div class="scrolling-carousel__track" data-carousel-track>
+      {{ range $items }}
+        {{ $icon := .icon }}
+        {{ $heading := .heading }}
+        {{ $description := .description | default "" }}
+        {{ $link := .link }}
+
+        <div class="scrolling-carousel__item" data-carousel-item>
+          <a href="{{ $link }}" class="scrolling-carousel__card">
+            {{ if $icon }}
+              {{ $iconImage := "" }}
+              {{ $iconPath := "" }}
+
+              {{/* Try to get as theme resource first (for /images/icons/ paths) */}}
+              {{ $iconImage = resources.Get (strings.TrimPrefix "/" $icon) }}
+
+              {{/* If not found as resource, use direct path (for page bundle resources) */}}
+              {{ if $iconImage }}
+                {{ $iconPath = $iconImage.RelPermalink }}
+              {{ else }}
+                {{/* Direct path for page bundle resources like /apps/treex/icon.png */}}
+                {{ $iconPath = $icon }}
+              {{ end }}
+
+              {{ if $iconPath }}
+                <div class="scrolling-carousel__icon">
+                  <img src="{{ $iconPath }}" alt="{{ $heading }} icon" loading="lazy">
+                </div>
+              {{ end }}
+            {{ end }}
+
+            <div class="scrolling-carousel__content">
+              {{ if $heading }}
+                <h3 class="scrolling-carousel__heading">{{ $heading }}</h3>
+              {{ end }}
+
+              {{ if $description }}
+                <p class="scrolling-carousel__description">{{ $description }}</p>
+              {{ end }}
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+{{ $carouselJS := resources.Get "js/scrolling-carousel.js" | resources.Minify | resources.Fingerprint }}
+{{ if $carouselJS }}
+<script src="{{ $carouselJS.RelPermalink }}"></script>
+{{ end }}

@@ -1,0 +1,129 @@
+{{/*
+  Scrolling Carousel Shortcode
+
+  Creates an infinite scrolling carousel component for displaying content cards with icons,
+  headings, optional descriptions, and clickable links. Supports configurable auto-scroll,
+  speed, direction, and card dimensions.
+
+  Usage in Content Files (.md):
+  ------------------------------
+  {{< scrolling-carousel scroll="auto" speed="slow" direction="left" width="300px" height="200px" >}}
+    {{< carousel-item icon="/images/icons/icon-apps.png" heading="TreeX" description="Task management app" link="/apps/treex/" >}}
+    {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" description="Read our latest posts" link="/blog/" >}}
+    {{< carousel-item icon="/images/icons/icon-podcast.png" heading="Podcast" link="/podcast/" >}}
+  {{< /scrolling-carousel >}}
+
+  Usage in Template Files (.html):
+  ---------------------------------
+  Use the partial instead: {{ partial "scrolling-carousel.html" (dict ...) }}
+  See /themes/icodewithai/layouts/partials/scrolling-carousel.html for details.
+
+  Parameters:
+  -----------
+  - scroll (optional): "auto" | "none" (default: "auto")
+    - "auto": Carousel auto-scrolls continuously
+    - "none": Carousel is static (no auto-scroll)
+
+  - speed (optional): "slow" | "fast" (default: "slow")
+    - "slow": 30px per second
+    - "fast": 60px per second
+
+  - direction (optional): "left" | "right" (default: "left")
+    - "left": Scrolls from right to left
+    - "right": Scrolls from left to right
+
+  - width (optional): Card width value (default: "300px")
+    - Examples: "300px", "20rem", "15vw"
+    - Applies to all cards in the carousel
+
+  - height (optional): Card height value (default: "200px")
+    - Examples: "200px", "15rem", "10vh"
+    - Applies to all cards in the carousel
+
+  Nested carousel-item Parameters:
+  ---------------------------------
+  - icon (required): Path to icon/image file
+  - heading (required): Card heading text
+  - description (optional): Short description text
+  - link (required): URL or path for the clickable card
+
+  Examples:
+  ---------
+  Example 1: Auto-scrolling carousel (default settings)
+  {{< scrolling-carousel >}}
+    {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" description="Explore our apps" link="/apps/" >}}
+    {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" description="Read our posts" link="/blog/" >}}
+    {{< carousel-item icon="/images/icons/icon-podcast.png" heading="Podcast" link="/podcast/" >}}
+  {{< /scrolling-carousel >}}
+
+  Example 2: Fast scrolling right with custom dimensions
+  {{< scrolling-carousel scroll="auto" speed="fast" direction="right" width="320px" height="240px" >}}
+    {{< carousel-item icon="/images/icons/icon-presentation.png" heading="Presentations" link="/presentations/" >}}
+  {{< /scrolling-carousel >}}
+
+  Example 3: Using page bundle icons (from content folders)
+  {{< scrolling-carousel width="280px" height="220px" >}}
+    {{< carousel-item icon="/apps/treex/icon.png" heading="TreeX" description="Task management" link="/apps/treex/" >}}
+    {{< carousel-item icon="/apps/galactic-invaders/icon.png" heading="Galactic Invaders" link="/apps/galactic-invaders/" >}}
+  {{< /scrolling-carousel >}}
+
+  Example 4: Static carousel (no auto-scroll)
+  {{< scrolling-carousel scroll="none" >}}
+    {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" link="/apps/" >}}
+  {{< /scrolling-carousel >}}
+
+  Features:
+  ---------
+  - Infinite scroll: Seamless looping with no visual jumps
+  - Interactive: Pause on hover, resume on mouse leave
+  - Configurable: Control scroll behavior, speed, direction, and card size
+  - Responsive: Adapts to container width, works on all devices
+  - Accessible: ARIA attributes, keyboard navigation, reduced motion support
+  - Touch-friendly: Pause on touch for mobile devices
+
+  Notes:
+  ------
+  - Requires at least 3 items for optimal infinite scroll effect
+  - Cards automatically clone for seamless looping
+  - Edge fade gradients respect container boundaries
+  - JavaScript is automatically included
+*/}}
+
+{{/* Get configuration parameters with defaults */}}
+{{ $scroll := .Get "scroll" | default "auto" }}
+{{ $speed := .Get "speed" | default "slow" }}
+{{ $direction := .Get "direction" | default "left" }}
+{{ $width := .Get "width" | default "300px" }}
+{{ $height := .Get "height" | default "200px" }}
+
+{{/* Generate unique ID for this carousel instance */}}
+{{ $uniqueId := printf "carousel-%d" now.UnixNano }}
+
+{{/* Scrolling Carousel Container */}}
+<div
+  class="scrolling-carousel"
+  id="{{ $uniqueId }}"
+  data-carousel
+  data-scroll="{{ $scroll }}"
+  data-speed="{{ $speed }}"
+  data-direction="{{ $direction }}"
+  data-width="{{ $width }}"
+  data-height="{{ $height }}"
+  role="region"
+  aria-label="Scrolling content carousel"
+>
+  {{/* Carousel viewport/container */}}
+  <div class="scrolling-carousel__container">
+    {{/* Carousel track (holds all items) */}}
+    <div class="scrolling-carousel__track" data-carousel-track>
+      {{/* Inner content will be rendered here by Hugo */}}
+      {{ .Inner }}
+    </div>
+  </div>
+</div>
+
+{{/* Load Scrolling Carousel JavaScript */}}
+{{ $carouselJS := resources.Get "js/scrolling-carousel.js" | resources.Minify | resources.Fingerprint }}
+{{ if $carouselJS }}
+<script src="{{ $carouselJS.RelPermalink }}"></script>
+{{ end }}

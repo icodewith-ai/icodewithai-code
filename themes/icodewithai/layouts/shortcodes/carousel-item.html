@@ -1,0 +1,65 @@
+{{/*
+  Carousel Item Shortcode
+
+  Nested shortcode for defining individual items within a scrolling-carousel.
+  Must be used inside {{< scrolling-carousel >}}...{{< /scrolling-carousel >}}
+
+  Parameters:
+  -----------
+  - icon (required): Path to icon/image file
+  - heading (required): Card heading text
+  - description (optional): Short description text
+  - link (required): URL or path for the clickable card
+
+  Usage:
+  ------
+  {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" description="Explore our apps" link="/apps/" >}}
+  {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" link="/blog/" >}}
+*/}}
+
+{{/* Get parameters */}}
+{{ $icon := .Get "icon" }}
+{{ $heading := .Get "heading" }}
+{{ $description := .Get "description" | default "" }}
+{{ $link := .Get "link" }}
+
+{{/* Carousel Item */}}
+<div class="scrolling-carousel__item" data-carousel-item>
+  <a href="{{ $link }}" class="scrolling-carousel__card">
+    {{/* Icon/Image */}}
+    {{ if $icon }}
+      {{ $iconImage := "" }}
+      {{ $iconPath := "" }}
+
+      {{/* Try to get as theme resource first (for /images/icons/ paths) */}}
+      {{ $iconImage = resources.Get (strings.TrimPrefix "/" $icon) }}
+
+      {{/* If not found as resource, use direct path (for page bundle resources) */}}
+      {{ if $iconImage }}
+        {{ $iconPath = $iconImage.RelPermalink }}
+      {{ else }}
+        {{/* Direct path for page bundle resources like /apps/treex/icon.png */}}
+        {{ $iconPath = $icon }}
+      {{ end }}
+
+      {{ if $iconPath }}
+        <div class="scrolling-carousel__icon">
+          <img src="{{ $iconPath }}" alt="{{ $heading }} icon" loading="lazy">
+        </div>
+      {{ end }}
+    {{ end }}
+
+    {{/* Content */}}
+    <div class="scrolling-carousel__content">
+      {{/* Heading */}}
+      {{ if $heading }}
+        <h3 class="scrolling-carousel__heading">{{ $heading }}</h3>
+      {{ end }}
+
+      {{/* Description (optional) */}}
+      {{ if $description }}
+        <p class="scrolling-carousel__description">{{ $description }}</p>
+      {{ end }}
+    </div>
+  </a>
+</div>

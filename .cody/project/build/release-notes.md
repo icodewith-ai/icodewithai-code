@@ -3,10 +3,187 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.6.0-scrolling-component - October 21, 2025](#v160-scrolling-component---october-21-2025)
 - [v1.5.0-faq-component - October 20, 2025](#v150-faq-component---october-20-2025)
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.6.0-scrolling-component - October 21, 2025
+
+## Overview
+
+Created a production-ready, reusable infinite scrolling carousel component for displaying content cards with icons, headings, optional descriptions, and clickable links. The component features seamless infinite scrolling with configurable auto-scroll, speed, direction, dynamic card dimensions, and pause-on-hover interactions. Replaced the static "Explore" section on the home page with the new dynamic carousel.
+
+## Key Features
+
+**Component Architecture**
+- **Hugo Shortcode** (`layouts/shortcodes/scrolling-carousel.html`): For use in content files with nested `carousel-item` shortcodes
+- **Hugo Partial** (`layouts/partials/scrolling-carousel.html`): For use in templates with dictionary-based item configuration
+- **Nested Shortcode** (`layouts/shortcodes/carousel-item.html`): Clean syntax for defining individual carousel items
+- Both shortcode and partial variants share core functionality
+- Modular SCSS in `assets/scss/components/_scrolling-carousel.scss`
+- Standalone JavaScript in `assets/js/scrolling-carousel.js`
+
+**Infinite Scrolling System**
+- Seamless infinite loop scrolling with automatic item cloning (2x multiplier)
+- RequestAnimationFrame-based animation for smooth 60fps performance
+- Configurable scroll behavior: `auto` (default) or `none`
+- Configurable speed: `slow` (30px/s, default) or `fast` (60px/s)
+- Configurable direction: `left` (default) or `right`
+- Intelligent position reset for both scroll directions
+- No visual jumps or layout shifts during loop reset
+
+**Interactive Features**
+- Pause scrolling on mouse hover (desktop)
+- Resume scrolling on mouse leave
+- Pause on touch events (mobile)
+- Smooth timestamp reset prevents animation jumps
+- Hover effects on cards (lift, scale, glow, border color)
+- Clickable cards with full link support
+
+**Dynamic Sizing**
+- Configurable card dimensions via `width` and `height` parameters (any CSS unit)
+- Dynamic dimensions applied via CSS custom properties
+- Icon size scales proportionally (30% of card width)
+- Maximum icon constraints (80px desktop, 64px mobile)
+- Aspect ratio maintains square icons
+- Responsive spacing adjustments
+
+**Visual Design**
+- Dark theme with green accent hover effects (`$primary-500`)
+- Edge fade gradients on left and right sides (150px desktop, 80px mobile)
+- Smooth CSS transitions on all interactions
+- Card hover: subtle lift (-2px), icon scale (1.05), border glow, shadow
+- Rounded corners and consistent spacing
+- Text overflow handling with ellipsis
+
+**Icon Path Flexibility**
+- Supports theme assets: `/images/icons/icon-apps.png` (Hugo resources)
+- Supports page bundle resources: `/apps/treex/icon.png` (direct paths)
+- Automatic detection and handling of both path types
+- Fallback system ensures icons always display
+
+**Accessibility Features**
+- ARIA attributes (`role="region"`, `aria-label`)
+- Cloned items hidden from screen readers (`aria-hidden="true"`)
+- Keyboard navigation via native tab support through card links
+- Focus indicators on all interactive elements
+- Reduced motion support (respects `prefers-reduced-motion`)
+- Auto-scroll disabled when user prefers reduced motion
+
+**Performance Optimizations**
+- GPU acceleration via CSS transforms
+- Lazy loading for images (`loading="lazy"`)
+- Conditional JavaScript loading (only when carousel exists)
+- Efficient item cloning (once on initialization)
+- Passive event listeners for touch events
+- Memory management with animation cleanup on page unload
+- Hugo Pipes minification and fingerprinting
+
+## Home Page Integration
+
+**Explore Section Redesign**
+- Replaced static single card with dynamic scrolling carousel
+- 6 test items: App Gallery, Blog, Podcast, Presentations, Vibe Coding, Cody Framework
+- Each item includes icon, heading, and short description
+- "View All →" text link below carousel (matching Learn section style)
+- Updated section heading spacing for cleaner layout
+- Container padding prevents hover border cut-off
+
+**Configuration**
+- Scroll: `auto`
+- Speed: `slow`
+- Direction: `left`
+- Card dimensions: 280px × 220px
+- Icons scale to ~84px (30% of 280px width)
+
+## Technical Implementation
+
+**Files Created:**
+- `themes/icodewithai/layouts/shortcodes/scrolling-carousel.html` - Main shortcode
+- `themes/icodewithai/layouts/shortcodes/carousel-item.html` - Nested item shortcode
+- `themes/icodewithai/layouts/partials/scrolling-carousel.html` - Partial variant for templates
+- `themes/icodewithai/assets/scss/components/_scrolling-carousel.scss` - Component styles (~250 lines)
+- `themes/icodewithai/assets/js/scrolling-carousel.js` - Animation logic (~180 lines)
+
+**Files Modified:**
+- `themes/icodewithai/layouts/index.html` - Replaced Explore section
+- `themes/icodewithai/assets/scss/_components.scss` - Added module import
+- `.cody/project/library/docs/components.md` - Added comprehensive documentation
+
+**Bug Fixes During Development:**
+- Fixed hover border being cut off at top (added container padding)
+- Fixed right direction infinite scroll not working (position initialization)
+- Fixed icon path handling for page bundles (dual-path support)
+- Adjusted heading spacing (single line break between heading and description)
+- Changed "View All Apps" button to text link style
+
+## Documentation
+
+**Component Documentation**
+- Comprehensive documentation added to `.cody/project/library/docs/components.md`
+- Table of Contents for easy navigation
+- Complete technical specifications
+- HTML structure and CSS class reference
+- JavaScript functionality details
+- Parameter definitions with defaults
+- Icon path support explanation
+- Visual design specifications
+- Responsive behavior documentation
+- Accessibility features
+- Performance optimizations
+- 4 usage examples (default, fast right-scroll, page bundles, static)
+
+**Inline Documentation**
+- Extensive comments in shortcode files
+- SCSS comments documenting component sections
+- JavaScript function and logic documentation
+- Usage examples in shortcode header
+
+## Testing
+
+- Tested with varying item counts (6 items in production)
+- Tested all parameter combinations (scroll, speed, direction)
+- Tested responsive breakpoints (mobile, tablet, desktop)
+- Tested browser compatibility (build successful)
+- Performance verified (smooth 60fps animation)
+- Hover/touch interactions confirmed working
+- Infinite scroll in both directions validated
+- Reduced motion support tested
+- Accessibility features verified
+
+## Impact
+
+**User Experience:**
+- More dynamic and engaging Explore section
+- Visual interest with auto-scrolling content
+- Better content discovery with multiple visible items
+- Consistent interaction patterns (pause on hover)
+
+**Developer Experience:**
+- Reusable component for future carousel needs
+- Clear documentation and examples
+- Flexible configuration options
+- Works in both content files and templates
+
+**Performance:**
+- Minimal performance impact (efficient animation)
+- Lazy loading reduces initial load
+- GPU acceleration for smooth scrolling
+- Clean memory management
+
+## Future Enhancements
+
+Potential improvements for future versions:
+- Variable speed control (custom px/s values)
+- Swipe gestures for mobile manual scrolling
+- Autoplay pause/resume controls
+- Progress indicators or dots
+- Custom fade gradient colors
+- Animation easing options
 
 ---
 

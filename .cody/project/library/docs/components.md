@@ -2,6 +2,20 @@
 
 This document provides detailed specifications for reusable UI components in the iCodeWith.ai website.
 
+## Table of Contents
+
+- [Photo Gallery Component](#photo-gallery-component)
+- [Split Card Component](#split-card-component)
+- [Homepage Feature Card Component](#homepage-feature-card-component)
+- [Footer Component](#footer-component)
+- [Section Link Component](#section-link-component)
+- [Image Asset Management](#image-asset-management)
+- [FAQ Accordion Component](#faq-accordion-component)
+- [Scrolling Carousel Component](#scrolling-carousel-component)
+- [Future Component Additions](#future-component-additions)
+
+---
+
 ## Photo Gallery Component
 
 ### Overview
@@ -624,6 +638,300 @@ Theme images are now processed through Hugo Pipes for consistent asset managemen
 
 ---
 
+## FAQ Accordion Component
+
+### Overview
+The FAQ accordion component provides an accessible, interactive FAQ system with expand/collapse functionality. Only one FAQ can be open at a time, ensuring focused user experience.
+
+### Technical Specifications
+
+#### Hugo Shortcode
+**File**: `themes/icodewithai/layouts/shortcodes/faq.html`
+
+**Usage in Content Files:**
+```hugo
+{{< faq "what-is-sdd,who-are-vibe-coders,what-do-vibe-coders-build" />}}
+```
+
+**Usage in Templates:**
+```hugo
+{{ partial "faq-accordion.html" (dict "faqs" "faq-slug-1,faq-slug-2" "context" .) }}
+```
+
+#### HTML Structure
+```html
+<div class="faq-accordion" data-faq-accordion>
+    <div class="faq-item" data-faq-item>
+        <button class="faq-header" aria-expanded="false" aria-controls="faq-content-1" data-faq-toggle>
+            <span class="faq-question">Question text</span>
+            <span class="faq-chevron" aria-hidden="true">
+                <svg>...</svg>
+            </span>
+        </button>
+        <div class="faq-content" id="faq-content-1" hidden>
+            <div class="faq-answer">
+                Answer content (supports full markdown)
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+#### CSS Classes
+
+| Class | Purpose |
+|-------|---------|
+| `.faq-accordion` | Main container with flexbox layout and gap spacing |
+| `.faq-item` | Individual FAQ container with border and hover effects |
+| `.faq-header` | Clickable button with question text and chevron icon |
+| `.faq-question` | Question text with hover color transition |
+| `.faq-chevron` | Animated chevron that rotates 180° when expanded |
+| `.faq-content` | Collapsible content area (hidden by default) |
+| `.faq-answer` | Answer content wrapper with padding and spacing |
+
+#### JavaScript Functionality
+- **File**: `themes/icodewithai/assets/js/faq-accordion.js`
+- **Loading**: Conditional (only when FAQ exists)
+- **Processing**: Hugo Pipes minification and fingerprinting
+
+**Features:**
+- One FAQ open at a time (auto-closes others)
+- Click to toggle expand/collapse
+- Keyboard navigation (Enter/Space to toggle, Arrow keys to navigate)
+- ARIA accessibility attributes
+- Smooth animations
+- Support for multiple FAQ components on same page
+
+### Content Structure
+
+FAQ content files stored in `content/faq/` with this frontmatter:
+```yaml
++++
+question = "Your question here?"
+date = "2025-10-20"
+draft = false
++++
+
+Your answer here. Supports full markdown including links, lists, code blocks, etc.
+```
+
+### Visual Design
+
+#### Colors
+- **Background**: `$neutral-900` - Dark background
+- **Border**: `$neutral-700` - Standard border, `$primary-500` on hover/active
+- **Text**: `$neutral-100` - White text, `$primary-500` on hover
+- **Hover Background**: `rgba($primary-500, 0.05)` - Subtle green tint
+
+#### Animations
+- **Chevron Rotation**: 180° transform on expand
+- **Transition Speed**: `$transition-fast` for smooth interactions
+
+### Responsive Behavior
+- Fully responsive with flexible width
+- Touch-friendly tap targets
+- Maintains consistent spacing across breakpoints
+
+### Accessibility Features
+- ARIA attributes (`aria-expanded`, `aria-controls`, `aria-labelledby`)
+- Keyboard navigation support
+- Screen reader friendly
+- Hidden attribute for collapsed content
+- Logical focus management
+
+### Performance Optimizations
+- Conditional JavaScript loading
+- Efficient DOM manipulation
+- CSS transitions for animations
+- Single event delegation per accordion
+
+---
+
+## Scrolling Carousel Component
+
+### Overview
+The scrolling carousel component provides an infinite horizontal scrolling system for displaying content cards with icons, headings, optional descriptions, and clickable links. Supports configurable auto-scroll, speed, direction, and dynamic card dimensions.
+
+### Technical Specifications
+
+#### Hugo Shortcode
+**File**: `themes/icodewithai/layouts/shortcodes/scrolling-carousel.html`
+
+**Usage in Content Files (.md):**
+```hugo
+{{< scrolling-carousel scroll="auto" speed="slow" direction="left" width="300px" height="200px" >}}
+  {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" description="Explore our apps" link="/apps/" >}}
+  {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" link="/blog/" >}}
+{{< /scrolling-carousel >}}
+```
+
+**Usage in Templates (.html):**
+```hugo
+{{ partial "scrolling-carousel.html" (dict
+    "scroll" "auto"
+    "speed" "slow"
+    "direction" "left"
+    "width" "280px"
+    "height" "220px"
+    "items" (slice
+        (dict "icon" "/images/icons/icon-apps.png" "heading" "Apps" "description" "Explore apps" "link" "/apps/")
+        (dict "icon" "/apps/treex/icon.png" "heading" "TreeX" "link" "/apps/treex/")
+    )
+    "context" .
+) }}
+```
+
+#### HTML Structure
+```html
+<div class="scrolling-carousel" data-carousel data-scroll="auto" data-speed="slow" data-direction="left"
+     data-width="300px" data-height="220px" role="region" aria-label="Scrolling content carousel">
+    <div class="scrolling-carousel__container">
+        <div class="scrolling-carousel__track" data-carousel-track>
+            <div class="scrolling-carousel__item" data-carousel-item>
+                <a href="/link" class="scrolling-carousel__card">
+                    <div class="scrolling-carousel__icon">
+                        <img src="icon.png" alt="Icon" loading="lazy">
+                    </div>
+                    <div class="scrolling-carousel__content">
+                        <h3 class="scrolling-carousel__heading">Heading</h3>
+                        <p class="scrolling-carousel__description">Description</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Items are cloned 2x for infinite scroll -->
+        </div>
+    </div>
+</div>
+```
+
+#### CSS Classes
+
+| Class | Purpose |
+|-------|---------|
+| `.scrolling-carousel` | Main container with max-width and padding |
+| `.scrolling-carousel__container` | Viewport with overflow hidden and edge fade gradients |
+| `.scrolling-carousel__track` | Flex container with transform animations |
+| `.scrolling-carousel__item` | Individual card wrapper with dynamic dimensions |
+| `.scrolling-carousel__card` | Clickable card with hover effects and transitions |
+| `.scrolling-carousel__icon` | Icon container (30% width, scales with card size) |
+| `.scrolling-carousel__heading` | Card heading with text overflow handling |
+| `.scrolling-carousel__description` | Optional description with text overflow handling |
+
+#### JavaScript Functionality
+- **File**: `themes/icodewithai/assets/js/scrolling-carousel.js`
+- **Loading**: Conditional (only when carousel exists)
+- **Processing**: Hugo Pipes minification and fingerprinting
+
+**Features:**
+- Infinite seamless scrolling with item cloning (2x multiplier)
+- RequestAnimationFrame for smooth 60fps animation
+- Configurable scroll speed (slow: 30px/s, fast: 60px/s)
+- Configurable direction (left/right)
+- Pause on hover/touch, resume on mouse leave
+- Dynamic card dimensions via CSS custom properties
+- Reduced motion support (respects prefers-reduced-motion)
+- Touch/swipe support for mobile devices
+
+### Parameters
+
+#### Carousel Parameters
+- **scroll**: `"auto"` (default) | `"none"` - Enable/disable auto-scrolling
+- **speed**: `"slow"` (default, 30px/s) | `"fast"` (60px/s)
+- **direction**: `"left"` (default) | `"right"` - Scroll direction
+- **width**: Card width (default: `"300px"`) - Any CSS unit
+- **height**: Card height (default: `"200px"`) - Any CSS unit
+
+#### Item Parameters
+- **icon** (required): Path to icon/image (supports theme assets or page bundles)
+- **heading** (required): Card heading text
+- **description** (optional): Short description text
+- **link** (required): URL or path for the clickable card
+
+### Icon Path Support
+The component supports two icon sources:
+1. **Theme Assets**: `/images/icons/icon-apps.png` (processed via Hugo Pipes)
+2. **Page Bundles**: `/apps/treex/icon.png` (direct path to content folder images)
+
+### Visual Design
+
+#### Colors
+- **Card Background**: `$neutral-800` - Dark background
+- **Card Border**: `$neutral-700` - Standard border, `rgba($primary-500, 0.5)` on hover
+- **Text**: `$neutral-100` - White text, `$primary-500` on heading hover
+- **Edge Fade**: `$neutral-900` gradient (150px width, 100px on mobile)
+
+#### Dimensions
+- **Container**: Respects `$container-max-width` with padding
+- **Icon Size**: 30% of card width, max 80px (desktop), 64px (mobile)
+- **Card Spacing**: `$spacing-md` gap (desktop), `$spacing-sm` (mobile)
+
+#### Animations
+- **Scroll Animation**: Smooth CSS transform with requestAnimationFrame
+- **Hover Effects**: Lift (-2px translateY), scale icon (1.05), glow shadow
+- **Transition Speed**: `$transition-fast` for all interactions
+
+### Responsive Behavior
+
+#### Desktop
+- Full-size cards with configured dimensions
+- Larger edge fade gradients (150px)
+- Full hover effects
+
+#### Mobile (≤1050px)
+- Smaller edge fade gradients (80px)
+- Tighter card spacing
+- Smaller max icon size (64px)
+- Touch-optimized interactions
+
+### Accessibility Features
+- ARIA attributes (`role="region"`, `aria-label`, `aria-hidden` on clones)
+- Keyboard navigation (native tab support through card links)
+- Focus indicators on all interactive elements
+- Reduced motion support (disables auto-scroll when preferred)
+- Screen reader friendly (clones hidden from assistive technology)
+
+### Performance Optimizations
+- **GPU Acceleration**: CSS transform for smooth animations
+- **RequestAnimationFrame**: 60fps animation loop
+- **Lazy Loading**: Images use `loading="lazy"` attribute
+- **Conditional Loading**: JavaScript only loads when carousel exists
+- **Passive Event Listeners**: Touch events use passive flag
+- **Efficient Cloning**: Items cloned once on initialization
+- **Memory Management**: Animation cleanup on page unload
+
+### Usage Examples
+
+#### Example 1: Default Auto-Scrolling Carousel
+```hugo
+{{< scrolling-carousel >}}
+  {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" link="/apps/" >}}
+{{< /scrolling-carousel >}}
+```
+
+#### Example 2: Fast Right-Scrolling with Custom Dimensions
+```hugo
+{{< scrolling-carousel scroll="auto" speed="fast" direction="right" width="320px" height="240px" >}}
+  {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" link="/blog/" >}}
+{{< /scrolling-carousel >}}
+```
+
+#### Example 3: Using Page Bundle Icons
+```hugo
+{{< scrolling-carousel width="280px" height="220px" >}}
+  {{< carousel-item icon="/apps/treex/icon.png" heading="TreeX" description="Task management" link="/apps/treex/" >}}
+  {{< carousel-item icon="/apps/galactic-invaders/icon.png" heading="Game" link="/apps/galactic-invaders/" >}}
+{{< /scrolling-carousel >}}
+```
+
+#### Example 4: Static Carousel (No Auto-Scroll)
+```hugo
+{{< scrolling-carousel scroll="none" >}}
+  {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" link="/apps/" >}}
+{{< /scrolling-carousel >}}
+```
+
+---
+
 ## Future Component Additions
 
 This document should be expanded as new components are added to the design system:
@@ -631,7 +939,6 @@ This document should be expanded as new components are added to the design syste
 - Modal/Dialog components
 - Form components
 - Tab components
-- Accordion components
 - Toast/notification components
 
 Each new component should include:

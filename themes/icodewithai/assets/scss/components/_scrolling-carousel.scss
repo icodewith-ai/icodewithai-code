@@ -1,0 +1,265 @@
+// =============================================================================
+// SCROLLING CAROUSEL COMPONENT
+// =============================================================================
+//
+// Infinite scrolling carousel for displaying content cards with icons, headings,
+// and optional descriptions. Supports auto-scroll, configurable speed/direction,
+// hover interactions, and edge fade effects.
+//
+// Features:
+// - Infinite horizontal scrolling with seamless looping
+// - Configurable auto-scroll, speed, and direction
+// - Pause on hover/touch
+// - Edge fade gradients for smooth visual boundaries
+// - Responsive card sizing
+// - Dark theme with green accent hover effects
+// - Accessible with keyboard navigation support
+// =============================================================================
+
+// Carousel Container
+// -----------------------------------------------------------------------------
+.scrolling-carousel {
+  position: relative;
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  overflow: hidden;
+
+  // Accessibility: Respect reduced motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    .scrolling-carousel__track {
+      animation: none !important;
+    }
+  }
+}
+
+// Carousel Viewport/Container
+// -----------------------------------------------------------------------------
+.scrolling-carousel__container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 4px 0; // Add padding to prevent hover border from being cut off
+
+  // Edge fade gradients
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity $transition-fast;
+  }
+
+  // Left fade
+  &::before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      $neutral-900 0%,
+      rgba($neutral-900, 0.8) 30%,
+      rgba($neutral-900, 0) 100%
+    );
+  }
+
+  // Right fade
+  &::after {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      $neutral-900 0%,
+      rgba($neutral-900, 0.8) 30%,
+      rgba($neutral-900, 0) 100%
+    );
+  }
+}
+
+// Carousel Track (holds all items)
+// -----------------------------------------------------------------------------
+.scrolling-carousel__track {
+  display: flex;
+  gap: $spacing-md;
+  width: max-content;
+  transition: transform $transition-fast;
+  will-change: transform;
+
+  // Pause animation on hover
+  .scrolling-carousel:hover & {
+    animation-play-state: paused;
+  }
+}
+
+// Individual Carousel Item
+// -----------------------------------------------------------------------------
+.scrolling-carousel__item {
+  flex-shrink: 0;
+  display: block;
+
+  // Dynamic dimensions set via JavaScript using CSS custom properties
+  width: var(--carousel-item-width, 300px);
+  height: var(--carousel-item-height, 200px);
+}
+
+// Carousel Card (clickable wrapper)
+// -----------------------------------------------------------------------------
+.scrolling-carousel__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: $spacing-lg;
+  background: $neutral-800;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-lg;
+  text-decoration: none;
+  color: $neutral-100;
+  transition: $transition-fast;
+  position: relative;
+  overflow: hidden;
+
+  // Hover effect - similar to FAQ component
+  &:hover {
+    border-color: rgba($primary-500, 0.5);
+    background: rgba($neutral-800, 0.8);
+    transform: translateY(-2px);
+    box-shadow:
+      0 4px 12px rgba($primary-500, 0.2),
+      0 0 20px rgba($primary-500, 0.1);
+
+    .scrolling-carousel__heading {
+      color: $primary-500;
+    }
+
+    .scrolling-carousel__icon img {
+      transform: scale(1.05);
+    }
+  }
+
+  // Focus state for accessibility
+  &:focus {
+    outline: 2px solid $primary-500;
+    outline-offset: 2px;
+    border-color: $primary-500;
+  }
+
+  // Active/pressed state
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Icon Container
+// -----------------------------------------------------------------------------
+.scrolling-carousel__icon {
+  flex-shrink: 0;
+  width: 30%; // Scale with card width
+  max-width: 80px; // Cap maximum size
+  aspect-ratio: 1; // Maintain square shape
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform $transition-fast;
+  }
+}
+
+// Content Container
+// -----------------------------------------------------------------------------
+.scrolling-carousel__content {
+  text-align: center;
+  width: 100%;
+}
+
+// Heading
+// -----------------------------------------------------------------------------
+.scrolling-carousel__heading {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $neutral-100;
+  margin: 0 0 $spacing-xs 0;
+  transition: color $transition-fast;
+  line-height: $line-height-tight;
+
+  // Prevent text overflow
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// Description (optional)
+// -----------------------------------------------------------------------------
+.scrolling-carousel__description {
+  font-size: $font-size-sm;
+  color: $neutral-400;
+  margin: 0;
+  line-height: $line-height-base;
+
+  // Prevent text overflow
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// Responsive Adjustments
+// -----------------------------------------------------------------------------
+@media (max-width: $breakpoint-tablet) {
+  .scrolling-carousel {
+    padding: 0 $spacing-md;
+  }
+
+  .scrolling-carousel__container {
+    &::before,
+    &::after {
+      width: 80px; // Smaller fade on mobile
+    }
+  }
+
+  .scrolling-carousel__track {
+    gap: $spacing-sm; // Tighter spacing on mobile
+  }
+
+  .scrolling-carousel__icon {
+    width: 30%; // Keep proportional on mobile too
+    max-width: 64px; // Smaller max on mobile
+    margin-bottom: $spacing-sm;
+  }
+
+  .scrolling-carousel__heading {
+    font-size: $font-size-base;
+  }
+
+  .scrolling-carousel__description {
+    font-size: $font-size-xs;
+  }
+
+  .scrolling-carousel__card {
+    padding: $spacing-md;
+  }
+}
+
+// Touch Device Adjustments
+// -----------------------------------------------------------------------------
+@media (hover: none) and (pointer: coarse) {
+  .scrolling-carousel__card {
+    // Slightly larger tap target for mobile
+    &:active {
+      background: rgba($neutral-800, 0.9);
+      border-color: rgba($primary-500, 0.3);
+    }
+  }
+}

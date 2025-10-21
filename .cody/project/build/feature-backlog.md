@@ -14,6 +14,22 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.6.0-scrolling-component - 🟢 Completed
+Create a reusable infinite scrolling carousel component for displaying content cards (apps, features, etc.) with configurable auto-scroll, speed, direction, and hover interactions. Replace the current "Explore" section on the home page.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 8.1 | Scrolling carousel shortcode | Create Hugo shortcode with configurable scroll, speed, direction parameters | High | 🟢 Completed |
+| 8.2 | Card/box component | Build rectangular cards with icon, heading, optional description, and link | High | 🟢 Completed |
+| 8.3 | Infinite scroll JavaScript | Implement seamless infinite loop scrolling with pause on hover | High | 🟢 Completed |
+| 8.4 | Scroll controls | Add auto/none toggle, slow/fast speed, left/right direction controls | High | 🟢 Completed |
+| 8.5 | Edge fade effect | Implement gradient fade-out on both left and right edges | High | 🟢 Completed |
+| 8.6 | SCSS styling | Dark theme styling with green accents, hover effects matching FAQ component | High | 🟢 Completed |
+| 8.7 | Home page integration | Replace current "Explore" section with new scrolling component | High | 🟢 Completed |
+| 8.8 | Responsive design | Ensure horizontal scrolling works on mobile, tablet, and desktop | High | 🟢 Completed |
+| 8.9 | Accessibility | Add ARIA attributes, keyboard navigation support | Medium | 🟢 Completed |
+| 8.10 | Documentation | Add inline comments and usage examples for content creators | Medium | 🟢 Completed |
+
 ## v1.5.0-faq-component - 🟢 Completed
 Create a reusable FAQ accordion component for displaying frequently asked questions throughout the site. Individual FAQ content files stored in `content/faq/` with flexible ordering via Hugo shortcode.
 
