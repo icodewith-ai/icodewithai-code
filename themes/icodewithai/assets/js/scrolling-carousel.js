@@ -105,13 +105,19 @@
         const originalItemCount = items.length / (CLONE_MULTIPLIER + 1);
         let setWidth = 0;
 
+        // Get the gap value from the track's computed style
+        const trackStyle = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyle.gap) || parseFloat(trackStyle.columnGap) || 0;
+
         // Calculate total width of one set including gaps
         for (let i = 0; i < originalItemCount; i++) {
             const item = items[i];
-            const style = window.getComputedStyle(item);
-            const marginRight = parseFloat(style.marginRight) || 0;
-            setWidth += item.offsetWidth + marginRight;
+            setWidth += item.offsetWidth;
         }
+
+        // Add gaps: there should be (originalItemCount - 1) gaps between items,
+        // plus 1 gap after the last item (before the set repeats)
+        setWidth += gap * originalItemCount;
 
         // Initialize scroll position based on direction
         // For right scrolling, start at negative setWidth so it scrolls into view from left
@@ -131,16 +137,18 @@
 
                 scrollPosition += distance;
 
-                // Reset position for infinite loop
+                // Reset position for infinite loop using modulo for smoother wrapping
                 if (config.direction === 'left') {
                     // Scrolling left (negative direction)
+                    // When we've scrolled past one complete set, wrap back
                     if (scrollPosition <= -setWidth) {
-                        scrollPosition = scrollPosition + setWidth;
+                        scrollPosition = scrollPosition % -setWidth;
                     }
                 } else {
                     // Scrolling right (positive direction)
+                    // When we've scrolled past zero, wrap back
                     if (scrollPosition >= 0) {
-                        scrollPosition = scrollPosition - setWidth;
+                        scrollPosition = scrollPosition % setWidth - setWidth;
                     }
                 }
 
