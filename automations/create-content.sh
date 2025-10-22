@@ -45,35 +45,60 @@ echo ""
 TEMP_ARCHETYPE="archetypes/${CONTENT_TYPE}-temp.md"
 ORIGINAL_ARCHETYPE="archetypes/${CONTENT_TYPE}.md"
 
-# Create temporary archetype with the actual title
-cp "$ORIGINAL_ARCHETYPE" "$TEMP_ARCHETYPE"
+# Special handling for apps content type
+if [ "$CONTENT_TYPE" = "apps" ]; then
+    # Create folder structure for apps
+    APP_DIR="content/apps/$FILENAME"
+    echo "Creating app folder structure: $APP_DIR"
+    mkdir -p "$APP_DIR/photogallery"
 
-# Replace the title template with the actual title
-case "$CONTENT_TYPE" in
-    "blog")
-        sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
-        ;;
-    "apps")
-        sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
-        ;;
-    "presentations")
-        sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
-        ;;
-    "podcast")
-        sed -i.bak "s/title = \"\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
-        ;;
-esac
+    # Copy template assets
+    echo "Copying template assets..."
+    cp "automations/assets/icon.png" "$APP_DIR/icon.png"
+    cp "automations/assets/thumbnail.png" "$APP_DIR/thumbnail.png"
+    cp "automations/assets/photogallery.png" "$APP_DIR/photogallery/image01.png"
+    cp "automations/assets/photogallery.png" "$APP_DIR/photogallery/image02.png"
+    cp "automations/assets/photogallery.png" "$APP_DIR/photogallery/image03.png"
 
-# Create the Hugo content using the temporary archetype
-echo "Creating Hugo content: $CONTENT_TYPE/$FILENAME.md"
-hugo new content "$CONTENT_TYPE/$FILENAME.md" -k "${CONTENT_TYPE}-temp"
+    # Create index.md from archetype with variable replacement
+    echo "Creating index.md from archetype..."
+    CURRENT_DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
+    sed "s/{{ replace .Name \"-\" \" \" | title }}/$TITLE/g; s/{{ .Date }}/$CURRENT_DATE/g" \
+        "$ORIGINAL_ARCHETYPE" > "$APP_DIR/index.md"
 
-# Clean up temporary files
-rm "$TEMP_ARCHETYPE" "${TEMP_ARCHETYPE}.bak" 2>/dev/null
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to create app content"
+        exit 1
+    fi
+else
+    # Standard Hugo content creation for other content types
+    # Create temporary archetype with the actual title
+    cp "$ORIGINAL_ARCHETYPE" "$TEMP_ARCHETYPE"
 
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to create Hugo content"
-    exit 1
+    # Replace the title template with the actual title
+    case "$CONTENT_TYPE" in
+        "blog")
+            sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
+            ;;
+        "presentations")
+            sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
+            ;;
+        "podcast")
+            sed -i.bak "s/title = \"\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
+            ;;
+    esac
+
+    # Create the Hugo content using the temporary archetype
+    echo "Creating Hugo content: $CONTENT_TYPE/$FILENAME.md"
+    hugo new content "$CONTENT_TYPE/$FILENAME.md" -k "${CONTENT_TYPE}-temp"
+
+    # Clean up temporary files
+    rm "$TEMP_ARCHETYPE" "${TEMP_ARCHETYPE}.bak" 2>/dev/null
+
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to create Hugo content"
+        exit 1
+    fi
 fi
 
 # Create SEO directory if it doesn't exist
@@ -113,10 +138,23 @@ EOF
 
 echo ""
 echo "✅ Successfully created:"
-echo "  📝 Content: content/$CONTENT_TYPE/$FILENAME.md"
+if [ "$CONTENT_TYPE" = "apps" ]; then
+    echo "  📝 Content: content/apps/$FILENAME/index.md"
+    echo "  🖼️  Assets: icon.png, thumbnail.png"
+    echo "  🖼️  Gallery: photogallery/ (image01.png, image02.png, image03.png)"
+else
+    echo "  📝 Content: content/$CONTENT_TYPE/$FILENAME.md"
+fi
 echo "  🔍 SEO: $SEO_FILE"
 echo ""
 echo "Next steps:"
-echo "  1. Edit the content file to add your content"
-echo "  2. Update the description in the SEO file"
-echo "  3. Set draft=false when ready to publish"
+if [ "$CONTENT_TYPE" = "apps" ]; then
+    echo "  1. Replace template images (icon.png, thumbnail.png, photogallery images)"
+    echo "  2. Edit index.md to add app details"
+    echo "  3. Update the description in the SEO file"
+    echo "  4. Set draft=false when ready to publish"
+else
+    echo "  1. Edit the content file to add your content"
+    echo "  2. Update the description in the SEO file"
+    echo "  3. Set draft=false when ready to publish"
+fi

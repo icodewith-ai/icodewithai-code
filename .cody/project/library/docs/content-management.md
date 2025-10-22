@@ -36,11 +36,26 @@ Create new blog posts, app pages, or presentations using the automated script wi
 ```
 
 The automation script automatically creates:
+
+**For apps:**
+1. **Folder structure**: `content/apps/{app-name}/` with:
+   - `index.md` - Content file using Hugo archetype with title pre-filled
+   - `icon.png` - Template icon image (300x300px)
+   - `thumbnail.png` - Template thumbnail image (480x120px)
+   - `photogallery/` folder containing:
+     - `image01.png` - Template gallery image (800x450px)
+     - `image02.png` - Template gallery image (800x450px)
+     - `image03.png` - Template gallery image (800x450px)
+2. **SEO file**: `data/seo/content-types/apps/entries/{filename}.yaml` with default metadata
+
+**For other content types (blog, podcast, presentations):**
 1. **Content file**: `content/{type}/{filename}.md` using Hugo archetypes with the actual title pre-filled
 2. **SEO file**: `data/seo/content-types/{type}/entries/{filename}.yaml` with:
    - Title formatted as `[Title] | iCodeWith.ai`
    - Placeholder description `[Add description here]`
    - All required SEO metadata with default values
+
+**All content types:**
 3. **Filename conversion**: Converts titles to URL-friendly filenames (e.g., "How Good at Coding?" → `how-good-at-coding.md`)
 
 **Manual Hugo commands** (if needed):
