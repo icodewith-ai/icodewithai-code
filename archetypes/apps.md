@@ -1,6 +1,7 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 description = ""
+url_slug = "{{ replace .Name "-" " " }}"
 github_url = ""
 npm_url = ""
 preview_url = ""
