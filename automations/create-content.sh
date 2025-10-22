@@ -63,7 +63,7 @@ if [ "$CONTENT_TYPE" = "apps" ]; then
     # Create index.md from archetype with variable replacement
     echo "Creating index.md from archetype..."
     CURRENT_DATE=$(date +%Y-%m-%dT%H:%M:%S%z)
-    sed "s/{{ replace .Name \"-\" \" \" | title }}/$TITLE/g; s/{{ .Date }}/$CURRENT_DATE/g" \
+    sed "s/title = \"\"/title = \"$TITLE\"/g; s/url_slug = \"\"/url_slug = \"$FILENAME\"/g; s/date_created = \"\"/date_created = \"$CURRENT_DATE\"/g; s/date_updated = \"\"/date_updated = \"$CURRENT_DATE\"/g" \
         "$ORIGINAL_ARCHETYPE" > "$APP_DIR/index.md"
 
     if [ $? -ne 0 ]; then

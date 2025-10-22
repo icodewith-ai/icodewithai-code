@@ -1,13 +1,13 @@
 +++
-title = "{{ replace .Name "-" " " | title }}"
+title = ""
 description = ""
-url_slug = "{{ replace .Name "-" " " }}"
+url_slug = ""
 github_url = ""
 npm_url = ""
 preview_url = ""
 preview_label = ""
-date_created = "{{ .Date }}"
-date_updated = "{{ .Date }}"
+date_created = ""
+date_updated = ""
 current_version = ""
 draft = true
 builder = "Marcelo Lewin"
