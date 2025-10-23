@@ -1,5 +1,5 @@
 +++
-question = "Do I need to know how to code with AI?"
+question = "Why do I need to learn how to code with AI?"
 date = "2025-10-20"
 draft = false
 +++
