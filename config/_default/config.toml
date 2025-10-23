@@ -1,4 +1,4 @@
-title = 'iCodeWith.ai | From Vibe Coder to Professional Builder'
+title = 'iCodeWith.ai | From Vibe Coder to Product Builder'
 theme = 'icodewithai'
 languageCode = 'en-us'
 
@@ -21,9 +21,9 @@ enableRobotsTXT = true
   version = "1.6.0"
   last_updated = "2025-10-23"
   author = "Marcelo Lewin"
-  description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
-  short_description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
-  footer_description = "Learn how to use Spec Driven Development and AI to build production-ready, maintainable apps."
+  description = "Learn how to guide AI to build production-ready, maintainable apps."
+  short_description = "Learn how to guide AI to build production-ready, maintainable apps."
+  footer_description = "Learn how to guide AI to build production-ready, maintainable apps."
   
 
   # Page Slugs

@@ -13,6 +13,6 @@ You can build real-world, production-ready applications across many domains usin
 - **Internal business tools** and automation
 - **SaaS products** from MVP to full-featured platforms
 
-But this means transitioning from being a Vibe Coder into a Professional Builder.
+But this means transitioning from being a Vibe Coder into a Product Builder.
 
 Want to see some profesionally built apps using AI?  Check out our [App Gallery](/apps)!
