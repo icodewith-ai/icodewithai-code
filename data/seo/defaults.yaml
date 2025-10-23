@@ -2,13 +2,13 @@
 site_name: "iCodeWith.ai"
 
 # Basic SEO
-title: "Learn how to guide AI to build production-ready, maintainable apps. | iCodeWith.ai"
-description: "Go from vibe coder to product builder. Learn how to guide AI to build production-ready, maintainable apps."
+title: "Learn the skills needed to guide AI to build production-ready, maintainable apps. | iCodeWith.ai"
+description: "Go from vibe coder to product builder. Learn the skills needed to guide AI to build production-ready, maintainable apps."
 author: "Marcelo Lewin"
 
 # Social Media
 social_image: "images/seo/default-social.png"
-social_image_alt: "Learn how to guide AI to build production-ready, maintainable apps. | iCodeWith.ai"
+social_image_alt: "Learn the skills needed to guide AI to build production-ready, maintainable apps. | iCodeWith.ai"
 twitter_card_type: "summary_large_image"
 twitter_site: "@icodewith_ai"
 twitter_creator: "@icodewith_ai"
