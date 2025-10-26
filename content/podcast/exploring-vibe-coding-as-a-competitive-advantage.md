@@ -17,11 +17,11 @@ In this episode, Marcelo sits down with Jonathan Hrovat, Engagement Coordinator 
 
 ## Key Topics Covered
 
-1. Understanding Vibe Coding in a Business Setting — What it is and how it's being used beyond traditional development teams.
-2. Innovation and Efficiency — How Vibe Coding may influence speed, creativity, and productivity across departments.
-3. Cultural and Operational Shifts — What changes when non-technical teams start building solutions with AI.
-4. Managing Risks and Setting Guardrails — Governance considerations and best practices for safe experimentation.
-5. Assessing the Competitive Edge — How organizations can evaluate whether Vibe Coding delivers tangible business impact.
+1. **Understanding Vibe Coding in a Business Setting** — How AI driven development is bringing software engineering to non-traditional teams.
+2. **Making Agentic Work** — How Vibe Coding and modern platforms can help convert existing business logic into AI driven applications.
+3. **Cultural and Operational Shifts** — Why engineers must learn to think like managers and managers must learn to think like engineers.
+4. **The Vibe Gap** — Why current business leadership is holding back AI and why demand for developers will explode in the coming years.
+5. **The Super Power of Vibe Coding** – Why every company must become a software company and the role today's Vibe Coders will play in this economic shift.
 
 ## Resources to Check Out
 
