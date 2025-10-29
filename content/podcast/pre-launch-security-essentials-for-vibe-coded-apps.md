@@ -4,7 +4,7 @@ slug = "pre-launch-security-essentials-for-vibe-coded-apps"
 date = "2025-10-29"
 time = "9:00 AM PT"
 draft = false
-status = "upcoming"
+status = "published"
 description = "In this episode of Coding with AI, Marcelo sits down with Josh Grossman, CTO and Application Security Specialist at Bounce Security, to chat about what vibe coders must know about security before shipping any product. "
 image = "/images/podcast/e006.png"
 video_id = "XMgk89mj8jg"
@@ -27,4 +27,8 @@ In this episode of Coding with AI, Marcelo sits down with Josh Grossman, CTO and
 
 ## Resources to Check Out
 
+- [Adam Shostack's 4 question framework](https://github.com/adamshostack/4QuestionFrame)
+- [OpenSSF scorecard](https://openssf.org/projects/scorecard/)
+- [Minimum Viable Secure Product](https://mvsp.dev/)
+- [OWASP Application Security Verification Standard](https://owasp.org/asvs)
 - [Bounce Security](https://www.bouncesecurity.com/)
