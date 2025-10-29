@@ -7,8 +7,8 @@ draft = false
 status = "published"
 description = "In this episode of Coding with AI, Marcelo sits down with Josh Grossman, CTO and Application Security Specialist at Bounce Security, to chat about what vibe coders must know about security before shipping any product. "
 image = "/images/podcast/e006.png"
-video_id = "XMgk89mj8jg"
-audio_id = ""
+video_id = "SUgUKAfuu_I"
+audio_id = "2Unk4hjTGY1fiXRlRe4xQm"
 host = "marcelo-lewin"
 guest = "josh-grossman"
 +++
