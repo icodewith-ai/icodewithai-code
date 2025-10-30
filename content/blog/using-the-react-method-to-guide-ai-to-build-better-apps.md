@@ -153,4 +153,4 @@ These tools may hide the complexity, but behind the scenes they're doing what Re
 
 ## Closing Thought
 
-Vibe Coding isn't about writing code, it's about **guiding AI into building properly**. ReAct gives you the language of reasoning that AI understands. Once you start thinking in loops: *reason, act, observe, refine*, you stop prompting randomly and start **building intentionally** That's how Product Builders turn ideas into scalable and maintainable apps.
+Vibe Coding isn't about writing code, it's about **guiding AI into building properly**. ReAct gives you the language of reasoning that AI understands. Once you start thinking in loops: *reason, act, observe, refine*, you stop prompting randomly and start **building intentionally**.  That's how Product Builders turn ideas into scalable and maintainable apps.
