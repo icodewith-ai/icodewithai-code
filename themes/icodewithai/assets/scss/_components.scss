@@ -549,7 +549,10 @@
     @include gradient-text;
   }
   
-  .highlight {
+  // Apply gradient to text highlights (span, h1, a), but not div.highlight (code blocks)
+  span.highlight,
+  h1.highlight,
+  a.highlight {
     @include gradient-primary-text;
   }
   
@@ -1845,6 +1848,22 @@ h2 + .podcast-embed-section {
       border: 1px solid $neutral-700;
       overflow-x: auto;
       margin: $spacing-md 0;
+
+      code {
+        background: transparent;
+        padding: 0;
+        color: inherit;
+      }
+    }
+
+    // Hugo syntax highlighting wrapper - prevent any gradient effects
+    .highlight {
+      background: transparent;
+      margin: $spacing-md 0;
+
+      pre {
+        margin: 0;
+      }
     }
 
     blockquote {
@@ -2721,6 +2740,16 @@ h2 + .podcast-embed-section {
     code {
       background: transparent;
       padding: 0;
+    }
+  }
+
+  // Hugo syntax highlighting wrapper - prevent any gradient effects
+  .highlight {
+    background: transparent;
+    margin: $spacing-md 0;
+
+    pre {
+      margin: 0;
     }
   }
 }
