@@ -40,8 +40,8 @@ enableRobotsTXT = true
   
   # Social Media Links
   linkedin = "https://www.linkedin.com/company/ibuildwithai/"
-  youtube = "https://www.youtube.com/@icodewith_ai"
-  twitter = "https://x.com/icodewith_ai"
+  youtube = "https://www.youtube.com/@ibuildwith_ai"
+  twitter = "https://x.com/ibuildwith_ai"
 
   # Podcast Links
   podcast_spotify = "https://open.spotify.com/show/1cTBfbjX80FNQpUAjKOJto"
