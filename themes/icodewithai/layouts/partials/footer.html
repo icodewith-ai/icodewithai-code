@@ -9,7 +9,7 @@
                         <a href="/">
                             {{ $logo := resources.Get "images/logo.png" | resources.Fingerprint }}
                             {{ if $logo }}
-                            <img src="{{ $logo.RelPermalink }}" alt="iCodeWith.ai" class="logo-image">
+                            <img src="{{ $logo.RelPermalink }}" alt="iBuildWith.ai" class="logo-image">
                             {{ end }}
                         </a>
                         <p class="footer-tagline">{{ .Site.Params.footer_description }}</p>

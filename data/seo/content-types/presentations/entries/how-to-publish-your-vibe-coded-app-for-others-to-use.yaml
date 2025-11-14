@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this presentations
-title: "How to Publish your Vibe Coded App for Others To Use | iCodeWith.ai"
+title: "How to Publish your Vibe Coded App for Others To Use | iBuildWith.ai"
 description: "Explore how to take your vibe-coded app from your laptop to the real world. You’ll learn the key steps for publishing with confidence—choosing the right hosting, and more."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/presentations/coding-with-ai-meetup-social-share.png"
-social_image_alt: "How to Publish your Vibe Coded App for Others To Use | iCodeWith.ai"
+social_image: "images/seo/content-types/presentations/building-with-ai-meetup-social-share.png"
+social_image_alt: "How to Publish your Vibe Coded App for Others To Use | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

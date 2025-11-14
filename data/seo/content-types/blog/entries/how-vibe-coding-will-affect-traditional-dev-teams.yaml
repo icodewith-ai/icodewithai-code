@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "How Vibe Coding Will Affect Traditional Dev Teams | iCodeWith.ai"
+title: "How Vibe Coding Will Affect Traditional Dev Teams | iBuildWith.ai"
 description: "Discover how vibe coding and AI-assisted development are reshaping traditional dev teams, workflows, and roles in the era of human–AI collaboration."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/vibe-coding-traditional-dev-teams.png"
-social_image_alt: "How Vibe Coding Will Affect Traditional Dev Teams | iCodeWith.ai"
+social_image_alt: "How Vibe Coding Will Affect Traditional Dev Teams | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

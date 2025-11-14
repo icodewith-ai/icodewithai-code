@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "Task Tool vs. Subagents: How Agents Work in Claude Code | iCodeWith.ai"
+title: "Task Tool vs. Subagents: How Agents Work in Claude Code | iBuildWith.ai"
 description: "As Claude Code continues to evolve, vibe coders are discovering powerful ways to orchestrate AI-driven workflows. Two key features that often cause confusion are the Task tool and the newer Subagent system."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/claude-code-agents-vs-task-tool.png"
-social_image_alt: "Task Tool vs. Subagents: How Agents Work in Claude Code | iCodeWith.ai"
+social_image_alt: "Task Tool vs. Subagents: How Agents Work in Claude Code | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "Why Dev AI Agents Need a Design System | iCodeWith.ai"
+title: "Why Dev AI Agents Need a Design System | iBuildWith.ai"
 description: "[Add description here]"
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/design-systems-for-dev-ai-agents.png"
-social_image_alt: "Why Dev AI Agents Need a Design System | iCodeWith.ai"
+social_image_alt: "Why Dev AI Agents Need a Design System | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

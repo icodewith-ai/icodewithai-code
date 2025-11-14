@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this presentation
-title: "Intro to Vibe Coding with Amazon Kiro Demo | iCodeWith.ai"
+title: "Intro to Vibe Coding with Amazon Kiro Demo | iBuildWith.ai"
 description: "Join Marcelo Lewin for a live in-person session on vibe coding—overview, coding best practices, and an Amazon Kiro IDE for rapid prototyping."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Intro to Vibe Coding with Amazon Kiro IDE Demo | iCodeWith.ai"
+social_image_alt: "Intro to Vibe Coding with Amazon Kiro IDE Demo | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

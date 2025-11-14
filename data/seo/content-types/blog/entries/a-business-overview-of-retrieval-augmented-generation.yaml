@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog post
-title: "A Business Overview of Retrieval Augmented Generation | iCodeWith.ai"
+title: "A Business Overview of Retrieval Augmented Generation | iBuildWith.ai"
 description: "Retrieval Augmented Generation (RAG) is a technology that allows you to use AI to generate content based on a specific query. This is a business overview of RAG."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "A Business Overview of Retrieval Augmented Generation | iCodeWith.ai"
+social_image_alt: "A Business Overview of Retrieval Augmented Generation | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "From Hard-Coded Content to Building Adaptive Experiences with AI | iCodeWith.ai"
+title: "From Hard-Coded Content to Building Adaptive Experiences with AI | iBuildWith.ai"
 description: "As product builders, we must move away from hard-coded content and create adaptive experiences that serve both humans and AI, enabling personalized, dynamic user interactions."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/from-hard-coded-content-building-adaptive-experiences-with-ai.png"
-social_image_alt: "From Hard-Coded Content to Building Adaptive Experiences with AI | iCodeWith.ai"
+social_image_alt: "From Hard-Coded Content to Building Adaptive Experiences with AI | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

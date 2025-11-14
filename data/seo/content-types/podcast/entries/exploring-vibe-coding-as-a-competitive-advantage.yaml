@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this podcast
-title: "Exploring Vibe Coding as a Competitive Advantage | iCodeWith.ai"
+title: "Exploring Vibe Coding as a Competitive Advantage | iBuildWith.ai"
 description: "In this episode, Marcelo Lewin and Jonathan Hrovat explore how vibe coding blends human creativity with AI to help businesses innovate faster, work smarter, and stay competitive."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Exploring Vibe Coding as a Competitive Advantage | iCodeWith.ai"
+social_image_alt: "Exploring Vibe Coding as a Competitive Advantage | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

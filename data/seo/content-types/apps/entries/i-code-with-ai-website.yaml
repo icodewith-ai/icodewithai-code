@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this app
-title: "iCodeWith.ai Website Project | iCodeWith.ai"
-description: "Explore the iCodeWith.ai Website app—rebuilt via vibe coding and Hugo SSG, hosted on GitHub Pages, showcasing a fast, AI-created static site built entirely from scratch."
+title: "iBuildWith.ai Website Project | iBuildWith.ai"
+description: "Explore the iBuildWith.ai Website app—rebuilt via vibe coding and Hugo SSG, hosted on GitHub Pages, showcasing a fast, AI-created static site built entirely from scratch."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "iCodeWith.ai Website Project | iCodeWith.ai"
+social_image_alt: "iBuildWith.ai Website Project | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

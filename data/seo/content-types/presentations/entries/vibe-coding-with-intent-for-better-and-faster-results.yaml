@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this presentation
-title: "Vibe Coding with Intent for Better and Faster Results | iCodeWith.ai"
+title: "Vibe Coding with Intent for Better and Faster Results | iBuildWith.ai"
 description: "Learn how to bring structure to vibe coding through PRDs, feature plans, task breakdowns and more, so that you get the results you want."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Vibe Coding with Intent for Better and Faster Results | iCodeWith.ai"
+social_image_alt: "Vibe Coding with Intent for Better and Faster Results | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

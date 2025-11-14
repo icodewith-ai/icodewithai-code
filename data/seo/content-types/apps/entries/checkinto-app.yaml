@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this apps
-title: "CheckInto App | iCodeWith.ai"
+title: "CheckInto App | iBuildWith.ai"
 description: "A mobile-first web app that enables self-service check-in for in-person community event attendees with real-time raffle functionality and full multi-tenant support."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "CheckInto App | iCodeWith.ai"
+social_image_alt: "CheckInto App | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

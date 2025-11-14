@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this apps
-title: "CARE Assistant | iCodeWith.ai"
+title: "CARE Assistant | iBuildWith.ai"
 description: "An AI-powered insurance coverage assistant that helps users understand their healthcare benefits created using LangGraph, LangChain and LangSmith."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "CARE Assistant | iCodeWith.ai"
+social_image_alt: "CARE Assistant | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

@@ -2,7 +2,7 @@
 title = "Building Marketing Tools at the Speed of Vibes"
 summary = "Learn how to apply Vibe Coding techniques with platforms like Lovable to rapidly prototype and launch marketing apps."
 audience = "For digital marketers, growth teams, and marketing ops—from strategists to hands-on practitioners—who want to prototype and ship AI-assisted marketing apps fast. Perfect for non-developer marketers and technical tinkerers who need to build, test, and iterate without waiting on engineering."
-image = "/images/presentations/coding-with-ai-meetup.png"
+image = "/images/presentations/building-with-ai-meetup.png"
 date_time = "2025-11-18T18:30:00-07:00"
 location = "Coding with AI Meetup"
 timezone = "PST"

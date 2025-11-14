@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "How Good at Coding do You Need to Be to Vibe Code? | iCodeWith.ai"
+title: "How Good at Coding do You Need to Be to Vibe Code? | iBuildWith.ai"
 description: "When people hear about vibe coding, a common question that always comes up is 'How good at coding do I need to be to do this?'  The answer, of course, is it depends."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/vibe-coding-social-share.png"
-social_image_alt: "How Good at Coding do You Need to Be to Vibe Code? | iCodeWith.ai"
+social_image_alt: "How Good at Coding do You Need to Be to Vibe Code? | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

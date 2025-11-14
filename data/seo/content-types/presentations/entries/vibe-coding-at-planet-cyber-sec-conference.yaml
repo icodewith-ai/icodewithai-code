@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this presentations
-title: "Vibe Coding at Planet Cyber Sec Conference | iCodeWith.ai"
+title: "Vibe Coding at Planet Cyber Sec Conference | iBuildWith.ai"
 description: "Planet Cyber Sec Conference is putting on a 1 day AI event and I'll be presenting on how to structure vibe coding to deliver a shippable, maintainable and scalable app."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/presentations/ai-at-work-planet-cyber-sec.png"
-social_image_alt: "Vibe Coding at Planet Cyber Sec Conference | iCodeWith.ai"
+social_image_alt: "Vibe Coding at Planet Cyber Sec Conference | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

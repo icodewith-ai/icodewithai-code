@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this presentation
-title: "From Vibe Coding to Shippable Solution | iCodeWith.ai"
+title: "From Vibe Coding to Shippable Solution | iBuildWith.ai"
 description: "Join Marcelo Lewin for a live in-person presentation where you'll learn how to bring structure to your vibe coding sessions without killing the vibe."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/presentations/coding-with-ai-meetup-social-share.png"
-social_image_alt: "From Vibe Coding to Shippable Solution | iCodeWith.ai"
+social_image: "images/seo/content-types/presentations/building-with-ai-meetup-social-share.png"
+social_image_alt: "From Vibe Coding to Shippable Solution | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

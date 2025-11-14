@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "We Need a 'Vibe Coder Advocate' to Support the Next Generation of Builders | iCodeWith.ai"
+title: "We Need a 'Vibe Coder Advocate' to Support the Next Generation of Builders | iBuildWith.ai"
 description: "Vibe coders are reshaping how software gets built and now its time we support them with a new kind of advocate."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/vibe-coder-relations-social-share.png"
-social_image_alt: "We Need a 'Vibe Coder Advocate' to Support the Next Generation of Builders | iCodeWith.ai"
+social_image_alt: "We Need a 'Vibe Coder Advocate' to Support the Next Generation of Builders | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

@@ -1,11 +1,11 @@
 # Basic SEO - Custom blog listing content
-title: "Blog | iCodeWith.ai"
+title: "Blog | iBuildWith.ai"
 description: "Learn how to code and build apps faster with AI through in-depth tutorials, coding insights, and best practices."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Blog | iCodeWith.ai"
+social_image_alt: "Blog | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

@@ -14,6 +14,24 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.7.0-rebrand-to-i-build-with-ai - 🔴 Not Started
+Complete rebranding from "iCodeWith.ai" to "I Build With AI" (iBuildWith.ai). Update domain, theme name, logos, configuration files, SEO metadata, content files, GitHub workflows, and all references throughout the codebase. Excludes social media profile URLs (to be updated separately).
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 9.1 | Theme directory rename | Rename `themes/icodewithai/` to `themes/ibuildwithai/` | High | 🔴 Not Started |
+| 9.2 | Configuration updates | Update all config.toml files (default, prod, next, local) with new domain and theme name | High | 🔴 Not Started |
+| 9.3 | SEO metadata updates | Update 47+ SEO YAML files with new brand name and domain | High | 🔴 Not Started |
+| 9.4 | Template file updates | Update all HTML/Hugo template files with new branding, alt text, and references | High | 🔴 Not Started |
+| 9.5 | JavaScript updates | Update contact-form.js and reminder-form.js with new Netlify function URLs | High | 🔴 Not Started |
+| 9.6 | Backend package updates | Update backend package.json and repository references | High | 🔴 Not Started |
+| 9.7 | GitHub workflows update | Update hugo-prod.yml and hugo-next.yml with new domain and repo references | High | 🔴 Not Started |
+| 9.8 | Content file updates | Update all markdown content files (blog, podcast, presentations, apps) with new branding | High | 🔴 Not Started |
+| 9.9 | People data updates | Update data/people files with new company name and bio references | Medium | 🔴 Not Started |
+| 9.10 | Documentation updates | Update README, components.md, content-management.md with new branding | Medium | 🔴 Not Started |
+| 9.11 | Logo and asset creation | Create new logo files, favicons, and social share images | High | 🔴 Not Started |
+| 9.12 | Analytics updates | Update Plausible.io and analytics tracking domain references | Medium | 🔴 Not Started |
+
 ## v1.6.0-scrolling-component - 🟢 Completed
 Create a reusable infinite scrolling carousel component for displaying content cards (apps, features, etc.) with configurable auto-scroll, speed, direction, and hover interactions. Replace the current "Explore" section on the home page.
 

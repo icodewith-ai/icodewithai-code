@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "Vibe Coding Best Practices to Get Better Results | iCodeWith.ai"
+title: "Vibe Coding Best Practices to Get Better Results | iBuildWith.ai"
 description: "[Add description here]"
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/vibe-coding-best-practices-social-share.png"
-social_image_alt: "Vibe Coding Best Practices to Get Better Results | iCodeWith.ai"
+social_image_alt: "Vibe Coding Best Practices to Get Better Results | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

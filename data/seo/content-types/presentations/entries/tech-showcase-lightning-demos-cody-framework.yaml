@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this presentations
-title: "Tech Showcase Lightning Demos - Cody Framework | iCodeWith.ai"
+title: "Tech Showcase Lightning Demos - Cody Framework | iBuildWith.ai"
 description: "Marcelo will be presenting the Cody Framework during the Lightning Presentations section and talk about how Spec Driven Development can help you build better software faster with AI."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/presentations/tech-showcase-2025.jpg"
-social_image_alt: "Tech Showcase Lightning Demos - Cody Framework | iCodeWith.ai"
+social_image_alt: "Tech Showcase Lightning Demos - Cody Framework | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

@@ -1,11 +1,11 @@
 # Basic SEO - Custom app-specific content
-title: "Galactic Invaders | iCodeWith.ai"
+title: "Galactic Invaders | iBuildWith.ai"
 description: "Play Galactic Invaders, a 2D retro-style space shooter where you protect your city from incoming waves of aliens, built 100% with AI."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Galactic Invaders | iCodeWith.ai"
+social_image_alt: "Galactic Invaders | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

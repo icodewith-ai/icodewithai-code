@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "Outcome Based Context Engineering | iCodeWith.ai"
+title: "Outcome Based Context Engineering | iBuildWith.ai"
 description: "Outcome Based Context Engineering is a shift from traditional prompt engineering toward designing AI interactions that start with the desired result and work backwards."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/outcome-based-context-engineering.jpg"
-social_image_alt: "Outcome Based Context Engineering | iCodeWith.ai"
+social_image_alt: "Outcome Based Context Engineering | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

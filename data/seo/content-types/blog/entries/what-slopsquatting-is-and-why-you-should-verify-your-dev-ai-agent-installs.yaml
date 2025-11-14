@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "What Slopsquatting Is and Why You Should Verify Your Dev AI Agent Installs | iCodeWith.ai"
+title: "What Slopsquatting Is and Why You Should Verify Your Dev AI Agent Installs | iBuildWith.ai"
 description: "Learn what slopsquatting attacks are, how they target AI development tools and essential practices for verifying legitimate AI agent installations."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "images/seo/content-types/blog/slopsquatting-social-share.png"
-social_image_alt: "What Slopsquatting Is and Why You Should Verify Your Dev AI Agent Installs | iCodeWith.ai"
+social_image_alt: "What Slopsquatting Is and Why You Should Verify Your Dev AI Agent Installs | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
