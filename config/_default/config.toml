@@ -45,7 +45,7 @@ enableRobotsTXT = true
 
   # Podcast Links
   podcast_spotify = "https://open.spotify.com/show/1cTBfbjX80FNQpUAjKOJto"
-  podcast_apple = "https://podcasts.apple.com/us/podcast/coding-with-ai/id1832010884"
+  podcast_apple = "https://podcasts.apple.com/us/podcast/building-with-ai/id1832010884"
   podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
   
   # Developer Site Links
