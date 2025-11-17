@@ -164,7 +164,7 @@ content/apps/treex/
 image = "/images/blog/vibe-coding-best-practices.png"
 
 # Presentation front matter
-image = "/images/presentations/coding-with-ai-meetup.png"
+image = "/images/presentations/i-build-with-ai-meetup.png"
 ```
 
 **Count:** 27 markdown files use this pattern

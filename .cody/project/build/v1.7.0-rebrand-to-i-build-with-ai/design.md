@@ -16,7 +16,7 @@ The following updates have already been completed:
 - ✅ All podcast episode images updated (e001-e007) - 7 files
 - ✅ Podcast cover image updated
 - ✅ Default social share image updated
-- ✅ Presentation meetup images renamed: "coding-with-ai-meetup" → "building-with-ai-meetup" - 2 files
+- ✅ Presentation meetup images renamed: "coding-with-ai-meetup" → "i-build-with-ai-meetup" - 2 files
 
 **2. SEO Metadata Files Updated (45 files):**
 - ✅ SEO defaults file (`data/seo/defaults.yaml`)
@@ -35,7 +35,7 @@ The following updates have already been completed:
   - `listpage.yaml` updated
 - ✅ Presentation SEO files (12 files):
   - All presentation entry YAML files updated with `| iBuildWith.ai` suffix
-  - Image references updated: "coding-with-ai-meetup" → "building-with-ai-meetup"
+  - Image references updated: "coding-with-ai-meetup" → "i-build-with-ai-meetup"
   - `listpage.yaml` updated
 - ✅ App SEO files (7 files):
   - All app entry YAML files updated with `| iBuildWith.ai` suffix
@@ -77,7 +77,7 @@ The following updates have already been completed:
 
 **Branding Changes Applied:**
 - ✅ "iCodeWith.ai" → "iBuildWith.ai" (site name and branding text)
-- ✅ "coding-with-ai-meetup" → "building-with-ai-meetup" (image references)
+- ✅ "coding-with-ai-meetup" → "i-build-with-ai-meetup" (image references)
 - ✅ All `| iCodeWith.ai` suffixes in titles → `| iBuildWith.ai`
 - ✅ All social_image_alt text updated with new branding
 

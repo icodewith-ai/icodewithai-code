@@ -89,7 +89,7 @@ Implement SEO for individual content items (specific apps, blog posts, presentat
 Examples:
 - /data/seo/content-types/apps/my-awesome-app.yaml
 - /data/seo/content-types/blog/ai-development-tips.yaml
-- /data/seo/content-types/presentations/building-with-ai.yaml
+- /data/seo/content-types/presentations/i-build-with-ai.yaml
 - /data/seo/content-types/podcast/episode-1-intro-to-ai.yaml
 ```
 

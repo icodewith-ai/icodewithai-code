@@ -36,7 +36,7 @@ enableRobotsTXT = true
 
   # Community Links
   discord = "https://discord.gg/Mz7vdRmpJH"
-  meetup = "https://www.meetup.com/coding-with-ai/"
+  meetup = "https://www.meetup.com/i-build-with-ai/"
   
   # Social Media Links
   linkedin = "https://www.linkedin.com/company/ibuildwithai/"
@@ -45,7 +45,7 @@ enableRobotsTXT = true
 
   # Podcast Links
   podcast_spotify = "https://open.spotify.com/show/1cTBfbjX80FNQpUAjKOJto"
-  podcast_apple = "https://podcasts.apple.com/us/podcast/building-with-ai/id1832010884"
+  podcast_apple = "https://podcasts.apple.com/us/podcast/i-build-with-ai/id1832010884"
   podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
   
   # Developer Site Links
