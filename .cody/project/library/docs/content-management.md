@@ -5,9 +5,9 @@
 ### Multi-Repository Deployment (v1.2.2+)
 
 The website now uses a multi-repository architecture:
-- **Source Repository**: `icodewith-ai/icodewithai-code` (private) - Contains Hugo source code, content, and themes
-- **Staging**: `dev` branch → `icodewithai-next` repository → `next.icodewith.ai`
-- **Production**: `main` branch → `icodewithai-prod` repository → `www.icodewith.ai`
+- **Source Repository**: `ibuildwith-ai/ibuildwithai-code` (private) - Contains Hugo source code, content, and themes
+- **Staging**: `dev` branch → `ibuildwithai-next` repository → `next.ibuildwith.ai`
+- **Production**: `main` branch → `ibuildwithai-prod` repository → `www.ibuildwith.ai`
 
 Create new blog posts, app pages, or presentations using the automated script with titles:
 ```bash

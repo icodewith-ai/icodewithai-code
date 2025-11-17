@@ -202,7 +202,7 @@
             };
 
             // Submit to Netlify function
-            const response = await fetch('https://icodewithai.netlify.app/.netlify/functions/contact-form', {
+            const response = await fetch('https://ibuildwithai.netlify.app/.netlify/functions/contact-form', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

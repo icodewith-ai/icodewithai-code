@@ -1,4 +1,4 @@
-name: Deploy to next.icodewith.ai
+name: Deploy to next.ibuildwith.ai
 
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: icodewith-ai/icodewithai-next
+          external_repository: ibuildwith-ai/ibuildwithai-next
           publish_branch: gh-pages
           publish_dir: ./public
-          cname: next.icodewith.ai
+          cname: next.ibuildwith.ai
