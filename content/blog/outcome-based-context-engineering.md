@@ -80,7 +80,7 @@ In the outcome-based flow, it adapts:
 
 By the end, the agent has enough to generate a PRD draft that the dev team can actually use, not just a document shaped by arbitrary rules.
 
-Below is exactly how I'm using outcome based context engineering along with some scafolding to guide the AI Agent in my [Cody Framework](https://github.com/icodewith-ai/cody-framework).
+Below is exactly how I'm using outcome based context engineering along with some scafolding to guide the AI Agent in my [Cody Framework](https://github.com/ibuildwith-ai/cody-framework).
 
 ```
 

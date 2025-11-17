@@ -28,7 +28,7 @@ That same principle applies to Dev AI agents. Right now, they don't have a desig
 
 ## Why we need a Design System.
 
-I spend a lot of time on context engineering, writing lots of markdown files that shape how AI dev agents behave. With my product, [Cody Framework](https://github.com/icodewith-ai/cody-framework), I quickly ran into a problem: the outputs (presentation) of my carefully engineered context varied dramatically between different agents.
+I spend a lot of time on context engineering, writing lots of markdown files that shape how AI dev agents behave. With my product, [Cody Framework](https://github.com/ibuildwith-ai/cody-framework), I quickly ran into a problem: the outputs (presentation) of my carefully engineered context varied dramatically between different agents.
 
 Take a simple command like:
 
@@ -182,7 +182,7 @@ For example, in my agents.md file, I have:
 ```
 
 ### Using the Component
-My `xxxcommand.md` files are how users can control the [Cody Framework](https://github.com/icodewith-ai/cody-framework).  In the command file, there is where I actually use the design component:
+My `xxxcommand.md` files are how users can control the [Cody Framework](https://github.com/ibuildwith-ai/cody-framework).  In the command file, there is where I actually use the design component:
 
 ```
 ---
