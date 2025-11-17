@@ -69,7 +69,7 @@ cp data/people/marcelo-lewin.json data/people/new-person-name.json
 ```
 Creates:
 - `data/people/new-person-name.json` with person metadata
-- Requires corresponding image in `themes/icodewithai/assets/images/people/new-person-name.png`
+- Requires corresponding image in `themes/ibuildwithai/assets/images/people/new-person-name.png`
 
 ## People Management
 
@@ -78,7 +78,7 @@ People profiles are used for podcast guests, presentation hosts, and site contri
 
 **Process**:
 1. **Create JSON Data File**: Copy existing profile and update all fields
-2. **Add Profile Image**: Add square image (300x300px minimum) to `themes/icodewithai/assets/images/people/`
+2. **Add Profile Image**: Add square image (300x300px minimum) to `themes/ibuildwithai/assets/images/people/`
 3. **Verify Integration**: Ensure image path in JSON matches actual file
 
 **JSON Structure**:
@@ -136,7 +136,7 @@ I'll execute the appropriate automation script or manual process and provide con
 - **SEO Data**: `data/seo/content-types/{type}/entries/`
 - **People Data**: `data/people/` JSON files
 - **Images**: `content/apps/{name}/thumbnail.png` and `photogallery/`
-- **People Images**: `themes/icodewithai/assets/images/people/`
+- **People Images**: `themes/ibuildwithai/assets/images/people/`
 - **Automation Scripts**: `./automations/create-content.sh`
 - **Deployment**: `./automations/move-to-prod.sh`
 

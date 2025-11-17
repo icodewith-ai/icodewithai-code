@@ -2,14 +2,14 @@
 
 ## Overview
 
-This document provides comprehensive documentation for the Enhanced CSS system implemented for the iCodeWith.ai website. The system uses SCSS (Sass) with a modular architecture, CSS custom properties for dynamic theming, and a comprehensive utility class system.
+This document provides comprehensive documentation for the Enhanced CSS system implemented for the iBuildWith.ai website. The system uses SCSS (Sass) with a modular architecture, CSS custom properties for dynamic theming, and a comprehensive utility class system.
 
 ## File Structure
 
 All SCSS files are now consolidated in the theme assets folder (v1.4.5):
 
 ```
-themes/icodewithai/assets/scss/
+themes/ibuildwithai/assets/scss/
 ├── styles.scss              # Main import file
 ├── _variables.scss          # Design tokens (colors, spacing, typography)
 ├── _mixins.scss            # Reusable mixins and utilities
@@ -21,7 +21,7 @@ themes/icodewithai/assets/scss/
 ```
 
 **Asset Consolidation (v1.4.4 - v1.4.5):**
-- All theme assets now in single location: `themes/icodewithai/assets/`
+- All theme assets now in single location: `themes/ibuildwithai/assets/`
 - Root `assets/` folder eliminated completely
 - 54% build performance improvement (69ms → 32ms combined)
 

@@ -1,6 +1,6 @@
 # UI Components Documentation
 
-This document provides detailed specifications for reusable UI components in the iCodeWith.ai website.
+This document provides detailed specifications for reusable UI components in the iBuildWith.ai website.
 
 ## Table of Contents
 
@@ -52,7 +52,7 @@ The photo gallery component provides an interactive image viewing experience for
 | `.photo-gallery-nav-next` | Right arrow positioning |
 
 #### JavaScript Functionality
-- **File**: `themes/icodewithai/assets/js/photo-gallery.js`
+- **File**: `themes/ibuildwithai/assets/js/photo-gallery.js`
 - **Location**: All JavaScript now centralized in theme assets folder
 - **Loading**: Conditional (only when gallery exists)
 - **Processing**: Hugo Pipes minification
@@ -421,7 +421,7 @@ The component is implemented as a Hugo partial with the following structure:
 | `.external-link-icon` | Icon for external links |
 
 ##### JavaScript Functionality
-- **File**: `themes/icodewithai/assets/js/nav-dropdown.js`
+- **File**: `themes/ibuildwithai/assets/js/nav-dropdown.js`
 - **Location**: All JavaScript now centralized in theme assets folder
 - **Loading**: Conditional (only when dropdown exists)
 - **Processing**: Hugo Pipes minification
@@ -514,7 +514,7 @@ The mobile menu component provides a responsive navigation solution that activat
 | `.mobile-nav` | Navigation links container |
 
 ##### JavaScript Functionality
-- **File**: `themes/icodewithai/assets/js/mobile-menu.js`
+- **File**: `themes/ibuildwithai/assets/js/mobile-menu.js`
 - **Location**: All JavaScript now centralized in theme assets folder
 - **Loading**: Minified and fingerprinted via Hugo Pipes
 - **Processing**: Automatic resource optimization
@@ -629,11 +629,11 @@ Theme images are now processed through Hugo Pipes for consistent asset managemen
 - **Maintainability**: Centralized image management in theme assets folder
 
 #### Migration Notes
-- **v1.1.9**: Migrated from `static/images/` to `themes/icodewithai/assets/images/` for theme images
-- **v1.4.4**: Consolidated all images to `themes/icodewithai/assets/images/` (67 files organized by category)
-- **v1.4.5**: Consolidated all JS and SCSS to `themes/icodewithai/assets/` - eliminated root assets folder
+- **v1.1.9**: Migrated from `static/images/` to `themes/ibuildwithai/assets/images/` for theme images
+- **v1.4.4**: Consolidated all images to `themes/ibuildwithai/assets/images/` (67 files organized by category)
+- **v1.4.5**: Consolidated all JS and SCSS to `themes/ibuildwithai/assets/` - eliminated root assets folder
 - **Build Performance**: 54% improvement from asset consolidation (69ms → 32ms)
-- **Favicon Management**: Static favicons remain in `themes/icodewithai/static/images/` for browser compatibility
+- **Favicon Management**: Static favicons remain in `themes/ibuildwithai/static/images/` for browser compatibility
 - **Content Images**: App thumbnails and galleries continue using page bundle resources
 
 ---
@@ -646,7 +646,7 @@ The FAQ accordion component provides an accessible, interactive FAQ system with 
 ### Technical Specifications
 
 #### Hugo Shortcode
-**File**: `themes/icodewithai/layouts/shortcodes/faq.html`
+**File**: `themes/ibuildwithai/layouts/shortcodes/faq.html`
 
 **Usage in Content Files:**
 ```hugo
@@ -690,7 +690,7 @@ The FAQ accordion component provides an accessible, interactive FAQ system with 
 | `.faq-answer` | Answer content wrapper with padding and spacing |
 
 #### JavaScript Functionality
-- **File**: `themes/icodewithai/assets/js/faq-accordion.js`
+- **File**: `themes/ibuildwithai/assets/js/faq-accordion.js`
 - **Loading**: Conditional (only when FAQ exists)
 - **Processing**: Hugo Pipes minification and fingerprinting
 
@@ -755,7 +755,7 @@ The scrolling carousel component provides an infinite horizontal scrolling syste
 ### Technical Specifications
 
 #### Hugo Shortcode
-**File**: `themes/icodewithai/layouts/shortcodes/scrolling-carousel.html`
+**File**: `themes/ibuildwithai/layouts/shortcodes/scrolling-carousel.html`
 
 **Usage in Content Files (.md):**
 ```hugo
@@ -818,7 +818,7 @@ The scrolling carousel component provides an infinite horizontal scrolling syste
 | `.scrolling-carousel__description` | Optional description with text overflow handling |
 
 #### JavaScript Functionality
-- **File**: `themes/icodewithai/assets/js/scrolling-carousel.js`
+- **File**: `themes/ibuildwithai/assets/js/scrolling-carousel.js`
 - **Loading**: Conditional (only when carousel exists)
 - **Processing**: Hugo Pipes minification and fingerprinting
 

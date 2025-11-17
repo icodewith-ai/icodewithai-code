@@ -1,6 +1,6 @@
 # Project Folder Structure
 
-This document outlines the complete folder structure of the iCodeWith.ai website project, built with Hugo and enhanced SCSS architecture.
+This document outlines the complete folder structure of the iBuildWith.ai website project, built with Hugo and enhanced SCSS architecture.
 
 ## Root Directory
 
@@ -21,10 +21,10 @@ This document outlines the complete folder structure of the iCodeWith.ai website
 ├── layouts/                     # Hugo shortcodes and custom layouts
 ├── public/                      # Generated static site (Hugo build output) - git ignored
 ├── resources/                   # Hugo's internal resource cache - git ignored
-└── themes/                      # Hugo theme (icodewithai) with all assets
+└── themes/                      # Hugo theme (ibuildwithai) with all assets
 ```
 
-**Note:** Root `assets/` folder eliminated in v1.4.5 - all assets now in `themes/icodewithai/assets/`
+**Note:** Root `assets/` folder eliminated in v1.4.5 - all assets now in `themes/ibuildwithai/assets/`
 
 ## Detailed Structure
 
@@ -118,11 +118,11 @@ layouts/
 
 **Asset Consolidation Complete (v1.4.4 - v1.4.5):**
 - Root `assets/` folder completely removed
-- All SCSS, JavaScript, and images moved to `themes/icodewithai/assets/`
+- All SCSS, JavaScript, and images moved to `themes/ibuildwithai/assets/`
 - Single-location asset management for better organization
 - 54% build performance improvement (69ms → 32ms combined)
 
-All assets are now located in `themes/icodewithai/assets/` - see theme structure below.
+All assets are now located in `themes/ibuildwithai/assets/` - see theme structure below.
 
 ### `/content/` - Site Content
 Markdown files organized by content type. Apps use page bundles for image management.
@@ -221,11 +221,11 @@ resources/
 
 **Note:** The `public/` and `resources/` directories are auto-generated and git-ignored. They should never be manually edited.
 
-### `/themes/icodewithai/` - Hugo Theme
+### `/themes/ibuildwithai/` - Hugo Theme
 Custom Hugo theme containing templates, layouts, and source assets.
 
 ```
-themes/icodewithai/
+themes/ibuildwithai/
 ├── assets/                      # ALL theme assets (consolidated v1.4.4-v1.4.5)
 │   ├── scss/                    # SCSS source files (9 files)
 │   │   ├── styles.scss          # Main SCSS entry point
@@ -338,22 +338,22 @@ Main Hugo configuration containing:
 
 ### Asset Processing
 
-All assets consolidated in `themes/icodewithai/assets/` (v1.4.4-v1.4.5). Hugo Pipes processes SCSS, JavaScript, and images:
+All assets consolidated in `themes/ibuildwithai/assets/` (v1.4.4-v1.4.5). Hugo Pipes processes SCSS, JavaScript, and images:
 
-**CSS Processing** (`themes/icodewithai/assets/scss/` → `/public/scss/styles.min.css`):
+**CSS Processing** (`themes/ibuildwithai/assets/scss/` → `/public/scss/styles.min.css`):
 - SCSS compilation
 - CSS minification
 - Autoprefixing
 - Asset fingerprinting for cache busting
 - 9 SCSS files in modular architecture
 
-**JavaScript Processing** (`themes/icodewithai/assets/js/` → `/public/js/[filename].min.js`):
+**JavaScript Processing** (`themes/ibuildwithai/assets/js/` → `/public/js/[filename].min.js`):
 - JavaScript minification
 - Asset fingerprinting for cache busting
 - Conditional loading (only when needed)
 - 5 JavaScript files for different components
 
-**Image Processing** (`themes/icodewithai/assets/images/` → `/public/images/[filename].[hash].[ext]`):
+**Image Processing** (`themes/ibuildwithai/assets/images/` → `/public/images/[filename].[hash].[ext]`):
 - Asset fingerprinting for cache busting
 - Error handling for missing images
 - Lazy loading attributes
@@ -376,15 +376,15 @@ All assets consolidated in `themes/icodewithai/assets/` (v1.4.4-v1.4.5). Hugo Pi
    - Apps: Create page bundles in `/content/apps/app-name/` with `index.md` + images
 2. **Images**:
    - App content: Add to app bundles (`thumbnail.jpg` and `photogallery/image01.jpg`)
-   - Theme images: Add to `themes/icodewithai/assets/images/` (organized by category)
-3. **Styling**: Modify SCSS files in `themes/icodewithai/assets/scss/` (not root assets/)
-4. **JavaScript**: Modify JS files in `themes/icodewithai/assets/js/` (not root assets/)
-5. **Templates**: Update Hugo templates in `themes/icodewithai/layouts/`
+   - Theme images: Add to `themes/ibuildwithai/assets/images/` (organized by category)
+3. **Styling**: Modify SCSS files in `themes/ibuildwithai/assets/scss/` (not root assets/)
+4. **JavaScript**: Modify JS files in `themes/ibuildwithai/assets/js/` (not root assets/)
+5. **Templates**: Update Hugo templates in `themes/ibuildwithai/layouts/`
 6. **Development Testing**: Run `hugo server --environment local`
 7. **Staging Deployment**: Push to `dev` branch → GitHub Actions → `icodewithai-next` repository → `next.icodewith.ai`
 8. **Production Deployment**: Push to `main` branch → GitHub Actions → `icodewithai-prod` repository → `www.icodewith.ai`
 
-**Important:** All theme assets are now in `themes/icodewithai/assets/` - the root `assets/` folder no longer exists.
+**Important:** All theme assets are now in `themes/ibuildwithai/assets/` - the root `assets/` folder no longer exists.
 
 ### Repository Architecture
 - **Source Repository**: `icodewith-ai/icodewithai-code` (private) - Contains Hugo source code, content, and themes
@@ -396,7 +396,7 @@ All assets consolidated in `themes/icodewithai/assets/` (v1.4.4-v1.4.5). Hugo Pi
 ## Design System Architecture
 
 The SCSS system follows a structured approach:
-- **Location**: All SCSS in `themes/icodewithai/assets/scss/` (consolidated v1.4.5)
+- **Location**: All SCSS in `themes/ibuildwithai/assets/scss/` (consolidated v1.4.5)
 - **Variables**: All design tokens centralized in `_variables.scss`
 - **Components**: Reusable UI patterns with consistent styling
 - **Utilities**: Rapid development classes for spacing, typography, layout
@@ -406,7 +406,7 @@ The SCSS system follows a structured approach:
 ## Asset Consolidation Benefits (v1.4.4-v1.4.5)
 
 **Organization:**
-- Single location for all theme assets: `themes/icodewithai/assets/`
+- Single location for all theme assets: `themes/ibuildwithai/assets/`
 - 67 images organized by category (blog, podcast, presentations, seo, people, icons)
 - 9 SCSS files in modular architecture
 - 5 JavaScript files for different components

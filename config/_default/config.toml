@@ -1,5 +1,5 @@
 title = 'iBuildWith.ai | From Vibe Coder to Product Builder'
-theme = 'icodewithai'
+theme = 'ibuildwithai'
 languageCode = 'en-us'
 
 # Enable robots.txt generation
@@ -49,6 +49,6 @@ enableRobotsTXT = true
   podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
   
   # Developer Site Links
-  github = "https://github.com/icodewith-ai"
-  cody = "https://github.com/icodewith-ai/cody-framework"
+  github = "https://github.com/ibuildwith-ai"
+  cody = "https://github.com/ibuildwith-ai/cody-framework"
   npm = "https://www.npmjs.com/~bymarcelolewin"
