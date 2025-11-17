@@ -1,7 +1,7 @@
 +++
-title = "iCodeWith.ai Website"
+title = "iBuildWith.ai Website"
 description = "First site I've vibe coded from scratch. Switched from Wix and Framer to Hugo SSG framework for full control, hosted in GitHub pages."
-github_url = "https://github.com/icodewith-ai/icodewithai-code"
+github_url = "https://github.com/ibuildwith-ai/ibuildwithai-code"
 npm_url = ""
 preview_url = ""
 preview_label = "Check it Out!"
@@ -9,7 +9,7 @@ date_created = "2025-06-01T17:51:19-07:00"
 date_updated = "2025-09-02T17:51:19-07:00"
 current_version = "1.4.2"
 draft = false
-builder = "iCodeWith.ai"
+builder = "iBuildWith.ai"
 +++
 
 ### About

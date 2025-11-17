@@ -111,13 +111,13 @@ echo "Creating SEO file: $SEO_FILE"
 
 cat > "$SEO_FILE" << EOF
 # Basic SEO - Custom content for this $CONTENT_TYPE
-title: "$TITLE | iCodeWith.ai"
+title: "$TITLE | iBuildWith.ai"
 description: "[Add description here]"
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "$TITLE | iCodeWith.ai"
+social_image_alt: "$TITLE | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

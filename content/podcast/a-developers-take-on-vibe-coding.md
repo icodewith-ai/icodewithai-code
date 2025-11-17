@@ -25,4 +25,4 @@ In this episode, my guest Tim Benniks, Developer Experience Lead at Contentstack
 
 ## Resources to Check Out
 
-- [Coming Soon](https://icodewith.ai/)
+- [Coming Soon](https://ibuildwith.ai/)

@@ -1,5 +1,5 @@
 {{- if eq hugo.Environment "prod" }}
-# Production robots.txt for www.icodewith.ai
+# Production robots.txt for www.ibuildwith.ai
 # Allow all search engines to crawl the site
 
 User-agent: *
@@ -30,7 +30,7 @@ Allow: /about-marcelo/
 Allow: /contact/
 
 {{- else }}
-# {{ if eq .Site.BaseURL "https://next.icodewith.ai" }}Staging{{ else if hasPrefix .Site.BaseURL "http://localhost" }}Development{{ else }}Non-production{{ end }} robots.txt
+# {{ if eq .Site.BaseURL "https://next.ibuildwith.ai" }}Staging{{ else if hasPrefix .Site.BaseURL "http://localhost" }}Development{{ else }}Non-production{{ end }} robots.txt
 # Disallow all search engine crawling for non-production environments
 
 User-agent: *

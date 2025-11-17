@@ -20,7 +20,7 @@ og_image_type: "image/png"
 
 # Technical SEO
 robots: "index, follow"
-canonical_base_url: "https://icodewith.ai"
+canonical_base_url: "https://ibuildwith.ai"
 
 # Language/Locale
 language: "en-US"
