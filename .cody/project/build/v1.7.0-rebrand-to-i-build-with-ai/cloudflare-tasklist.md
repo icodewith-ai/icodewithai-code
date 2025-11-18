@@ -132,35 +132,11 @@ This document outlines all tasks required to set up Cloudflare Page Rules for re
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| 11.1 | Add icodewith.ai to Search Console | Add old domain to Google Search Console if not already added | Phase 10 complete | 🔴 Not Started | USER |
-| 11.2 | Verify ownership | Verify ownership of icodewith.ai domain in Search Console | 11.1 | 🔴 Not Started | USER |
-| 11.3 | Submit change of address | Use "Change of Address" tool in Search Console Settings to notify Google of domain move | 11.2 | 🔴 Not Started | USER |
-| 11.4 | Monitor crawl errors | Check Search Console for any crawl errors related to redirects | 11.3 | 🔴 Not Started | USER |
-| 11.5 | Update sitemap submission | Verify new sitemap (www.ibuildwith.ai) is submitted to Search Console | 11.3 | 🔴 Not Started | USER |
-
----
-
-## Phase 12: Monitoring & Documentation
-
-| ID  | Task             | Description                             | Dependencies | Status | Assigned To |
-|-----|------------------|-----------------------------------------|-------------|----------|--------|
-| 12.1 | Check Cloudflare Analytics | Review Cloudflare Analytics dashboard for redirect traffic patterns | Phase 10 complete | 🔴 Not Started | USER |
-| 12.2 | Monitor error logs | Check for any SSL or redirect errors in Cloudflare dashboard | Phase 10 complete | 🔴 Not Started | USER |
-| 12.3 | Document completion | Update project documentation with Cloudflare setup details | Phase 10 complete | 🔴 Not Started | USER |
-| 12.4 | Set calendar reminder | Set reminder to check SSL certificate auto-renewal in 90 days (should be automatic) | Phase 10 complete | 🔴 Not Started | USER |
-| 12.5 | Update tasklist.md | Mark Phase 15 (Domain Redirect Setup) as complete in main v1.7.0 tasklist | Phase 10 complete | 🔴 Not Started | USER |
-
----
-
-## Rollback Plan (If Needed)
-
-| ID  | Task             | Description                             | Dependencies | Status | Assigned To |
-|-----|------------------|-----------------------------------------|-------------|----------|--------|
-| R.1 | Log in to Namecheap | Access Namecheap account | None | 🔴 Not Started | USER |
-| R.2 | Restore old nameservers | Change nameservers back to `dns1.registrar-servers.com` and `dns2.registrar-servers.com` | R.1 | 🔴 Not Started | USER |
-| R.3 | Wait for DNS propagation | Wait 1-24 hours for DNS to propagate | R.2 | 🔴 Not Started | USER |
-| R.4 | Verify old DNS active | Test that old DNS configuration is working | R.3 | 🔴 Not Started | USER |
-| R.5 | Keep Cloudflare account | Keep Cloudflare account active for 30 days before deleting (in case needed again) | R.4 | 🔴 Not Started | USER |
+| 11.1 | Add icodewith.ai to Search Console | Add old domain to Google Search Console if not already added | Phase 10 complete | 🟢 Completed | USER |
+| 11.2 | Verify ownership | Verify ownership of icodewith.ai domain in Search Console | 11.1 | 🟢 Completed | USER |
+| 11.3 | Submit change of address | Use "Change of Address" tool in Search Console Settings to notify Google of domain move | 11.2 | 🟢 Completed | USER |
+| 11.4 | Monitor crawl errors | Check Search Console for any crawl errors related to redirects | 11.3 | 🟡 In Progress | USER |
+| 11.5 | Update sitemap submission | Verify new sitemap (www.ibuildwith.ai) is submitted to Search Console | 11.3 | 🟢 Completed | USER |
 
 ---
 
