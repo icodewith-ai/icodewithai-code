@@ -5,7 +5,7 @@ date = "2025-10-15"
 time = "10:00 AM PT"
 draft = false
 status = "published"
-description = "In this episode of Coding with AI, Marcelo sits down with Brian Madison, creator of the BMAD Method, to explore how vibe coding is reshaping the future of software development."
+description = "In this episode of I Build with AI, Marcelo sits down with Brian Madison, creator of the BMAD Method, to explore how vibe coding is reshaping the future of software development."
 image = "/images/podcast/e005.png"
 video_id = "c7Xl9R7Puks"
 audio_id = "2CuE1jd9nj9pNukI5OT36y"
@@ -13,7 +13,7 @@ host = "marcelo-lewin"
 guest = "brian-madison"
 +++
 
-In this episode of Coding with AI, Marcelo sits down with Brian Madison, creator of the BMAD Method, to explore how vibe coding is reshaping the future of software development. They discuss what agentic frameworks mean for coders, creatives, and cross-functional teams, and how these new approaches challenge the traditional dev team model.
+In this episode of I Build with AI, Marcelo sits down with Brian Madison, creator of the BMAD Method, to explore how vibe coding is reshaping the future of software development. They discuss what agentic frameworks mean for coders, creatives, and cross-functional teams, and how these new approaches challenge the traditional dev team model.
 
 ## Key Topics Covered
 

@@ -10,7 +10,7 @@ displayImageInline = true
 
 Traditional development teams are standing at a crossroads. On one side is the familiar rhythm of sprints, tickets, and handoffs. On the other, a new wave of AI-assisted creativity is changing how software gets built.
 
-Inspired by my recent [Coding with AI conversation with Brian Madison](/podcast/how-vibe-coding-will-affect-traditional-dev-teams/), Senior Engineering Manager at Extend and creator of the BMAD Method, this article looks at how vibe coding and AI assisted engineering challenges the traditional team model, what skills and mindsets will matter next, and why every engineering leader should start preparing for AI as a teammate, not just a tool.
+Inspired by my recent [I Build with AI conversation with Brian Madison](/podcast/how-vibe-coding-will-affect-traditional-dev-teams/), Senior Engineering Manager at Extend and creator of the BMAD Method, this article looks at how vibe coding and AI assisted engineering challenges the traditional team model, what skills and mindsets will matter next, and why every engineering leader should start preparing for AI as a teammate, not just a tool.
 
 ## Framing the Shift
 

@@ -1,11 +1,11 @@
 # Basic SEO - Custom podcast listing content
-title: "Coding with AI Podcast | iBuildWith.ai"
+title: "I Build with AI Podcast | iBuildWith.ai"
 description: "Listen to conversations with vibe coders, citizen developers and professional engineers about coding and building apps using AI."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Coding with AI Podcast | iBuildWith.ai"
+social_image_alt: "I Build with AI Podcast | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"
