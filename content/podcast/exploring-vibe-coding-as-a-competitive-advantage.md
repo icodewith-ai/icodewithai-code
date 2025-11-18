@@ -1,7 +1,7 @@
 +++
 title = "Exploring Vibe Coding as a Competitive Advantage"
 slug = "exploring-vibe-coding-as-a-competitive-advantage"
-date = "2025-11-18"
+date = "2025-11-21"
 time = "2:00 PM PT"
 draft = false
 status = "upcoming"
