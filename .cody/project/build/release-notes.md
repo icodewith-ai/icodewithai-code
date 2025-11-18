@@ -3,11 +3,198 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.7.0-rebrand-to-i-build-with-ai - November 18, 2025](#v170-rebrand-to-i-build-with-ai---november-18-2025)
 - [v1.6.0-scrolling-component - October 21, 2025](#v160-scrolling-component---october-21-2025)
 - [v1.5.0-faq-component - October 20, 2025](#v150-faq-component---october-20-2025)
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.7.0-rebrand-to-i-build-with-ai - November 18, 2025
+
+## Overview
+
+Completed comprehensive platform rebrand from "iCodeWith.ai" to "iBuildWith.ai" across entire infrastructure. This major migration included GitHub organization and repository renames, production and staging domain updates, third-party service integrations, Cloudflare redirect implementation for old domain, and Google Search Console migration. The rebrand was executed with zero downtime, no functionality loss, and proper SEO preservation through 301 permanent redirects.
+
+## Key Features
+
+**Infrastructure Migration**
+- **GitHub Organization**: Renamed from `icodewith-ai` to `ibuildwith-ai` with automatic URL redirects
+- **Repository Renames**: All 4 repositories updated (code, next, prod, backend)
+- **Domain Configuration**: Dual-domain setup established
+  - Production: `www.ibuildwith.ai` (GitHub Pages + HTTPS)
+  - Staging: `next.ibuildwith.ai` (GitHub Pages + HTTPS)
+  - Old Domain Redirects: `icodewith.ai` → `www.ibuildwith.ai` (Cloudflare Page Rules)
+
+**Third-Party Service Updates**
+- **Netlify**: Team and site renamed to `ibuildwithai` (ibuildwithai.netlify.app)
+- **Resend Email**: New sending domain `send.ibuildwith.ai` configured with SPF, DKIM, DMARC records
+- **Plausible Analytics**: New site created with updated tracking script
+- **Environment Variables**: All Netlify and GitHub Actions secrets verified and maintained
+
+**Cloudflare Redirect Implementation**
+- Added `icodewith.ai` domain to Cloudflare (Free Tier)
+- Configured DNS records with proxied status (orange cloud)
+- Created 2 Page Rules for comprehensive redirect coverage:
+  - `www.icodewith.ai/*` → `https://www.ibuildwith.ai/$1` (301)
+  - `icodewith.ai/*` → `https://www.ibuildwith.ai/$1` (301)
+- Full path and query parameter preservation
+- Automatic SSL/TLS with "Always Use HTTPS" enabled
+- Cost: $0/month (Cloudflare Free Tier)
+
+**SEO Migration**
+- Google Search Console Change of Address submitted (November 18, 2025)
+- Both old and new domains verified and active in Search Console
+- 301 permanent redirects preserve ~90-99% of link equity
+- New sitemap submitted to Google Search Console
+- Expected migration completion: ~180 days
+
+## Code Changes
+
+**Configuration Files Updated** (5 files)
+- `config/prod/config.toml` → `baseURL = "https://www.ibuildwith.ai"`
+- `config/next/config.toml` → `baseURL = "https://next.ibuildwith.ai"`
+- `config/_default/config.toml` → Updated title and social media URLs
+- `backend/package.json` → Updated name, description, repository URL (2 files)
+
+**GitHub Workflows Updated** (2 files)
+- `.github/workflows/hugo-prod.yml` → Updated name, external_repository, cname
+- `.github/workflows/hugo-next.yml` → Updated name, external_repository, cname
+
+**Backend Services Updated** (2 files)
+- `backend/netlify/functions/contact-form.js` → Updated branding and from email (`contact@send.ibuildwith.ai`)
+- `backend/netlify/functions/reminder-form.js` → Updated branding and from email (`contact@send.ibuildwith.ai`)
+
+**Frontend Assets Updated** (3 files)
+- `themes/ibuildwithai/assets/js/contact-form.js` → Updated Netlify function URL
+- `themes/ibuildwithai/assets/js/reminder-form.js` → Updated Netlify function URL
+- `themes/ibuildwithai/layouts/_default/baseof.html` → Updated Plausible analytics script
+
+**Documentation Updated** (3 files)
+- `README.md` → Updated GitHub org/repo URLs and domain references
+- `.cody/project/library/docs/content-management.md` → Updated references
+- `.cody/project/library/docs/components.md` → Updated references
+
+## Bug Fixes
+
+**Sitemap Date Formatting Errors**
+- **Issue**: Google Search Console reported 21 "Invalid date" errors in sitemap.xml
+- **Root Cause**: Hugo's default sitemap template generated dates that didn't strictly comply with ISO 8601 format
+- **Fix**: Created custom sitemap template at `themes/ibuildwithai/layouts/_default/sitemap.xml` with proper date formatting
+- **Implementation**: Uses `.Lastmod.Format "2006-01-02T15:04:05-07:00"` for Google-compliant ISO 8601 dates
+- **Status**: Fix deployed and ready for Google re-crawl
+
+## Testing
+
+**Comprehensive Testing Completed**
+- ✅ Staging deployment verification (next.ibuildwith.ai)
+- ✅ Production deployment verification (www.ibuildwith.ai)
+- ✅ Contact form functionality and email delivery
+- ✅ Reminder form functionality and email delivery
+- ✅ Cloudflare redirect testing (all scenarios)
+  - Apex domain (http/https)
+  - WWW domain (http/https)
+  - Path preservation (/blog/, /podcast/, /apps/, etc.)
+  - Query parameter preservation
+- ✅ Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- ✅ Mobile device testing (iOS, Android)
+- ✅ SSL/TLS certificate verification
+- ✅ Analytics tracking verification (Plausible.io)
+- ✅ GitHub Actions workflow execution
+- ✅ Zero production errors or downtime
+
+## Technical Implementation
+
+**Project Methodology**
+- Followed Cody Framework spec-driven development approach
+- 15 phases with 89 discrete tasks tracked in `.cody/project/build/v1.7.0-rebrand-to-i-build-with-ai/tasklist.md`
+- Comprehensive design documents created before implementation:
+  - `cloudflare-redirect-design.md` - Detailed Cloudflare implementation guide
+  - `cloudflare-tasklist.md` - Step-by-step Cloudflare setup tasks
+  - `retrospective.md` - Post-project analysis and lessons learned
+
+**Files Created** (4+ files)
+- `themes/ibuildwithai/layouts/_default/sitemap.xml` - Custom sitemap template
+- `.cody/project/build/v1.7.0-rebrand-to-i-build-with-ai/cloudflare-redirect-design.md`
+- `.cody/project/build/v1.7.0-rebrand-to-i-build-with-ai/cloudflare-tasklist.md`
+- `.cody/project/build/v1.7.0-rebrand-to-i-build-with-ai/retrospective.md`
+
+**Files Modified**: 20+ files across codebase
+
+**Task Distribution**
+- Total Tasks: 89
+- USER Tasks: 70 (79%) - Infrastructure changes requiring account access
+- AGENT Tasks: 19 (21%) - Code updates and documentation
+
+## Performance & Metrics
+
+**Zero Downtime Migration**
+- No production outages during entire rebrand process
+- All services remained operational throughout migration
+- Staged deployment prevented production issues
+
+**Timeline**
+- Planning & Execution: 3 days (November 16-18, 2025)
+- Active Work: ~8-10 hours
+- DNS/SSL Waiting Time: ~2-3 hours
+- Total Tasks Completed: 89 of 89 (100%)
+
+**Infrastructure Stats**
+- GitHub Repos Renamed: 4
+- Domains Configured: 3
+- DNS Records Updated: 10+
+- Third-Party Services Updated: 3
+- SSL Certificates Provisioned: 3
+- Configuration Files Updated: 5
+- Workflow Files Updated: 2
+- Backend Functions Updated: 2
+- Frontend Scripts Updated: 2
+
+## Impact
+
+**User Experience**
+- Seamless transition with zero interruption to site visitors
+- All existing URLs continue to work via 301 redirects
+- No broken links or lost functionality
+- Improved brand identity with "iBuildWith.ai" positioning
+
+**Developer Experience**
+- Clean infrastructure with consistent branding across all systems
+- Comprehensive documentation for future reference
+- GitHub repository URLs automatically redirect to new names
+- All automation scripts and workflows updated and tested
+
+**SEO Impact**
+- Proper 301 redirects preserve search rankings
+- Google Search Console Change of Address accelerates migration
+- Link equity transfer estimated at 90-99%
+- Sitemap date formatting fix ensures proper indexing
+
+## Future Enhancements
+
+**Immediate Next Steps**
+1. Monitor Google Search Console weekly for crawl errors (next 4-6 weeks)
+2. Verify sitemap fix resolved all date validation errors
+3. Capture 30-day analytics baseline on new domain
+4. Track keyword rankings to verify SEO equity transfer
+
+**Potential Improvements**
+1. Consider renaming `themes/icodewithai/` to `themes/ibuildwithai/` for consistency (low priority)
+2. Search codebase for any remaining "iCodeWith.ai" references in comments or unused files
+3. Create automated redirect testing script for future domain changes
+4. Document this rebrand process as reusable playbook for future migrations
+
+## Other Notes
+
+**Development Process**: This rebrand represents one of the most complex infrastructure changes to date for the platform. Success factors included comprehensive planning, clear task ownership, staged deployment, and thorough testing at each phase.
+
+**Cody Framework**: The spec-driven development approach proved exceptionally effective for managing this 89-task migration across 15 phases with multiple dependencies.
+
+**Cloudflare Benefits**: Free tier provided professional redirect solution with HTTPS support, fast DNS propagation (5-30 minutes vs. 24-48 hours), and automatic SSL certificate management.
+
+**Documentation**: Complete project documentation available in `.cody/project/build/v1.7.0-rebrand-to-i-build-with-ai/` including design docs, tasklists, and retrospective analysis.
 
 ---
 
