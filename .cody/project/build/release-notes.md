@@ -3,12 +3,218 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.8.0-newsletter-page - November 19, 2025](#v180-newsletter-page---november-19-2025)
 - [v1.7.0-rebrand-to-i-build-with-ai - November 18, 2025](#v170-rebrand-to-i-build-with-ai---november-18-2025)
 - [v1.6.0-scrolling-component - October 21, 2025](#v160-scrolling-component---october-21-2025)
 - [v1.5.0-faq-component - October 20, 2025](#v150-faq-component---october-20-2025)
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.8.0-newsletter-page - November 19, 2025
+
+## Overview
+
+Implemented a dedicated newsletter signup page at `/newsletter` with full integration to Resend (email notifications) and Mailchimp (subscriber list management). The implementation follows the existing contact form design pattern for visual consistency and includes comprehensive security enhancements across all form endpoints (contact, newsletter, and reminder forms).
+
+## Key Features
+
+**Newsletter Signup Page**
+- New page at `/newsletter` with clean, focused layout
+- Form collecting First Name, Last Name, and Email (all required)
+- Design strictly follows existing contact page format for consistency
+- "Newsletter" heading with highlight styling matching Blog page
+- Subheading: "Sign up to our newsletter to stay up to date"
+- Immediate "Thank You" message upon successful submission (no page reload)
+
+**Dual Backend Integration**
+- **Resend Integration**: Sends email notification to site owner with subscriber details
+- **Mailchimp Integration**: Automatically adds subscriber to configured Mailchimp audience list
+- Graceful handling of "Member Exists" scenarios (users already subscribed)
+- Environment-based configuration for easy deployment across environments
+
+**Navigation Updates**
+- Added "Newsletter" link to top navigation (under "About", above "Contact")
+- Added "Newsletter" link to footer navigation (same location)
+- Consistent placement across desktop and mobile layouts
+
+**Security Enhancements** (Applied to all forms: contact, newsletter, reminder)
+- **CORS Restrictions**: Limited to `https://ibuildwith.ai` and `https://www.ibuildwith.ai` (previously `*`)
+- **Rate Limiting**: Reduced from 5 to 3 requests per hour per IP address
+- **Email Validation**: Improved regex to require minimum 2-character TLD (blocks invalid emails like `name@xyz.a`)
+- Consistent security measures across all three form endpoints
+
+**Client-Side Validation**
+- Required field validation for First Name, Last Name, and Email
+- Email format validation with improved regex
+- Real-time validation on field blur
+- Error messages displayed inline
+- Focus management for accessibility
+
+## Code Changes
+
+**Frontend Files Created** (3 files)
+- `themes/ibuildwithai/layouts/newsletter/single.html` - Newsletter page layout
+- `content/newsletter.md` - Newsletter page content
+- `themes/ibuildwithai/assets/js/newsletter-form.js` - Form validation and submission logic
+
+**Backend Files Created** (1 file)
+- `backend/netlify/functions/newsletter-signup.js` - Netlify Function for dual integration
+
+**Frontend Files Modified** (4 files)
+- `themes/ibuildwithai/layouts/partials/header.html` - Added Newsletter link
+- `themes/ibuildwithai/layouts/partials/footer.html` - Added Newsletter link
+- `themes/ibuildwithai/assets/js/contact-form.js` - Security improvements
+- `config/_default/config.toml` - Added newsletter parameter
+
+**Backend Files Modified** (3 files)
+- `backend/netlify/functions/contact-form.js` - Security improvements (CORS, rate limit, email validation)
+- `backend/netlify/functions/reminder-form.js` - Security improvements (CORS, rate limit, email validation)
+- `backend/package.json` - Added `@mailchimp/mailchimp_marketing` dependency
+
+**Documentation Files Created** (5 files)
+- `.cody/project/build/v1.8.0-newsletter-page/design.md` - Technical design document
+- `.cody/project/build/v1.8.0-newsletter-page/tasklist.md` - Implementation task tracking
+- `.cody/project/build/v1.8.0-newsletter-page/walkthrough.md` - Implementation summary
+- `.cody/project/build/v1.8.0-newsletter-page/MAILCHIMP_SETUP.md` - Comprehensive Mailchimp setup guide
+- `.cody/project/build/v1.8.0-newsletter-page/retrospective.md` - Lessons learned and action items
+
+**Documentation Files Modified** (2 files)
+- `README.md` - Added environment variable documentation
+- `.cody/project/build/feature-backlog.md` - Marked version as completed
+
+## Environment Variables
+
+**New Variables Required** (3 variables)
+- `MAILCHIMP_API_KEY` - API key for Mailchimp integration
+- `MAILCHIMP_SERVER_PREFIX` - Server prefix (e.g., `us20`) for API endpoint
+- `MAILCHIMP_LIST_ID` - Target audience/list ID for subscribers
+
+**Existing Variables Reused** (2 variables)
+- `RESEND_API_KEY` - For sending email notifications
+- `RECIPIENT_EMAIL` - Where to send notifications
+
+## Bug Fixes
+
+**CORS Production Issue**
+- **Issue**: Forms failing in production with CORS errors
+- **Root Cause**: CORS set to `https://ibuildwith.ai` but site accessed via `https://www.ibuildwith.ai`
+- **Fix**: Dynamic CORS origin detection supporting both www and non-www variants
+- **Impact**: All three forms (contact, newsletter, reminder) now work correctly in production
+
+**Email Validation Too Permissive**
+- **Issue**: Email validation accepted single-character TLDs (e.g., `name@xyz.a`)
+- **Root Cause**: Regex pattern `/^[^\s@]+@[^\s@]+\.[^\s@]+$/` too broad
+- **Fix**: Updated to `/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/` requiring minimum 2-character TLD
+- **Impact**: Applied to all forms (contact, newsletter, reminder) for consistency
+
+## Testing
+
+**Comprehensive Testing Completed**
+- ✅ Newsletter page rendering and layout
+- ✅ Form validation (required fields, email format)
+- ✅ Client-side JavaScript functionality
+- ✅ Backend function deployment
+- ✅ Resend email notification delivery
+- ✅ Mailchimp subscriber list integration
+- ✅ "Member Exists" scenario handling
+- ✅ Success message display
+- ✅ CORS functionality (both www and non-www)
+- ✅ Rate limiting enforcement
+- ✅ Cross-browser compatibility
+- ✅ Mobile responsiveness
+- ✅ Navigation link placement
+- ✅ Security measures across all forms
+
+## Technical Implementation
+
+**Project Methodology**
+- Followed Cody Framework spec-driven development approach
+- 3 phases with 9 tasks tracked in tasklist.md
+- Comprehensive design document created before implementation
+- Security-first approach with proactive improvements
+
+**Task Distribution**
+- Total Tasks: 9
+- Phase 1 (Frontend): 4 tasks
+- Phase 2 (Backend): 2 tasks
+- Phase 3 (Verification & Documentation): 2 tasks
+- All tasks completed successfully
+
+**Architecture Decisions**
+- Reused existing CSS classes from contact form (zero new CSS)
+- Followed contact form pattern for consistency
+- Absolute URLs for Netlify Functions (enables local testing against production)
+- Dual integration approach (Resend + Mailchimp) for comprehensive subscriber management
+
+## Performance & Metrics
+
+**Build Performance**
+- No impact on Hugo build times
+- JavaScript minified and fingerprinted via Hugo Pipes
+- Lazy loading maintained for optimal performance
+
+**Security Improvements**
+- 3 forms secured with consistent policies
+- Rate limit reduced by 40% (5 → 3 requests/hour)
+- CORS attack surface reduced from unlimited to 2 specific domains
+- Email validation strengthened to prevent invalid submissions
+
+**Timeline**
+- Planning & Design: ~1 hour
+- Implementation: ~3 hours
+- Testing & Bug Fixes: ~2 hours
+- Documentation: ~1 hour
+- Total: ~7 hours active development
+
+## Impact
+
+**User Experience**
+- Easy newsletter signup with minimal friction (3 fields only)
+- Immediate feedback with success message
+- Consistent design language across all forms
+- Mobile-friendly responsive design
+
+**Developer Experience**
+- Comprehensive Mailchimp setup guide for easy configuration
+- Clear documentation of all environment variables
+- Reusable patterns for future form implementations
+- Security checklist for future endpoints
+
+**Business Impact**
+- Enables email list building for marketing and engagement
+- Dual notification system (owner email + Mailchimp list)
+- Automated subscriber management
+- Professional email delivery via Resend
+
+## Future Enhancements
+
+**Potential Improvements**
+1. Add double opt-in confirmation email to subscribers
+2. Create unsubscribe page/functionality
+3. Add CAPTCHA for additional bot protection
+4. Implement honeypot field for spam prevention
+5. Add analytics tracking for conversion rates
+6. Create subscriber management dashboard
+7. Add email preferences/frequency options
+
+**Security Considerations**
+1. Monitor rate limiting effectiveness
+2. Consider implementing Cloudflare Turnstile (free CAPTCHA alternative)
+3. Add email domain blacklist for disposable email services
+4. Implement IP reputation checking
+
+## Other Notes
+
+**Development Process**: This version demonstrated the value of security-first thinking. Proactively auditing all forms led to discovering and fixing security gaps across the entire platform, not just the new newsletter feature.
+
+**Cody Framework**: The spec-driven approach with clear phases (Planning → Execution → Verification) ensured comprehensive implementation with proper documentation and testing.
+
+**Mailchimp Integration**: The detailed setup guide (`MAILCHIMP_SETUP.md`) will serve as a template for future third-party API integration documentation.
+
+**CSS Reuse**: Successfully achieved zero new CSS by reusing existing contact form classes, demonstrating the value of consistent design patterns.
 
 ---
 

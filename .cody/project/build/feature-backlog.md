@@ -14,7 +14,7 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
-## v1.8.0-newsletter-page - 🔴 Not Started
+## v1.8.0-newsletter-page - 🟢 Completed
 Create a dedicated newsletter signup page at `/newsletter` with a form collecting First Name, Last Name, and Email. The design and layout should strictly follow the existing contact page format (`themes/ibuildwithai/layouts/contact.html`), with "Newsletter" as the heading and "Sign up to our newsletter to stay up to date" as the subheading.
 
 The form submission must:
@@ -25,11 +25,13 @@ The form submission must:
 
 | ID  | Feature                 | Description                              | Priority | Status |
 |-----|-------------------------|------------------------------------------|----------|--------|
-| 10.1 | Newsletter Layout Template | Create `themes/ibuildwithai/layouts/newsletter/single.html` mirroring `contact.html` | High | 🔴 Not Started |
-| 10.2 | Newsletter Content Page | Create `content/newsletter/_index.md` (or equivalent) to render the page | High | 🔴 Not Started |
-| 10.3 | Newsletter Form JS | Create `themes/ibuildwithai/assets/js/newsletter-form.js` for validation and submission handling | High | 🔴 Not Started |
-| 10.4 | Newsletter Backend Function | Create `backend/netlify/functions/newsletter-signup.js` to handle Resend email and Mailchimp API integration | High | 🔴 Not Started |
-| 10.5 | Environment Variables | Update documentation/setup for `MAILCHIMP_API_KEY`, `MAILCHIMP_SERVER_PREFIX`, and `MAILCHIMP_LIST_ID` | High | 🔴 Not Started |
+| 10.1 | Newsletter Layout Template | Create `themes/ibuildwithai/layouts/newsletter/single.html` mirroring `contact.html` | High | 🟢 Completed |
+| 10.2 | Newsletter Content Page | Create `content/newsletter.md` to render the page | High | 🟢 Completed |
+| 10.3 | Newsletter Form JS | Create `themes/ibuildwithai/assets/js/newsletter-form.js` for validation and submission handling | High | 🟢 Completed |
+| 10.4 | Newsletter Backend Function | Create `backend/netlify/functions/newsletter-signup.js` for Resend and Mailchimp integration | High | 🟢 Completed |
+| 10.5 | Environment Variables | Document Mailchimp environment variables (`MAILCHIMP_API_KEY`, `MAILCHIMP_SERVER_PREFIX`, `MAILCHIMP_LIST_ID`) | High | 🟢 Completed |
+| 10.6 | Navigation Updates | Add "Newsletter" link to Header and Footer navigation under "About" | High | 🟢 Completed |
+| 10.7 | Security Enhancements | Update CORS and rate limiting for all forms (contact, newsletter, reminder) | High | 🟢 Completed |
 
 ## v1.7.0-rebrand-to-i-build-with-ai - 🟢 Completed
 Complete rebranding from "iCodeWith.ai" to "I Build With AI" (iBuildWith.ai). Update domain, theme name, logos, configuration files, SEO metadata, content files, GitHub workflows, and all references throughout the codebase. Includes Cloudflare redirect setup for old domain. Production deployment completed and tested.
