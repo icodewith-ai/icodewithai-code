@@ -15,7 +15,7 @@
             reason: "Please select a reason for contacting us",
             message: "Message is required",
         },
-        successMessage: "Thank you. We'll get back to you within 24 hours.",
+        successMessage: "We'll get back to you within 24 hours.",
         reasonOptions: [
             // Will be configured later - make easily configurable
             { value: "podcast", text: "I want to be a guest on the podcast." },

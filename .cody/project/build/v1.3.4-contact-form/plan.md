@@ -108,7 +108,7 @@ const CONFIG = {
     message: "Message is required",
     captcha: "Please complete the CAPTCHA"
   },
-  successMessage: "Thank you. We'll get back to you within 24 hours.",
+  successMessage: "We'll get back to you within 24 hours.",
   reasonOptions: [
     // Will be configured later - make easily configurable
     "General Inquiry", // placeholder
