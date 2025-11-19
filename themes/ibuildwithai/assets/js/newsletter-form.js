@@ -13,7 +13,7 @@
             email: "Please enter a valid email address",
             emailInvalid: "Email format is invalid"
         },
-        successMessage: "Thank you for subscribing! You have been added to our newsletter list."
+        successMessage: "You have been added to our newsletter list."
     };
 
     // Form elements
