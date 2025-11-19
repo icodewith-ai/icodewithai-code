@@ -1,28 +1,19 @@
 // =============================================================================
-// CONTACT FORM - Client-side validation and form handling
+// NEWSLETTER FORM - Client-side validation and form handling
 // =============================================================================
 
 (function () {
     'use strict';
 
-    // Configuration - Make easily configurable
+    // Configuration
     const CONFIG = {
         errorMessages: {
             firstName: "First name is required",
             lastName: "Last name is required",
             email: "Please enter a valid email address",
-            emailInvalid: "Email format is invalid",
-            reason: "Please select a reason for contacting us",
-            message: "Message is required",
+            emailInvalid: "Email format is invalid"
         },
-        successMessage: "Thank you. We'll get back to you within 24 hours.",
-        reasonOptions: [
-            // Will be configured later - make easily configurable
-            { value: "podcast", text: "I want to be a guest on the podcast." },
-            { value: "partner-up", text: "I want to partner up with you." },
-            { value: "training", text: "Interested in getting training from you." },
-            { value: "other", text: "Other" }
-        ]
+        successMessage: "Thank you for subscribing! You have been added to our newsletter list."
     };
 
     // Form elements
@@ -31,11 +22,11 @@
 
     // Initialize when DOM is ready
     function init() {
-        form = document.getElementById('contact-form');
+        form = document.getElementById('newsletter-form');
         thankYouMessage = document.getElementById('thank-you-message');
 
         if (!form || !thankYouMessage) {
-            console.error('Contact form elements not found');
+            // It's possible this script is loaded but the form isn't present (though unlikely with current layout)
             return;
         }
 
@@ -43,14 +34,10 @@
         fields = {
             firstName: document.getElementById('firstName'),
             lastName: document.getElementById('lastName'),
-            email: document.getElementById('email'),
-            reason: document.getElementById('reason'),
-            message: document.getElementById('message')
+            email: document.getElementById('email')
         };
 
         setupEventListeners();
-        populateReasonDropdown();
-
     }
 
     // Setup event listeners
@@ -66,27 +53,6 @@
         form.addEventListener('submit', handleSubmit);
     }
 
-    // Populate reason dropdown with configurable options
-    function populateReasonDropdown() {
-        const reasonSelect = fields.reason;
-        if (!reasonSelect) return;
-
-        // Clear existing options except the first placeholder
-        const placeholder = reasonSelect.querySelector('option[value=""]');
-        reasonSelect.innerHTML = '';
-        if (placeholder) {
-            reasonSelect.appendChild(placeholder);
-        }
-
-        // Add configured options
-        CONFIG.reasonOptions.forEach(option => {
-            const optionElement = document.createElement('option');
-            optionElement.value = option.value;
-            optionElement.textContent = option.text;
-            reasonSelect.appendChild(optionElement);
-        });
-    }
-
     // Validate individual field
     function validateField(fieldName) {
         const field = fields[fieldName];
@@ -100,7 +66,6 @@
         switch (fieldName) {
             case 'firstName':
             case 'lastName':
-            case 'message':
                 if (!field.value.trim()) {
                     isValid = false;
                     errorMessage = CONFIG.errorMessages[fieldName];
@@ -115,11 +80,6 @@
                     isValid = false;
                     errorMessage = CONFIG.errorMessages.emailInvalid;
                 }
-                break;
-
-
-            // Reason is optional, so no validation needed
-            case 'reason':
                 break;
         }
 
@@ -189,7 +149,7 @@
         // Show loading state
         const submitButton = form.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
+        submitButton.textContent = 'Subscribing...';
         submitButton.disabled = true;
 
         try {
@@ -197,13 +157,12 @@
             const formData = {
                 firstName: fields.firstName.value.trim(),
                 lastName: fields.lastName.value.trim(),
-                email: fields.email.value.trim(),
-                reason: fields.reason.value || '',
-                message: fields.message.value.trim()
+                email: fields.email.value.trim()
             };
 
             // Submit to Netlify function
-            const response = await fetch('https://ibuildwithai.netlify.app/.netlify/functions/contact-form', {
+            // Note: Using absolute URL to allow local testing against production backend (once deployed)
+            const response = await fetch('https://ibuildwithai.netlify.app/.netlify/functions/newsletter-signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -218,13 +177,13 @@
                 showSuccessMessage();
             } else {
                 // Server returned an error
-                throw new Error(result.error || 'Failed to send message');
+                throw new Error(result.error || 'Failed to subscribe');
             }
         } catch (error) {
             console.error('Form submission error:', error);
 
             // Show error message to user
-            alert('Sorry, there was an error sending your message. Please try again later or contact us directly.');
+            alert('Sorry, there was an error subscribing you. Please try again later or contact us directly.');
 
             // Reset button
             submitButton.textContent = originalText;
@@ -242,7 +201,7 @@
         const thankYouText = thankYouMessage.querySelector('p');
 
         if (thankYouTitle) {
-            thankYouTitle.textContent = 'Thank you!';
+            thankYouTitle.textContent = 'Thank you for subscribing!';
         }
         if (thankYouText) {
             thankYouText.textContent = CONFIG.successMessage;

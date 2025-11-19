@@ -20,45 +20,46 @@
 
 <!-- Desktop Navigation -->
 <nav class="nav">
-    
-    {{ partial "nav-dropdown" (dict 
-        "title" "Learn"
-        "items" (slice 
-            (dict "name" "Blog" "url" .Site.Params.blog "external" false)
-            (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
-            (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
-        )
+
+    {{ partial "nav-dropdown" (dict
+    "title" "Learn"
+    "items" (slice
+    (dict "name" "Blog" "url" .Site.Params.blog "external" false)
+    (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
+    (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
+    )
     ) }}
 
-    {{ partial "nav-dropdown" (dict 
-        "title" "Explore"
-        "items" (slice 
-            (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
-        )
+    {{ partial "nav-dropdown" (dict
+    "title" "Explore"
+    "items" (slice
+    (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
+    )
     ) }}
 
-    {{ partial "nav-dropdown" (dict 
-        "title" "Build"
-        "items" (slice 
-            (dict "name" "Cody Framework" "url" .Site.Params.cody "external" true)
-        )
-    ) }}
-    
-    {{ partial "nav-dropdown" (dict 
-        "title" "Community"
-        "items" (slice 
-            (dict "name" "Discord" "url" .Site.Params.discord "external" true)
-            (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
-        )
+    {{ partial "nav-dropdown" (dict
+    "title" "Build"
+    "items" (slice
+    (dict "name" "Cody Framework" "url" .Site.Params.cody "external" true)
+    )
     ) }}
 
-    {{ partial "nav-dropdown" (dict 
-        "title" "About"
-        "items" (slice 
-            (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
-            (dict "name" "Contact" "url" .Site.Params.contact "external" false)
-        )
-        "align" "right"
+    {{ partial "nav-dropdown" (dict
+    "title" "Community"
+    "items" (slice
+    (dict "name" "Discord" "url" .Site.Params.discord "external" true)
+    (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
+    )
+    ) }}
+
+    {{ partial "nav-dropdown" (dict
+    "title" "About"
+    "items" (slice
+    (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
+    (dict "name" "Newsletter" "url" .Site.Params.newsletter "external" false)
+    (dict "name" "Contact" "url" .Site.Params.contact "external" false)
+    )
+    "align" "right"
     ) }}
 
 </nav>
@@ -79,49 +80,50 @@
                 {{ end }}
             </div>
         </div>
-        
+
         <!-- Navigation items (same structure as desktop) -->
         <nav class="mobile-nav">
-            
-            {{ partial "nav-dropdown" (dict 
-                "title" "Learn"
-                "items" (slice 
-                    (dict "name" "Blog" "url" .Site.Params.blog "external" false)
-                    (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
-                            (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
-                )
+
+            {{ partial "nav-dropdown" (dict
+            "title" "Learn"
+            "items" (slice
+            (dict "name" "Blog" "url" .Site.Params.blog "external" false)
+            (dict "name" "Podcast" "url" .Site.Params.podcast "external" false)
+            (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
+            )
             ) }}
 
-            {{ partial "nav-dropdown" (dict 
-                "title" "Explore"
-                "items" (slice 
-                    (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
-                )
+            {{ partial "nav-dropdown" (dict
+            "title" "Explore"
+            "items" (slice
+            (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
+            )
             ) }}
 
-            {{ partial "nav-dropdown" (dict 
-                "title" "Build"
-                "items" (slice 
-                    (dict "name" "Cody Framework" "url" .Site.Params.cody "external" true)
-                )
-            ) }}
-            
-            {{ partial "nav-dropdown" (dict 
-                "title" "Community"
-                "items" (slice 
-                    (dict "name" "Discord" "url" .Site.Params.discord "external" true)
-                    (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
-                )
+            {{ partial "nav-dropdown" (dict
+            "title" "Build"
+            "items" (slice
+            (dict "name" "Cody Framework" "url" .Site.Params.cody "external" true)
+            )
             ) }}
 
-            {{ partial "nav-dropdown" (dict 
-                "title" "About"
-                "items" (slice 
-                    (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
-                    (dict "name" "Contact" "url" .Site.Params.contact "external" false)
-                )
+            {{ partial "nav-dropdown" (dict
+            "title" "Community"
+            "items" (slice
+            (dict "name" "Discord" "url" .Site.Params.discord "external" true)
+            (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
+            )
             ) }}
-            
+
+            {{ partial "nav-dropdown" (dict
+            "title" "About"
+            "items" (slice
+            (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
+            (dict "name" "Newsletter" "url" .Site.Params.newsletter "external" false)
+            (dict "name" "Contact" "url" .Site.Params.contact "external" false)
+            )
+            ) }}
+
         </nav>
     </div>
 </div>

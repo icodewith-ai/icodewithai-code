@@ -30,6 +30,7 @@ enableRobotsTXT = true
   about_marcelo = "/about-marcelo/"
   apps = "/apps/"
   contact = "/contact/"
+  newsletter = "/newsletter/"
   podcast = "/podcast/"
   blog = "/blog/"
   presentations = "/presentations/"

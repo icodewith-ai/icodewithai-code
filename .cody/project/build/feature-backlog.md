@@ -14,6 +14,23 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.8.0-newsletter-page - 🔴 Not Started
+Create a dedicated newsletter signup page at `/newsletter` with a form collecting First Name, Last Name, and Email. The design and layout should strictly follow the existing contact page format (`themes/ibuildwithai/layouts/contact.html`), with "Newsletter" as the heading and "Sign up to our newsletter to stay up to date" as the subheading.
+
+The form submission must:
+1.  Send an email notification to the site owner via Resend (similar to contact form).
+2.  Add the subscriber to a Mailchimp list.
+3.  Display a "Thank You" message on the same page upon success.
+4.  Enforce required fields and valid email format.
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 10.1 | Newsletter Layout Template | Create `themes/ibuildwithai/layouts/newsletter/single.html` mirroring `contact.html` | High | 🔴 Not Started |
+| 10.2 | Newsletter Content Page | Create `content/newsletter/_index.md` (or equivalent) to render the page | High | 🔴 Not Started |
+| 10.3 | Newsletter Form JS | Create `themes/ibuildwithai/assets/js/newsletter-form.js` for validation and submission handling | High | 🔴 Not Started |
+| 10.4 | Newsletter Backend Function | Create `backend/netlify/functions/newsletter-signup.js` to handle Resend email and Mailchimp API integration | High | 🔴 Not Started |
+| 10.5 | Environment Variables | Update documentation/setup for `MAILCHIMP_API_KEY`, `MAILCHIMP_SERVER_PREFIX`, and `MAILCHIMP_LIST_ID` | High | 🔴 Not Started |
+
 ## v1.7.0-rebrand-to-i-build-with-ai - 🟢 Completed
 Complete rebranding from "iCodeWith.ai" to "I Build With AI" (iBuildWith.ai). Update domain, theme name, logos, configuration files, SEO metadata, content files, GitHub workflows, and all references throughout the codebase. Includes Cloudflare redirect setup for old domain. Production deployment completed and tested.
 
