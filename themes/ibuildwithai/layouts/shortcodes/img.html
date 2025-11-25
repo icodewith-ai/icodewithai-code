@@ -1,0 +1,35 @@
+{{/*
+Usage: {{< img src="/images/blog/my-image.png" alt="Description" >}}
+
+Parameters:
+- src: Path to image (required)
+- alt: Alt text (required)
+- size: Width as percentage (e.g., "50%", "100%") - default is "100%"
+- caption: Optional caption text
+
+Examples:
+  {{< img src="/images/blog/my-image.png" alt="My Image" >}}
+  {{< img src="/images/blog/my-image.png" alt="My Image" size="50%" >}}
+  {{< img src="/images/blog/my-image.png" alt="My Image" caption="This is a caption" >}}
+*/}}
+
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" }}
+{{ $caption := .Get "caption" }}
+{{ $size := .Get "size" | default "100%" }}
+
+{{ $imagePath := strings.TrimPrefix "/" $src }}
+{{ $image := resources.Get $imagePath }}
+
+{{ if $image }}
+    {{ $imageFingerprint := $image | resources.Fingerprint }}
+
+    <figure class="blog-inline-image" style="width: {{ $size }};">
+        <img src="{{ $imageFingerprint.RelPermalink }}" alt="{{ $alt }}" loading="lazy">
+        {{ with $caption }}
+            <figcaption>{{ . }}</figcaption>
+        {{ end }}
+    </figure>
+{{ else }}
+    <p class="error">Image not found: {{ $src }}</p>
+{{ end }}

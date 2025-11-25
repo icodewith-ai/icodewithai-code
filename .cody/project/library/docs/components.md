@@ -932,6 +932,101 @@ The component supports two icon sources:
 
 ---
 
+## Blog Inline Image Component
+
+### Overview
+The inline image component provides a simple, responsive way to embed images within blog posts and content pages. Images are processed through Hugo Pipes with automatic fingerprinting for cache busting.
+
+### Technical Specifications
+
+#### Hugo Shortcode
+**File**: `themes/ibuildwithai/layouts/shortcodes/img.html`
+
+**Usage in Content Files (.md):**
+```hugo
+{{< img src="/images/blog/my-image.png" alt="Description" >}}
+{{< img src="/images/blog/my-image.png" alt="Description" size="50%" >}}
+{{< img src="/images/blog/my-image.png" alt="Description" caption="This is a caption" >}}
+```
+
+#### HTML Structure
+```html
+<figure class="blog-inline-image" style="width: 100%;">
+    <img src="/images/blog/image.fingerprint.png" alt="Description" loading="lazy">
+    <figcaption>Optional caption</figcaption>
+</figure>
+```
+
+#### CSS Classes
+
+| Class | Purpose |
+|-------|---------|
+| `.blog-inline-image` | Main figure container with spacing |
+| `img` | Responsive image at 100% width with rounded corners |
+| `figcaption` | Optional caption text styling |
+
+### Parameters
+
+- **src** (required): Path to image (e.g., `/images/blog/my-image.png`)
+- **alt** (required): Alt text for accessibility
+- **size** (optional): Width as percentage (default: `"100%"`) - e.g., `"50%"`, `"75%"`, `"100%"`
+- **caption** (optional): Caption text displayed below image
+
+### Visual Design
+
+#### Colors
+- **Caption Text**: `$neutral-600` - Muted gray
+- **Caption Font**: `$font-size-sm` with italic styling
+
+#### Dimensions
+- **Default Width**: 100% of content container
+- **Custom Width**: Configurable via `size` parameter (respects container width)
+- **Border Radius**: `$border-radius-lg` - Large rounded corners
+
+#### Layout
+- **Alignment**: Left-aligned by default
+- **Spacing**: `$spacing-lg` margin top and bottom
+- **Responsive**: Images scale to fit container width
+
+### Usage Examples
+
+#### Basic Image (Full Width)
+```hugo
+{{< img src="/images/blog/screenshot.png" alt="Application screenshot" >}}
+```
+
+#### Half Width Image
+```hugo
+{{< img src="/images/blog/diagram.png" alt="Architecture diagram" size="50%" >}}
+```
+
+#### With Caption
+```hugo
+{{< img src="/images/blog/chart.png" alt="Performance chart" size="75%" caption="Performance improvements over time" >}}
+```
+
+### Image Processing
+
+All images are:
+- Processed through Hugo Pipes
+- Automatically fingerprinted for cache busting
+- Loaded with `loading="lazy"` for performance
+- Must be located in `themes/ibuildwithai/assets/images/` folder
+
+### Accessibility Features
+- Required `alt` attribute for screen readers
+- Optional `figcaption` for additional context
+- Semantic HTML5 `<figure>` element
+- Lazy loading for performance
+
+### Performance Optimizations
+- **Lazy Loading**: Images use native lazy loading
+- **Fingerprinting**: Automatic cache busting via Hugo Pipes
+- **Responsive**: No unnecessary large images on mobile
+- **Optimized Paths**: Direct resource pipeline processing
+
+---
+
 ## Future Component Additions
 
 This document should be expanded as new components are added to the design system:

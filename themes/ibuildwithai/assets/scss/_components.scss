@@ -786,13 +786,31 @@
   margin: $spacing-md 0;
   border-radius: $border-radius-base;
   overflow: hidden;
-  
+
   img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
     border-radius: $border-radius-base;
+  }
+}
+
+.blog-inline-image {
+  margin: $spacing-lg 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: $border-radius-lg;
+  }
+
+  figcaption {
+    margin-top: $spacing-sm;
+    color: $neutral-600;
+    font-size: $font-size-sm;
+    font-style: italic;
   }
 }
 
