@@ -12,6 +12,7 @@
             <div class="container">
                 
                 {{ $upcomingPresentations := where .Pages ".Params.status" "upcoming" }}
+                {{ $onDemandPresentations := where .Pages ".Params.status" "on-demand" }}
                 {{ $completedPresentations := where .Pages ".Params.status" "completed" }}
                 
                 {{ if $upcomingPresentations }}
@@ -58,14 +59,64 @@
                                 <div class="app-meta">
                                     {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>
-                                <p>{{ .Params.summary }}</p>
                                 <span class="card-link">Learn more →</span>
                             </article>
                         </a>
                     {{ end }}
                 </div>
                 {{ end }}
-                
+
+                {{ if $onDemandPresentations }}
+                <h2>On-Demand</h2>
+                <div class="podcast-episodes">
+                    {{ range sort $onDemandPresentations ".Params.date_time" "desc" }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                {{ if .Params.image }}
+                                    {{ $presentationImgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $presentationImg := resources.Get $presentationImgPath }}
+                                    {{ if $presentationImg }}
+                                    <div class="presentation-card-thumbnail">
+                                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
+                                        <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterKeys := split .Params.presenter "," }}
+                                    {{ $presenterNames := slice }}
+                                    {{ range $presenterKeys }}
+                                        {{ $key := trim . " " }}
+                                        {{ $presenterData := index $.Site.Data.people $key }}
+                                        {{ if $presenterData }}
+                                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ if $presenterNames }}
+                                        <div class="post-author">Presented by
+                                        {{ if eq (len $presenterNames) 1 }}
+                                            {{ index $presenterNames 0 }}
+                                        {{ else if eq (len $presenterNames) 2 }}
+                                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                        {{ else }}
+                                            {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                            {{ range $i, $name := $presenterNames }}
+                                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                            {{ end }}
+                                        {{ end }}</div>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="app-meta">
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
+                                </div>
+                                <span class="card-link">Learn more →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+
                 {{ if $completedPresentations }}
                 <h2>Completed</h2>
                 <div class="podcast-episodes">
@@ -110,7 +161,6 @@
                                 <div class="app-meta">
                                     {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>
-                                <p>{{ .Params.summary }}</p>
                                 <span class="card-link">Learn more →</span>
                             </article>
                         </a>

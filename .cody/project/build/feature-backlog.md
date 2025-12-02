@@ -14,6 +14,36 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.8.1-updates-to-presentation-and-podcast-pages - 🟢 Completed
+Updates to Podcast and Presentations list and single pages to improve content organization and user experience. Adds new "On-Demand" status and section for presentations, embeds YouTube videos for on-demand content, and conditionally displays sections based on content availability.
+
+**Podcast List Page Updates:**
+- Hide "On Demand" section heading if there are no upcoming episodes
+- Show "On Demand" heading only when upcoming episodes exist
+
+**Presentations List Page Updates:**
+- Remove description text from presentation cards
+- Add new "On-Demand" section between "Upcoming" and "Completed" sections
+- Filter presentations by status:
+  - **Upcoming**: Display presentations with `status = "upcoming"`
+  - **On-Demand**: Display presentations with `status = "on-demand"` (sorted by latest date first)
+  - **Completed**: Display presentations with `status = "completed"` (exclude on-demand items)
+
+**Presentations Single Page Updates:**
+- When `status = "on-demand"`:
+  - Embed YouTube player using `on_demand_url` frontmatter field instead of displaying the presentation image
+  - Hide the "Links" section entirely for on-demand presentations
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 11.1 | Podcast list conditional heading | Hide "On Demand" heading if no upcoming episodes exist | Medium | 🟢 Completed |
+| 11.2 | Presentations list description removal | Remove description field from presentation card boxes | Medium | 🟢 Completed |
+| 11.3 | Presentations "On-Demand" section | Add new section between Upcoming and Completed for on-demand presentations | High | 🟢 Completed |
+| 11.4 | Presentations status filtering | Update list template to filter by status (upcoming, on-demand, completed) | High | 🟢 Completed |
+| 11.5 | On-demand date sorting | Sort on-demand presentations by latest date first | Medium | 🟢 Completed |
+| 11.6 | YouTube embed for on-demand | Embed YouTube player on single page when status is on-demand | High | 🟢 Completed |
+| 11.7 | Conditional links section | Hide Links section on single page when status is on-demand | Medium | 🟢 Completed |
+
 ## v1.8.0-newsletter-page - 🟢 Completed
 Create a dedicated newsletter signup page at `/newsletter` with a form collecting First Name, Last Name, and Email. The design and layout should strictly follow the existing contact page format (`themes/ibuildwithai/layouts/contact.html`), with "Newsletter" as the heading and "Sign up to our newsletter to stay up to date" as the subheading.
 

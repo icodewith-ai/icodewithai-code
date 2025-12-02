@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.8.1-updates-to-presentation-and-podcast-pages - December 2, 2025](#v181-updates-to-presentation-and-podcast-pages---december-2-2025)
 - [v1.8.0-newsletter-page - November 19, 2025](#v180-newsletter-page---november-19-2025)
 - [v1.7.0-rebrand-to-i-build-with-ai - November 18, 2025](#v170-rebrand-to-i-build-with-ai---november-18-2025)
 - [v1.6.0-scrolling-component - October 21, 2025](#v160-scrolling-component---october-21-2025)
@@ -10,6 +11,147 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.8.1-updates-to-presentation-and-podcast-pages - December 2, 2025
+
+## Overview
+
+Enhanced the Podcast and Presentations sections with improved content organization, conditional display logic, and YouTube video embeds for on-demand presentations. This version introduces a new three-tier status system (upcoming, on-demand, completed) for presentations and streamlines the user experience by conditionally displaying sections and embedding videos directly in presentation pages.
+
+## Key Features
+
+**Podcast List Page Updates**
+- **Conditional "On-Demand" Heading**: The "On-Demand" section heading now only displays when there are upcoming episodes, preventing confusing empty state scenarios
+- Improved visual hierarchy by hiding unnecessary headings when content doesn't exist
+
+**Presentations List Page Updates**
+- **New Three-Section Layout**: Presentations now organized into three distinct sections:
+  - **Upcoming**: Shows presentations with `status = "upcoming"` sorted by date ascending (soonest first)
+  - **On-Demand**: Shows presentations with `status = "on-demand"` sorted by date descending (latest first)
+  - **Completed**: Shows presentations with `status = "completed"` sorted by date descending
+- **Removed Description Text**: Eliminated `summary` field from presentation cards for cleaner, more scannable list view
+- **Better Content Lifecycle**: New on-demand status provides clear path from upcoming → on-demand → completed
+
+**Presentations Single Page Updates**
+- **YouTube Video Embeds**: On-demand presentations now embed YouTube videos directly in the page instead of displaying static images
+- **Multiple URL Format Support**: Handles various YouTube URL formats:
+  - `https://www.youtube.com/watch?v=VIDEO_ID`
+  - `https://youtu.be/VIDEO_ID`
+  - `https://www.youtube.com/embed/VIDEO_ID`
+- **Responsive Video Player**: Uses same video-embed-responsive wrapper as podcast pages for consistent 16:9 aspect ratio
+- **Conditional Links Section**: Automatically hides the Links section for on-demand presentations (since video is embedded, external link redundant)
+- **Backward Compatible**: Non-on-demand presentations (upcoming, completed) continue displaying images as before
+
+## Code Changes
+
+**Files Modified** (3 files)
+- `themes/ibuildwithai/layouts/podcast/list.html` - Added conditional heading display logic
+- `themes/ibuildwithai/layouts/presentations/list.html` - Added on-demand section, removed descriptions, updated filtering
+- `themes/ibuildwithai/layouts/presentations/single.html` - Added YouTube embed logic, conditional Links section
+
+**Documentation Files Created** (3 files)
+- `.cody/project/build/v1.8.1-updates-to-presentation-and-podcast-pages/design.md` - Technical design document
+- `.cody/project/build/v1.8.1-updates-to-presentation-and-podcast-pages/tasklist.md` - Implementation task tracking (17 tasks across 5 phases)
+- `.cody/project/build/v1.8.1-updates-to-presentation-and-podcast-pages/retrospective.md` - Lessons learned and future improvements
+
+**Documentation Files Modified** (1 file)
+- `.cody/project/build/feature-backlog.md` - Marked version as completed
+
+## Technical Implementation
+
+**Hugo Template Logic**
+- Leveraged Hugo's `where` function for clean status-based filtering
+- Implemented video ID extraction using `findRE` and string manipulation
+- Used conditional blocks with `{{ if eq .Params.status "on-demand" }}` for clean branching
+- Reused existing CSS classes (`video-embed-responsive`, `podcast-episodes`, `app-card`) for zero CSS changes
+
+**YouTube Video ID Extraction**
+- Regex-based URL pattern matching for multiple formats
+- Extracts video ID from query parameters (`?v=`) and path segments
+- Graceful fallback to image display if URL parsing fails
+
+**Backward Compatibility**
+- New "on-demand" status is purely additive
+- Existing presentations with "upcoming" or "completed" status unaffected
+- No breaking changes to existing content or frontmatter
+
+## Testing
+
+**Comprehensive Testing Completed**
+- ✅ Podcast page conditional heading (with/without upcoming episodes)
+- ✅ Presentations list three-section layout
+- ✅ Status-based filtering (upcoming, on-demand, completed)
+- ✅ Date sorting (ascending for upcoming, descending for on-demand/completed)
+- ✅ Description removal from presentation cards
+- ✅ YouTube video embed functionality
+- ✅ Multiple YouTube URL format handling
+- ✅ Links section conditional display
+- ✅ Responsive behavior (mobile, tablet, desktop)
+- ✅ Build and staging deployment verification
+
+## Impact
+
+**User Experience**
+- Cleaner presentation list view without redundant descriptions
+- Direct video access for on-demand presentations (no extra clicks)
+- Clear content organization with three-tier status system
+- Reduced clutter by hiding unnecessary Links section for embedded videos
+
+**Content Management**
+- New "on-demand" status provides clear content lifecycle
+- Easy conversion from completed presentations to on-demand
+- Date sorting ensures latest on-demand content appears first
+
+**Developer Experience**
+- Reusable YouTube embed pattern for future video implementations
+- Clean conditional logic makes templates maintainable
+- Zero new CSS demonstrates value of consistent design patterns
+
+## Performance & Metrics
+
+**Build Performance**
+- No impact on Hugo build times
+- Efficient Hugo template logic with minimal processing overhead
+
+**Timeline**
+- Planning & Design: ~1 hour
+- Implementation: ~2 hours (3 phases, 10 tasks)
+- Testing: Completed by user
+- Documentation: ~1 hour
+- Total: ~4 hours active development
+
+**Task Distribution**
+- Total Tasks: 17
+- Phase 1 (Podcast): 1 task
+- Phase 2 (Presentations List): 5 tasks
+- Phase 3 (Presentations Single): 4 tasks
+- Phase 4 (Testing): 6 tasks
+- Phase 5 (Documentation): 5 tasks (including git commit and deployment)
+- Completion Rate: 100%
+
+## Future Enhancements
+
+**Potential Improvements**
+1. Add video play icon overlay on on-demand thumbnails in list view
+2. Implement automatic YouTube thumbnail extraction if image not provided
+3. Add video duration display for on-demand presentations
+4. Create content management documentation for "on-demand" status usage
+5. Extract YouTube ID extraction logic into reusable Hugo partial
+
+**Content Strategy**
+- Establish process for converting completed presentations to on-demand
+- Define guidelines for when to use on-demand vs. completed status
+- Plan migration of existing presentations to on-demand where appropriate
+
+## Other Notes
+
+**Development Process**: This version demonstrated the value of phase-based implementation for multi-component changes. Clear dependencies between tasks prevented rework and maintained code quality throughout.
+
+**Reusable Patterns**: Successfully reused YouTube embed structure from podcast pages, proving the value of consistent component patterns across the platform.
+
+**Zero Breaking Changes**: All changes were purely additive, maintaining backward compatibility with existing content while enabling new functionality.
 
 ---
 

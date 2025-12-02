@@ -74,7 +74,7 @@
                 {{ end }}
                 
                 {{ if $publishedEpisodes }}
-                <h2>On-Demand</h2>
+                {{ if $upcomingEpisodes }}<h2>On-Demand</h2>{{ end }}
                 <div class="podcast-episodes">
                     {{ range sort $publishedEpisodes ".Date" "desc" }}
                         <a href="{{ .Permalink }}" class="blog-card-link">

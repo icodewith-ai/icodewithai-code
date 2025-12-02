@@ -35,14 +35,39 @@
                     {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} presentation.{{ end }}
                 </div>
                 
-                {{ if and .Params.image .Params.displayImageInline }}
-                    {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-                    {{ $presentationImg := resources.Get $imagePath }}
-                    {{ if $presentationImg }}
-                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
+                {{ if eq .Params.status "on-demand" }}
+                    <!-- YouTube Video Embed for On-Demand Presentations -->
+                    {{ if and .Params.on_demand_url (ne .Params.on_demand_url "") }}
+                        {{ $videoID := "" }}
+                        {{ if (findRE "youtu\\.be/" .Params.on_demand_url) }}
+                            {{ $videoID = index (last 1 (split .Params.on_demand_url "/")) 0 }}
+                        {{ else if (findRE "watch\\?v=" .Params.on_demand_url) }}
+                            {{ $videoID = index (split (index (last 1 (split .Params.on_demand_url "v=")) 0) "&") 0 }}
+                        {{ else if (findRE "embed/" .Params.on_demand_url) }}
+                            {{ $videoID = index (last 1 (split .Params.on_demand_url "/")) 0 }}
+                        {{ end }}
+                        {{ if $videoID }}
                         <div class="blog-single-image">
-                            <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                            <div class="video-embed-responsive">
+                                <iframe
+                                    src="https://www.youtube.com/embed/{{ $videoID }}"
+                                    frameborder="0"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
                         </div>
+                        {{ end }}
+                    {{ end }}
+                {{ else }}
+                    {{ if and .Params.image .Params.displayImageInline }}
+                        {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+                        {{ $presentationImg := resources.Get $imagePath }}
+                        {{ if $presentationImg }}
+                            {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
+                            <div class="blog-single-image">
+                                <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                            </div>
+                        {{ end }}
                     {{ end }}
                 {{ end }}
                 
@@ -99,27 +124,29 @@
                 {{ end }}
                 {{ end }}
 
-                {{ if or .Params.learn_more_url .Params.on_demand_url .Params.register_url }}
-                <div class="project-links-section">
-                    <h3 class="project-links-title">Links</h3>
-                    <div class="project-links">
-                        {{ if .Params.register_url }}
-                        <a href="{{ .Params.register_url }}" target="_blank" class="btn-primary">
-                            Register to Attend
-                        </a>
-                        {{ end }}
-                        {{ if .Params.learn_more_url }}
-                        <a href="{{ .Params.learn_more_url }}" target="_blank" class="btn-secondary">
-                            Learn More
-                        </a>
-                        {{ end }}
-                        {{ if .Params.on_demand_url }}
-                        <a href="{{ .Params.on_demand_url }}" target="_blank" class="btn-secondary">
-                            Watch On-Demand
-                        </a>
-                        {{ end }}
+                {{ if ne .Params.status "on-demand" }}
+                    {{ if or .Params.learn_more_url .Params.on_demand_url .Params.register_url }}
+                    <div class="project-links-section">
+                        <h3 class="project-links-title">Links</h3>
+                        <div class="project-links">
+                            {{ if .Params.register_url }}
+                            <a href="{{ .Params.register_url }}" target="_blank" class="btn-primary">
+                                Register to Attend
+                            </a>
+                            {{ end }}
+                            {{ if .Params.learn_more_url }}
+                            <a href="{{ .Params.learn_more_url }}" target="_blank" class="btn-secondary">
+                                Learn More
+                            </a>
+                            {{ end }}
+                            {{ if .Params.on_demand_url }}
+                            <a href="{{ .Params.on_demand_url }}" target="_blank" class="btn-secondary">
+                                Watch On-Demand
+                            </a>
+                            {{ end }}
+                        </div>
                     </div>
-                </div>
+                    {{ end }}
                 {{ end }}
                 
                 <div class="back-link-section">
