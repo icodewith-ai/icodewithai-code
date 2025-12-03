@@ -1697,7 +1697,7 @@ h2 + .podcast-embed-section {
   display: grid;
   gap: $spacing-lg;
   grid-template-columns: repeat(2, 1fr);
-  margin-bottom: $spacing-2xl; // Add spacing after event sections
+  margin-bottom: $spacing-xl; // Add spacing after event sections
 
   // Mobile/Tablet responsive: single column at tablet breakpoint
   @include tablet-down {
