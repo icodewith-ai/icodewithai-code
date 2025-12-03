@@ -15,11 +15,11 @@
           {{ $priority = 1.0 }}
         
         {{/* Main Section Pages - Priority 0.9 */}}
-        {{ else if or (eq .RelPermalink "/blog/") (eq .RelPermalink "/podcast/") (eq .RelPermalink "/tutorials/") (eq .RelPermalink "/presentations/") (eq .RelPermalink "/apps/") }}
+        {{ else if or (eq .RelPermalink "/blog/") (eq .RelPermalink "/podcast/") (eq .RelPermalink "/tutorials/") (eq .RelPermalink "/events/") (eq .RelPermalink "/apps/") }}
           {{ $priority = 0.9 }}
         
         {{/* Individual Content - Priority 0.8 */}}
-        {{ else if or (eq .Section "blog") (eq .Section "podcast") (eq .Section "tutorials") (eq .Section "presentations") (eq .Section "apps") }}
+        {{ else if or (eq .Section "blog") (eq .Section "podcast") (eq .Section "tutorials") (eq .Section "events") (eq .Section "apps") }}
           {{ $priority = 0.8 }}
         
         {{/* Community Section - Priority 0.7 */}}

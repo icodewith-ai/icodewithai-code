@@ -2,12 +2,12 @@
 title = "{{ replace .Name "-" " " | title }}"
 summary = ""
 audience = ""
-image = "/images/presentations/default.png"
+image = "/images/events/default.png"
 date_time = "{{ .Date }}"
 location = "online | actual location"
 timezone = "PST"
 presenter = "first-last"
-status = "upcoming | completed"
+status = "upcoming | completed | on-demand"
 learn_more_url = ""
 on_demand_url = ""
 register_url = ""
@@ -16,4 +16,4 @@ draft = true
 displayImageInline = true
 +++
 
-Write a detailed description of your presentation here. You can include:
+Write a detailed description of your event here.

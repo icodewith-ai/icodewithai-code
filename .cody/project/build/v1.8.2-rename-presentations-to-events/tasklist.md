@@ -58,17 +58,17 @@ This document outlines all the tasks to work on to delivery this particular vers
 | 5.4 | Test navigation links | Verify header and footer navigation links work correctly | 5.1 | 🟢 Completed | USER |
 | 5.5 | Test home page | Verify events section displays correctly on home page | 5.1 | 🟢 Completed | USER |
 | 5.6 | Test URL structure | Verify URLs changed from `/presentations/` to `/events/` | 5.1 | 🟢 Completed | USER |
-| 5.7 | Test content creation | Test `./automations/create-content.sh events "Test Event"` creates content correctly | 4.1 | 🔴 Not Started | USER |
-| 5.8 | Test responsive design | Verify events pages work on mobile, tablet, and desktop | 5.1, 5.2, 5.3 | 🔴 Not Started | USER |
+| 5.7 | Test content creation | Test `./automations/create-content.sh events "Test Event"` creates content correctly | 4.1 | 🟢 Completed | USER |
+| 5.8 | Test responsive design | Verify events pages work on mobile, tablet, and desktop | 5.1, 5.2, 5.3 | 🟢 Completed | USER |
 
 
 ## Phase 6: Documentation and Cleanup
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| 6.1 | Update feature backlog | Update feature-backlog.md status to completed | 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8 | 🔴 Not Started | AGENT |
-| 6.2 | Create retrospective | Create retrospective.md document | 6.1 | 🔴 Not Started | AGENT |
-| 6.3 | Update release notes | Update release-notes.md with v1.8.2 details | 6.2 | 🔴 Not Started | AGENT |
+| 6.1 | Update feature backlog | Update feature-backlog.md status to completed | 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8 | 🟢 Completed | AGENT |
+| 6.2 | Create retrospective | Create retrospective.md document | 6.1 | 🟢 Completed | AGENT |
+| 6.3 | Update release notes | Update release-notes.md with v1.8.2 details | 6.2 | 🟢 Completed | AGENT |
 
 
 ## Summary Statistics

@@ -1,11 +1,11 @@
-# Basic SEO - Custom presentations listing content
-title: "Presentations | iBuildWith.ai"
+# Basic SEO - Custom events listing content
+title: "Events | iBuildWith.ai"
 description: "Explore talks and live demos on vibe coding, AI-assisted development, software best practices and modern engineering workflows."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
 social_image: "defaults.social_image"
-social_image_alt: "Presentations | iBuildWith.ai"
+social_image_alt: "Events | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

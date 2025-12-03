@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.8.2-rename-presentations-to-events - December 2, 2025](#v182-rename-presentations-to-events---december-2-2025)
 - [v1.8.1-updates-to-presentation-and-podcast-pages - December 2, 2025](#v181-updates-to-presentation-and-podcast-pages---december-2-2025)
 - [v1.8.0-newsletter-page - November 19, 2025](#v180-newsletter-page---november-19-2025)
 - [v1.7.0-rebrand-to-i-build-with-ai - November 18, 2025](#v170-rebrand-to-i-build-with-ai---november-18-2025)
@@ -11,6 +12,115 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.8.2-rename-presentations-to-events - December 2, 2025
+
+## Overview
+
+Complete rebranding from "Presentations" to "Events" throughout the entire I Build With AI platform. This comprehensive rename operation updated all directory structures, template files, CSS classes, configuration files, content paths, automation scripts, and documentation while maintaining 100% of existing functionality. The change provides clearer, more inclusive terminology for the platform's event content.
+
+## Key Features
+
+**URL Structure Update**
+- Changed all URLs from `/presentations/` to `/events/`
+- Clean cutover with no redirects needed
+- All internal links and navigation updated
+
+**Terminology Changes**
+- All "presentations" references updated to "events" (or "presentation" to "event" for singular)
+- Consistent terminology across the entire platform
+- More inclusive language for various event types (workshops, demos, talks, meetups)
+
+**Content Creation Enhancement**
+- Updated `create-content.sh` script to accept singular content types: `blog`, `app`, `podcast`, `event`
+- Added intelligent singular-to-plural mapping internally
+- Simpler, more intuitive command-line interface
+- Example: `./automations/create-content.sh event "My Event Topic"`
+
+## Code Changes
+
+**Directories Renamed** (6 directories)
+- `content/presentations/` → `content/events/`
+- `themes/ibuildwithai/layouts/presentations/` → `themes/ibuildwithai/layouts/events/`
+- `themes/ibuildwithai/assets/images/presentations/` → `themes/ibuildwithai/assets/images/events/`
+- `themes/ibuildwithai/assets/images/seo/content-types/presentations/` → `themes/ibuildwithai/assets/images/seo/content-types/events/`
+- `data/seo/content-types/presentations/` → `data/seo/content-types/events/`
+- `archetypes/presentations.md` → `archetypes/events.md`
+
+**Template Files Updated** (5 files)
+- `themes/ibuildwithai/layouts/events/single.html` - Updated all "presentation" references to "event"
+- `themes/ibuildwithai/layouts/events/list.html` - Updated hero title, variables, CSS classes
+- `themes/ibuildwithai/layouts/index.html` - Updated events section icon and text
+- `themes/ibuildwithai/layouts/partials/header.html` - Updated navigation links (desktop and mobile)
+- `themes/ibuildwithai/layouts/partials/footer.html` - Updated footer links (desktop and mobile)
+
+**CSS Updates** (1 file)
+- `themes/ibuildwithai/assets/scss/_components.scss` - Renamed `.presentation-card-thumbnail` to `.event-card-thumbnail`
+
+**Configuration Updates** (1 file)
+- `config/_default/config.toml` - Changed `presentations = "/presentations/"` to `events = "/events/"`
+
+**Automation Script Updates** (1 file)
+- `automations/create-content.sh` - Added singular/plural mapping, updated VALID_TYPES array, updated case statements
+
+**Documentation Updates** (2 files)
+- `.cody/project/library/docs/components.md` - Updated all presentation references to events
+- `.cody/project/library/docs/content-management.md` - Updated examples and documentation
+
+**SEO and Metadata Updates** (13 files)
+- `themes/ibuildwithai/layouts/partials/seo.html` - Fixed Schema.org type from `EventDigitalDocument` to `Event`
+- `themes/ibuildwithai/layouts/robots.txt` - Updated Allow directives
+- `themes/ibuildwithai/layouts/sitemap.xml` - Updated priority checks
+- `themes/ibuildwithai/layouts/partials/nav-dropdown.html` - Updated example comments
+- `themes/ibuildwithai/layouts/shortcodes/scrolling-carousel.html` - Updated example
+- `data/seo/content-types/events/listpage.yaml` - Updated title and description
+- All 11 event-specific SEO YAML files - Updated comments and image paths
+
+**Asset Updates** (1 file)
+- Renamed `themes/ibuildwithai/assets/images/icons/icon-presentation.png` to `icon-events.png`
+
+## Schema.org Fix
+
+Fixed invalid Schema.org structured data type:
+```html
+<!-- Before (Invalid) -->
+"@type": "EventDigitalDocument",
+
+<!-- After (Valid) -->
+"@type": "Event",
+```
+
+This ensures proper search engine understanding and indexing of event content.
+
+## Testing Completed
+
+All areas tested and validated:
+- ✅ Hugo build completes without errors
+- ✅ Events list page renders correctly (upcoming, on-demand, completed sections)
+- ✅ Individual event pages render with YouTube embeds for on-demand events
+- ✅ Header and footer navigation links work correctly
+- ✅ Home page events section displays correctly
+- ✅ URL structure changed from `/presentations/` to `/events/`
+- ✅ Content creation script works: `./automations/create-content.sh event "Test Event"`
+- ✅ Responsive design works on mobile, tablet, and desktop
+
+## Breaking Changes
+
+**URL Changes**
+- All `/presentations/` URLs now redirect to `/events/`
+- Update any external links or bookmarks to use new `/events/` paths
+
+**Content Type Argument**
+- When creating new event content, use singular `event` instead of plural `events`:
+  - Old: `./automations/create-content.sh events "Title"`
+  - New: `./automations/create-content.sh event "Title"`
+- Same applies to apps: use `app` instead of `apps`
+
+## Migration Notes
+
+No migration steps required for existing event content - all content files were automatically moved and updated during the rename operation. All functionality remains identical; only the terminology and URL paths have changed.
 
 ---
 
