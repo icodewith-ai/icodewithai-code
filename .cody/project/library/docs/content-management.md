@@ -17,14 +17,14 @@ Create new blog posts, app pages, or events using the automated script with titl
 ./automations/create-content.sh blog "JavaScript Tips"
 
 # App showcase pages
-./automations/create-content.sh apps "My New App Name"
-./automations/create-content.sh apps "Todo CLI"
-./automations/create-content.sh apps "Weather Widget"
+./automations/create-content.sh app "My New App Name"
+./automations/create-content.sh app "Todo CLI"
+./automations/create-content.sh app "Weather Widget"
 
 # Events
-./automations/create-content.sh events "My Event Topic"
-./automations/create-content.sh events "AI Ethics Workshop"
-./automations/create-content.sh events "Contentful Masterclass"
+./automations/create-content.sh event "My Event Topic"
+./automations/create-content.sh event "AI Ethics Workshop"
+./automations/create-content.sh event "Contentful Masterclass"
 
 # Podcast episodes
 ./automations/create-content.sh podcast "Episode Name"

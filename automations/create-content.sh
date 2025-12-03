@@ -13,7 +13,7 @@ fi
 CONTENT_TYPE=$1
 TITLE=$2
 
-# Valid content types
+# Valid content types (singular)
 VALID_TYPES=("blog" "app" "podcast" "event")
 
 # Check if content type is valid
@@ -22,6 +22,19 @@ if [[ ! " ${VALID_TYPES[@]} " =~ " ${CONTENT_TYPE} " ]]; then
     echo "Valid types: ${VALID_TYPES[*]}"
     exit 1
 fi
+
+# Map singular content types to plural for directory/archetype names
+case "$CONTENT_TYPE" in
+    "app")
+        CONTENT_TYPE_PLURAL="apps"
+        ;;
+    "event")
+        CONTENT_TYPE_PLURAL="events"
+        ;;
+    *)
+        CONTENT_TYPE_PLURAL="$CONTENT_TYPE"
+        ;;
+esac
 
 # Convert title to filename-friendly format
 FILENAME=$(echo "$TITLE" | \
@@ -42,13 +55,13 @@ echo "📄 Filename: $FILENAME"
 echo ""
 
 # Create temporary archetype with the actual title
-TEMP_ARCHETYPE="archetypes/${CONTENT_TYPE}-temp.md"
-ORIGINAL_ARCHETYPE="archetypes/${CONTENT_TYPE}.md"
+TEMP_ARCHETYPE="archetypes/${CONTENT_TYPE_PLURAL}-temp.md"
+ORIGINAL_ARCHETYPE="archetypes/${CONTENT_TYPE_PLURAL}.md"
 
 # Special handling for app content type
 if [ "$CONTENT_TYPE" = "app" ]; then
     # Create folder structure for app
-    APP_DIR="content/apps/$FILENAME"
+    APP_DIR="content/${CONTENT_TYPE_PLURAL}/$FILENAME"
     echo "Creating app folder structure: $APP_DIR"
     mkdir -p "$APP_DIR/photogallery"
 
@@ -89,8 +102,8 @@ else
     esac
 
     # Create the Hugo content using the temporary archetype
-    echo "Creating Hugo content: $CONTENT_TYPE/$FILENAME.md"
-    hugo new content "$CONTENT_TYPE/$FILENAME.md" -k "${CONTENT_TYPE}-temp"
+    echo "Creating Hugo content: ${CONTENT_TYPE_PLURAL}/$FILENAME.md"
+    hugo new content "${CONTENT_TYPE_PLURAL}/$FILENAME.md" -k "${CONTENT_TYPE_PLURAL}-temp"
 
     # Clean up temporary files
     rm "$TEMP_ARCHETYPE" "${TEMP_ARCHETYPE}.bak" 2>/dev/null
@@ -102,7 +115,7 @@ else
 fi
 
 # Create SEO directory if it doesn't exist
-SEO_DIR="data/seo/content-types/$CONTENT_TYPE/entries"
+SEO_DIR="data/seo/content-types/${CONTENT_TYPE_PLURAL}/entries"
 mkdir -p "$SEO_DIR"
 
 # Create SEO YAML file
@@ -139,11 +152,11 @@ EOF
 echo ""
 echo "✅ Successfully created:"
 if [ "$CONTENT_TYPE" = "app" ]; then
-    echo "  📝 Content: content/apps/$FILENAME/index.md"
+    echo "  📝 Content: content/${CONTENT_TYPE_PLURAL}/$FILENAME/index.md"
     echo "  🖼️  Assets: icon.png, thumbnail.png"
     echo "  🖼️  Gallery: photogallery/ (image01.png, image02.png, image03.png)"
 else
-    echo "  📝 Content: content/$CONTENT_TYPE/$FILENAME.md"
+    echo "  📝 Content: content/${CONTENT_TYPE_PLURAL}/$FILENAME.md"
 fi
 echo "  🔍 SEO: $SEO_FILE"
 echo ""
