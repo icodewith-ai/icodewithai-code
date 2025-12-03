@@ -5,7 +5,7 @@
 
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <content-type> \"<title>\""
-    echo "Content types: blog, apps, podcast, events"
+    echo "Content types: blog, app, podcast, event"
     echo "Example: $0 blog \"How Good at Coding Do You Need to Be to Vibe Code?\""
     exit 1
 fi
@@ -14,7 +14,7 @@ CONTENT_TYPE=$1
 TITLE=$2
 
 # Valid content types
-VALID_TYPES=("blog" "apps" "podcast" "events")
+VALID_TYPES=("blog" "app" "podcast" "event")
 
 # Check if content type is valid
 if [[ ! " ${VALID_TYPES[@]} " =~ " ${CONTENT_TYPE} " ]]; then
@@ -45,9 +45,9 @@ echo ""
 TEMP_ARCHETYPE="archetypes/${CONTENT_TYPE}-temp.md"
 ORIGINAL_ARCHETYPE="archetypes/${CONTENT_TYPE}.md"
 
-# Special handling for apps content type
-if [ "$CONTENT_TYPE" = "apps" ]; then
-    # Create folder structure for apps
+# Special handling for app content type
+if [ "$CONTENT_TYPE" = "app" ]; then
+    # Create folder structure for app
     APP_DIR="content/apps/$FILENAME"
     echo "Creating app folder structure: $APP_DIR"
     mkdir -p "$APP_DIR/photogallery"
@@ -80,7 +80,7 @@ else
         "blog")
             sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
             ;;
-        "events")
+        "event")
             sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
             ;;
         "podcast")
@@ -138,7 +138,7 @@ EOF
 
 echo ""
 echo "✅ Successfully created:"
-if [ "$CONTENT_TYPE" = "apps" ]; then
+if [ "$CONTENT_TYPE" = "app" ]; then
     echo "  📝 Content: content/apps/$FILENAME/index.md"
     echo "  🖼️  Assets: icon.png, thumbnail.png"
     echo "  🖼️  Gallery: photogallery/ (image01.png, image02.png, image03.png)"
@@ -148,7 +148,7 @@ fi
 echo "  🔍 SEO: $SEO_FILE"
 echo ""
 echo "Next steps:"
-if [ "$CONTENT_TYPE" = "apps" ]; then
+if [ "$CONTENT_TYPE" = "app" ]; then
     echo "  1. Replace template images (icon.png, thumbnail.png, photogallery images)"
     echo "  2. Edit index.md to add app details"
     echo "  3. Update the description in the SEO file"
