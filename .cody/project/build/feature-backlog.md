@@ -14,6 +14,27 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.8.2-rename-presentations-to-events - 🔴 Not Started
+Complete rebranding from "Presentations" to "Events" throughout the entire platform. Update all directory structures, template files, CSS classes, configuration files, content paths, automation scripts, and documentation. This is a comprehensive rename that maintains all existing functionality while providing clearer, more inclusive terminology for the platform's event content.
+
+**Scope:**
+- Rename all "presentations" references to "events" (or "presentation" to "event" for singular)
+- Update URL structure from `/presentations/` to `/events/`
+- Keep all existing functionality, layouts, and features unchanged
+- No redirects needed (clean cutover)
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 12.1 | Directory structure rename | Rename 5 directories (content, layouts, images, SEO data) from presentations to events | High | 🔴 Not Started |
+| 12.2 | Archetype file rename | Rename archetypes/presentations.md to archetypes/events.md | High | 🔴 Not Started |
+| 12.3 | Template file updates | Update 5 template files (single, list, index, header, footer) with events references | High | 🔴 Not Started |
+| 12.4 | CSS class updates | Update _components.scss to rename .presentation-* classes to .event-* | Medium | 🔴 Not Started |
+| 12.5 | Configuration updates | Update config.toml presentations parameter to events | High | 🔴 Not Started |
+| 12.6 | Automation script updates | Update create-content.sh to support "events" content type | High | 🔴 Not Started |
+| 12.7 | Documentation updates | Update components.md and content-management.md with events references | Medium | 🔴 Not Started |
+| 12.8 | About page text update | Update about-marcelo.html line 30 descriptive text | Low | 🔴 Not Started |
+| 12.9 | Testing and validation | Verify all events pages render correctly, navigation works, and content is accessible | High | 🔴 Not Started |
+
 ## v1.8.1-updates-to-presentation-and-podcast-pages - 🟢 Completed
 Updates to Podcast and Presentations list and single pages to improve content organization and user experience. Adds new "On-Demand" status and section for presentations, embeds YouTube videos for on-demand content, and conditionally displays sections based on content availability.
 
