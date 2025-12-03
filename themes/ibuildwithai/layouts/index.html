@@ -44,14 +44,14 @@
                     </div>
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
-                            {{ $presentationIcon := resources.Get "images/icons/icon-presentation.png" }}
-                            <img src="{{ $presentationIcon.RelPermalink }}" alt="Attend Presentations">
+                            {{ $eventIcon := resources.Get "images/icons/icon-presentation.png" }}
+                            <img src="{{ $eventIcon.RelPermalink }}" alt="Attend Events">
                         </div>
                         <div class="split-card-content-section">
-                            <h3 class="split-card-title">Attend Presentations</h3>
-                            <p class="split-card-description">Attend in-person or online presentations exploring how to code with AI, from core concepts to real-world projects.</p>
+                            <h3 class="split-card-title">Attend Events</h3>
+                            <p class="split-card-description">Attend in-person or online events exploring how to code with AI, from core concepts to real-world projects.</p>
                             <div class="split-card-actions">
-                                <a href="{{ .Site.Params.presentations }}" class="section-link">Attend →</a>
+                                <a href="{{ .Site.Params.events }}" class="section-link">Attend →</a>
                             </div>
                         </div>
                     </div>

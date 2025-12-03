@@ -2,7 +2,7 @@
     <main>
         <article class="blog-single">
             <div class="container">
-                <span class="content-type-header">Presentation</span>
+                <span class="content-type-header">Event</span>
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
                     {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
@@ -32,11 +32,11 @@
                     {{ end }}
                     {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
                     <br>
-                    {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} presentation.{{ end }}
+                    {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} event.{{ end }}
                 </div>
                 
                 {{ if eq .Params.status "on-demand" }}
-                    <!-- YouTube Video Embed for On-Demand Presentations -->
+                    <!-- YouTube Video Embed for On-Demand Events -->
                     {{ if and .Params.on_demand_url (ne .Params.on_demand_url "") }}
                         {{ $videoID := "" }}
                         {{ if (findRE "youtu\\.be/" .Params.on_demand_url) }}
@@ -61,18 +61,18 @@
                 {{ else }}
                     {{ if and .Params.image .Params.displayImageInline }}
                         {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-                        {{ $presentationImg := resources.Get $imagePath }}
-                        {{ if $presentationImg }}
-                            {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
+                        {{ $eventImg := resources.Get $imagePath }}
+                        {{ if $eventImg }}
+                            {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
                             <div class="blog-single-image">
-                                <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                             </div>
                         {{ end }}
                     {{ end }}
                 {{ end }}
                 
                 <div class="content">
-                    <h3 class="project-links-title">About the Presentation</h3>
+                    <h3 class="project-links-title">About the Event</h3>
                     {{ .Content }}
                 </div>
                 
@@ -150,7 +150,7 @@
                 {{ end }}
                 
                 <div class="back-link-section">
-                    <a href="{{ "presentations/" | relURL }}" class="back-link">← Back to Presentations</a>
+                    <a href="{{ "events/" | relURL }}" class="back-link">← Back to Events</a>
                 </div>
             </div>
         </article>

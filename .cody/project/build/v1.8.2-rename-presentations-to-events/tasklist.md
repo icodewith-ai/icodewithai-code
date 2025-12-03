@@ -24,19 +24,19 @@ This document outlines all the tasks to work on to delivery this particular vers
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| 2.1 | Update events single.html | Update `themes/ibuildwithai/layouts/events/single.html` with "event" terminology | 1.2 | 🔴 Not Started | AGENT |
-| 2.2 | Update events list.html | Update `themes/ibuildwithai/layouts/events/list.html` with "event" terminology | 1.2 | 🔴 Not Started | AGENT |
-| 2.3 | Update home page | Update `themes/ibuildwithai/layouts/index.html` events section references | None | 🔴 Not Started | AGENT |
-| 2.4 | Update header partial | Update `themes/ibuildwithai/layouts/partials/header.html` navigation link | None | 🔴 Not Started | AGENT |
-| 2.5 | Update footer partial | Update `themes/ibuildwithai/layouts/partials/footer.html` navigation link | None | 🔴 Not Started | AGENT |
+| 2.1 | Update events single.html | Update `themes/ibuildwithai/layouts/events/single.html` with "event" terminology | 1.2 | 🟢 Completed | AGENT |
+| 2.2 | Update events list.html | Update `themes/ibuildwithai/layouts/events/list.html` with "event" terminology | 1.2 | 🟢 Completed | AGENT |
+| 2.3 | Update home page | Update `themes/ibuildwithai/layouts/index.html` events section references | None | 🟢 Completed | AGENT |
+| 2.4 | Update header partial | Update `themes/ibuildwithai/layouts/partials/header.html` navigation link | None | 🟢 Completed | AGENT |
+| 2.5 | Update footer partial | Update `themes/ibuildwithai/layouts/partials/footer.html` navigation link | None | 🟢 Completed | AGENT |
 
 
 ## Phase 3: CSS and Configuration Updates
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| 3.1 | Update CSS classes | Update `themes/ibuildwithai/assets/scss/_components.scss` to rename `.presentation-*` to `.event-*` | None | 🔴 Not Started | AGENT |
-| 3.2 | Update config.toml | Update `config/_default/config.toml` presentations parameter to events | None | 🔴 Not Started | AGENT |
+| 3.1 | Update CSS classes | Update `themes/ibuildwithai/assets/scss/_components.scss` to rename `.presentation-*` to `.event-*` | None | 🟢 Completed | AGENT |
+| 3.2 | Update config.toml | Update `config/_default/config.toml` presentations parameter to events | None | 🟢 Completed | AGENT |
 
 
 ## Phase 4: Automation and Documentation Updates

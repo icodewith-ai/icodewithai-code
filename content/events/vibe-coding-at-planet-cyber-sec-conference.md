@@ -2,7 +2,7 @@
 title = "Vibe Coding at Planet Cyber Sec Conference"
 summary = "Planet Cyber Sec Conference is putting on a 1 day AI event and I'll be presenting on how to structure vibe coding to deliver a shippable, maintainable and scalable app."
 audience = "Technical architects, DevOps engineers, engineering managers, product managers, technical project managers, and IT leaders who need to understand and evaluate AI development tools. Developers looking to learn how to create development agents are welcomed to attend as well."
-image = "/images/presentations/ai-at-work-planet-cyber-sec.png"
+image = "/images/events/ai-at-work-planet-cyber-sec.png"
 date_time = "2025-12-10T12:00:00-07:00"
 location = "Planet Cyber Sec Conference"
 timezone = "PST"

@@ -1,33 +1,33 @@
 {{ define "main" }}
     <main>
-        <!-- Presentations Hero Section -->
+        <!-- Events Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1><span class="highlight">Presentations</span></h1>
-                <p class="tagline">Live in-person and online presentations on how to build apps with AI.</p>
+                <h1><span class="highlight">Events</span></h1>
+                <p class="tagline">Live in-person and online events on how to build apps with AI.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 
-                {{ $upcomingPresentations := where .Pages ".Params.status" "upcoming" }}
-                {{ $onDemandPresentations := where .Pages ".Params.status" "on-demand" }}
-                {{ $completedPresentations := where .Pages ".Params.status" "completed" }}
+                {{ $upcomingEvents := where .Pages ".Params.status" "upcoming" }}
+                {{ $onDemandEvents := where .Pages ".Params.status" "on-demand" }}
+                {{ $completedEvents := where .Pages ".Params.status" "completed" }}
                 
-                {{ if $upcomingPresentations }}
+                {{ if $upcomingEvents }}
                 <h2>Upcoming</h2>
                 <div class="podcast-episodes">
-                    {{ range sort $upcomingPresentations ".Params.date_time" "asc" }}
+                    {{ range sort $upcomingEvents ".Params.date_time" "asc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 {{ if .Params.image }}
-                                    {{ $presentationImgPath := strings.TrimPrefix "/" .Params.image }}
-                                    {{ $presentationImg := resources.Get $presentationImgPath }}
-                                    {{ if $presentationImg }}
-                                    <div class="presentation-card-thumbnail">
-                                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
-                                        <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    {{ $eventImgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $eventImg := resources.Get $eventImgPath }}
+                                    {{ if $eventImg }}
+                                    <div class="event-card-thumbnail">
+                                        {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
+                                        <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                                     </div>
                                     {{ end }}
                                 {{ end }}
@@ -66,19 +66,19 @@
                 </div>
                 {{ end }}
 
-                {{ if $onDemandPresentations }}
+                {{ if $onDemandEvents }}
                 <h2>On-Demand</h2>
                 <div class="podcast-episodes">
-                    {{ range sort $onDemandPresentations ".Params.date_time" "desc" }}
+                    {{ range sort $onDemandEvents ".Params.date_time" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 {{ if .Params.image }}
-                                    {{ $presentationImgPath := strings.TrimPrefix "/" .Params.image }}
-                                    {{ $presentationImg := resources.Get $presentationImgPath }}
-                                    {{ if $presentationImg }}
-                                    <div class="presentation-card-thumbnail">
-                                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
-                                        <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    {{ $eventImgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $eventImg := resources.Get $eventImgPath }}
+                                    {{ if $eventImg }}
+                                    <div class="event-card-thumbnail">
+                                        {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
+                                        <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                                     </div>
                                     {{ end }}
                                 {{ end }}
@@ -117,19 +117,19 @@
                 </div>
                 {{ end }}
 
-                {{ if $completedPresentations }}
+                {{ if $completedEvents }}
                 <h2>Completed</h2>
                 <div class="podcast-episodes">
-                    {{ range sort $completedPresentations ".Params.date_time" "desc" }}
+                    {{ range sort $completedEvents ".Params.date_time" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
                                 {{ if .Params.image }}
-                                    {{ $presentationImgPath := strings.TrimPrefix "/" .Params.image }}
-                                    {{ $presentationImg := resources.Get $presentationImgPath }}
-                                    {{ if $presentationImg }}
-                                    <div class="presentation-card-thumbnail">
-                                        {{ $presentationImgFingerprint := $presentationImg | resources.Fingerprint }}
-                                        <img src="{{ $presentationImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    {{ $eventImgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $eventImg := resources.Get $eventImgPath }}
+                                    {{ if $eventImg }}
+                                    <div class="event-card-thumbnail">
+                                        {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
+                                        <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                                     </div>
                                     {{ end }}
                                 {{ end }}
@@ -168,10 +168,10 @@
                 </div>
                 {{ end }}
                 
-                {{ if and (eq (len $upcomingPresentations) 0) (eq (len $completedPresentations) 0) }}
+                {{ if and (eq (len $upcomingEvents) 0) (eq (len $completedEvents) 0) }}
                     <div class="app-card">
-                        <h3>No presentations yet</h3>
-                        <p>Check back soon for upcoming presentations!</p>
+                        <h3>No events yet</h3>
+                        <p>Check back soon for upcoming events!</p>
                     </div>
                 {{ end }}
             </div>

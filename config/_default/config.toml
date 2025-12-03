@@ -33,7 +33,7 @@ enableRobotsTXT = true
   newsletter = "/newsletter/"
   podcast = "/podcast/"
   blog = "/blog/"
-  presentations = "/presentations/"
+  events = "/events/"
 
   # Community Links
   discord = "https://discord.gg/Mz7vdRmpJH"

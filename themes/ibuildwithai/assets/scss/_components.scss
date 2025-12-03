@@ -1700,8 +1700,8 @@ h2 + .podcast-embed-section {
 }
 
 
-// Presentation Card Thumbnail - 16:9 aspect ratio for presentation cards
-.presentation-card-thumbnail {
+// Event Card Thumbnail - 16:9 aspect ratio for event cards
+.event-card-thumbnail {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -1709,7 +1709,7 @@ h2 + .podcast-embed-section {
   margin-bottom: $spacing-md;
   background: $neutral-800;
   position: relative;
-  
+
   img {
     position: absolute;
     top: 0;
@@ -1719,7 +1719,7 @@ h2 + .podcast-embed-section {
     object-fit: cover;
     transition: $transition-base;
   }
-  
+
   &:hover img {
     transform: scale(1.02);
   }
