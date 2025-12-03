@@ -17,7 +17,7 @@
                 
                 {{ if $upcomingEvents }}
                 <h2>Upcoming</h2>
-                <div class="podcast-episodes">
+                <div class="event-cards">
                     {{ range sort $upcomingEvents ".Params.date_time" "asc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
@@ -68,7 +68,7 @@
 
                 {{ if $onDemandEvents }}
                 <h2>On-Demand</h2>
-                <div class="podcast-episodes">
+                <div class="event-cards">
                     {{ range sort $onDemandEvents ".Params.date_time" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">
@@ -119,7 +119,7 @@
 
                 {{ if $completedEvents }}
                 <h2>Completed</h2>
-                <div class="podcast-episodes">
+                <div class="event-cards">
                     {{ range sort $completedEvents ".Params.date_time" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
                             <article class="app-card">

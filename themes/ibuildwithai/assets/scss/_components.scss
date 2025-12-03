@@ -1685,7 +1685,19 @@ h2 + .podcast-embed-section {
   display: grid;
   gap: $spacing-lg;
   grid-template-columns: repeat(3, 1fr);
-  
+
+  // Mobile/Tablet responsive: single column at tablet breakpoint
+  @include tablet-down {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Event Cards Grid - responsive 2-column layout for wider thumbnails
+.event-cards {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: repeat(2, 1fr);
+
   // Mobile/Tablet responsive: single column at tablet breakpoint
   @include tablet-down {
     grid-template-columns: 1fr;
