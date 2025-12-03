@@ -9,7 +9,7 @@ The website now uses a multi-repository architecture:
 - **Staging**: `dev` branch → `ibuildwithai-next` repository → `next.ibuildwith.ai`
 - **Production**: `main` branch → `ibuildwithai-prod` repository → `www.ibuildwith.ai`
 
-Create new blog posts, app pages, or presentations using the automated script with titles:
+Create new blog posts, app pages, or events using the automated script with titles:
 ```bash
 # Blog posts
 ./automations/create-content.sh blog "My New Blog Article"
@@ -21,10 +21,10 @@ Create new blog posts, app pages, or presentations using the automated script wi
 ./automations/create-content.sh apps "Todo CLI"
 ./automations/create-content.sh apps "Weather Widget"
 
-# Presentations
-./automations/create-content.sh presentations "My Presentation Topic"
-./automations/create-content.sh presentations "AI Ethics Workshop"
-./automations/create-content.sh presentations "Contentful Masterclass"
+# Events
+./automations/create-content.sh events "My Event Topic"
+./automations/create-content.sh events "AI Ethics Workshop"
+./automations/create-content.sh events "Contentful Masterclass"
 
 # Podcast episodes
 ./automations/create-content.sh podcast "Episode Name"
@@ -48,7 +48,7 @@ The automation script automatically creates:
      - `image03.png` - Template gallery image (800x450px)
 2. **SEO file**: `data/seo/content-types/apps/entries/{filename}.yaml` with default metadata
 
-**For other content types (blog, podcast, presentations):**
+**For other content types (blog, podcast, events):**
 1. **Content file**: `content/{type}/{filename}.md` using Hugo archetypes with the actual title pre-filled
 2. **SEO file**: `data/seo/content-types/{type}/entries/{filename}.yaml` with:
    - Title formatted as `[Title] | iCodeWith.ai`
@@ -63,7 +63,7 @@ The automation script automatically creates:
 # Legacy method - requires manual SEO file creation
 hugo new content blog/my-new-blog-article.md
 hugo new content apps/my-new-app-name/index.md
-hugo new content presentations/my-presentation-topic.md
+hugo new content events/my-event-topic.md
 hugo new content podcast/episode-name.md
 ```
 
@@ -102,13 +102,13 @@ The script performs the following git operations:
 - `content/blog/` - Blog posts
 - `content/apps/` - App showcase pages (page bundles with images)
 - `content/podcast/` - Podcast episodes
-- `content/presentations/` - Presentation pages
+- `content/events/` - Event pages
 
 ## People Management
 
 ### Creating New People Profiles
 
-People profiles are used for podcast guests, presentation hosts, and site contributors. Each person requires both a JSON data file and a corresponding profile image.
+People profiles are used for podcast guests, event presenters, and site contributors. Each person requires both a JSON data file and a corresponding profile image.
 
 #### Step 1: Create JSON Data File
 Create a new JSON file in `data/people/` by duplicating an existing profile:
@@ -177,10 +177,10 @@ guest = "debbie-o-brien"
 +++
 ```
 
-**Presentations**:
+**Events**:
 ```yaml
 +++
-presenter = "marcelo-lewin.json"  # Note: presentations use .json extension
+presenter = "marcelo-lewin.json"  # Note: events use .json extension
 +++
 ```
 
@@ -253,17 +253,17 @@ description = "SEO description for search engines and social media"
 +++
 ```
 
-**Presentations:**
+**Events:**
 ```yaml
 +++
-title = "My Presentation Topic"
+title = "My Event Topic"
 summary = "Brief summary for listing pages"
 description = "Detailed description for search engines and social media"
 date_time = "2024-07-15T14:00:00-08:00"
 timezone = "PST"
 presenters = "Marcelo Lewin"
 status = "upcoming"
-external_url = "https://example.com/presentation-link"
+external_url = "https://example.com/event-link"
 +++
 
 ### Podcast Episodes
@@ -325,7 +325,7 @@ Theme images (logos, profile photos, certificates) are processed through Hugo Pi
 
 #### File Location
 - **Source**: `themes/icodewithai/assets/images/` (consolidated in v1.4.4)
-- **Organization**: 67 image files organized by category (blog, podcast, presentations, seo, people, icons)
+- **Organization**: 67 image files organized by category (blog, podcast, events, seo, people, icons)
 - **Generated**: `/public/images/[filename].[hash].[ext]`
 
 #### Supported Images
