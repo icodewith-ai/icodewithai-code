@@ -1702,6 +1702,7 @@ h2 + .podcast-embed-section {
   // Mobile/Tablet responsive: single column at tablet breakpoint
   @include tablet-down {
     grid-template-columns: 1fr;
+    margin-bottom: $spacing-xl; // Reduce spacing on mobile
   }
 }
 
