@@ -1722,6 +1722,11 @@ h2 + .podcast-embed-section {
   background: $neutral-800;
   position: relative;
 
+  // Constrain height on mobile to prevent oversized thumbnails
+  @include tablet-down {
+    max-height: 200px;
+  }
+
   img {
     position: absolute;
     top: 0;
