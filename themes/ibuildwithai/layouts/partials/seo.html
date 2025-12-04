@@ -347,17 +347,67 @@
     "name": "{{ $siteName }}",
     "url": "{{ $canonicalBaseUrl }}"
   }
-  {{ else if eq .Section "events" }}
+  {{ else if and (eq .Section "events") (and .IsPage (not .IsSection)) }}
   "@type": "Event",
   "name": "{{ $title }}",
   "description": "{{ $description }}",
   "url": "{{ .Permalink }}",
   {{ if $finalSocialImage }}
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ $finalSocialImage | absURL }}",
-    "width": {{ $ogImageWidth }},
-    "height": {{ $ogImageHeight }}
+  "image": [
+    "{{ $finalSocialImage | absURL }}"
+  ],
+  {{ end }}
+  {{ with .Params.date_time }}
+  "startDate": "{{ . }}",
+  {{ end }}
+  {{ if .Params.end_date_time }}
+  "endDate": "{{ .Params.end_date_time }}",
+  {{ end }}
+  {{ with .Params.status }}
+  "eventStatus": "https://schema.org/{{ if eq . "upcoming" }}EventScheduled{{ else if eq . "on-demand" }}EventMovedOnline{{ else if eq . "completed" }}EventScheduled{{ else }}EventScheduled{{ end }}",
+  {{ end }}
+  {{ with .Params.meeting_type }}
+  "eventAttendanceMode": "https://schema.org/{{ if eq . "online" }}OnlineEventAttendanceMode{{ else if eq . "in-person" }}OfflineEventAttendanceMode{{ else if eq . "hybrid" }}MixedEventAttendanceMode{{ else }}OfflineEventAttendanceMode{{ end }}",
+  {{ end }}
+  {{ with .Params.location }}
+  "location": {
+    "@type": "Place",
+    "name": "{{ . }}"{{ if $.Params.location_address }},
+    "address": {
+      "@type": "PostalAddress",
+      "name": "{{ $.Params.location_address }}"
+    }{{ end }}
+  },
+  {{ end }}
+  {{ if .Params.presenter }}
+  "performer": [
+    {{ $presenters := split .Params.presenter "," }}
+    {{ range $index, $presenterSlug := $presenters }}
+    {{ $presenterSlug = trim $presenterSlug " " }}
+    {{ $personData := index $.Site.Data.people $presenterSlug }}
+    {{ if $personData }}
+    {
+      "@type": "Person",
+      "name": "{{ $personData.fullName }}"{{ if $personData.learnMoreLink }},
+      "url": "{{ $personData.learnMoreLink }}"{{ end }}
+    }{{ if lt (add $index 1) (len $presenters) }},{{ end }}
+    {{ end }}
+    {{ end }}
+  ],
+  {{ end }}
+  "organizer": {
+    "@type": "Organization",
+    "name": "{{ $siteName }}",
+    "url": "{{ $canonicalBaseUrl }}"
+  },
+  {{ if or .Params.register_url (eq .Params.status "upcoming") }}
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ if .Params.register_url }}{{ .Params.register_url }}{{ else }}{{ .Permalink }}{{ end }}",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/{{ if eq .Params.status "completed" }}SoldOut{{ else }}InStock{{ end }}",
+    "validFrom": "{{ now.Format "2006-01-02T15:04:05Z07:00" }}"
   },
   {{ end }}
   {{ with .Date }}
@@ -367,11 +417,6 @@
     "@type": "Person",
     "name": "{{ $author }}",
     "url": "{{ $canonicalBaseUrl }}/about-marcelo/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ $siteName }}",
-    "url": "{{ $canonicalBaseUrl }}"
   }
   {{ else if eq .Section "podcast" }}
   "@type": "PodcastEpisode",
