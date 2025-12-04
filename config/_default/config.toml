@@ -19,7 +19,7 @@ enableRobotsTXT = true
 
   # About the Site
   version = "1.8.2"
-  last_updated = "2025-12-03"
+  last_updated = "2025-12-04"
   author = "Marcelo Lewin"
   description = "Learn the skills and mindset you need to build production-ready apps with AI."
   short_description = "Learn the skills and mindset you need to build production-ready apps with AI."
