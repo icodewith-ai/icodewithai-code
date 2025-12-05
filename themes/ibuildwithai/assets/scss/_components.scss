@@ -825,7 +825,18 @@
   color: var(--color-primary);
   font-weight: $font-weight-medium;
   font-size: var(--font-size-base);
-  
+
+  &:hover {
+    @include link-hover;
+  }
+}
+
+.section-link-inline {
+  @include link-base;
+  @include link-underline;
+  color: var(--color-primary);
+  font-weight: $font-weight-medium;
+
   &:hover {
     @include link-hover;
   }
@@ -2349,44 +2360,64 @@ h2 + .podcast-embed-section {
 .homepage-features-grid {
   display: grid;
   gap: $spacing-lg;
-  
-  // 3 cards in row 1, 1 card spanning all 3 columns in row 2  
+
+  // 3 cards in row 1, 1 card spanning all 3 columns in row 2
   grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: 
+  grid-template-areas:
     "card1 card2 card3";
-  
+
   .homepage-feature-card {
     background: $neutral-800;
     border: 1px solid $neutral-700;
     border-radius: $border-radius-base;
     padding: $spacing-lg;
     transition: $transition-base;
-    
+
     &:hover {
       border-color: $primary-500;
       transform: translateY($hover-lift-small);
       box-shadow: 0 4px 6px rgba(0, 0, 0, $opacity-shadow);
     }
-    
+
     h3 {
       color: $primary-500;
       margin-bottom: $spacing-md;
       font-size: $font-size-xl;
       font-weight: $font-weight-medium;
     }
-    
+
     &:nth-child(1) { grid-area: card1; }
     &:nth-child(2) { grid-area: card2; }
     &:nth-child(3) { grid-area: card3; }
   }
-  
+
   // Mobile/Tablet responsive: single column
   @media (max-width: $breakpoint-tablet) {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "card1"
       "card2"
       "card3";
+  }
+}
+
+.homepage-features-grid-4col {
+  display: grid;
+  gap: $spacing-lg;
+
+  // 4 cards in a single row on desktop
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "card1 card2 card3 card4";
+
+  // Mobile/Tablet responsive: single column
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "card1"
+      "card2"
+      "card3"
+      "card4";
   }
 }
 

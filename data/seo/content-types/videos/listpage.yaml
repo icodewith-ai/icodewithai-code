@@ -1,0 +1,19 @@
+# Basic SEO
+title: "Videos - I Build With AI"
+description: "Watch on-demand tutorials, talks, presentations and other videos focused on vibe coding and product building with AI."
+keywords: "ai development videos, vibe coding videos, spec driven development tutorials, ai coding tutorials, product building videos"
+
+# Open Graph
+og_title: "Videos - I Build With AI"
+og_description: "Watch on-demand tutorials, talks, presentations and other videos focused on vibe coding and product building."
+og_image: "/images/seo/content-types/videos/default.png"
+og_type: "website"
+
+# Twitter Card
+twitter_card: "summary_large_image"
+twitter_title: "Videos - I Build With AI"
+twitter_description: "Watch on-demand tutorials, talks, presentations and other videos focused on vibe coding and product building."
+twitter_image: "/images/seo/content-types/videos/default.png"
+
+# Schema.org
+schema_type: "CollectionPage"

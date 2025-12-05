@@ -14,6 +14,37 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.8.5-new-video-page - 🟢 Completed
+Create a new "Videos" section for on-demand video content under the "Learn" menu. This will be similar to the Events section but focused exclusively on video content with YouTube embeds, ordered by latest first, with multi-presenter support.
+
+**Key Features:**
+- New `/videos/` URL path with list and detail pages
+- Navigation integration under "Learn" (header + footer, desktop + mobile)
+- Home page integration: 4th box under Learn section (between Podcast and Events)
+- Multi-presenter support (comma-separated, like events)
+- Always embed YouTube videos on detail pages
+- No Links section needed (removed entirely)
+- Simplified archetype with fields: `title`, `image`, `date_time`, `presenter`, `video_url`, `draft` (summary and audience removed per user feedback)
+- Complete directory structure following events pattern (content, layouts, images, SEO data, archetypes)
+- Configuration parameter: `videos = "/videos/"`
+- Automation script support: `./automations/create-content.sh video "Video Title"`
+- Home page CSS update: Created separate 4-column grid class for Learn section while maintaining 3-column grid for Build section
+- Inline link styling: Added `.section-link-inline` CSS class for maintaining text size while preserving link styling
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 13.1 | Directory structure setup | Create content/videos/, layouts/videos/, images/videos/, SEO directories, and archetype | High | 🟢 Completed |
+| 13.2 | Videos archetype | Create archetypes/videos.md with simplified frontmatter (title, image, date_time, presenter, video_url, draft) | High | 🟢 Completed |
+| 13.3 | Videos list page | Create layouts/videos/list.html displaying all videos ordered by latest first | High | 🟢 Completed |
+| 13.4 | Videos detail page | Create layouts/videos/single.html with YouTube embed, multi-presenter support, no Links section | High | 🟢 Completed |
+| 13.5 | Navigation updates | Add "Videos" link to header and footer navigation (desktop + mobile) under "Learn" menu | High | 🟢 Completed |
+| 13.6 | Home page integration | Add 4th box under Learn section with icon-videos.png and description, update grid to 4-column layout | High | 🟢 Completed |
+| 13.7 | Configuration updates | Add `videos = "/videos/"` parameter to config files | High | 🟢 Completed |
+| 13.8 | Automation script updates | Update create-content.sh to support `video` content type with singular-to-plural mapping | High | 🟢 Completed |
+| 13.9 | SEO data setup | Create SEO YAML files for videos section (listpage.yaml and entries directory) | Medium | 🟢 Completed |
+| 13.10 | robots.txt update | Add `Allow: /videos/` to production robots.txt for SEO | Medium | 🟢 Completed |
+| 13.11 | CSS enhancements | Create `.homepage-features-grid-4col` and `.section-link-inline` classes | Medium | 🟢 Completed |
+
 ## v1.8.2-rename-presentations-to-events - 🟢 Completed
 Complete rebranding from "Presentations" to "Events" throughout the entire platform. Update all directory structures, template files, CSS classes, configuration files, content paths, automation scripts, and documentation. This is a comprehensive rename that maintains all existing functionality while providing clearer, more inclusive terminology for the platform's event content.
 

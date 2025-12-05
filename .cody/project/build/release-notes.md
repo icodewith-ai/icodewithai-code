@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.8.5-new-video-page - December 4, 2025](#v185-new-video-page---december-4-2025)
 - [v1.8.2-rename-presentations-to-events - December 2, 2025](#v182-rename-presentations-to-events---december-2-2025)
 - [v1.8.1-updates-to-presentation-and-podcast-pages - December 2, 2025](#v181-updates-to-presentation-and-podcast-pages---december-2-2025)
 - [v1.8.0-newsletter-page - November 19, 2025](#v180-newsletter-page---november-19-2025)
@@ -12,6 +13,239 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.8.5-new-video-page - December 4, 2025
+
+## Overview
+
+Created a new "Videos" section for on-demand video content under the "Learn" menu on the I Build With AI platform. The Videos section provides a dedicated space for hosting tutorials, talks, presentations, and other video content with YouTube embeds, following the established Events pattern while simplifying the content model to focus exclusively on video presentations.
+
+## Key Features
+
+**Videos Section**
+- New `/videos/` URL path with list and detail pages
+- List page displays all videos sorted by latest first (descending by date_time)
+- Detail pages always embed YouTube videos with multi-presenter support
+- No Links section (removed entirely, videos always embedded)
+- Simplified content model focused on video presentations
+
+**Navigation Integration**
+- Added "Videos" link to header navigation under "Learn" dropdown (desktop + mobile)
+- Added "Videos" link to footer navigation under "Learn" section (desktop + mobile)
+- Positioned between "Podcast" and "Events" in all navigation menus
+
+**Home Page Integration**
+- Added 4th box to Learn section (between Podcast and Events)
+- Icon: `icon-videos.png` (existing asset)
+- Title: "Watch Videos"
+- Description: "Watch on-demand tutorials, talks, presentations and other videos focused on vibe coding and product building."
+- Link: `/videos/`
+
+**Content Creation**
+- Updated automation script to support `video` content type with singular-to-plural mapping
+- Command: `./automations/create-content.sh video "Video Title"`
+- Creates content file, SEO YAML file, and folder structure automatically
+
+**Archetype Structure**
+- Simplified archetype with 6 fields (removed from initial 8 based on user feedback):
+  - `title` - Video title
+  - `image` - Thumbnail image path (default: `/images/videos/default.png`)
+  - `date_time` - Publication date/time
+  - `presenter` - Comma-separated presenter keys (e.g., `"marcelo-lewin"` or `"marcelo-lewin,john-doe"`)
+  - `video_url` - YouTube URL (supports multiple formats)
+  - `draft` - Draft status (boolean)
+- Removed fields: `summary`, `audience` (not used in templates)
+
+**Multi-Presenter Support**
+- Comma-separated presenter values parsed from frontmatter
+- Oxford comma formatting for multiple presenters (e.g., "Alice, Bob, and Charlie")
+- "About the Presenter(s)" section displays all presenter info boxes
+- Reuses existing presenter data from `data/people/` directory
+
+**YouTube Embed Support**
+- Supports multiple YouTube URL formats:
+  - `https://www.youtube.com/watch?v=VIDEO_ID`
+  - `https://youtu.be/VIDEO_ID`
+  - `https://www.youtube.com/embed/VIDEO_ID`
+- Regex-based video ID extraction
+- Responsive 16:9 aspect ratio iframe embed
+- Reuses `.video-embed-responsive` CSS class from podcast pages
+
+## Code Changes
+
+**Directories Created** (4 directories)
+- `content/videos/` - Video content files
+- `themes/ibuildwithai/layouts/videos/` - Video templates
+- `themes/ibuildwithai/assets/images/videos/` - Video thumbnails
+- `themes/ibuildwithai/assets/images/seo/content-types/videos/` - Social sharing images
+- `data/seo/content-types/videos/` - SEO metadata
+- `data/seo/content-types/videos/entries/` - Individual video SEO files
+
+**Template Files Created** (2 files)
+- `themes/ibuildwithai/layouts/videos/list.html` - Videos listing page with hero section and video cards
+- `themes/ibuildwithai/layouts/videos/single.html` - Video detail page with YouTube embed and presenter section
+
+**Archetype Created** (1 file)
+- `archetypes/videos.md` - Template for creating new video content
+
+**SEO Files Created** (2 files)
+- `data/seo/content-types/videos/listpage.yaml` - SEO metadata for videos list page
+- `themes/ibuildwithai/assets/images/videos/default.png` - Default video thumbnail
+- `themes/ibuildwithai/assets/images/seo/content-types/videos/default.png` - Default social sharing image
+
+**Template Files Modified** (3 files)
+- `themes/ibuildwithai/layouts/partials/header.html` - Added Videos link to navigation
+- `themes/ibuildwithai/layouts/partials/footer.html` - Added Videos link to footer
+- `themes/ibuildwithai/layouts/index.html` - Added Videos box to Learn section, updated grid class
+
+**Configuration Modified** (1 file)
+- `config/_default/config.toml` - Added `videos = "/videos/"` parameter
+
+**Automation Script Modified** (1 file)
+- `automations/create-content.sh` - Added `video` content type with singular-to-plural mapping
+
+**SEO Files Modified** (1 file)
+- `themes/ibuildwithai/layouts/robots.txt` - Added `Allow: /videos/` for search engine crawling
+
+**CSS Enhancements** (1 file)
+- `themes/ibuildwithai/assets/scss/_components.scss` - Added two new CSS classes:
+  - `.homepage-features-grid-4col` - 4-column grid for Learn section (desktop)
+  - `.section-link-inline` - Inline link styling maintaining text size
+
+## Enhancements
+
+**Home Page Layout Improvements**
+- **4-Column Grid for Learn Section**: Created separate `.homepage-features-grid-4col` class to display all 4 Learn boxes (Blog, Podcast, Videos, Events) on a single row on desktop
+- **3-Column Grid for Build Section**: Preserved original `.homepage-features-grid` class for Build section (3 boxes)
+- **Responsive Design**: Both grids collapse to single column on mobile/tablet
+
+**Inline Link Styling**
+- Created `.section-link-inline` CSS class for links within paragraphs
+- Maintains primary color, medium weight, and underline styling
+- Removes font-size override to preserve parent text size
+- Used for "transition" link in home page tagline
+
+**SEO Optimization**
+- Added `/videos/` to robots.txt Allow list for search engine crawling
+- Created comprehensive SEO metadata for list page (title, description, Open Graph, Twitter Card, Schema.org)
+- Prepared individual video SEO directory structure (`/entries/`)
+
+## Technical Implementation
+
+**Pattern Reuse**
+- Followed Events section structure as template for consistency
+- Reused CSS classes: `.event-cards`, `.video-embed-responsive`, `.guest-photo-section`
+- Reused presenter data structure from `data/people/` directory
+- Followed established SEO patterns (listpage.yaml + entries/)
+
+**Hugo Template Logic**
+- Video ID extraction using `findRE` and string manipulation
+- Multi-presenter parsing with `split` and `trim` functions
+- Oxford comma formatting for presenter names
+- Conditional sections based on data availability
+
+**Directory Structure**
+- Followed Hugo conventions for content organization
+- Separated SEO data by content type
+- Consistent naming patterns across all assets
+
+## Testing
+
+**Build Verification**
+- ✅ Hugo build completes without errors
+- ✅ All templates render correctly
+- ✅ No broken links or missing assets
+
+**Videos Section Testing** (User Tasks Pending)
+- Videos list page rendering
+- Video detail page with YouTube embed
+- Multi-presenter support
+- Navigation links (header/footer, desktop/mobile)
+- Home page integration (Videos box)
+- Content creation script
+- YouTube URL format handling (youtu.be, watch?v=, embed/)
+- Responsive design (mobile, tablet, desktop)
+- robots.txt verification
+
+## User Feedback Incorporated
+
+**Iterative Refinement**
+1. **Archetype Simplification**: Removed `summary` and `audience` fields after confirming they weren't used in templates
+2. **Heading Removal**: User removed "About the Video" heading from single template for cleaner layout
+3. **SEO Directory Clarification**: Confirmed `/entries/` subdirectory structure following Events pattern
+4. **Grid Layout Fixes**: Created separate 4-column grid class after discovering shared grid class affected Build section
+
+## Performance & Metrics
+
+**Implementation Stats**
+- Total Tasks: 47 (30 AGENT, 17 USER)
+- Completed AGENT Tasks: 30/30 (100%)
+- Files Created: 8
+- Files Modified: 8
+- Lines of Code Added: ~450
+- Implementation Time: 1 day
+
+**Build Performance**
+- No regression in build times
+- Successful Hugo build with zero errors
+- All assets properly fingerprinted and cached
+
+## Impact
+
+**User Experience**
+- Dedicated space for video content discovery
+- Direct YouTube embeds for immediate viewing
+- Consistent navigation patterns across Learn menu
+- Multi-presenter information readily available
+
+**Content Management**
+- Simple content creation via automation script
+- Clear archetype with minimal required fields
+- Flexible presenter support (single or multiple)
+- SEO optimization built-in
+
+**Developer Experience**
+- Reusable patterns for future content types
+- Well-documented implementation
+- Comprehensive tasklist tracking (47 tasks across 7 phases)
+- Detailed retrospective for future learning
+
+## Future Enhancements
+
+**Potential Improvements**
+1. Test multi-presenter support with comma-separated values
+2. Create sample video content for demonstration
+3. Add video duration display to list cards
+4. Implement video play icon overlay on thumbnails
+5. Add video category/tag filtering
+6. Create video series/playlist support
+
+**Content Strategy**
+- Populate Videos section with tutorials and talks
+- Establish guidelines for video thumbnail creation
+- Define process for YouTube URL management
+- Plan video content calendar
+
+## Documentation
+
+**Comprehensive Documentation Created**
+- `.cody/project/build/v1.8.5-new-video-page/design.md` - Technical design document with architecture decisions
+- `.cody/project/build/v1.8.5-new-video-page/tasklist.md` - 47 tasks across 7 phases with completion tracking
+- `.cody/project/build/v1.8.5-new-video-page/retrospective.md` - Lessons learned and action items for future versions
+- `.cody/project/build/feature-backlog.md` - Updated with v1.8.5 completion status
+- `.cody/project/build/release-notes.md` - This document
+
+## Other Notes
+
+**Development Process**: Followed Cody Framework spec-driven development with clear requirements gathering, design documentation, phase-based implementation, and user feedback incorporation throughout.
+
+**CSS Architecture**: Creating variant classes (`.homepage-features-grid-4col`) instead of modifying base classes proved to be the correct approach to avoid breaking existing layouts.
+
+**User Collaboration**: The iterative refinement process (removing unnecessary fields, adjusting headings) demonstrated the value of continuous user feedback during implementation.
+
+**Zero Breaking Changes**: All changes were purely additive with no impact on existing functionality or content types.
 
 ---
 

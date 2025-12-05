@@ -33,6 +33,7 @@ enableRobotsTXT = true
   newsletter = "/newsletter/"
   podcast = "/podcast/"
   blog = "/blog/"
+  videos = "/videos/"
   events = "/events/"
 
   # Community Links

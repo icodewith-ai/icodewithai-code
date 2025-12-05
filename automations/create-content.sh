@@ -5,7 +5,7 @@
 
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <content-type> \"<title>\""
-    echo "Content types: blog, app, podcast, event"
+    echo "Content types: blog, app, podcast, video, event"
     echo "Example: $0 blog \"How Good at Coding Do You Need to Be to Vibe Code?\""
     exit 1
 fi
@@ -14,7 +14,7 @@ CONTENT_TYPE=$1
 TITLE=$2
 
 # Valid content types (singular)
-VALID_TYPES=("blog" "app" "podcast" "event")
+VALID_TYPES=("blog" "app" "podcast" "video" "event")
 
 # Check if content type is valid
 if [[ ! " ${VALID_TYPES[@]} " =~ " ${CONTENT_TYPE} " ]]; then
@@ -27,6 +27,9 @@ fi
 case "$CONTENT_TYPE" in
     "app")
         CONTENT_TYPE_PLURAL="apps"
+        ;;
+    "video")
+        CONTENT_TYPE_PLURAL="videos"
         ;;
     "event")
         CONTENT_TYPE_PLURAL="events"
@@ -91,6 +94,9 @@ else
     # Replace the title template with the actual title
     case "$CONTENT_TYPE" in
         "blog")
+            sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
+            ;;
+        "video")
             sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
             ;;
         "event")
