@@ -2,13 +2,13 @@
 site_name: "iBuildWith.ai"
 
 # Basic SEO
-title: "Learn the skills and mindset you need to build production-ready apps with AI. | iBuildWith.ai"
-description: "Go from vibe coder to product builder. Learn the skills and mindset you need to build production-ready apps with AI."
+title: "Where domain experts learn the skills and mindset they need to build production-ready apps with AI. | iBuildWith.ai"
+description: "Go from vibe coder to product builder. Where domain experts learn the skills and mindset they need to build production-ready apps with AI."
 author: "Marcelo Lewin"
 
 # Social Media
 social_image: "images/seo/default-social.png"
-social_image_alt: "Learn the skills and mindset you need to build production-ready apps with AI. | iBuildWith.ai"
+social_image_alt: "Where domain experts learn the skills and mindset they need to build production-ready apps with AI. | iBuildWith.ai"
 twitter_card_type: "summary_large_image"
 twitter_site: "@ibuildwith_ai"
 twitter_creator: "@ibuildwith_ai"
