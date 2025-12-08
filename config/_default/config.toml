@@ -21,9 +21,9 @@ enableRobotsTXT = true
   version = "v1.8.5"
   last_updated = "2025-12-04"
   author = "Marcelo Lewin"
-  description = "Learn the skills and mindset you need to build production-ready apps with AI."
-  short_description = "Learn the skills and mindset you need to build production-ready apps with AI."
-  footer_description = "Learn the skills and mindset you need to build production-ready apps with AI."
+  description = "Where domain experts learn the skills and mindset they need to build production-ready apps with AI."
+  short_description = "Where domain experts learn the skills and mindset they need to build production-ready apps with AI."
+  footer_description = "Where domain experts learn the skills and mindset they need to build production-ready apps with AI."
   
 
   # Page Slugs
