@@ -19,7 +19,7 @@ enableRobotsTXT = true
 
   # About the Site
   version = "v1.8.5"
-  last_updated = "2025-12-08"
+  last_updated = "2025-12-09"
   author = "Marcelo Lewin"
   description = "Where domain experts learn the skills and mindset they need to build production-ready apps with AI."
   short_description = "Where domain experts learn the skills and mindset they need to build production-ready apps with AI."
