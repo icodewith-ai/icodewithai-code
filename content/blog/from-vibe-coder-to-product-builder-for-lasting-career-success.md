@@ -72,7 +72,7 @@ Product builders bring discipline to the vibe coding process. They treat AI as a
 ### Documentation and Collaboration
 Another key trait is that product builders make sure the project remains understandable to humans (not just to the AI). They document key decisions, maintain some form of project notes or specs, and organize the code and prompts in a logical way. Why? Because eventually others might join the project, or the project will need updates that require context. Being "collaboration-ready" means the work is not locked in a private conversation between one person and an AI; it's captured in a form that a team can review. For example, a product builder might use version control properly, write a README, or keep a changelog of features built via AI. This contrasts with the lone vibe coder who might have a hard time explaining how the app was built or what exactly the AI did. In a professional setting, this documentation and clarity are essential for teamwork and long-term maintenance.
 
-In short, Product Builders don't write code, AI handles thatl, but they use structure, frameworks, and systems thinking to guide the AI. The result is that they can build consistently, efficiently, and at scale because they understand architecture and the software development lifecycle (SDLC). They are effectively the architect/conductor to the AI's coder/musician. This approach yields apps that are production-ready and maintainable, rather than one-off experiments.
+In short, Product Builders don't write code, AI handles that, but they use structure, frameworks, and systems thinking to guide the AI. The result is that they can build consistently, efficiently, and at scale because they understand architecture and the software development lifecycle (SDLC). They are effectively the architect/conductor to the AI's coder/musician. This approach yields apps that are production-ready and maintainable, rather than one-off experiments.
 
 ## Vibe Coder vs. Product Builder: Sample Prompts
 
@@ -81,7 +81,7 @@ To crystallize the contrast, let's compare the vibe coder approach with the prod
 | Category | Vibe Coder | Product Builder |
 |:----------|:------------|:-----------------|
 | **Planning** | "Build me a blog website" | "I need a blog site with a post database, an admin editor, and a public page. Let's outline those components first. Also look at my preliminary attached UX." |
-| **Architecture & Design** | "Let's add a comments feature to my blog" | "How cam comments integrate with our existing data model? Do we need to update it?  What would that look like if I want to reuse it in various places?" |
+| **Architecture & Design** | "Let's add a comments feature to my blog" | "How can comments integrate with our existing data model? Do we need to update it?  What would that look like if I want to reuse it in various places?" |
 | **Error Handling & Quality** | "Thank you, it works!" | "Write unit tests for this function and show me how we handle invalid inputs." |
 | **Speed vs. Stability** | "Make it work right now, whatever it takes." | "Let's build a solid foundation first, we can iterate faster later with proper structure." |
 | **Mindset** | "It's working, We're done!" | "It's working now, but how will it handle thousands of users? Also, any security ramifications we should consider?" |
